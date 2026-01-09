@@ -1,0 +1,203 @@
+.exclusive-wrapper {
+  font-family: "Figtree", sans-serif;
+  background-color: #fff;
+  text-align: center;
+}
+
+.bestseling-section-title {
+  font-family: "Figtree", sans-serif !important;
+  font-weight: 600;
+  font-size: 32px !important;
+  margin-bottom: 25px !important;
+}
+
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 30px;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  cursor: pointer;
+  color: #aaa;
+  position: relative;
+  padding: 5px 10px;
+}
+
+.tab-btn.active {
+  color: #000;
+  font-weight: 600;
+}
+
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #000;
+  bottom: 0;
+  left: 0;
+}
+
+.ring-slider .slick-slide {
+  padding: 0 10px;
+}
+
+.ring-card {
+  background: transparent;
+  padding: 15px;
+}
+
+.ring-img {
+  max-width: 100%;
+  margin-bottom: 10px;
+}
+
+.ring-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #333;
+}
+
+/* new css */
+
+
+
+/* Tabs */
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: #444;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 5px;
+  transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+  color: #000;
+}
+
+.tab-btn.active {
+  color: #000;
+  font-weight: 700;
+}
+
+.tab-btn.active::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #000;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* Slider items */
+.ring-slider .slick-slide {
+  padding: 10px;
+}
+
+.ring-card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 6px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ring-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.ring-img {
+  width: 100%;
+  height: auto;
+  max-height: 220px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.ring-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #222;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Skeleton loading */
+.skeleton-box {
+  background: #e0e0e0;
+  border-radius: 6px;
+  height: 220px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .bestseling-section-title {
+    font-size: 28px;
+  }
+  .tab-buttons {
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  .ring-card {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .bestseling-section-title {
+    font-size: 24px;
+  }
+  .tab-buttons {
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+  .tab-btn {
+    font-size: 13px;
+  }
+  .ring-img {
+    max-height: 180px;
+  }
+}
+
+@media (max-width: 576px) {
+  .exclusive-wrapper {
+    padding: 5px 15px;
+  }
+  .bestseling-section-title {
+    font-size: 22px;
+  }
+  .tab-buttons {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 12px;
+  }
+  .tab-btn {
+    font-size: 12px;
+  }
+  .ring-title {
+    font-size: 13px;
+  }
+}

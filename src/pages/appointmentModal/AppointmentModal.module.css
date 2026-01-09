@@ -1,0 +1,178 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.modal {
+    position: relative;
+    width: 100%;
+    max-width: 730px;
+    height: 660px;
+    background-image: url("/images/appointmentbg/book-appointment-bg.webp");
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.overlay2 {
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    right: 60px;
+    bottom: 60px;
+    background-color: #062036a6;
+    backdrop-filter: blur(2px);
+}
+
+.content {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    color: white;
+    text-align: center;
+}
+
+.closeButton {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: transparent;
+    border: none;
+    color: #14344a;
+    cursor: pointer;
+    padding: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s;
+    opacity: 0.9;
+}
+
+.closeButton:hover {
+    opacity: 1;
+}
+
+.subtitle {
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-weight: 400;
+    opacity: 0.95;
+}
+
+.title {
+    font-size: 50px;
+    font-family: Figtree, sans-serif;
+    font-weight: 400;
+    margin-bottom: 35px;
+    line-height: 1.2;
+    max-width: 700px;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.button {
+    padding: 13px 5px;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+    font-weight: 500;
+    font-family: Figtree, sans-serif;
+    display: inline-block;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    transform-origin: center;
+    /* ensures scaling happens from center */
+}
+
+.button:hover {
+
+    transform: scale(0.95);
+    /* visually smaller but no layout shift */
+    background-color: transparent;
+}
+
+/* Style for the "Open Modal" button */
+.openButton {
+    padding: 14px 32px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background-color: #324659;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+@media (max-width: 576px) {
+    .modal {
+        /* Change fixed height to auto */
+        height: 350px;
+        /* Prevent it from being taller than the screen */
+        max-height: 80vh;
+        /* Add scrolling *inside* the modal if content overflows */
+        overflow-y: auto;
+
+    }
+
+    .overlay2 {
+        /* Reduce the large 60px insets */
+        top: 30px;
+        left: 30px;
+        right: 30px;
+        bottom: 30px;
+    }
+
+    .content {
+        /* Reduce padding for smaller screens */
+        padding: 30px 20px;
+    }
+
+    .title {
+        /* Reduce the huge font size */
+        font-size: 24px;
+        margin-bottom: 25px;
+    }
+
+    .subtitle {
+        font-size: 12px;
+        margin-bottom: 15px;
+    }
+
+    .buttonContainer {
+        /* Allow button container to be full width */
+        max-width: 70%;
+    }
+
+    .button {
+        font-size: 14px;
+        padding: 12px 10px;
+    }
+
+}

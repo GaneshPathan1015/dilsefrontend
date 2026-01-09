@@ -1,0 +1,158 @@
+.blog-header h1 {
+    color: #1d3348;
+    font-size: 44px;
+    line-height: 54px;
+}
+
+.blog-header p {
+    color: #1d3348;
+    font-size: 18px;
+    line-height: 26px;
+    margin-top: 16px;
+    text-align: webkit-center;
+}
+
+
+.topmenu .menu-link {
+    display: inline-block;
+    padding: 12px 8px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    position: relative;
+}
+
+.topmenu .menu-link::after {
+    content: "▼";
+    font-size: 0.6rem;
+    margin-left: 6px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-list {
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    min-width: 180px;
+    background: #fff;
+    border: 1px solid #ddd;
+    display: none;
+}
+
+.dropdown-menu-hover:hover .dropdown-list {
+    display: block;
+}
+
+.dropdown-menu-hover:hover .menu-link::after {
+    transform: rotate(180deg);
+}
+
+.dropdown-list li a {
+    display: block;
+    padding: 8px 15px;
+    color: #333;
+    text-decoration: none;
+}
+
+.dropdown-list li a:hover {
+    background-color: #f8f9fa;
+}
+
+
+.blogs-nav nav {
+    justify-content: space-between;
+}
+
+.blogs-nav {
+    margin-top: 70px;
+}
+
+.blogs-nav {
+    border-top: 1px solid #707070;
+    border-bottom: 1px solid #707070;
+}
+
+.blogs-nav .blog-nav__link>a {
+    color: #707070;
+    font-size: 15px;
+    line-height: 22px;
+    text-transform: uppercase;
+    display: block;
+    padding: 8px 15px;
+}
+
+.dropdown-list li a {
+    color: #707070;
+    font-size: 16px;
+    line-height: 22px;
+    text-transform: uppercase;
+    display: block;
+}
+
+
+.item-box-blog {
+  border: 1px solid #dadada;
+  text-align: center;
+  padding: 20px;
+  border-radius: 6px;
+  background: #fff;
+  transition: all 0.3s;
+}
+.item-box-blog:hover {
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+}
+
+.item-box-blog-image img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.carousel-control-prev, .carousel-control-next {
+  width: 5%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-size: 100% 100%;
+  background-color: #000;
+  border-radius: 50%;
+  padding: 15px;
+}
+
+.Exclusive_Offers a {
+    color: #14344a;
+    text-decoration: none;
+}
+
+.Exclusive_Offers a:focus {
+    color: var(--color-text-focus);
+}
+
+.Exclusive_Offers_wrapper.bg-secondary {
+    background-color: #ffffff !important;
+}
+
+.header-heading{
+    color: #1d3348;
+    font-size: 44px;
+    line-height: 54px;
+}
+
+@media (max-width: 768px) {
+    .topmenu {
+        flex-direction: column;
+    }
+    .topmenu li {
+        margin: 5px 0;
+    }
+    .header-heading {
+        font-size: 28px;
+    }
+    .blog-header p {
+        font-size: 14px;
+    }
+}

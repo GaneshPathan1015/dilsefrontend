@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="600" height="600" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 600 600">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clippath-2);
+      }
+
+      .cls-2 {
+        clip-path: url(#clippath-1);
+      }
+
+      .cls-3 {
+        clip-path: url(#clippath-4);
+      }
+
+      .cls-4 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-5, .cls-6 {
+        fill: none;
+      }
+
+      .cls-7 {
+        fill: #2b3c54;
+      }
+
+      .cls-7, .cls-6 {
+        stroke: #2b3c54;
+        stroke-linejoin: round;
+        stroke-width: 10px;
+      }
+
+      .cls-8 {
+        clip-path: url(#clippath-3);
+      }
+
+      .cls-9 {
+        clip-path: url(#clippath-5);
+      }
+    </style>
+    <clipPath id="clippath">
+      <circle class="cls-5" cx="300" cy="288.22" r="255.74"/>
+    </clipPath>
+    <clipPath id="clippath-1">
+      <circle class="cls-5" cx="300" cy="288.22" r="255.74"/>
+    </clipPath>
+    <clipPath id="clippath-2">
+      <circle class="cls-5" cx="300" cy="288.22" r="255.74"/>
+    </clipPath>
+    <clipPath id="clippath-3">
+      <circle class="cls-5" cx="300" cy="288.22" r="255.74"/>
+    </clipPath>
+    <clipPath id="clippath-4">
+      <circle class="cls-5" cx="300" cy="288.22" r="255.74"/>
+    </clipPath>
+    <clipPath id="clippath-5">
+      <circle class="cls-5" cx="300" cy="288.22" r="255.74"/>
+    </clipPath>
+  </defs>
+  <g class="cls-4">
+    <path class="cls-6" d="M342.92,134.69c51.18,27.06,34.35,101.65,34.35,101.65,17.42,17.42,.97,44.53-3.87,53.78s-8.71,12.04-8.71,12.04c9.68,34.85-21.3,64.86-21.3,64.86-2.9,44.53,8.71,65.83,8.71,65.83,61.96,9.68,118.1,50.34,118.1,50.34v113.26H107.18v-113.26s56.15-40.66,118.1-50.34c0,0,11.62-21.3,8.71-65.83,0,0-30.98-30.01-21.3-64.86,0,0-3.87-2.79-8.71-12.04-4.84-9.25-21.3-36.36-3.87-53.78,0,0-14.56-70.67,34.35-101.65,0,0,52.48-29.59,108.46,0Z"/>
+  </g>
+  <g class="cls-2">
+    <path class="cls-7" d="M190.65,229.9l4.25,70.56s-22.1,8.5-29.76-5.1l-4.25-50.16s2.55-21.25,29.76-15.3Z"/>
+  </g>
+  <g class="cls-1">
+    <path class="cls-7" d="M386.74,233.15l-4.25,70.56s22.1,8.5,29.76-5.1l4.25-50.16s-2.56-21.25-29.76-15.3Z"/>
+  </g>
+  <g class="cls-8">
+    <path class="cls-6" d="M170.08,228.89s2.26-119.6,118.31-119.7c134.4-.13,121.1,124.16,121.1,124.16"/>
+  </g>
+  <g class="cls-3">
+    <path class="cls-6" d="M396.78,306.01s-27.77,37.04-91.89,34.21"/>
+  </g>
+  <g class="cls-9">
+    <circle class="cls-7" cx="292.32" cy="341.54" r="14.88"/>
+  </g>
+</svg>

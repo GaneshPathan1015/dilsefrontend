@@ -1,0 +1,56 @@
+.creste-your-own {
+  padding: 60px 15px; /* add vertical and horizontal padding instead of using container/margins */
+}
+
+.creste-your-own .row.align-items-center {
+  flex-wrap: wrap;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.creste-your-own .col-6 {
+  flex: 0 0 50%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.creste-your-own .ps-5 {
+  padding-left: 3rem; /* optional, keep spacing between image and text on desktop */
+}
+
+@media (max-width: 768px) {
+  .creste-your-own .col-6 {
+    flex: 0 0 100%;
+    margin-bottom: 20px;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .creste-your-own .ps-5 {
+    padding-left: 0 !important;
+  }
+
+  .creste-your-own .grid__item-content .content {
+    text-align: center;
+  }
+
+  .creste-your-own h2.section-header,
+  .creste-your-own h2.section-header-sm {
+    font-size: 1.5rem;
+  }
+
+  .creste-your-own p {
+    font-size: 0.95rem;
+  }
+
+  .creste-your-own .btn-wrapper {
+    justify-content: center !important;
+  }
+}
+
+/* Images */
+.creste-your-own img.img-fluid {
+  max-width: 100%;
+  height: auto;
+}

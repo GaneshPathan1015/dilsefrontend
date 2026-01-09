@@ -1,0 +1,17 @@
+.luxe-quote-container {
+    display: flex;
+    justify-content: center;
+  background-color: #fefbf7;
+  text-align: center;
+  padding: 60px 20px;
+  font-family: 'Georgia', serif;
+}
+
+.luxe-quote-text {
+  font-style: italic;
+  font-size: 20px !important;
+  line-height: 35px;
+  color: #213245;
+  margin: 0 auto;
+  max-width: 800px;
+}

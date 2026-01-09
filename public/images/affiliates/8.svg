@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-width: 10.06px;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke: #2b3c54;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-1, .cls-3 {
+        fill: #f9f9f7;
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+
+      .cls-2, .cls-3 {
+        stroke-width: 10px;
+      }
+
+      .cls-4 {
+        fill: #2b3c54;
+        font-family: SofiaPro-Regular, 'Sofia Pro';
+        font-size: 65.75px;
+        isolation: isolate;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M477.01,313.55L167.51,453.16c-6.06,2.73-13.24,.01-15.98-6.04l-69.83-154.83c-2.73-6.06-.01-13.24,6.04-15.98L397.24,136.7c6.06-2.73,13.24,0,15.98,6.04l69.84,154.82c2.73,6.07,.01,13.25-6.05,15.99Z"/>
+  <text class="cls-4" transform="translate(376.16 219.91) rotate(-16.36)"><tspan x="0" y="0">$</tspan></text>
+  <path class="cls-3" d="M492.69,365.17l-322.61,90.27c-6.36,1.78-13.01-1.97-14.79-8.32l-45.81-163.71c-1.78-6.36,1.97-13.01,8.32-14.79l322.61-90.27c6.36-1.78,13.01,1.97,14.79,8.32l45.81,163.71c1.78,6.35-1.97,13.01-8.32,14.79Z"/>
+  <text class="cls-4" transform="translate(410.09 255.33) rotate(-13.52)"><tspan x="0" y="0">$</tspan></text>
+  <path class="cls-3" d="M504.17,418l-331.71,46.87c-6.54,.92-12.64-3.67-13.56-10.2l-23.78-168.33c-.92-6.54,3.67-12.64,10.2-13.56l331.71-46.87c6.54-.92,12.64,3.67,13.56,10.2l23.78,168.33c.93,6.54-3.67,12.64-10.2,13.56Z"/>
+  <text class="cls-4" transform="translate(438.27 296.62) rotate(-6.23)"><tspan x="0" y="0">$</tspan></text>
+  <path class="cls-3" d="M507.25,465.39H172.25c-6.6,0-12-5.4-12-12v-170c0-6.6,5.4-12,12-12H507.25c6.6,0,12,5.4,12,12v170c0,6.6-5.4,12-12,12Z"/>
+  <text class="cls-4" transform="translate(185.19 448.88)"><tspan x="0" y="0">$</tspan></text>
+  <text class="cls-4" transform="translate(459.19 335.88)"><tspan x="0" y="0">$</tspan></text>
+  <ellipse class="cls-2" cx="338.25" cy="369.89" rx="58.5" ry="75"/>
+</svg>

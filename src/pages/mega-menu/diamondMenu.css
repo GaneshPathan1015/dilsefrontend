@@ -1,0 +1,41 @@
+.diamond-megamenu-container {
+    display: flex;
+    gap: 60px;
+}
+
+.diamond-megamenu-text-section {
+    display: flex;
+    flex: 3;
+}
+
+.diamond-megamenu-img-section {
+    flex: 1;
+}
+
+.diamond-menu-img {
+    border-radius: 2px;
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.diamond-menu-img.taller {
+    width: 350px;
+    height: 320px;
+    object-fit: cover;
+}
+
+.shop-now {
+    display: inline-block;
+    margin-top: 0.3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #000;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.shop-now:hover {
+    color: #0d6efd;
+}

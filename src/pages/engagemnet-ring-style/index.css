@@ -1,0 +1,141 @@
+.hero_section_wrapper {
+  font-family: "Figtree", sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero_section_wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hero_section_wrapper .wrapper {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+  padding: 0 15px;
+}
+
+.hero_section_wrapper .slide-title {
+  font-size: 3rem; /* adjust as needed */
+  font-weight: bold;
+}
+
+.hero_section_wrapper .content p {
+  font-size: 1.25rem;
+}
+
+.hero_section_wrapper .slide-btn-wrapper .btn {
+  font-size: 0.7rem;
+  padding: 0.75rem 1.5rem;
+  border-width: 2px;
+  transition: 0.3s;
+}
+
+.hero_section_wrapper .slide-btn-wrapper .btn:hover {
+  background-color: white;
+  color: black !important;
+}
+
+.education-menu li:not(:last-child) {
+  border-right: 2px solid #707070;
+}
+
+.education-menu li,
+.education-sidebar li {
+  list-style: none;
+}
+
+.education-menu a {
+  font-size: 24px;
+  color: #a2a2a2;
+  font-weight: 500;
+  line-height: 1.43;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.education-detail .education-sidebar {
+  width: 225px;
+  flex: 0 0 225px;
+  position: sticky;
+  top: 35px;
+}
+
+.education-detail .page-content {
+  width: calc(100% - 225px);
+  flex: 0 0 calc(100% - 225px);
+  padding-left: 80px;
+}
+
+.education-sidebar li {
+  margin-bottom: 35px;
+}
+
+.education-sidebar a {
+  color: #bcbcbc;
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.education-menu li.active a,
+.education-sidebar li.active a {
+  color: #000;
+  font-weight: 600;
+  text-shadow: 0px 3px 6px #00000041;
+}
+
+@media (max-width: 992px) {
+  .education-detail .education-sidebar {
+    width: 150px;
+    flex: 0 0 150px;
+  }
+
+  .education-detail .page-content {
+    width: calc(100% - 150px);
+    flex: 0 0 calc(100% - 150px);
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .education-menu a {
+    font-size: 18px;
+  }
+
+  .education-sidebar a {
+    font-size: 16px;
+  }
+
+}
+
+@media (max-width: 576px) {
+
+
+  .education-menu a {
+    font-size: 14px;
+  }
+
+  .education-sidebar {
+    position: relative;
+    top: 0;
+    width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .education-detail .page-content {
+    width: 100%;
+    flex: 1 1 100%;
+    padding-left: 10px;
+  }
+
+
+
+}

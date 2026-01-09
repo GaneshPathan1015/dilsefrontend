@@ -1,0 +1,144 @@
+.desktopView {
+    display: block;
+}
+
+.mobileView {
+    display: none;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.listItem {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #e0e0e0;
+    position: relative;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.imageWrapper {
+    position: relative;
+    margin-right: 20px;
+}
+
+.diamondImage {
+    width: 110px;
+    height: 100px;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.badge {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 2px 6px;
+    font-size: 9px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+    min-width: 65px;
+}
+
+.details {
+    flex: 1;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.specs {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.priceWrapper {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.currentPrice {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+
+.originalPrice {
+    font-size: 14px;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.discount {
+    font-size: 14px;
+    color: #d9534f;
+    font-weight: 500;
+}
+
+.selectBtn {
+    background-color: #1a3a52;
+    color: #fff;
+    border: none;
+    padding: 12px 32px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.selectBtn:hover {
+    background-color: #204e6e;
+}
+
+.floatingBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 56px;
+    height: 56px;
+    background-color: #1a3a52;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rewardIcon {
+    width: 32px;
+    height: 32px;
+}
+
+@media (max-width: 1124px) {
+    .desktopView {
+        display: none;
+    }
+
+    .mobileView {
+        display: block;
+    }
+}

@@ -1,0 +1,31 @@
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  width: 85%;
+}
+
+.collection-card {
+
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.collection-card:hover {
+  transform: translateY(-4px);
+
+}
+
+.collection-image-high-jewelry {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.collection-label {
+  margin-top: 12px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #111;
+}

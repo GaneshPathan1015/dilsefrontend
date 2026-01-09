@@ -1,0 +1,98 @@
+.colorSection {
+  padding: 0 20px;
+}
+
+.colorLabel {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+  font-size: 14px;
+  color: #00263a;
+}
+
+.colorSubTitle {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  font-size: 13px;
+  color: #555;
+}
+
+.sliderWrapper {
+  position: relative;
+  height: 30px;
+  margin: 10px 0;
+}
+
+.sliderWrapper input[type="range"] {
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  pointer-events: none;
+  appearance: none;
+  background: none;
+  z-index: 2;
+}
+
+.sliderWrapper input[type="range"]::-webkit-slider-thumb {
+  pointer-events: all;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #00263a;
+  border: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.sliderTrack {
+  position: absolute;
+  height: 4px;
+  background: #d3d3d3;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  z-index: 1;
+  border-radius: 2px;
+}
+
+.sliderActive {
+  position: absolute;
+  height: 4px;
+  background-color: #00263a;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 2px;
+  z-index: 1;
+}
+
+.colorInputs {
+  margin-top: 5px;
+}
+
+.colorLabelItem {
+  flex: 1;
+  text-align: center;
+  font-size: 13px;
+  color: #00263a;
+}
+
+/* ✅ Responsive styles */
+@media (max-width: 767px) {
+  .colorSection {
+    padding: 0 10px;
+  }
+
+  .colorLabel {
+    font-size: 13px;
+  }
+
+  .colorSubTitle {
+    padding: 0 10px;
+    font-size: 12px;
+  }
+
+  .colorLabelItem {
+    font-size: 11px;
+  }
+}

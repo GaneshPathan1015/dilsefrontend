@@ -1,0 +1,100 @@
+.trending-section {
+  background: #fff;
+}
+
+.trending-title {
+  font-family: "Figtree", sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.explore-btn {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.trending-item img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.item-label {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 10px;
+}
+
+/* Slick arrow customization */
+/* .slick-prev, */
+/* .slick-next { */
+/* width: 35px; */
+/* height: 35px; */
+/* background: #fff !important; */
+/* border: 1px solid #000; */
+/* border-radius: 50%; */
+/* z-index: 1000; */
+/* } */
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 18px;
+  color: #000;
+}
+
+.slick-prev {
+  left: auto;
+  right: 40px;
+  top: -10px;
+}
+
+.slick-next {
+  right: 10px;
+  top: -10px;
+}
+
+/* Ensure slider items stretch full width on mobile */
+.trending-item {
+  font-family: "Figtree", sans-serif;
+  padding: 0 5px;
+  /* small spacing between slides */
+}
+
+.trending-item img {
+  width: 100%;
+  /* full width */
+  height: auto;
+  /* maintain aspect ratio */
+  object-fit: cover;
+  /* fill properly */
+  border-radius: 0;
+  /* optional: remove rounded edges */
+}
+
+/* Responsive text sizing */
+@media (max-width: 576px) {
+  .trending-section .container {
+    padding: 0 10px;
+  }
+
+  .trending-item {
+    padding: 0;
+    /* remove side gaps */
+  }
+
+  .trending-item img {
+    width: 100%;
+    /* full stretch */
+  }
+
+  .trending-title {
+    font-size: 1.5rem;
+  }
+
+  .explore-btn {
+    width: 100%;
+    font-size: 0.85rem;
+  }
+}

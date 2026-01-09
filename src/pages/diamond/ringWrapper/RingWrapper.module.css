@@ -1,0 +1,154 @@
+.diamondRingWrapper {
+  display: flex;
+  justify-content: center;
+/* margin: 20px 0px;*/
+}
+
+.stepContainer {
+  display: flex;
+  gap: 140px;
+  /* Spacing between steps on desktop */
+  flex-wrap: nowrap;
+}
+
+.step {
+  display: flex;
+  flex-direction: row;
+  /* Desktop: stacks number, divider, label */
+  align-items: center;
+  cursor: pointer;
+  text-align: center;
+}
+
+.step.disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.stepNumber {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  /* background-color: #ddd; */
+  /* color: #000; */
+  font-weight: bold;
+
+}
+
+
+.stepDivider {
+  width: 2px;
+  height: 30px;
+  background-color: #999;
+  /* darker for visibility */
+  margin-inline: 8px;
+}
+
+
+.stepLabel {
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+
+.ringPreviewImg {
+  width: 80px;
+  height: auto;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+
+/* ===== MOBILE & TABLET RESPONSIVE (Screenshot Design) ===== */
+@media (max-width: 768px) {
+  .diamondRingWrapper {
+    display: block;
+
+  }
+
+  .stepContainer {
+    flex-direction: row;
+    /* Horizontal layout */
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    line-height: 40px;
+    border-top: 4px solid #eee;
+    border-bottom: 4px solid #eee;
+    gap: 4px;
+
+  }
+
+  .step {
+    flex-direction: row;
+    /* Ensure step itself is a row item */
+    align-items: center;
+  }
+
+  /* Target the first child div (holds num, divider, label) */
+  .step>div:first-child {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    /* Space between number, divider, and label */
+  }
+
+  /* --- Inactive Steps --- */
+
+  .step:not(.active) .stepLabel {
+    display: none;
+    /* Hide label */
+  }
+
+  .step:not(.active) .stepDivider {
+    display: none;
+    /* Hide divider */
+  }
+
+  .step:not(.active) .stepNumber {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0;
+    background-color: #eee;
+
+  }
+
+  /* --- Active Step --- */
+
+  .step.active {
+    flex-grow: 1;
+    /* Make the active step take up available space */
+  }
+
+  .step.active .stepNumber {
+    width: 30px;
+    /* Match size */
+    height: 30px;
+    line-height: 30px;
+    font-size: 0.9rem;
+    margin-bottom: 0;
+    /* Active colors are already applied */
+  }
+
+  .step.active .stepDivider {
+    width: 1px;
+    /* Thinner divider */
+    height: 20px;
+    /* Shorter divider */
+    background-color: #ccc;
+    margin-bottom: 0;
+  }
+
+  .step.active .stepLabel {
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  /* Hide the ring preview on mobile */
+  .ringPreview {
+    display: none;
+  }
+}

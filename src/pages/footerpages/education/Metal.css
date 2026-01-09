@@ -1,0 +1,87 @@
+.section-title {
+    font-family: 'Figtree', sans-serif;
+    font-size: 2rem;
+    color: #1b3a57;
+}
+
+.section-text {
+    font-family: 'Figtree', sans-serif;
+    font-size: 1rem;
+    color: #333;
+    margin: 0 auto;
+    text-align: justify;
+}
+
+/* src/components/GoldSection.css */
+.gold-title {
+    text-align: center !important;
+    font-weight: 600 !important;
+    margin-bottom: 20px;
+    color: #1b3a57;
+}
+
+.gold-description {
+    text-align: center !important;
+    font-size: 18px !important;
+    line-height: 1.6;
+    color: #333;
+}
+
+.gold-image {
+    max-width: 100%;
+
+}
+
+.alloy-title {
+    color: #1b3a57;
+    font-size: 2rem;
+    font-weight: 600;
+
+}
+
+.alloy-text>p {
+    font-size: 18px;
+    text-align: center;
+}
+
+.alloy-subtitle {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.custom-btn {
+    width: 250px;
+
+    height: 50px;
+
+    font-weight: 500;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .section-text {
+        font-size: 18px;
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-title {
+        font-size: 1.25rem;
+    }
+
+    .section-text {
+        font-size: 18px;
+        padding: 0 1rem;
+    }
+}

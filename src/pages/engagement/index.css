@@ -1,0 +1,140 @@
+/* Hero Section */
+.hero_section_wrapper .wrapper {
+  padding: 0 15px;
+}
+
+.hero_section_wrapper {
+  font-family: "Figtree", sans-serif;
+  height: 85vh;
+  /* full screen */
+  overflow: hidden;
+}
+
+.hero-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  /* behaves like background-size: cover */
+}
+
+.wrapper {
+  z-index: 2;
+}
+
+/* Build Engagement Section */
+.build_engagement_wrapper .row.align-items-start {
+  flex-wrap: wrap;
+}
+
+.build_engagement_wrapper .col-6 {
+  flex: 0 0 50%;
+}
+
+/* Ring Collections Section */
+.Ring-collection .row.align-items-center {
+  flex-wrap: wrap;
+}
+
+.Ring-collection .col-6 {
+  flex: 0 0 50%;
+}
+
+/* Home Preview Section */
+.home-preview .row.align-items-center {
+  flex-wrap: wrap;
+}
+
+.home-preview .col-8 {
+  flex: 0 0 66.666%;
+}
+
+.home-preview .col-4 {
+  flex: 0 0 33.333%;
+}
+
+/* Ring Filter Buttons */
+.Ring-collection .d-flex.flex-wrap button {
+  margin-bottom: 5px;
+}
+
+/* Image Hover Effect */
+.hover-zoom {
+  transition: transform 0.3s ease-in-out;
+}
+
+.hover-zoom:hover {
+  transform: scale(1.05);
+}
+
+/* Buttons */
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .slide-title {
+    font-size: 2rem;
+    /* smaller title on mobile */
+  }
+
+  .slide-btn-wrapper {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .slide-btn-wrapper a {
+    width: 100%;
+    text-align: center;
+    color: white !important;
+  }
+
+}
+
+
+@media (max-width: 768px) {
+  .build_engagement_wrapper .col-6 {
+    flex: 0 0 100%;
+    margin-bottom: 20px;
+  }
+
+  .build_engagement_wrapper .btn.ms-5 {
+    margin-left: 0 !important;
+  }
+
+  .build_engagement_wrapper .content {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .Ring-collection .col-6 {
+    flex: 0 0 100%;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .slider-for {
+    padding: 0 10px !important;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .home-preview .col-8,
+  .home-preview .col-4 {
+    flex: 0 0 100%;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-bottom: 20px;
+  }
+
+  .home-preview .grid__content {
+    text-align: center;
+  }
+}

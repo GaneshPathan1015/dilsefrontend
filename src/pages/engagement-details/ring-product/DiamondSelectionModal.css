@@ -1,0 +1,89 @@
+/* Overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+}
+
+/* Modal Container */
+.modal-container {
+  background: white;
+  max-width: 480px;
+  width: 100%;
+  padding: 24px;
+
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+/* Close Button */
+.modal-close {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  color: #666;
+  cursor: pointer;
+}
+.modal-close:hover {
+  color: #000;
+}
+
+/* Titles */
+.modal-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+
+.modal-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* Recommendation Text */
+.modal-recommendation {
+  font-size: 14px;
+  color: #333;
+  margin-top: 16px;
+  line-height: 1.5;
+}
+
+/* Buttons Container */
+.modal-buttons {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Buttons */
+.modal-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.modal-btn.filled {
+  background-color: #0e314c;
+  color: white;
+  border: 1px solid #0e314c;
+}
+
+.modal-btn.outlined {
+  background-color: white;
+  color: #0e314c;
+  border: 1px solid #ccc;
+}
+
+.modal-btn:hover {
+  opacity: 0.9;
+}

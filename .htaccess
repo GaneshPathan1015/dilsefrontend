@@ -1,0 +1,29 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+ # ② ADDED "QSA" flag to preserve query strings
+  RewriteCond %{REQUEST_URI} ^/storage/
+  RewriteRule ^storage/(.*)$ /api/storage/$1 [L,QSA]
+
+  # ③ ADDED "QSA" flag here too
+  RewriteCond %{REQUEST_URI} ^/share/
+  RewriteRule ^share/(.*)$ /api/share/$1 [L,QSA]
+
+  # ✅ Let Laravel handle all /share/... URLs
+  # RewriteCond %{REQUEST_URI} ^/share/
+  # RewriteRule ^share/(.*)$ /api/share/$1 [L]
+
+  # RewriteRule . /index.html [L]
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(mp4)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+</IfModule>

@@ -1,0 +1,436 @@
+.top-bar {
+    background: #06374a;
+    color: #fff;
+    text-align: center;
+    padding: 8px 0;
+    font-size: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 3000;
+}
+
+svg{
+	font-size: 25px !important;
+}
+
+.main-header {
+    width: 100%;
+    z-index: 1200;
+    transition: all 0.3s ease;
+}
+
+.main-header:hover {
+    color: black;
+    background: rgb(255, 255, 255);
+    transition: all 0.3s ease;
+}
+
+/*  Fixed Header (Home Page) */
+.fixed-header {
+    position: fixed;
+    top: 40px;
+    background: rgba(255, 255, 255, 0);
+    color: #fff;
+}
+
+.fixed-header.scrolled {
+    background: #fff;
+    color: #000;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/*  Sticky Header (Other Pages) */
+.sticky-header {
+    position: sticky;
+    top: 40px;
+    background: #fff;
+    color: #000;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.nav-container {
+    font-family: "Figtree", sans-serif !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 40px;
+}
+
+.nav-left,
+.nav-right {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-logo {
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+.appointment-btn {
+    display: flex;
+    gap: 5px;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 5px 10px;
+    background: none;
+    cursor: pointer;
+    align-items: center;
+}
+
+/* Menu bar (Desktop) */
+.menu-bar {
+    display: flex;
+    justify-content: center;
+    gap: 90px;
+    padding: 15px 0px 13px 0px;
+    transition: color 0.3s;
+}
+
+.menu-item {
+    font-family: "Figtree", sans-serif;
+    cursor: pointer;
+    font-weight: 600;
+    position: relative;
+}
+
+/* Mega menu */
+.mega-menu-overlay {
+    position: fixed;
+    top: 155px;
+    left: 0;
+    width: 100%;
+    height: auto;
+    min-height: 70vh;
+    background: white;
+    color: black;
+    z-index: 1500;
+    overflow-y: visible;
+    transition: height 0.3s ease;
+}
+
+.mega-menu-overlay.scrolled-menu {
+    background: #ffffff;
+}
+
+.mega-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.mega-content .links {
+    flex: 1;
+}
+
+.mega-content .links h4 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.mega-content .links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.mega-content .links ul li {
+    margin: 8px 0;
+    cursor: pointer;
+}
+
+.mega-content .image {
+    flex: 2;
+}
+
+.mega-content .image img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+
+/* Hamburger Button */
+.hamburger-btn {
+    color: #fafafa;
+    display: none !important;
+    background: #06374a;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.custom-color-btn {
+    color: #fafafa !important;
+    background: #06374a !important;
+    border: none !important;
+}
+
+/* Sidebar */
+.sidebar-man {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 280px;
+    height: 100%;
+    background: white;
+    z-index: 3000;
+    padding: 20px;
+    overflow-y: auto;
+    transition: left 0.3s ease;
+}
+
+.sidebar-man.open {
+    left: 0;
+}
+
+
+.sidebar-logo {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.close-btn {
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Appointment button hover effect */
+.appointment-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #fff;
+}
+
+.sidebar-menu {
+    padding: 1rem;
+}
+
+.sidebar-man {
+    overflow-y: auto;
+    /* allows scroll without showing scrollbar */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.sidebar-man::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid #e8e8e8;
+    background: white;
+    margin-bottom: 20px;
+}
+
+.sidebar-logo {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #06374a;
+    cursor: pointer;
+}
+
+.mobile-sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.mobile-menu-item {
+    width: 100%;
+    border-bottom: 1px solid #e8e8e8;
+    padding: 0;
+}
+
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 16px;
+    background: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.mobile-menu-header:hover {
+    background-color: #f5f5f5;
+}
+
+.mobile-menu-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    flex: 1;
+    user-select: none;
+}
+
+.mobile-menu-toggle {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #06374a;
+    cursor: pointer;
+    padding: 4px 8px;
+    font-weight: bold;
+    flex-shrink: 0;
+    user-select: none;
+    transition: color 0.2s ease;
+}
+
+.mobile-menu-toggle:hover {
+    color: #034563;
+}
+
+.sub-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    cursor: pointer;
+    margin: 8px 0px;
+    transition: background-color 0.2s ease;
+}
+
+.mobile-menu-submenu {
+    background-color: #ffffff;
+    padding: 0px 16px;
+    animation: expandSubmenu 2.1s ease;
+}
+
+@keyframes expandSubmenu {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+
+    to {
+        opacity: 1;
+        max-height: 1000px;
+    }
+}
+
+.submenu-items {
+    padding: 4px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+}
+
+.mobile-submenu-item {
+    flex: 1 1 calc(33.33% - 10px);
+    text-align: start;
+    font-size: 12px;
+    color: #666;
+    padding: 2px 0;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 12px;
+    margin-bottom: 6px;
+    transition: color 0.2s ease;
+    user-select: none;
+}
+
+.mobile-submenu-item:hover {
+    color: #333;
+}
+
+@media (max-width: 1400px) {
+    .menu-bar {
+        gap: 70px;
+    }
+}
+@media (max-width: 1200px) {
+    .menu-bar {
+        gap: 50px;
+    }
+}
+
+/* Media Queries for Tablet/Mobile */
+@media (max-width: 992px) {
+    .mega-menu-overlay {
+        display: none;
+    }
+
+    .menu-bar {
+        display: none;
+    }
+
+    .appointment-btn .text {
+        display: none;
+    }
+
+    .appointment-btn .icon {
+        font-size: 20px;
+    }
+
+    .hamburger-btn {
+        color: #ffffff;
+        background-color: #06374a;
+        display: block !important;
+    }
+
+    .nav-right .icon-text .text {
+        display: none;
+    }
+
+    .nav-right .icon-text {
+        font-size: 20px;
+        gap: 0;
+    }
+
+    .nav-container {
+        padding: 5px 20px;
+    }
+
+    .nav-left,
+    .nav-right {
+        gap: 10px;
+    }
+
+
+
+    .jwl-mega-menu-inner {
+        display: grid;
+        text-align: center;
+    }
+
+    .jwl-caption {
+        text-align: center;
+    }
+
+    .jwl-caption h6 {
+        font-size: 16px;
+    }
+
+    .jwl-caption a {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-bar {
+        padding: 10px 0;
+        font-size: 14px;
+    }
+}

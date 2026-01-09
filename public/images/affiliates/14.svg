@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #2b3c54;
+        font-family: SofiaPro-Regular, 'Sofia Pro';
+        font-size: 271.27px;
+        isolation: isolate;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #2b3c54;
+        stroke-miterlimit: 10;
+        stroke-width: 16px;
+      }
+    </style>
+  </defs>
+  <path class="cls-2" d="M212.01,156.33h175.66c2.13,0,4.17,.88,5.63,2.44l93.97,100.48c2.7,2.88,2.78,7.34,.19,10.32l-181.66,209.11c-3.06,3.52-8.52,3.54-11.61,.04L112.57,272.5c-2.59-2.94-2.56-7.37,.07-10.27l93.65-103.36c1.47-1.62,3.54-2.54,5.72-2.54Z"/>
+  <text class="cls-1" transform="translate(228.84 387.51)"><tspan x="0" y="0">$</tspan></text>
+</svg>

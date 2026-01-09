@@ -1,0 +1,264 @@
+/* Custom Font Style */
+.font-serif {
+  font-family: "Figtree", sans-serif;
+}
+.ft{
+  font-family: "Figtree", sans-serif;
+}
+
+/* Custom Text Colors */
+.text-yellow-custom {
+  color: #f59e0b;
+}
+
+.text-green-custom {
+  color: #16a34a;
+}
+
+.text-blue-link {
+  color: #0d6efd;
+}
+
+/* Custom Backgrounds & Hovers */
+.bg-light-gray {
+  background-color: #f9fafb;
+}
+
+.bg-brand-blue {
+  background-color: #1e3a8a;
+  border-color: #1e3a8a;
+}
+
+.bg-brand-blue:hover {
+  background-color: #1e40af;
+  border-color: #1e40af;
+}
+
+/* Sticky Positioning for Desktop Image Gallery */
+.thumbnail-container,
+.main-image-container {
+  position: sticky;
+  top: 9.5rem;
+}
+
+/* Image Thumbnails */
+.thumbnail-gallery img {
+  width: 100px;
+  height: 64px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid #dee2e6;
+}
+
+.thumbnail-gallery img.active {
+  border-color: #000;
+}
+
+/* Option Buttons States */
+.metal-btn {
+  font-family: "Figtree", sans-serif;
+  width: 48px;
+  height: 48px;
+}
+
+.metal-btn.active,
+.quality-btn.active,
+.plan-btn.active {
+  border-color: #000 !important;
+  border-width: 2px;
+}
+
+.carat-btn.active {
+  font-family: "Figtree", sans-serif !important;
+  background-color: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+/* Protection Plan 'Most Popular' Badge */
+.plan-btn {
+  position: relative;
+}
+
+.plan-btn .popular-badge {
+  position: absolute !important;
+  top: -0.6rem !important;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.7rem;
+  background-color: #1e3a8a;
+  white-space: nowrap;
+}
+
+/* Virtual Try-On Button */
+.btn-virtual-tryon {
+  border: 2px solid #212529;
+  font-weight: 600;
+  color: #212529;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-virtual-tryon:hover {
+  background-color: #212529;
+  color: #fff;
+}
+
+/* --- Mobile Specific Styles --- */
+
+/* Image Slider */
+.mobile-image-slider .main-image {
+  width: 100%;
+  height: 24rem;
+  object-fit: contain;
+}
+
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.slider-arrow.left {
+  left: 1rem;
+}
+
+.slider-arrow.right {
+  right: 1rem;
+}
+
+/* Image Slider Dots */
+.slider-dots {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.slider-dots .dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.slider-dots .dot.active {
+  background-color: white;
+}
+
+/* Sticky 'Add to Cart' Bar on Mobile */
+.mobile-cart-sticky {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1030;
+}
+
+.product-details-container {
+  margin: 0 auto;
+  font-family: "Figtree", sans-serif;
+  background: #fff;
+  padding: 15px 0px 0px 0px;
+}
+
+.detail-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-top: 1px solid #e0e0e0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.detail-section-header:hover {
+  opacity: 0.7;
+}
+
+.detail-section-title {
+  font-family: "Figtree", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #333;
+  margin: 0;
+}
+
+.section-content {
+  padding-bottom: 20px;
+  color: #666;
+  line-height: 1.8;
+}
+
+.section-content.collapsed {
+  display: none;
+}
+
+.detail-description {
+  font-size: 15px;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px 30px;
+  font-size: 15px;
+}
+
+.detail-label {
+  color: #555;
+}
+
+.detail-value {
+  color: #333;
+  font-weight: 500;
+}
+
+.help-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #1a365d;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.help-button:hover {
+  background: #2d3748;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.chevron-icon {
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 576px) {
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .help-button {
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}

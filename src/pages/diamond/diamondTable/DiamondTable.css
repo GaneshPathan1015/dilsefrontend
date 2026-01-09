@@ -1,0 +1,159 @@
+.diamond-table {
+  width: 100%;
+  overflow-x: auto; /* Enables horizontal scroll for smaller screens */
+  font-family: "Segoe UI", sans-serif;
+  color: #2c3b5b;
+  font-size: 14px;
+  border-radius: 6px;
+}
+
+/* Table Header & Rows */
+.table-header,
+.table-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  align-items: center;
+  justify-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid #eaeaea;
+  text-align: center;
+  min-width: max-content; /* Avoid collapsing on overflow */
+}
+
+.table-header {
+  background-color: #f9f9f7;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Table Image */
+.diamond-img {
+  width: 90px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Buttons */
+.select-btn {
+  padding: 6px 12px;
+  background-color: #2c3b5b;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.select-btn:hover {
+  background-color: #1b2f47;
+}
+
+/* Row selection */
+.selected-row {
+  background-color: #f0f8ff;
+}
+
+/* Banner */
+.featured-banner {
+  width: 100%;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* No Diamonds Message */
+.no-diamonds-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #555;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  text-align: center;
+  margin: 20px;
+}
+
+/* ===============================
+   ✅ Responsive Design Section
+   =============================== */
+
+/* Tablet (up to 992px) */
+@media (max-width: 992px) {
+  .diamond-table {
+    font-size: 13px;
+  }
+
+  .table-header,
+  .table-row {
+    padding: 8px 12px;
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+  }
+
+  .diamond-img {
+    width: 70px;
+  }
+
+  .select-btn {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+
+  .featured-banner {
+    font-size: 11px;
+    padding: 2px 0;
+  }
+}
+
+/* Mobile (up to 768px) */
+@media (max-width: 768px) {
+  .diamond-table {
+    overflow-x: auto;
+  }
+
+  .table-header {
+    display: none; /* Hide table header on small screens */
+  }
+
+  .table-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin: 10px 0;
+    padding: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  }
+
+  .table-row > div {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 6px;
+  }
+
+  .diamond-img {
+    width: 100%;
+    max-width: 160px;
+    display: block;
+    margin: 0 auto 10px;
+  }
+
+  .select-btn {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .no-diamonds-message {
+    height: auto;
+    font-size: 1rem;
+    margin: 30px 15px;
+    padding: 20px;
+  }
+}

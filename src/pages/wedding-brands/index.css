@@ -1,0 +1,78 @@
+/* General Styles */
+.wedding-section {
+  font-family: 'Arial', sans-serif;
+}
+
+/* Desktop Version */
+.wedding-desktop {
+  position: relative;
+}
+
+.wedding-img {
+  height: 80vh;
+  object-fit: cover;
+}
+
+.wedding-overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 700px;
+  padding: 20px;
+}
+
+.wedding-title {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.wedding-desc {
+  font-size: 1.1rem;
+  margin: 20px 0;
+}
+
+.wedding-btn {
+  border: 2px solid #fff;
+  color: #fff;
+  background: transparent;
+  padding: 10px 25px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.wedding-btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* Mobile Version */
+.wedding-mobile .mobile-text {
+  background: #f1f6f9;
+}
+
+.wedding-mobile .wedding-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1c2a39;
+}
+
+.wedding-mobile .wedding-desc {
+  font-size: 1rem;
+  color: #333;
+  margin: 15px 0;
+}
+
+.wedding-mobile .wedding-btn {
+  border: 2px solid #1c2a39;
+  color: #1c2a39;
+  background: transparent;
+  padding: 10px 25px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.wedding-mobile .wedding-btn:hover {
+  background: #1c2a39;
+  color: #fff;
+}

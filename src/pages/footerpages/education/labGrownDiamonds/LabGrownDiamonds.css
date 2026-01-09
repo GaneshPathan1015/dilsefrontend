@@ -1,0 +1,158 @@
+a.hero_btn {
+    background: transparent;
+    color: #14344a !important;
+    border: 2px solid #14344a !important;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 12px 5px 12px 5px;
+    border-radius: 0% !important;
+    text-decoration: none;
+}
+
+a.hero_btn:hover {
+    background: #14344a !important;
+    color: #fff !important;
+    border: 2px solid var(--color-btn-primary);
+}
+
+.heading-section {
+    padding-bottom: 30px;
+}
+
+.heading-para {
+    padding-bottom: 30px;
+}
+
+.diamond-table-labgrow {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.diamond-table-labgrow th,
+.diamond-table-labgrow td {
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: center;
+}
+
+.diamond-table-labgrow th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.faq-section {
+    max-width: 800px;
+    margin: 50px auto;
+}
+
+.accordion-button {
+    font-weight: 500;
+    font-size: 16px;
+    position: relative;
+}
+
+.accordion-button::after {
+    content: "+";
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    position: absolute;
+    right: 20px;
+    transform: none !important;
+    background-image: none !important;
+}
+
+.accordion-button:not(.collapsed)::after {
+    content: "–";
+}
+
+.accordion-body {
+    font-size: 15px;
+    color: #555;
+}
+
+
+
+@media (max-width: 991px) {
+  .hero-image-lab img {
+    width: 100% !important;
+    height: auto;
+  }
+
+  .here-rightside {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .hero-button {
+    display: flex;
+    justify-content: center;
+  }
+
+  .diamond-table-labgrow {
+    font-size: 14px;
+  }
+
+  .diamond-table-labgrow th,
+  .diamond-table-labgrow td {
+    padding: 6px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heading-section {
+    font-size: 22px;
+  }
+
+  .heading-para {
+    font-size: 14px;
+  }
+
+  .diamond-table-labgrow {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap; 
+  }
+
+  .faq-section {
+    margin: 20px;
+    padding: 10px;
+  }
+
+  .accordion-button {
+    font-size: 14px; 
+    padding: 12px;
+  }
+
+  .accordion-body {
+    font-size: 13px;
+  }
+}
+
+
+@media (max-width: 576px) {
+  .LabGrownDiamonds-column {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-image-lab img {
+    width: 100%;
+    height: auto;
+  }
+
+  .here-rightside h1 {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+
+  .here-rightside p {
+    font-size: 13px;
+  }
+
+  .hero_btn {
+    font-size: 11px;
+    padding: 8px 12px;
+  }
+}

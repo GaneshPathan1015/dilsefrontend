@@ -1,0 +1,87 @@
+.menu-left ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-left li {
+  margin-bottom: 6px;
+  line-height: 1.9;
+}
+
+.menu-left a {
+  text-decoration: none;
+  color: #1e1e1e;
+  transition: color 0.2s ease;
+}
+
+.menu-left a:hover {
+  color: #000000;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.menu-right {
+  width: 650px !important;
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+}
+
+.preview-image {
+  max-height: auto;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.caption {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.collection-caption {
+  margin: 0 0 8px 0;
+  font-family: "Figtree", sans-serif;
+  color: #222;
+}
+
+.explore-link {
+  font-size: 0.9rem;
+  color: #007bff;
+  text-decoration: none;
+  transition: text-decoration 0.2s ease;
+}
+
+.explore-link:hover {
+  text-decoration: underline;
+}
+
+.collection-container {
+  display: flex;
+  gap: 45px;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .collection-menu {
+    flex-direction: column;
+    gap: 12px;
+    padding: 10px;
+    max-width: 100%;
+  }
+
+  .menu-left,
+  .menu-right {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+
+  .menu-right {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .caption {
+    margin-top: 8px;
+  }
+}

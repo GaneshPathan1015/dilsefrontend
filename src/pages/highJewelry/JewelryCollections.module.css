@@ -1,0 +1,227 @@
+.pageWrapper {
+  background-color: #fcf9f4;
+  padding-bottom: 80px;
+}
+
+.mainContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  background-color: #ffffff;
+}
+
+.headerText {
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  line-height: 1.9;
+  text-align: center;
+  color: #5a5a5a;
+  max-width: 650px;
+  margin: 0 auto 50px;
+  padding-top: 50px;
+}
+
+.collectionSection {
+  margin-bottom: 30px;
+}
+
+.collectionTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 35px;
+  color: #2c2c2c;
+  letter-spacing: 0.01em;
+}
+
+.collectionCard {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+
+.alignRight {
+  text-align: right;
+}
+
+.alignLeft {
+  text-align: left;
+}
+
+
+.infoIcon {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 32px;
+  height: 32px;
+  background-color: #2a4a5e;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 1000;
+  border: none;
+}
+
+.menuIcon {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #2a4a5e;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 18px;
+  font-size: 12px;
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Lato', sans-serif;
+}
+
+.collectionImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.textBox {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #fff;
+  padding: 20px 30px;
+  display: inline-block;
+}
+
+.subtitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a2b45;
+  margin-bottom: 5px;
+}
+
+.description {
+  font-family: 'Lato', sans-serif;
+  font-size: 17px;
+  color: #4a4a4a;
+  margin-bottom: 10px;
+}
+
+.cta {
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #1a2b45 !important;
+  text-decoration: underline;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+.cta:hover {
+  color: #8b7355 !important;
+  text-decoration: none;
+}
+
+.textLeft {
+  position: absolute;
+  bottom: 0px;
+
+  left: 0px;
+
+  width: max-content;
+}
+
+.textRight {
+  position: absolute;
+  bottom: 0px;
+  /* distance from top of image */
+  right: 0px;
+  /* distance from right */
+}
+
+
+@media (max-width: 768px) {
+  .pageWrapper {
+    padding-bottom: 50px;
+  }
+
+  .mainContainer {
+    padding: 40px 15px;
+    max-width: 500px;
+  }
+
+  .collectionCard {
+    max-width: 400px;
+  }
+
+  .collectionTitle {
+    font-size: 28px;
+    margin-bottom: 25px;
+  }
+
+  .collectionImage {
+    height: 450px;
+  }
+
+  .headerText {
+    font-size: 12px;
+    margin-bottom: 50px;
+  }
+
+  .textBox {
+    padding: 10px 15px !important;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .pageWrapper {
+    padding: 20px 0px;
+  }
+
+  .mainContainer {
+    padding: 20px 0px;
+    max-width: 400px;
+  }
+
+  .collectionCard {
+    max-width: 380px;
+  }
+
+  .collectionTitle {
+    font-size: 28px;
+    margin-bottom: 25px;
+  }
+
+  .collectionImage {
+    height: 240px;
+  }
+
+  .headerText {
+    display: none;
+  }
+
+  .textBox {
+    padding: 5px 7px !important;
+  }
+
+  .wrapper{
+    height: 55vh;
+  }
+
+}

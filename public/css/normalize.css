@@ -1,0 +1,135 @@
+
+@font-face {
+    font-family: 'webfontregular';
+    src: url('../fonts/diamonds-webfont.woff2') format('woff2'),
+         url('../fonts/diamonds-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+[class^="icon-diamond-"]:before, [class*=" icon-diamond-"]:before {
+    font-family: "webfontregular" !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    speak: none;
+    line-height: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-diamond-round:before, .icon-diamond-Round:before {
+    content: "\61";
+}
+
+.icon-diamond-princess:before, .icon-diamond-Princess:before {
+    content: "\62";
+}
+
+.icon-diamond-cushion:before, .icon-diamond-Cushion:before {
+    content: "\6c";
+}
+
+.icon-diamond-oval:before, .icon-diamond-Oval:before {
+    content: "\6f";
+}
+
+.icon-diamond-emerald:before, .icon-diamond-Emerald:before {
+    content: "\6d";
+}
+
+.icon-diamond-heart:before, .icon-diamond-Heart:before {
+    content: "\71";
+}
+
+.icon-diamond-pear:before, .icon-diamond-Pear:before {
+    content: "\70";
+}
+
+.icon-diamond-marquise:before, .icon-diamond-Marquise:before {
+    content: "\6e";
+}
+
+.icon-diamond-asscher:before, .icon-diamond-Asscher:before {
+    content: "\63";
+}
+
+.icon-diamond-radiant:before, .icon-diamond-Radiant:before {
+    content: "\67";
+}
+
+.p-remove .col-sm-10.col-md-10.col-lg-10.col-xs-12 {
+    padding: 0;
+}
+
+.p-remove label {
+    margin-top: 21px;
+}
+
+.row.p-remove {
+    margin-bottom: 35px;
+}
+
+.certified-icon {
+    display: inline-block;
+    padding: 0;
+    margin-top: 10px;
+}
+
+/* .certified-icon > li {
+    float: left;
+    list-style: outside none none;
+    margin-right: 10px;
+    width: 17%;
+} */
+ .shape-icon ul {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    text-align: center;
+    grid-gap: 20px;
+ }
+ .shape-icon ul li{
+    border: 1px solid transparent;
+    background: #fafbfc;
+    padding: 7px;
+    position: relative;
+    cursor: pointer;
+ }
+
+.certified-icon > li:last-child {
+    margin-right: 0;
+}
+
+.certified-icon img {
+    border: 1px solid #ccc;
+    padding: 3px;
+    width: 100%;
+}
+
+.filter-shapes {
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+    text-align: center;
+    grid-gap: 20px;
+}
+
+.filter-shapes .shape, .filter__diamond-color .color {
+    border: 1px solid transparent;
+    background: #fafbfc;
+    padding: 7px;
+    position: relative;
+    cursor: pointer;
+}
+
+.filter-shapes .shape__icon {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+    background-image: url(../assets/images/filter-diamond-shapes.png);
+    background-position: -33px 0;
+}
+.diamond-filter__container p, .diamond-filter__container input {
+    font-size: 14px;
+}
