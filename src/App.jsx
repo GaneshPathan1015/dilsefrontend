@@ -125,6 +125,7 @@ export default function App() {
               </PrivateRoute>
             }
           />
+          
 
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/payment/success" element={<PaymentSuccess />} />

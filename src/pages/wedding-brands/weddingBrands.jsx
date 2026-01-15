@@ -16,7 +16,7 @@ export default function Weddingbrands() {
             {/* Desktop Image with overlay text */}
             <div className="col-12 wedding-desktop d-none d-md-block position-relative">
               <img
-                src="/images/wedding-bnad.webp"
+                src="/images/wedding-bnad.webp" 
                 alt="Wedding Bands"
                 className="img-fluid w-100 wedding-img"
               />

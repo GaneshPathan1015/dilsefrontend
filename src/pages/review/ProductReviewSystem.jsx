@@ -88,7 +88,7 @@ const ReviewForm = ({
       }
 
       const response = await axios.post(
-        "https://thecaratcasa.com/api/api/reviews",
+        "http://127.0.0.1:8000/api/reviews",
         submitData
       );
 
@@ -473,7 +473,7 @@ const ProductReviewSystem = ({ productId, refreshTrigger }) => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `https://thecaratcasa.com/api/api/reviews?product_id=${productId}&page=${page}`
+        `http://127.0.0.1:8000/api/reviews?product_id=${productId}&page=${page}`
       );
 
       if (response.data.success) {
@@ -522,7 +522,7 @@ const ProductReviewSystem = ({ productId, refreshTrigger }) => {
     
     try {
       const response = await axios.get(
-        `https://thecaratcasa.com/api/api/reviews/stats?product_id=${productId}`
+        `http://127.0.0.1:8000/api/reviews/stats?product_id=${productId}`
       );
 
       if (response.data.success) {
@@ -554,7 +554,7 @@ const ProductReviewSystem = ({ productId, refreshTrigger }) => {
 
     try {
       const response = await axios.post(
-        `https://thecaratcasa.com/api/api/reviews/${reviewId}/like`, 
+        `http://127.0.0.1:8000/api/reviews/${reviewId}/like`, 
         {
           is_like: isLike,
           user_id: userId || null,
@@ -659,7 +659,7 @@ const ProductReviewSystem = ({ productId, refreshTrigger }) => {
 
       if (shouldRecordShare) {
         const response = await axios.post(
-          `https://thecaratcasa.com/api/api/reviews/${reviewId}/share`, 
+          `http://127.0.0.1:8000/api/reviews/${reviewId}/share`, 
           {
             platform,
             user_id: userId || null,

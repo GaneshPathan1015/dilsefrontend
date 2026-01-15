@@ -263,7 +263,7 @@ function OurPolicy() {
                 </h2>
                 <div id="collapseReplica2" className="accordion-collapse collapse" data-bs-parent="#faqReplica">
                   <div className="accordion-body">
-                    Our rings are made to last forever, so take your time to be sure it's the one. With over 8,000 customization options, our Home Preview lets you try on the ring at your own pace, now crafted to perfectly fit your ring size. We will charge your card $200 per replica with complimentary shipping. You will receive a replica ring to try on. Return your replica within 7 days and receive a gift card for the full amount paid, redeemable on your final ring selection.
+                    Our rings are made to last forever, so take your time to be sure it's the one. With over 8,000 customization options, our Home Preview lets you try on the ring at your own pace, now crafted to perfectly fit your ring size. We will charge your card $200 per replica with complimentary shipping. You will receive a replica ring to try on. Return your replica within 2 days and receive a gift card for the full amount paid, redeemable on your final ring selection.
                   </div>
                 </div>
               </div>
@@ -459,7 +459,7 @@ function OurPolicy() {
                   <div className="accordion-body">
                     Our primary goal is that you love your jewelry. Should it not meet your expectations, we offer a hassle-free return policy. If you wish to return your jewelry or diamond for any reason, your order would be eligible for return or exchange within 30 calendar days from the date of your receipt.
 
-                    Customers may return a product up to two times within 30 days of receipt. The second purchase will only be eligible for 100% store credit or can be processed with a 20% restocking fee. All orders are considered final sale after the initial 30-day period. In the interest of preserving the best customer experience for all customers, we discourage comparison shopping. Customers are limited to one jewelry item purchase per order, with an exception for engagement rings and a matching wedding band. Multiple item orders for comparison shopping will be considered multiple orders and subject to the store credit / restocking policy mentioned above.
+                    Customers may return a product up to two times within 2 days of receipt. The second purchase will only be eligible for 100% store credit or can be processed with a 20% restocking fee. All orders are considered final sale after the initial 30-day period. In the interest of preserving the best customer experience for all customers, we discourage comparison shopping. Customers are limited to one jewelry item purchase per order, with an exception for engagement rings and a matching wedding band. Multiple item orders for comparison shopping will be considered multiple orders and subject to the store credit / restocking policy mentioned above.
 
                     Customers may make up to a total of three (3) returns, exchanges, or cancellations combined per account.
 
@@ -472,9 +472,9 @@ function OurPolicy() {
                     All The Caratcasa jewelry is marked with microscopic trademark etchings. If jewelry is worked on, resized or repaired by another jeweler it will not be eligible for returns.
                     Loose diamond purchases with a D FL color / clarity quality with a GIA seal are non-returnable if the GIA seal is broken.
                     Multiple loose diamond items in orders will not be eligible for return, exchange or store credit and will be considered final sale.
-                    Items that have been submitted for resizing, even if still within the 30-day return period
+                    Items that have been submitted for resizing, even if still within the 2-day return period
                     Custom jewelry crafted with natural diamonds, whether lab certified or non-certified
-                    Purchase Policy: Customers are also limited to 1 purchase at a time within 30 days of receiving the order.
+                    Purchase Policy: Customers are also limited to 1 purchase at a time within 2 days of receiving the order.
                   </div>
                 </div>
               </div>
@@ -503,7 +503,7 @@ function OurPolicy() {
                 </h2>
                 <div id="collapseReturns3" className="accordion-collapse collapse" data-bs-parent="#faqReturns">
                   <div className="accordion-body">
-                    Please allow The Caratcasa up to 7 business days to process returns and inspect returned jewelry, from the date on which your return is received. Once The Caratcasa receives your returned jewelry, you will receive a confirmation that your return is being processed. Returns are at the sole discretion of The Caratcasa based on the condition of the jewelry. If your purchase included a GIA or IGI certificate, please be sure to return that. If a certificate is not returned or returned with damage, there will be a charge of $300 in order to re-certify the diamond. Once inspected and approved, your return will be completed and you will receive a confirmation email with details about your refund. Refunds will be made via the original method of payment. Please allow time for the refund to be processed. A refund will generally take less than 7 business days to be completed. All refunds will be made in USD. There may be minor discrepancies based on exchange rates.
+                    Please allow The Caratcasa up to 2 business days to process returns and inspect returned jewelry, from the date on which your return is received. Once The Caratcasa receives your returned jewelry, you will receive a confirmation that your return is being processed. Returns are at the sole discretion of The Caratcasa based on the condition of the jewelry. If your purchase included a GIA or IGI certificate, please be sure to return that. If a certificate is not returned or returned with damage, there will be a charge of $300 in order to re-certify the diamond. Once inspected and approved, your return will be completed and you will receive a confirmation email with details about your refund. Refunds will be made via the original method of payment. Please allow time for the refund to be processed. A refund will generally take less than 2 business days to be completed. All refunds will be made in USD. There may be minor discrepancies based on exchange rates.
                   </div>
                 </div>
               </div>
@@ -516,7 +516,7 @@ function OurPolicy() {
                 </h2>
                 <div id="collapseReturns4" className="accordion-collapse collapse" data-bs-parent="#faqReturns">
                   <div className="accordion-body">
-                    Unsure of your purchase? Not a problem! Orders can be cancelled within the first 48 hours. Simply email service@withclarity.com with a reason for the cancellation. After 48 hours, the order will need to go through the returns process. Refunds are processed only to the original payment method and take up to 5-7 business days. One order cancellation is permitted within a 6 month period. A second order within the same six month period is final sale.
+                    Unsure of your purchase? Not a problem! Orders can be cancelled within the first 48 hours. Simply email service@withclarity.com with a reason for the cancellation. After 48 hours, the order will need to go through the returns process. Refunds are processed only to the original payment method and take up to 2 business days. One order cancellation is permitted within a 6 month period. A second order within the same six month period is final sale.
                   </div>
                 </div>
               </div>
@@ -534,9 +534,9 @@ function OurPolicy() {
                 </h2>
                 <div id="collapseCustom" className="accordion-collapse collapse" data-bs-parent="#faqCustom">
                   <div className="accordion-body">
-                    We're happy to create the perfect jewelry for you, based on a custom design. Simply send an image and description of your desired jewelry to service@withclarity.com We will then confirm that we can create the design for you and provide a custom quote. If any changes need to be made, we will work closely with you during the custom process to ensure that your jewelry is perfect. Our expert designers will provide you with a complimentary rendering and a quote for your approval before your jewelry is crafted with one complimentary revision. Once a design is approved through the computer animated design process and paid for, the order may not be cancelled or changed. Quotations on custom jewelry are valid for 30 days and subject to change thereafter. If you'd like to design and purchase a custom setting, you would be required to purchase the center diamond/gemstone from The Caratcasa.
+                    We're happy to create the perfect jewelry for you, based on a custom design. Simply send an image and description of your desired jewelry to service@withclarity.com We will then confirm that we can create the design for you and provide a custom quote. If any changes need to be made, we will work closely with you during the custom process to ensure that your jewelry is perfect. Our expert designers will provide you with a complimentary rendering and a quote for your approval before your jewelry is crafted with one complimentary revision. Once a design is approved through the computer animated design process and paid for, the order may not be cancelled or changed. Quotations on custom jewelry are valid for 2 days and subject to change thereafter. If you'd like to design and purchase a custom setting, you would be required to purchase the center diamond/gemstone from The Caratcasa.
 
-                    Custom settings alone are not available for purchase. Learn more about our custom design process. Custom jewelry is eligible for returns within 30 days of receipt. Our lifetime warranty will apply to all custom jewelry. However, if the jewelry is worked on by another jeweler, the warranty will be void as we cannot guarantee the work of another jeweler.
+                    Custom settings alone are not available for purchase. Learn more about our custom design process. Custom jewelry is eligible for returns within 2 days of receipt. Our lifetime warranty will apply to all custom jewelry. However, if the jewelry is worked on by another jeweler, the warranty will be void as we cannot guarantee the work of another jeweler.
                   </div>
                 </div>
               </div>
@@ -698,11 +698,11 @@ function OurPolicy() {
                 </h2>
                 <div id="collapseCrafting5" className="accordion-collapse collapse" data-bs-parent="#faqCrafting">
                   <div className="accordion-body">
-                    The Caratcasa recognizes that ring sizing is not a perfect science. To this end, we offer one free resizing within 30 days of your purchase for all orders shipped within the USA, UK, Canada & Australia. For orders shipping to and from USA addresses, there is a $25 one way FedEx insured shipping fee that applies (complimentary return shipping). For orders shipping to and from UK & Canada addresses, there is a $30 roundtrip insured FedEx shipping fee that applies (complimentary return shipping). For orders shipping to and from Australia addresses, there is a $40 roundtrip insured FedEx shipping fee that applies (complimentary return shipping). Any resizing up will not be subject to additional metal charges. During the resize process small amounts of metal will be added or removed to increase or decrease the size to adjust for the new size needed. As a result, your ring may be slightly thicker or thinner when completed. Please be aware that a resizing down may result in a slight reduction in metal weight, which cannot be reimbursed.
+                    The Caratcasa recognizes that ring sizing is not a perfect science. To this end, we offer one free resizing within 2 days of your purchase for all orders shipped within the USA, UK, Canada & Australia. For orders shipping to and from USA addresses, there is a $25 one way FedEx insured shipping fee that applies (complimentary return shipping). For orders shipping to and from UK & Canada addresses, there is a $30 roundtrip insured FedEx shipping fee that applies (complimentary return shipping). For orders shipping to and from Australia addresses, there is a $40 roundtrip insured FedEx shipping fee that applies (complimentary return shipping). Any resizing up will not be subject to additional metal charges. During the resize process small amounts of metal will be added or removed to increase or decrease the size to adjust for the new size needed. As a result, your ring may be slightly thicker or thinner when completed. Please be aware that a resizing down may result in a slight reduction in metal weight, which cannot be reimbursed.
 
-                    We request up to 1 week to perform a resizing, excluding shipping days. Please Note: Eternity rings cannot be resized or exchanged outside our 30-day return policy.
+                    We request up to 1 week to perform a resizing, excluding shipping days. Please Note: Eternity rings cannot be resized or exchanged outside our 2-day return policy.
 
-                    Any resizing request outside 30 days will be subject to fees, including shipping and resizing fees. In most cases, subject to The Caratcasa's discretion, a ring resizing under 1 US finger size will be accompanied by shipping charges plus $30 for 14kt gold, $40 for 18kt gold and $50 for platinum. For resizing above or below 1 finger size, a new ring will need to be re-crafted to preserve the quality and structural integrity of the jewelry. In such instances, please contact our team for a quotation.
+                    Any resizing request outside 2 days will be subject to fees, including shipping and resizing fees. In most cases, subject to The Caratcasa's discretion, a ring resizing under 1 US finger size will be accompanied by shipping charges plus $30 for 14kt gold, $40 for 18kt gold and $50 for platinum. For resizing above or below 1 finger size, a new ring will need to be re-crafted to preserve the quality and structural integrity of the jewelry. In such instances, please contact our team for a quotation.
                   </div>
                 </div>
               </div>

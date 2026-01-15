@@ -91,7 +91,7 @@ const GiftList = () => {
       title: "Jewelry Gifts",
       description:
         "Celebrate an anniversary, birthday, or milestone moment with everlasting elegance and give the gift of jewelry.",
-      image: "/images/giftImages/Bhima-jewellers-Bangalore.jpg",
+      image: "/images/giftImages/48398140-e5d3-493e-87bd-a7b3126bef8e.jpg",
     },
     "diamond-ring-gifts": {
       title: "Diamond Ring Gifts",

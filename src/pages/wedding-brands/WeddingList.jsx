@@ -5,6 +5,33 @@ import Loader from "../diamond/loader";
 import "react-medium-image-zoom/dist/styles.css";
 // import "./weddingList.css";
 
+// Star Rating Component
+const StarRating = ({ rating, reviewCount, small = false }) => {
+  const fullStars = Math.floor(rating);
+  const hasHalfStar = rating % 1 >= 0.5;
+  const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+
+  return (
+    <div className={`star-rating ${small ? "small" : ""}`}>
+      <div className="stars d-inline-flex align-items-center">
+        {[...Array(fullStars)].map((_, i) => (
+          <span key={`full-${i}`} className="star filled">
+            ★
+          </span>
+        ))}
+        {hasHalfStar && <span className="star half">★</span>}
+        {[...Array(emptyStars)].map((_, i) => (
+          <span key={`empty-${i}`} className="star">
+            ★
+          </span>
+        ))}
+      </div>
+      <span className="rating-text ms-2">
+        {rating.toFixed(1)} ({reviewCount} reviews)
+      </span>
+    </div>
+  );
+};
 const priceSlugMap = {
   "0-500": "$0 - $500",
   "500-1000": "$500 - $1,000",
@@ -520,17 +547,15 @@ const WeddingList = () => {
                 {collectionData.map((collection) => (
                   <div
                     key={collection.id}
-                    className={`collection-item ${
-                      appliedFilters.collection === collection.name
+                    className={`collection-item ${appliedFilters.collection === collection.name
                         ? "active-style"
                         : ""
-                    }`}
+                      }`}
                     onClick={() => addFilter(collection.name)}
                   >
                     <img
-                      src={`${import.meta.env.VITE_BACKEND_URL}/storage/${
-                        collection.collection_image
-                      }`}
+                      src={`${import.meta.env.VITE_BACKEND_URL}/storage/${collection.collection_image
+                        }`}
                       alt={collection.name}
                       className="style-img"
                     />
@@ -547,11 +572,10 @@ const WeddingList = () => {
               {styleData.map((style) => (
                 <div
                   key={style.psc_id}
-                  className={`style-item ${
-                    appliedFilters.style === style.psc_name
+                  className={`style-item ${appliedFilters.style === style.psc_name
                       ? "active-style"
                       : ""
-                  }`}
+                    }`}
                   onClick={() => addFilter(style.psc_name)}
                 >
                   <img
@@ -571,9 +595,8 @@ const WeddingList = () => {
             {metalTypes.map((metal) => (
               <div
                 key={metal.dmt_id}
-                className={`metal-item ${
-                  appliedFilters.metal === metal.dmt_name ? "active" : ""
-                }`}
+                className={`metal-item ${appliedFilters.metal === metal.dmt_name ? "active" : ""
+                  }`}
                 onClick={() => handleMetalClick(metal.dmt_id)}
               >
                 <span
@@ -594,9 +617,8 @@ const WeddingList = () => {
               {priceRanges.map((price) => (
                 <div
                   key={price}
-                  className={`price-box d-flex align-items-center gap-2 ${
-                    appliedFilters.price === price ? "active" : ""
-                  }`}
+                  className={`price-box d-flex align-items-center gap-2 ${appliedFilters.price === price ? "active" : ""
+                    }`}
                   style={{ cursor: "pointer" }}
                   onClick={() => addFilter(price)}
                 >
@@ -611,9 +633,8 @@ const WeddingList = () => {
                     }}
                   ></div>
                   <span
-                    className={`price-label-jewelry-page ${
-                      appliedFilters.price === price ? "active" : ""
-                    }`}
+                    className={`price-label-jewelry-page ${appliedFilters.price === price ? "active" : ""
+                      }`}
                   >
                     {price}
                   </span>
@@ -686,13 +707,11 @@ const WeddingList = () => {
 
               const image =
                 Array.isArray(selectedVariation?.images) &&
-                selectedVariation.images.length > 0
-                  ? `${import.meta.env.VITE_BACKEND_URL}${
-                      selectedVariation.images[0]
-                    }`
-                  : `${
-                      import.meta.env.VITE_BACKEND_URL
-                    }/storage/variation_images/No_Image_Available.jpg`;
+                  selectedVariation.images.length > 0
+                  ? `${import.meta.env.VITE_BACKEND_URL}${selectedVariation.images[0]
+                  }`
+                  : `${import.meta.env.VITE_BACKEND_URL
+                  }/storage/variation_images/No_Image_Available.jpg`;
 
               const price = selectedVariation?.price || "NA";
               const originalPrice = selectedVariation?.original_price || "NA";
@@ -701,10 +720,15 @@ const WeddingList = () => {
               // Create slug from product name
               const productSlug = group.product?.name
                 ? group.product.name
-                    .toLowerCase()
-                    .replace(/\s+/g, "-")
-                    .replace(/[^a-z0-9-]/g, "")
+                  .toLowerCase()
+                  .replace(/\s+/g, "-")
+                  .replace(/[^a-z0-9-]/g, "")
                 : "product";
+
+                            // Get review stats from product data
+            const averageRating = group.product?.average_rating || 0;
+            const totalReviews = group.product?.total_reviews || 0;
+
               return (
                 <div className="col" key={group.id}>
                   <div className="h-100 d-flex flex-column list-product-card rounded">
@@ -732,6 +756,15 @@ const WeddingList = () => {
                       </p>
                     </Link>
 
+                    {/* Rating display */}
+                  <div className="product-rating mb-2">
+                    <StarRating 
+                      rating={averageRating} 
+                      reviewCount={totalReviews}
+                      small={true}
+                    />
+                  </div>
+
                     <p className="mb-2">{sku}</p>
 
                     <div className="product-metal__buttons mb-2 d-flex gap-1 flex-wrap">
@@ -744,12 +777,11 @@ const WeddingList = () => {
                             className="product-variation__btn"
                             style={{
                               background: metal?.hex,
-                              border: `1px solid ${
-                                String(activeMetal[group.id]) ===
-                                String(metalId)
+                              border: `1px solid ${String(activeMetal[group.id]) ===
+                                  String(metalId)
                                   ? "#000"
                                   : "#ccc"
-                              }`,
+                                }`,
                               color: "#000",
                             }}
                             onClick={() => {
@@ -768,7 +800,7 @@ const WeddingList = () => {
                         );
                       })}
                     </div>
-
+                  
                     <div className="product-variation__carat-group">
                       <small className="product-variation__carat-title">
                         Total Carat Weight
@@ -777,9 +809,8 @@ const WeddingList = () => {
                         {metalOptions.map((variation, index) => (
                           <button
                             key={index}
-                            className={`product-variation__carat-pill btn btn-outline-dark btn-sm ${
-                              selectedIndex === index ? "active" : ""
-                            }`}
+                            className={`product-variation__carat-pill btn btn-outline-dark btn-sm ${selectedIndex === index ? "active" : ""
+                              }`}
                             onClick={() =>
                               setSelectedVariations((prev) => ({
                                 ...prev,

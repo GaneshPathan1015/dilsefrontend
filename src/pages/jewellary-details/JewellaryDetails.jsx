@@ -21,9 +21,8 @@ const protectionPlans = [
 ];
 
 const getImageUrl = (img) => {
-  const fallback = `${
-    import.meta.env.VITE_BACKEND_URL
-  }/storage/variation_images/No_Image_Available.jpg`;
+  const fallback = `${import.meta.env.VITE_BACKEND_URL
+    }/storage/variation_images/No_Image_Available.jpg`;
   if (!img) return fallback;
   return `${import.meta.env.VITE_BACKEND_URL}${img}`;
 };
@@ -153,82 +152,160 @@ const JewelryDetailsPage = () => {
   // CHANGE: figure selected variation with/without shape
   const selectedVariation = isBuild
     ? product.metal_variations?.[selectedMetalId]?.[selectedShapeId]?.[
-        selectedVariationIndex
-      ]
+    selectedVariationIndex
+    ]
     : product.metal_variations?.[selectedMetalId]?.[selectedVariationIndex];
 
   const { name, description } = product.product;
   const { price, weight, sku: variationSku } = selectedVariation || {};
+
   return (
     <div className="container py-5">
       <div className="row">
+        {/* Left Thumbnails Column with Play Button Indicators */}
         <div className="col-md-1 d-flex flex-column align-items-center gap-2 thumbs">
-          {/* Video thumbnail */}
+          {/* Video thumbnail with play button */}
           {selectedVariation?.video && (
-            <video
-              key="video-thumb"
-              src={getVideoUrl(selectedVariation.video)}
-              onClick={() => {
-                setMainImage(getVideoUrl(selectedVariation.video));
-                setIsVideo(true);
-              }}
-              className={isVideo ? "selected" : ""}
-              style={{
-                cursor: "pointer",
-                border: isVideo ? "2px solid #000" : "1px solid #ccc",
-                padding: "2px",
-                width: "60px",
-                height: "60px",
-                objectFit: "scale-down",
-                borderRadius: "4px",
-              }}
-            />
-          )}
-
-          {/* Image thumbnails */}
-          {selectedVariation?.images?.map((img, i) => {
-            const src = getImageUrl(img);
-            return (
-              <img
-                key={i}
-                src={src}
-                alt={`Thumb ${i + 1}`}
+            <div className="video-thumb-container" style={{ position: 'relative' }}>
+              <video
+                key="video-thumb"
+                src={getVideoUrl(selectedVariation.video)}
                 onClick={() => {
-                  setMainImage(src);
-                  setIsVideo(false);
+                  setMainImage(getVideoUrl(selectedVariation.video));
+                  setIsVideo(true);
                 }}
+                className={isVideo ? "selected" : ""}
                 style={{
                   cursor: "pointer",
-                  border:
-                    !isVideo && mainImage === src
-                      ? "2px solid #000"
-                      : "1px solid #ccc",
+                  border: isVideo ? "2px solid #000" : "1px solid #ccc",
                   padding: "2px",
                   width: "60px",
                   height: "60px",
                   objectFit: "scale-down",
                   borderRadius: "4px",
+                  backgroundColor: "#f5f5f5"
                 }}
               />
+              <div
+                className="play-button-overlay"
+                style={{
+                  position: 'absolute',
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  backgroundColor: 'rgba(0, 0, 0, 0.6)',
+                  borderRadius: '50%',
+                  width: '24px',
+                  height: '24px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  pointerEvents: 'none',
+                  boxShadow: '0 0 4px rgba(0,0,0,0.3)'
+                }}
+              >
+                <i
+                  className="bi bi-play-fill"
+                  style={{
+                    color: 'white',
+                    fontSize: '12px',
+                    marginLeft: '2px'
+                  }}
+                />
+              </div>
+            </div>
+          )}
+
+          {/* Image thumbnails with photo indicator */}
+          {selectedVariation?.images?.map((img, i) => {
+            const src = getImageUrl(img);
+            return (
+              <div key={i} style={{ position: 'relative' }}>
+                <img
+                  src={src}
+                  alt={`Thumb ${i + 1}`}
+                  onClick={() => {
+                    setMainImage(src);
+                    setIsVideo(false);
+                  }}
+                  style={{
+                    cursor: "pointer",
+                    border:
+                      !isVideo && mainImage === src
+                        ? "2px solid #000"
+                        : "1px solid #ccc",
+                    padding: "2px",
+                    width: "60px",
+                    height: "60px",
+                    objectFit: "scale-down",
+                    borderRadius: "4px",
+                  }}
+                />
+                {/* Optional: Add a photo icon indicator in corner */}
+                <div
+                  className="photo-indicator"
+                  style={{
+                    position: 'absolute',
+                    bottom: '2px',
+                    right: '2px',
+                    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                    borderRadius: '2px',
+                    padding: '1px 3px',
+                    opacity: '0.7'
+                  }}
+                >
+                  <i
+                    className="bi bi-image"
+                    style={{
+                      color: 'white',
+                      fontSize: '8px'
+                    }}
+                  />
+                </div>
+              </div>
             );
           })}
         </div>
-        {/* Main image */}
+
+        {/* Main image display */}
         <div className="col-12 col-md-6 d-flex flex-column align-items-center main-image mb-4">
-          <div className="zoom-container w-100">
+          <div className="zoom-container w-100" style={{ position: 'relative' }}>
             {isVideo ? (
-              <video
-                src={mainImage}
-                className="img-fluid"
-                autoPlay
-                muted
-                loop
-                style={{
-                  maxHeight: "500px",
-                  objectFit: "contain",
-                  width: "100%",
-                }}
-              />
+              <>
+                <video
+                  src={mainImage}
+                  className="img-fluid"
+                  autoPlay
+                  muted
+                  loop
+                  controls
+                  style={{
+                    maxHeight: "500px",
+                    objectFit: "contain",
+                    width: "100%",
+                    backgroundColor: "#000"
+                  }}
+                />
+                {/* Video label in main display */}
+                <div
+                  className="video-label"
+                  style={{
+                    position: 'absolute',
+                    top: '10px',
+                    right: '10px',
+                    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                    color: 'white',
+                    padding: '4px 8px',
+                    borderRadius: '4px',
+                    fontSize: '12px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '4px'
+                  }}
+                >
+                  <i className="bi bi-play-fill"></i> VIDEO
+                </div>
+              </>
             ) : (
               <Zoom>
                 <img
@@ -290,9 +367,8 @@ const JewelryDetailsPage = () => {
                 return (
                   <div
                     key={metalId}
-                    className={`option-circle ${
-                      selectedMetalId === metalId ? "active" : ""
-                    }`}
+                    className={`option-circle ${selectedMetalId === metalId ? "active" : ""
+                      }`}
                     onClick={() => handleMetalChange(metalId)}
                     title={metal?.name}
                     style={{ background: metal?.hex }}
@@ -327,9 +403,8 @@ const JewelryDetailsPage = () => {
                       <button
                         key={shapeId}
                         type="button"
-                        className={`shape-option ${
-                          selectedShapeId === shapeId ? "active" : ""
-                        }`}
+                        className={`shape-option ${selectedShapeId === shapeId ? "active" : ""
+                          }`}
                         onClick={() => handleShapeChange(shapeId)}
                       >
                         <span className="shape-circle">
@@ -346,7 +421,7 @@ const JewelryDetailsPage = () => {
             </div>
           )}
 
-          {/* Carat (weight) pills */}
+          Carat (weight) pills
           <div className="product-variation__carat-group mb-3">
             <small className="product-variation__carat-title">
               Total Carat Weight
@@ -355,15 +430,14 @@ const JewelryDetailsPage = () => {
             <div className="d-flex flex-wrap gap-2 mt-1">
               {(isBuild
                 ? product.metal_variations?.[selectedMetalId]?.[
-                    selectedShapeId
-                  ] || []
+                selectedShapeId
+                ] || []
                 : product.metal_variations?.[selectedMetalId] || []
               ).map((variation, index) => (
                 <button
                   key={index}
-                  className={`product-variation__carat-pill ${
-                    selectedVariationIndex === index ? "active" : ""
-                  }`}
+                  className={`product-variation__carat-pill ${selectedVariationIndex === index ? "active" : ""
+                    }`}
                   onClick={() => handleCaratChange(index)}
                 >
                   {variation.weight || "NA"}
@@ -400,9 +474,8 @@ const JewelryDetailsPage = () => {
             {protectionPlans.map((plan) => (
               <div
                 key={plan.id}
-                className={`option-btn ${
-                  selectedPlan === plan.id ? "active" : ""
-                }`}
+                className={`option-btn ${selectedPlan === plan.id ? "active" : ""
+                  }`}
                 onClick={() => setSelectedPlan(plan.id)}
               >
                 {plan.label}
@@ -443,7 +516,7 @@ const JewelryDetailsPage = () => {
                 with <strong>affirm</strong>. <a href="#">See if you qualify</a>
               </p>
               <p className="mb-2">
-                Free Insured Shipping. <a href="#">30 Day Returns.</a>
+                Free Insured Shipping. <a href="#">2 Day Returns.</a>
               </p>
 
               <hr className="hr-line" />
@@ -541,9 +614,8 @@ const JewelryDetailsPage = () => {
                   {feature.title} <i className="bi bi-chevron-down"></i>
                 </h5>
                 <div
-                  className={`feature-content ${
-                    activeFeature === i ? "active" : ""
-                  }`}
+                  className={`feature-content ${activeFeature === i ? "active" : ""
+                    }`}
                 >
                   <p>{feature.content}</p>
                 </div>
@@ -560,50 +632,6 @@ const JewelryDetailsPage = () => {
             </div>
           </div>
         </div>
-
-        {/* <div className="container py-4">
-          <div className="related-products">
-            <h4>Related Products</h4>
-            <div className="d-flex flex-wrap">
-              {[...Array(4)].map((_, i) => (
-                <img
-                  key={i}
-                  src="/assets/images/main.png"
-                  className="product-thumb"
-                  alt="Related Product"
-                />
-              ))}
-            </div>
-          </div>
-
-          <div className="custom-slider-section">
-            <h4>Inspired By Your Browsing History</h4>
-            <div className="d-flex flex-wrap">
-              {[...Array(4)].map((_, i) => (
-                <img
-                  key={i}
-                  src="/assets/images/main.png"
-                  className="product-thumb"
-                  alt="Browsing History Product"
-                />
-              ))}
-            </div>
-          </div>
-
-          <div className="custom-slider-section">
-            <h4>Top Selling Products</h4>
-            <div className="d-flex flex-wrap">
-              {[...Array(4)].map((_, i) => (
-                <img
-                  key={i}
-                  src="/assets/images/main.png"
-                  className="product-thumb"
-                  alt="Top Selling Product"
-                />
-              ))}
-            </div>
-          </div>
-        </div> */}
       </div>
     </div>
   );
