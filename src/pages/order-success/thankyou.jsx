@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useCart } from "../../cart/CartContext";
 import axiosClient from "../../api/axios";
 import "./thankyou.css";
 
 const ThankYou = () => {
+  const { clearCart } = useCart()
   const location = useLocation();
   const navigate = useNavigate();
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log("ThankYou Location State:", location.state);
-    
+    clearCart();
+    // console.log("ThankYou Location State:", location.state);
+
     // Pehle check karen: kya navigate ke through data aaya hai?
     if (location.state?.order) {
       setOrder(location.state.order);
@@ -22,7 +25,7 @@ const ThankYou = () => {
     // Dusra option: URL se order_id nikal kar API call karen
     const queryParams = new URLSearchParams(window.location.search);
     const orderId = queryParams.get("order_id");
-    
+
     if (orderId) {
       // Order ID se data fetch karen
       axiosClient.get(`/api/orders/${orderId}`)
@@ -42,8 +45,8 @@ const ThankYou = () => {
   const handleViewOrder = () => {
     if (order && order.id) {
       // Order details page par jayenge with actual order ID
-      navigate(`/order-details/${order.id}`, { 
-        state: { order } 
+      navigate(`/order-details/${order.id}`, {
+        state: { order }
       });
     } else {
       alert("Order data not available");
@@ -71,7 +74,7 @@ const ThankYou = () => {
           <div className="checkmark">&#10003;</div>
           <div className="particles"></div>
         </div>
-        
+
         {order ? (
           <>
             <h2 className="thankyou_h2">Thank you for your order!</h2>

@@ -87,8 +87,8 @@ export default function BuyNow({
                 billing_address: sameAsDelivery
                   ? formData
                   : {
-                      /* map your billing fields here */
-                    },
+                    /* map your billing fields here */
+                  },
                 total_amount: totalPrice,
                 coupon_code: couponCode, // Save the code
                 discount: discountAmount,
@@ -132,8 +132,8 @@ export default function BuyNow({
         billing_address: sameAsDelivery
           ? formData
           : {
-              /* map billing fields */
-            },
+            /* map billing fields */
+          },
         total_amount: totalPrice,
         coupon_code: couponCode, // Save the code
         discount: discountAmount,
@@ -174,8 +174,8 @@ export default function BuyNow({
         billing_address: sameAsDelivery
           ? formData
           : {
-              /* map billing */
-            },
+            /* map billing */
+          },
         total_amount: numericAmount,
         coupon_code: couponCode,
         discount: discountAmount,
@@ -217,7 +217,7 @@ export default function BuyNow({
 
       // 2. Handle Success
       if (res.data.status === "success") {
-        clearCart();
+        // clearCart();
         navigate("/thankyou");
       } else {
         alert("Failed to place order: " + res.data.message);
@@ -280,35 +280,31 @@ export default function BuyNow({
         {/* Update buttons to clear error on click */}
 
         <button
-          className={`btn w-100 ${
-            selectedMethod === "cashfree" ? "btn-primary" : "btn-outline-dark"
-          }`}
+          className={`btn w-100 ${selectedMethod === "cashfree" ? "btn-primary" : "btn-outline-dark"
+            }`}
           onClick={() => handleSelectMethod("cashfree")}
         >
           Cashfree
         </button>
         <button
-          className={`btn w-100 ${
-            selectedMethod === "razorpay" ? "btn-dark" : "btn-outline-dark"
-          }`}
+          className={`btn w-100 ${selectedMethod === "razorpay" ? "btn-dark" : "btn-outline-dark"
+            }`}
           onClick={() => handleSelectMethod("razorpay")}
         >
           Razorpay
         </button>
 
         <button
-          className={`btn w-100 ${
-            selectedMethod === "paypal" ? "btn-primary" : "btn-outline-primary"
-          }`}
+          className={`btn w-100 ${selectedMethod === "paypal" ? "btn-primary" : "btn-outline-primary"
+            }`}
           onClick={() => handleSelectMethod("paypal")}
         >
           PayPal
         </button>
 
         <button
-          className={`btn w-100 ${
-            selectedMethod === "cod" ? "btn-success" : "btn-outline-success"
-          }`}
+          className={`btn w-100 ${selectedMethod === "cod" ? "btn-success" : "btn-outline-success"
+            }`}
           onClick={() => handleSelectMethod("cod")}
         >
           Cash on Delivery
@@ -331,8 +327,8 @@ export default function BuyNow({
         {loading
           ? "Processing..."
           : selectedMethod === "cod"
-          ? "Place Order"
-          : "Pay Now"}
+            ? "Place Order"
+            : "Pay Now"}
       </button>
     </div>
   );

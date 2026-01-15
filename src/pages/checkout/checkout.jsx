@@ -120,29 +120,29 @@ const Checkout = () => {
   };
 
   // Prepare order payload
-  const prepareOrderPayload = () => ({
-    user: formData,
-    items: (cartItems || []).map((item) => {
-      if (item.productType === "combo") {
-        return {
-          productType: "combo",
-          size: item.size,
-          itemQuantity: item.itemQuantity,
-          ring: item.ring,
-          diamond: item.diamond,
-        };
-      } else if (item.productType === "diamond") {
-        return { productType: "diamond", ...item };
-      } else if (item.productType === "build") {
-        return { productType: "build", ...item };
-      } else if (item.productType === "gift") {
-        return { productType: "gift", ...item };
-      }
-      return item;
-    }),
-    total: /* getSubTotal() */ getTotalAmount(),
-    paymentMethod: selectedMethod,
-  });
+  // const prepareOrderPayload = () => ({
+  //   user: formData,
+  //   items: (cartItems || []).map((item) => {
+  //     if (item.productType === "combo") {
+  //       return {
+  //         productType: "combo",
+  //         size: item.size,
+  //         itemQuantity: item.itemQuantity,
+  //         ring: item.ring,
+  //         diamond: item.diamond,
+  //       };
+  //     } else if (item.productType === "diamond") {
+  //       return { productType: "diamond", ...item };
+  //     } else if (item.productType === "build") {
+  //       return { productType: "build", ...item };
+  //     } else if (item.productType === "gift") {
+  //       return { productType: "gift", ...item };
+  //     }
+  //     return item;
+  //   }),
+  //   total: /* getSubTotal() */ getTotalAmount(),
+  //   paymentMethod: selectedMethod,
+  // });
 
   useEffect(() => {
     const savedAddressRaw = localStorage.getItem("pendingAddress");
