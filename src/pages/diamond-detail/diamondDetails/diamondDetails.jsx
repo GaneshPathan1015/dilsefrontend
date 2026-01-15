@@ -177,9 +177,8 @@ export default function DiamondDetails() {
                   diamond.image_link ? diamond.image_link : "images/images.jpeg"
                 }
                 alt="Thumbnail"
-                className={`thumb-img ${
-                  selectedView === "image" ? "active" : ""
-                }`}
+                className={`thumb-img ${selectedView === "image" ? "active" : ""
+                  }`}
                 onError={(e) => {
                   e.target.src = "images/images.jpeg";
                 }}
@@ -190,27 +189,24 @@ export default function DiamondDetails() {
               <img
                 src="https://cdn.shopify.com/s/files/1/0411/6437/4183/files/video_play.png?v=1680007360"
                 alt="Video Icon"
-                className={`thumb-img ${
-                  selectedView === "video" ? "active" : ""
-                }`}
+                className={`thumb-img ${selectedView === "video" ? "active" : ""
+                  }`}
               />
             </button>
             <button onClick={() => setSelectedView("hand")}>
               <img
                 src="https://cdn.shopify.com/s/files/1/0411/6437/4183/files/loose-diamond-hand-large.jpg?v=1681822779"
                 alt="Hand View"
-                className={`thumb-img ${
-                  selectedView === "hand" ? "active" : ""
-                }`}
+                className={`thumb-img ${selectedView === "hand" ? "active" : ""
+                  }`}
               />
             </button>
             <button onClick={() => setSelectedView("certificate")}>
               <img
                 src="https://cdn.shopify.com/s/files/1/0757/8851/7659/files/GIA_Icon_60d07140-6c0d-4f9d-8321-89b0bd69240a.png?v=1684576576"
                 alt="GIA"
-                className={`thumb-img ${
-                  selectedView === "certificate" ? "active" : ""
-                }`}
+                className={`thumb-img ${selectedView === "certificate" ? "active" : ""
+                  }`}
               />
             </button>
           </div>
@@ -223,8 +219,8 @@ export default function DiamondDetails() {
             {diamond.diamond_type === 1
               ? " Natural "
               : diamond.diamond_type === 2
-              ? " Lab "
-              : " Coloured "}
+                ? " Lab "
+                : " Coloured "}
             Diamond
           </h1>
           <p>
@@ -375,7 +371,7 @@ export default function DiamondDetails() {
             {openSection === "upgrade" && (
               <div className="contentStyle">
                 We offer a lifetime upgrade policy for all Natural GIA certified
-                diamonds purchased from With Clarity, with proof of receipt. If
+                diamonds purchased from Dilse Jewels, with proof of receipt. If
                 you would like to upgrade your diamond, we’ll apply 100% of the
                 credit toward the purchase of a new GIA certified diamond priced
                 at least twice the original diamond purchase.

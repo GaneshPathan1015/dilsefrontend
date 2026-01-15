@@ -11,7 +11,7 @@ const Blog = () => {
   const [groupedBlogs, setGroupedBlogs] = useState({});
 
   const getImageUrl = (img) => {
-    const backendUrl = "https://thecaratcasa.com";
+    const backendUrl = "https://dilsejewels.com";
     const fallback = "https://via.placeholder.com/500x300?text=No+Image+Available";
 
     if (!img || img === "null" || img === "undefined" || img === "") {
@@ -36,7 +36,7 @@ const Blog = () => {
     const fetchBlogs = async () => {
       try {
         setLoading(true);
-        const response = await axios.get('https://thecaratcasa.com/api/api/blogs');
+        const response = await axios.get('https://dilsejewels.com/api/api/blogs');
 
         const blogsData = response.data.data || [];
         setBlogs(blogsData);
@@ -297,7 +297,7 @@ const Blog = () => {
             </ol>
           </nav>
 
-          <h1 className="blog-header-heading">The Caratcasa Blog</h1>
+          <h1 className="blog-header-heading">The Dilse Jewels Blog</h1>
 
           <p>
             Elevate your everyday with inspiration, delivered fresh, by the With

@@ -113,7 +113,7 @@ const HomePreview = () => {
                         fontSize: '17px',
                         lineHeight: '25px',
                         marginBottom: '40px'
-                    }}>Our rings are made to last forever, so take your time to be sure it's the one. With over 8,000 customization options, our Home Preview lets you try on the ring at your own pace, now crafted to perfectly fit your ring size. We will charge your card $200 with complimentary shipping. You will receive a replica ring to try on. Return it within 7 days, and we'll credit you a $200 gift card for your future purchase, which can be applied to your final ring order.</p>
+                    }}>Our rings are made to last forever, so take your time to be sure it's the one. With over 8,000 customization options, our Home Preview lets you try on the ring at your own pace, now crafted to perfectly fit your ring size. We will charge your card ₹200 with complimentary shipping. You will receive a replica ring to try on. Return it within 7 days, and we'll credit you a ₹200 gift card for your future purchase, which can be applied to your final ring order.</p>
 
                     <div className="row" style={{ marginBottom: '40px' }}>
                         <div className="col-md-4 mb-4">
@@ -242,7 +242,7 @@ const HomePreview = () => {
                                     data-bs-parent="#faqAccordion"
                                 >
                                     <div className="accordion-body">
-                                        With Clarity's Home Preview makes it easy for you to pick the right ring in the comfort of your own home — no salespeople, no rush, no pressure. You can choose up to two replica rings to preview for 7 days. You decide whether you want to share with friends and family and your person, or you can discreetly find a ring style she'll love. After you're done examining the styles, simply use the prepaid shipping label and return the rings via FedEx in the original packaging. All replica orders ship USPS free of charge to and from your home.
+                                        Dilse Jewels's Home Preview makes it easy for you to pick the right ring in the comfort of your own home — no salespeople, no rush, no pressure. You can choose up to two replica rings to preview for 7 days. You decide whether you want to share with friends and family and your person, or you can discreetly find a ring style she'll love. After you're done examining the styles, simply use the prepaid shipping label and return the rings via FedEx in the original packaging. All replica orders ship USPS free of charge to and from your home.
                                     </div>
                                 </div>
                             </div>
@@ -287,7 +287,7 @@ const HomePreview = () => {
                                     data-bs-parent="#faqAccordion"
                                 >
                                     <div className="accordion-body">
-                                        We want you to easily and conveniently find the perfect ring style. When you place a Home Preview order, With Clarity will charge your card $200 per ring. This amount is fully redeemable as a $200 gift card toward your purchase upon return. If the replica rings are not returned for any reason, your card will be charged $200 per ring.
+                                        We want you to easily and conveniently find the perfect ring style. When you place a Home Preview order, Dilse Jewels will charge your card ₹200 per ring. This amount is fully redeemable as a ₹200 gift card toward your purchase upon return. If the replica rings are not returned for any reason, your card will be charged ₹200 per ring.
                                     </div>
                                 </div>
                             </div>
@@ -310,7 +310,7 @@ const HomePreview = () => {
                                     data-bs-parent="#faqAccordion"
                                 >
                                     <div className="accordion-body">
-                                        Our replica rings look exactly like real With Clarity engagement rings. They’re 3D-printed made of white metallic alloy and a diamond simulant. It’s hard for the naked eye to tell a replica ring from a real diamond. Replica rings are intended only for visual purposes and not extended wear, which could result in damage or tarnish.
+                                        Our replica rings look exactly like real Dilse Jewels engagement rings. They’re 3D-printed made of white metallic alloy and a diamond simulant. It’s hard for the naked eye to tell a replica ring from a real diamond. Replica rings are intended only for visual purposes and not extended wear, which could result in damage or tarnish.
                                     </div>
                                 </div>
                             </div>
@@ -355,7 +355,7 @@ const HomePreview = () => {
                                     data-bs-parent="#faqAccordion"
                                 >
                                     <div className="accordion-body">
-                                        Our team will guide you through the process of taking your ring from preview to purchase. Our rings and designs are always made in-house in New York with a dedicated team of gemologists working on every order.
+                                        Our team will guide you through the process of taking your ring from preview to purchase. Our rings and designs are always made in-house in Surat with a dedicated team of gemologists working on every order.
                                     </div>
                                 </div>
                             </div>
@@ -393,7 +393,7 @@ const HomePreview = () => {
                                     fontSize: '17px',
                                     lineHeight: '1.6'
                                 }}>
-                                    At With Clarity, we want you to shop with confidence and convenience.
+                                    At Dilse Jewels, we want you to shop with confidence and convenience.
                                     That's why our Home Preview program is key to easily finding your
                                     dream ring.
                                 </p>
@@ -542,7 +542,7 @@ const HomePreview = () => {
                                                 fontStyle: 'italic'
                                             }}
                                         >
-                                            "I just received my Lab diamond from With Clarity... I got it shipped to Canada... it looks fantastic!
+                                            "I just received my Lab diamond from Dilse Jewels... I got it shipped to Canada... it looks fantastic!
                                             They have great customer service as well as I ordered the wrong setting and I called the next day
                                             and it was taken care of no problem... I highly recommend them... best prices as well for better
                                             quality! Even with the duties and taxes I had to pay on top of the purchase price! Will be letting my
@@ -625,7 +625,7 @@ const HomePreview = () => {
                                                 fontStyle: 'italic'
                                             }}
                                         >
-                                            "With Clarity made my shopping experience so great and they went out of their way to exchange the diamond I originally had set in the ring to one that I liked. They were extremely efficient and prompt with all their communications and actions. Very satisfied customer! Can highly recommend it to anyone!"
+                                            "Dilse Jewels made my shopping experience so great and they went out of their way to exchange the diamond I originally had set in the ring to one that I liked. They were extremely efficient and prompt with all their communications and actions. Very satisfied customer! Can highly recommend it to anyone!"
                                         </p>
                                         <h6
                                             className="card-subtitle"
@@ -741,7 +741,7 @@ const HomePreview = () => {
 
                         <div className="col-lg-2 col-md-4 col-sm-4 mb-3">
                             <div className="reviews-link" style={{ borderRight: '1px solid #00000043', padding: '10px' }}>
-                                <Link  to='mailto:service@withclarity.com'
+                                <Link to='mailto:service@dilsejewels.com'
                                     style={contactButtonStyle}
                                     onMouseEnter={(e) => {
                                         e.target.style.backgroundColor = contactButtonHoverStyle.backgroundColor;
@@ -763,7 +763,7 @@ const HomePreview = () => {
 
                         <div className="col-lg-2 col-md-4 col-sm-4 mb-3">
                             <div className="reviews-link" style={{ padding: '10px' }}>
-                                <Link to='tel:1-844-234-6463'
+                                <Link to='tel:1-+91 85115 44005'
                                     style={contactButtonStyle}
                                     onMouseEnter={(e) => {
                                         e.target.style.backgroundColor = contactButtonHoverStyle.backgroundColor;

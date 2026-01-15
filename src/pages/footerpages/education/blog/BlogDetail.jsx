@@ -8,7 +8,7 @@ const BlogDetail = () => {
   const [error, setError] = useState(null);
 
   const getImageUrl = (img) => {
-    const backendUrl = "https://thecaratcasa.com";
+    const backendUrl = "https://dilsejewels.com";
     const fallback = "https://via.placeholder.com/500x300?text=No+Image+Available";
 
     if (!img || img === "null" || img === "undefined" || img === "") {
@@ -31,14 +31,14 @@ const BlogDetail = () => {
     const fetchBlogDetail = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`https://thecaratcasa.com/api/api/blogs/${slug}`);
-        
+        const response = await fetch(`https://dilsejewels.com/api/api/blogs/${slug}`);
+
         if (!response.ok) {
           throw new Error('Blog not found');
         }
-        
+
         const data = await response.json();
-        
+
         if (data.status && data.data) {
           setBlog(data.data);
         } else {
@@ -141,9 +141,9 @@ const BlogDetail = () => {
 
   if (error || !blog) return (
     <div className="blog-container blog-text-center blog-my-5">
-      <p style={{color: 'red'}}>Error: {error || 'Blog not found!'}</p>
-      <p>API Endpoint: https://thecaratcasa.com/api/api/blogs/{slug}</p>
-      <Link 
+      <p style={{ color: 'red' }}>Error: {error || 'Blog not found!'}</p>
+      <p>API Endpoint: https://dilsejewels.com/api/api/blogs/{slug}</p>
+      <Link
         to="/blog"
         style={{
           display: 'inline-block',
@@ -510,14 +510,14 @@ const BlogDetail = () => {
           <div className="blog-row">
             <div className="blog-col-12">
               {/* ✅ FIXED: Using getImageUrl function here */}
-              
-                <img
-                  src={getImageUrl(blog.image_url)}
-                  alt={blog.title}
-                  className="blog-detail-image"
-                  
-                />
-             
+
+              <img
+                src={getImageUrl(blog.image_url)}
+                alt={blog.title}
+                className="blog-detail-image"
+
+              />
+
 
               {/* Blog Meta Information */}
               <div className="blog-meta-info">
@@ -540,14 +540,14 @@ const BlogDetail = () => {
               </div>
 
               {/* Blog Content */}
-              <div 
+              <div
                 className="blog-detail-content"
-                dangerouslySetInnerHTML={{ __html: blog.paragraph }} 
+                dangerouslySetInnerHTML={{ __html: blog.paragraph }}
               />
 
               {/* Back to Blogs Link */}
               <div className="blog-text-center blog-mt-5">
-                <Link 
+                <Link
                   to="/blog"
                   style={{
                     display: 'inline-block',

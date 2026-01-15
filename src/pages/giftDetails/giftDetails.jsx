@@ -20,14 +20,14 @@ import ProductReviewSystem from "../review/ProductReviewSystem";
 import "./giftDetails.css";
 
 const getImageUrl = (img) => {
-  const fallback = `https://thecaratcasa.com/storage/variation_images/No_Image_Available.jpg`;
+  const fallback = `https://dilsejewels.com/storage/variation_images/No_Image_Available.jpg`;
   if (!img) return fallback;
-  return `https://thecaratcasa.com/api${img}`;
+  return `https://dilsejewels.com/api${img}`;
 };
 
 const getVideoUrl = (video) => {
   if (!video) return null;
-  return `https://thecaratcasa.com/api${video}`;
+  return `https://dilsejewels.com/api${video}`;
 };
 
 const GiftDetails = () => {
@@ -135,14 +135,14 @@ const GiftDetails = () => {
 
   const currentMedia = selectedVariation
     ? [
-        ...(selectedVariation.video
-          ? [{ type: "video", src: getVideoUrl(selectedVariation.video) }]
-          : []),
-        ...(selectedVariation.images?.map((img) => ({
-          type: "image",
-          src: getImageUrl(img),
-        })) || []),
-      ]
+      ...(selectedVariation.video
+        ? [{ type: "video", src: getVideoUrl(selectedVariation.video) }]
+        : []),
+      ...(selectedVariation.images?.map((img) => ({
+        type: "image",
+        src: getImageUrl(img),
+      })) || []),
+    ]
     : [];
 
   const nextImage = () => {
@@ -330,12 +330,12 @@ const GiftDetails = () => {
               <p className="small text-muted mb-4">SKU#{variationSku}</p>
 
               <div className="mb-4">
-                <span className="h3 fw-bold">${price}</span>
+                <span className="h3 fw-bold">₹{price}</span>
                 <span className="fs-5 text-decoration-line-through ms-2">
-                  ${original_price}
+                  ₹{original_price}
                 </span>
                 <span className="text-green-custom ms-2">
-                  (${priceDifference} OFF)
+                  (₹{priceDifference} OFF)
                 </span>
               </div>
 
@@ -363,9 +363,8 @@ const GiftDetails = () => {
                         <button
                           key={metalId}
                           onClick={() => handleMetalChange(metalId)}
-                          className={`btn rounded-circle metal-btn ${
-                            metalId === selectedMetalId ? "active" : ""
-                          }`}
+                          className={`btn rounded-circle metal-btn ${metalId === selectedMetalId ? "active" : ""
+                            }`}
                           style={{ background: metal?.hex }}
                           title={metal?.name}
                         >
@@ -388,9 +387,8 @@ const GiftDetails = () => {
                     return (
                       <button
                         key={w}
-                        className={`product-variation__carat-pill ${
-                          isActive ? "active" : ""
-                        }`}
+                        className={`product-variation__carat-pill ${isActive ? "active" : ""
+                          }`}
                         onClick={() => {
                           const matchIndex = metalVariations.findIndex(
                             (v) =>
@@ -427,9 +425,8 @@ const GiftDetails = () => {
                       <button
                         key={q.id}
                         onClick={() => handleQualityChange(q.id)}
-                        className={`btn border quality-btn px-4 py-2 ${
-                          selectedQuality == q.id ? "active" : ""
-                        }`}
+                        className={`btn border quality-btn px-4 py-2 ${selectedQuality == q.id ? "active" : ""
+                          }`}
                       >
                         {q.name}
                       </button>
@@ -461,7 +458,7 @@ const GiftDetails = () => {
               {/* ADD TO CART */}
               <button
                 className="btn w-100 py-3 fw-semibold mb-3"
-                style={{ backgroundColor: "#06374a", color: "white" }}
+                style={{ backgroundColor: "#0060AC", color: "white" }}
                 onClick={() => {
                   addToCart({
                     ...selectedVariation,
@@ -531,9 +528,8 @@ const GiftDetails = () => {
                       )}
                     </div>
                     <div
-                      className={`section-content ${
-                        openSection === "product" ? "" : "collapsed"
-                      }`}
+                      className={`section-content ${openSection === "product" ? "" : "collapsed"
+                        }`}
                     >
                       <p className="detail-description">{description}</p>
 
@@ -577,9 +573,8 @@ const GiftDetails = () => {
                       )}
                     </div>
                     <div
-                      className={`section-content ${
-                        openSection === "stone" ? "" : "collapsed"
-                      }`}
+                      className={`section-content ${openSection === "stone" ? "" : "collapsed"
+                        }`}
                     >
                       <div className="details-grid">
                         <span className="detail-label">Stone Type</span>
@@ -615,9 +610,8 @@ const GiftDetails = () => {
                       )}
                     </div>
                     <div
-                      className={`section-content ${
-                        openSection === "shipping" ? "" : "collapsed"
-                      }`}
+                      className={`section-content ${openSection === "shipping" ? "" : "collapsed"
+                        }`}
                     >
                       <p className="detail-description">
                         Free standard shipping on all orders. Express shipping
@@ -646,9 +640,8 @@ const GiftDetails = () => {
                       )}
                     </div>
                     <div
-                      className={`section-content ${
-                        openSection === "warranty" ? "" : "collapsed"
-                      }`}
+                      className={`section-content ${openSection === "warranty" ? "" : "collapsed"
+                        }`}
                     >
                       <p className="detail-description">
                         All jewelry comes with a lifetime warranty covering
@@ -709,9 +702,8 @@ const GiftDetails = () => {
                 {currentMedia.map((_, idx) => (
                   <div
                     key={idx}
-                    className={`dot rounded-circle ${
-                      idx === currentImageIndex ? "active" : ""
-                    }`}
+                    className={`dot rounded-circle ${idx === currentImageIndex ? "active" : ""
+                      }`}
                   />
                 ))}
               </div>
@@ -732,7 +724,7 @@ const GiftDetails = () => {
               {original_price}
             </span>
             <span className="text-green-custom small ms-2">
-              (${priceDifference} OFF)
+              (₹{priceDifference} OFF)
             </span>
           </div>
 
@@ -757,9 +749,8 @@ const GiftDetails = () => {
                   return (
                     <div
                       key={metalId}
-                      className={`btn rounded-circle d-flex align-items-center justify-content-center fw-semibold metal-btn ${
-                        selectedMetalId === metalId ? "active" : ""
-                      }`}
+                      className={`btn rounded-circle d-flex align-items-center justify-content-center fw-semibold metal-btn ${selectedMetalId === metalId ? "active" : ""
+                        }`}
                       onClick={() => handleMetalChange(metalId)}
                       title={metal?.name}
                       style={{ background: metal?.hex }}
@@ -794,9 +785,8 @@ const GiftDetails = () => {
                 return (
                   <button
                     key={w}
-                    className={`product-variation__carat-pill ${
-                      isActive ? "active" : ""
-                    }`}
+                    className={`product-variation__carat-pill ${isActive ? "active" : ""
+                      }`}
                     onClick={() => {
                       const matchIndex = metalVariations.findIndex(
                         (v) =>
@@ -831,9 +821,8 @@ const GiftDetails = () => {
                   <button
                     key={q.id}
                     onClick={() => handleQualityChange(q.id)}
-                    className={`btn border quality-btn px-4 py-2 ${
-                      selectedQuality == q.id ? "active" : ""
-                    }`}
+                    className={`btn border quality-btn px-4 py-2 ${selectedQuality == q.id ? "active" : ""
+                      }`}
                   >
                     {q.name}
                   </button>
@@ -901,9 +890,8 @@ const GiftDetails = () => {
                 )}
               </div>
               <div
-                className={`section-content ${
-                  openSection === "product" ? "" : "collapsed"
-                }`}
+                className={`section-content ${openSection === "product" ? "" : "collapsed"
+                  }`}
               >
                 <p className="detail-description">{description || "NA"}</p>
 
@@ -940,9 +928,8 @@ const GiftDetails = () => {
                 )}
               </div>
               <div
-                className={`section-content ${
-                  openSection === "stone" ? "" : "collapsed"
-                }`}
+                className={`section-content ${openSection === "stone" ? "" : "collapsed"
+                  }`}
               >
                 <div className="details-grid">
                   <span className="detail-label">Stone Type</span>
@@ -973,9 +960,8 @@ const GiftDetails = () => {
                 )}
               </div>
               <div
-                className={`section-content ${
-                  openSection === "shipping" ? "" : "collapsed"
-                }`}
+                className={`section-content ${openSection === "shipping" ? "" : "collapsed"
+                  }`}
               >
                 <p className="detail-description">
                   Free standard shipping on all orders. Express shipping
@@ -1001,9 +987,8 @@ const GiftDetails = () => {
                 )}
               </div>
               <div
-                className={`section-content ${
-                  openSection === "warranty" ? "" : "collapsed"
-                }`}
+                className={`section-content ${openSection === "warranty" ? "" : "collapsed"
+                  }`}
               >
                 <p className="detail-description">
                   All jewelry comes with a lifetime warranty covering
@@ -1034,7 +1019,7 @@ const GiftDetails = () => {
               </div>
               <button
                 className="btn flex-grow-1 py-2 fw-semibold bg-brand-blue"
-                style={{ backgroundColor: "#06374a", color: "white" }}
+                style={{ backgroundColor: "#0060AC", color: "white" }}
                 onClick={() => {
                   const cartItem = {
                     ...selectedVariation,

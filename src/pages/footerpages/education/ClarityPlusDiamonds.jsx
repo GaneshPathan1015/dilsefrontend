@@ -130,7 +130,7 @@ const ClarityPlusDiamonds = () => {
                         textShadow: "0px 3px 8px #00000080",
                     }}
                 >
-                    CLARITY PLUS™ Diamonds
+                    Dilse Jewels Diamonds
                 </h1>
 
                 <div
@@ -289,7 +289,7 @@ const ClarityPlusDiamonds = () => {
                                             fontWeight: "600",
                                             cursor: "pointer",
                                             transition: "all 0.3s ease",
-                                            textDecoration:'none'
+                                            textDecoration: 'none'
                                         }}
                                         onMouseOver={(e) => {
                                             e.target.style.background = "#0d2235";
@@ -367,7 +367,7 @@ const ClarityPlusDiamonds = () => {
                     <p style={{
                         color: "#fff",
                         fontSize: "18px",
-                    }}>Create your unique engagement ring by selecting from our exclusive collection of CLARITY PLUS™ diamonds.</p>
+                    }}>Create your unique engagement ring by selecting from our exclusive collection of Dilse Jewels diamonds.</p>
 
                     <div
                         className="slide-btn-wrapper"
@@ -418,7 +418,7 @@ const ClarityPlusDiamonds = () => {
                                     onMouseLeave={() => setHoveredBtn1(null)}
                                 >
 
-                                    DESIGN YOUR CLARITY PLUS™ RING
+                                    DESIGN YOUR Dilse Jewels RING
 
                                 </Link>
 
@@ -426,7 +426,7 @@ const ClarityPlusDiamonds = () => {
                         </div>
                         <div className="col-md-2 text-center">
                             <div>
-                                <img src="/images/clarityplusdiamonds/11.webp" alt="" width="100%"/>
+                                <img src="/images/clarityplusdiamonds/11.webp" alt="" width="100%" />
                                 <span style={{
                                     color: "#14344a",
                                     fontSize: "18px",
@@ -440,7 +440,7 @@ const ClarityPlusDiamonds = () => {
                         </div>
                         <div className="col-md-2 text-center">
                             <div>
-                                <img src="/images/clarityplusdiamonds/12.webp" alt="" width="100%"/>
+                                <img src="/images/clarityplusdiamonds/12.webp" alt="" width="100%" />
                                 <span style={{
                                     color: "#14344a",
                                     fontSize: "18px",
@@ -454,7 +454,7 @@ const ClarityPlusDiamonds = () => {
                         </div>
                         <div className="col-md-2 text-center">
                             <div>
-                                <img src="/images/clarityplusdiamonds/13.webp" alt="" width="100%"/>
+                                <img src="/images/clarityplusdiamonds/13.webp" alt="" width="100%" />
                                 <span style={{
                                     color: "#14344a",
                                     fontSize: "18px",
@@ -474,8 +474,10 @@ const ClarityPlusDiamonds = () => {
             <section style={{ padding: '60px 0' }}>
                 <div className="container" style={{ background: '#f6ecdf' }}>
                     <div className="row" style={{ minHeight: "400px", alignItems: "center" }}>
-                        <div className="col-md-7" style={{ position: "relative", 
-                            height: "400px",   overflow: "hidden" }}>
+                        <div className="col-md-7" style={{
+                            position: "relative",
+                            height: "400px", overflow: "hidden"
+                        }}>
                             <video
                                 src="/images/clarityplusdiamonds/14.mp4"
                                 muted
@@ -497,7 +499,7 @@ const ClarityPlusDiamonds = () => {
                                     marginTop: '-8px',
                                     color: '#000'
                                 }}>
-                                    How CLARITY PLUS™ <br /> Diamonds Earn Their <br /> Excellence
+                                    How Dilse Jewels <br /> Diamonds Earn Their <br /> Excellence
                                 </h1>
                                 <p style={{
                                     fontSize: '20px',
@@ -505,7 +507,7 @@ const ClarityPlusDiamonds = () => {
                                     margin: '10px 0 0',
                                     color: '#000'
                                 }}>
-                                    <span>Every CLARITY PLUS™</span> diamond is rigorously graded <br />
+                                    <span>Every Dilse Jewels</span> diamond is rigorously graded <br />
                                     for cut, symmetry, fire, and more to earn its <br />
                                     exceptional rating. Immerse yourself in the <br />
                                     experience of our enhanced grading system that <br />
@@ -518,12 +520,12 @@ const ClarityPlusDiamonds = () => {
                 </div>
             </section>
 
-                        <section className="radiance-features py-4 py-md-5">
+            <section className="radiance-features py-4 py-md-5">
                 <h1 className="radiance-features-title text-center mb-4">NO DEALBREAKERS</h1>
                 <div className="container">
                     <div className="row justify-content-center align-items-center text-center">
                         {/* Item 1 */}
-                        <div className="col-6 col-md-2 mb-4 radiance-feature-item" style={{borderRight:'2px solid #000'}}>
+                        <div className="col-6 col-md-2 mb-4 radiance-feature-item" style={{ borderRight: '2px solid #000' }}>
                             <img
                                 src="/images/radiancerewards/easy-access.png"
                                 alt="Easy Financing Options"
@@ -537,7 +539,7 @@ const ClarityPlusDiamonds = () => {
                         </div>
 
                         {/* Item 2 */}
-                        <div className="col-6 col-md-2 mb-4 radiance-feature-item" style={{borderRight:'2px solid #000'}}>
+                        <div className="col-6 col-md-2 mb-4 radiance-feature-item" style={{ borderRight: '2px solid #000' }}>
                             <img
                                 src="/images/radiancerewards/insurance.png"
                                 alt="Lifetime Warranty"
@@ -551,7 +553,7 @@ const ClarityPlusDiamonds = () => {
                         </div>
 
                         {/* Item 3 */}
-                        <div className="col-6 col-md-2 mb-4 radiance-feature-item" style={{borderRight:'2px solid #000'}}>
+                        <div className="col-6 col-md-2 mb-4 radiance-feature-item" style={{ borderRight: '2px solid #000' }}>
                             <img
                                 src="/images/radiancerewards/30-days.png"
                                 alt="Hassle Free Returns"
@@ -565,7 +567,7 @@ const ClarityPlusDiamonds = () => {
                         </div>
 
                         {/* Item 4 */}
-                        <div className="col-6 col-md-2 mb-4 radiance-feature-item" style={{borderRight:'2px solid #000'}}>
+                        <div className="col-6 col-md-2 mb-4 radiance-feature-item" style={{ borderRight: '2px solid #000' }}>
                             <img
                                 src="/images/radiancerewards/diamond-ring.png"
                                 alt="Free Resizing"
@@ -595,7 +597,7 @@ const ClarityPlusDiamonds = () => {
                 </div>
             </section>
 
-                        <style jsx>{`
+            <style jsx>{`
                 .radiance-features {
                     background: #dee9eb;
                 }

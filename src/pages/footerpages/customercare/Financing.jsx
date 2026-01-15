@@ -7,7 +7,7 @@ const Financing = () => {
             <section>
 
                 <div className='text-center'>
-                    <span style={{ fontSize: '20px', lineHeight: '1.4', textAlign: 'center' }}>Do you have a Caratcasa Credit Card? Manage your account</span>
+                    <span style={{ fontSize: '20px', lineHeight: '1.4', textAlign: 'center' }}>Do you have a Dilse Jewels Credit Card? Manage your account</span>
                 </div>
 
                 <div className="container" style={{ paddingTop: '100px' }}>
@@ -26,7 +26,7 @@ const Financing = () => {
                         paddingBottom: "40px",
                         position: "relative",
                     }}>
-                        <h1 style={{ color: '#000' }}>Caratcasa <br />
+                        <h1 style={{ color: '#000' }}>Dilse Jewels <br />
                             jewelry financing</h1>
                         <p>Beautiful bespoke jewelry at an affordable price with great <br /> financing options</p>
                     </div>
@@ -72,7 +72,7 @@ const Financing = () => {
 
                             <img src="/images/financing/3.png" alt="" width={85} />
                             <h5>Secure Checkout</h5>
-                            <p style={{ fontSize: "15px" }}>At checkout, select Caratcasa Credit <br />  Card as your payment option.</p>
+                            <p style={{ fontSize: "15px" }}>At checkout, select Dilse Jewels Credit <br />  Card as your payment option.</p>
                         </div>
 
                         <div
@@ -87,7 +87,7 @@ const Financing = () => {
 
                             <img src="/images/financing/4.png" alt="" width={85} />
                             <h5>apply for financing</h5>
-                            <p style={{ fontSize: "15px" }}>Apply for Caratcasa Credit <br />  Card</p>
+                            <p style={{ fontSize: "15px" }}>Apply for Dilse Jewels Credit <br />  Card</p>
                         </div>
 
                         <div
@@ -110,15 +110,15 @@ const Financing = () => {
                         <Link style={{ background: 'none', border: '2px solid #000', textDecoration: 'none', padding: '5px 10px', color: '#000' }} className='' to="">APPLY NOW</Link>
                     </div> */}
 
-                    
+
 
                     <div style={{ paddingTop: '60px', textAlign: 'center' }}>
 
-                        <h1 className='pb-4'>Caratcasa credit card</h1>
+                        <h1 className='pb-4'>Dilse Jewels credit card</h1>
                         <div className="row text-center">
                             <div className="col-md-6">
                                 <h2>Non-Promotional Financing Available</h2>
-                                <p>Purchases subject to credit approval and the standard terms of <br />your Caratcasa account.</p>
+                                <p>Purchases subject to credit approval and the standard terms of <br />your Dilse Jewels account.</p>
                             </div>
 
                             <div className="col-md-6">
@@ -145,7 +145,7 @@ const Financing = () => {
                                         data-bs-toggle="collapse"
                                         data-bs-target="#faq1"
                                     >
-                                        What is the Caratcasa store credit card?
+                                        What is the Dilse Jewels store credit card?
                                     </button>
                                 </h2>
                                 <div
@@ -154,7 +154,7 @@ const Financing = () => {
                                     data-bs-parent="#faqAccordion"
                                 >
                                     <div className="accordion-body">
-                                        Caratcasa offers customers a credit card through Synchrony Bank with a revolving credit line to use again and again at withclarity.com.
+                                        Dilse Jewels offers customers a credit card through Synchrony Bank with a revolving credit line to use again and again at dilsejewels.com.
                                     </div>
                                 </div>
                             </div>
@@ -168,7 +168,7 @@ const Financing = () => {
                                         data-bs-toggle="collapse"
                                         data-bs-target="#faq2"
                                     >
-                                        How do I apply for a Caratcasa store credit card?
+                                        How do I apply for a Dilse Jewels store credit card?
                                     </button>
                                 </h2>
                                 <div
@@ -177,7 +177,7 @@ const Financing = () => {
                                     data-bs-parent="#faqAccordion"
                                 >
                                     <div className="accordion-body">
-                                        You can apply for a Caratcasa Store Credit Card
+                                        You can apply for a Dilse Jewels Store Credit Card
                                     </div>
                                 </div>
                             </div>
@@ -200,7 +200,7 @@ const Financing = () => {
                                     data-bs-parent="#faqAccordion"
                                 >
                                     <div className="accordion-body">
-                                        To check the status of your Caratcasa Store Credit Card account, click here to learn more and manage your account on Synchrony Bank's website. After loging into your account, you will be able to:
+                                        To check the status of your Dilse Jewels Store Credit Card account, click here to learn more and manage your account on Synchrony Bank's website. After loging into your account, you will be able to:
                                         1. Make a payment
                                         2. View your balance
                                         3. Update your account information
@@ -218,7 +218,7 @@ const Financing = () => {
                                         data-bs-toggle="collapse"
                                         data-bs-target="#faq4"
                                     >
-                                        How can I make a payment on my Caratcasa store Credit Card?
+                                        How can I make a payment on my Dilse Jewels store Credit Card?
                                     </button>
                                 </h2>
                                 <div
@@ -280,7 +280,7 @@ const Financing = () => {
 
                         <div className="col-lg-2 col-md-4 col-sm-4 mb-3">
                             <div className="reviews-link" style={{ borderRight: '1px solid #00000043' }}>
-                                <Link to="mailto:service@TheCaratecasa.com" style={{ textDecoration: 'none' }}>
+                                <Link to="mailto:service@dilsejewels.com" style={{ textDecoration: 'none' }}>
                                     <i className="fa-solid fa-envelope contact-icon" style={{ fontSize: '30px', fontFamily: 'FontAwesome', color: '#00000043' }}></i>
                                     <br />
                                     <span style={{ color: '#000' }}>Email</span>
@@ -290,7 +290,7 @@ const Financing = () => {
 
                         <div className="col-lg-2 col-md-4 col-sm-4 mb-3">
                             <div className="reviews-link">
-                                <Link to="tel:1-844-234-6463" style={{ textDecoration: 'none' }}>
+                                <Link to="tel:1-+91 85115 44005" style={{ textDecoration: 'none' }}>
                                     <i className="fa-solid fa-phone contact-icon" style={{ fontSize: '30px', fontFamily: 'FontAwesome', color: '#00000043' }}></i>
                                     <br />
                                     <span style={{ color: '#000' }}>Phone</span>

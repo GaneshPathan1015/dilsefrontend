@@ -15,8 +15,8 @@ import "./engagementList.css";
 import EngagementTabs from "../engagement-details/ring-product/EngagementTabs";
 
 const priceSlugMap = {
-  "0-500": "$0 - $500",
-  "500-1000": "$500 - $1,000",
+  "0-500": "$0 - ₹500",
+  "500-1000": "₹500 - $1,000",
   "1000-2000": "$1,000 - $2,000",
   "2000-3000": "$2,000 - $3,000",
   "3000-100000": "$3,000 - $100,000",
@@ -303,7 +303,7 @@ const EngagementList = () => {
     const filters = {};
 
     if (priceParam && priceSlugMap[priceParam]) {
-      filters.price = priceSlugMap[priceParam]; // Reverse lookup: "0-500" → "$0 - $500"
+      filters.price = priceSlugMap[priceParam]; // Reverse lookup: "0-500" → "$0 - ₹500"
     }
 
     if (menuStyleParam) {
@@ -450,7 +450,7 @@ const EngagementList = () => {
             src={
               bannerImage
                 ? `${import.meta.env.VITE_BACKEND_URL}/storage/${bannerImage}`
-                : "https://www.withclarity.com/cdn/shop/files/Women_s_Diamond_Gemstone_Jewelry_1366x.jpg?v=1729163233"
+                : "https://www.dilsejewels.com/cdn/shop/files/Women_s_Diamond_Gemstone_Jewelry_1366x.jpg?v=1729163233"
             }
             alt="Engagement Banner"
             className="hero-media w-100"
@@ -607,15 +607,13 @@ const EngagementList = () => {
               {shapeData.map((shape) => (
                 <div
                   key={shape.id}
-                  className={`shape-item ${
-                    appliedFilters.shape === shape.name ? "active-style" : ""
-                  }`}
+                  className={`shape-item ${appliedFilters.shape === shape.name ? "active-style" : ""
+                    }`}
                   onClick={() => addFilter(shape.name)}
                 >
                   <img
-                    src={`${import.meta.env.VITE_BACKEND_URL}/storage/shapes/${
-                      shape.image
-                    }`}
+                    src={`${import.meta.env.VITE_BACKEND_URL}/storage/shapes/${shape.image
+                      }`}
                     alt={shape.name}
                     className="style-img"
                   />
@@ -632,11 +630,10 @@ const EngagementList = () => {
               {styleData.map((style) => (
                 <div
                   key={style.psc_id}
-                  className={`style-item ${
-                    appliedFilters.style === style.psc_name
-                      ? "active-style"
-                      : ""
-                  }`}
+                  className={`style-item ${appliedFilters.style === style.psc_name
+                    ? "active-style"
+                    : ""
+                    }`}
                   onClick={() => addFilter(style.psc_name)}
                 >
                   <img
@@ -656,9 +653,8 @@ const EngagementList = () => {
             {metalTypes.map((metal) => (
               <div
                 key={metal.dmt_id}
-                className={`metal-item ${
-                  appliedFilters.metal === metal.dmt_name ? "active" : ""
-                }`}
+                className={`metal-item ${appliedFilters.metal === metal.dmt_name ? "active" : ""
+                  }`}
                 onClick={() => handleMetalClick(metal.dmt_id)}
               >
                 <span
@@ -679,9 +675,8 @@ const EngagementList = () => {
               {priceRanges.map((price) => (
                 <div
                   key={price}
-                  className={`price-box d-flex align-items-center gap-2 ${
-                    appliedFilters.price === price ? "active" : ""
-                  }`}
+                  className={`price-box d-flex align-items-center gap-2 ${appliedFilters.price === price ? "active" : ""
+                    }`}
                   style={{ cursor: "pointer" }}
                   onClick={() => addFilter(price)}
                 >
@@ -696,9 +691,8 @@ const EngagementList = () => {
                     }}
                   ></div>
                   <span
-                    className={`price-label-jewelry-page ${
-                      appliedFilters.price === price ? "active" : ""
-                    }`}
+                    className={`price-label-jewelry-page ${appliedFilters.price === price ? "active" : ""
+                      }`}
                   >
                     {price}
                   </span>
@@ -778,13 +772,11 @@ const EngagementList = () => {
 
             const image =
               Array.isArray(selectedVariation?.images) &&
-              selectedVariation.images.length > 0
-                ? `${import.meta.env.VITE_BACKEND_URL}${
-                    selectedVariation.images[0]
-                  }`
-                : `${
-                    import.meta.env.VITE_BACKEND_URL
-                  }/storage/variation_images/No_Image_Available.jpg`;
+                selectedVariation.images.length > 0
+                ? `${import.meta.env.VITE_BACKEND_URL}${selectedVariation.images[0]
+                }`
+                : `${import.meta.env.VITE_BACKEND_URL
+                }/storage/variation_images/No_Image_Available.jpg`;
 
             const price = selectedVariation?.price || "NA";
             const originalPrice = selectedVariation?.original_price || "NA";
@@ -833,12 +825,11 @@ const EngagementList = () => {
                             className="product-variation__btn"
                             style={{
                               background: metal?.hex,
-                              border: `1px solid ${
-                                String(activeMetal[group.id]) ===
+                              border: `1px solid ${String(activeMetal[group.id]) ===
                                 String(metalId)
-                                  ? "#000"
-                                  : "#ccc"
-                              }`,
+                                ? "#000"
+                                : "#ccc"
+                                }`,
                             }}
                             onClick={() => {
                               setActiveMetal((prev) => ({
@@ -867,9 +858,8 @@ const EngagementList = () => {
                           metalOptions.map((variation, index) => (
                             <button
                               key={index}
-                              className={`product-variation__carat-pill ${
-                                selectedIndex === index ? "active" : ""
-                              }`}
+                              className={`product-variation__carat-pill ${selectedIndex === index ? "active" : ""
+                                }`}
                               onClick={() =>
                                 setSelectedVariations((prev) => ({
                                   ...prev,
@@ -888,7 +878,7 @@ const EngagementList = () => {
 
                     {/* Price */}
                     <p className="mt-2 mb-0">
-                      <span className="fw-bold">${price}</span>
+                      <span className="fw-bold">₹{price}</span>
                       {originalPrice && (
                         <span className="original-price text-muted text-decoration-line-through ms-2">
                           ${originalPrice}

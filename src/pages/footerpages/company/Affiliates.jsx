@@ -63,12 +63,12 @@ const ReviewSlider = () => {
   };
   const reviews = [
     {
-      text: "I just recieved my Lab diamond from Caratcasa...I got it shipped to Canada...it looks fantastic! They have great customer service as well as I ordered the wrong setting and I called the next day and it was taken care of no problem...I highly recommend them...best prices as well for better quality! Even with the duties and taxes I had to pay on top of the purchase price! Will be letting my friends know about them! ",
+      text: "I just recieved my Lab diamond from Dilse Jewels...I got it shipped to Canada...it looks fantastic! They have great customer service as well as I ordered the wrong setting and I called the next day and it was taken care of no problem...I highly recommend them...best prices as well for better quality! Even with the duties and taxes I had to pay on top of the purchase price! Will be letting my friends know about them! ",
       writer: "Jonathan McKeown",
       rating: 5,
     },
     {
-      text: "Where to begin. Okay so we purchased a 3ct diamond ring at Caratcasa. The team is 5 stars! The entire process almost felt too easy -- they were patient, super helpful, intelligent and went above and beyond.The diamond: We were spending a reasonable amount for the size of diamond so it was crucial the experience was transparent with as much help as we needed provided. I worked with Alex and Claudia and really learned a lot speaking to them both. If you're hesitant about a diamond or unsure, ask them and they will tell you their honest assessment- just because a diamond is in your budget, doesn't mean it's the best fit for you- so having people who know diamonds from this company advising really helped.The ring: I loved a halo style on their site- but of course the diamond I ended up selecting was a bit larger, so I wanted something that accomodated for that. The halo ring was rendered and shown to me with the specific dimensions I wanted- and the accent diamonds and everything were adjusted for me. I never expected to find such a high level of service from an online store. There were no local store here in Texas that even offered me anything close to this level of service. I'm beyond thrilled and would recommend these folks to anyone in a heartbeat. ",
+      text: "Where to begin. Okay so we purchased a 3ct diamond ring at Dilse Jewels. The team is 5 stars! The entire process almost felt too easy -- they were patient, super helpful, intelligent and went above and beyond.The diamond: We were spending a reasonable amount for the size of diamond so it was crucial the experience was transparent with as much help as we needed provided. I worked with Alex and Claudia and really learned a lot speaking to them both. If you're hesitant about a diamond or unsure, ask them and they will tell you their honest assessment- just because a diamond is in your budget, doesn't mean it's the best fit for you- so having people who know diamonds from this company advising really helped.The ring: I loved a halo style on their site- but of course the diamond I ended up selecting was a bit larger, so I wanted something that accomodated for that. The halo ring was rendered and shown to me with the specific dimensions I wanted- and the accent diamonds and everything were adjusted for me. I never expected to find such a high level of service from an online store. There were no local store here in Texas that even offered me anything close to this level of service. I'm beyond thrilled and would recommend these folks to anyone in a heartbeat. ",
       writer: "Taylor Stevenson",
       rating: 4,
     },
@@ -78,17 +78,17 @@ const ReviewSlider = () => {
       rating: 5,
     },
     {
-      text: "Caratcasa was a great place to find an engagement ring. I thought shopping online would be difficult but it came out greater than expected and my fiancé loved it. Will shop with them again.",
+      text: "Dilse Jewels was a great place to find an engagement ring. I thought shopping online would be difficult but it came out greater than expected and my fiancé loved it. Will shop with them again.",
       writer: "Baron Pilot",
       rating: 5,
     },
     {
-      text: `"OH MY GOD!!!" That's what I have decided to name the ring I purchased through Caratcasa. Whenever my fiance shows off her ring, which she loves to show off, she doesn't get an "Oh, pretty" or "How cute." Instead, there is a loud gasp followed by "Oh My God!" In fact, when I was proposing, she didn't just say, "Yes." She screamed, "HOLY ****! Is that real?!" followed by a "YES!!!" And that, my friends, is the response you want to get from an engagement ring. I ring-shopped for over a year. I looked at thousands of diamonds, bands, visited jewelers, websites, etc. I compared them all and found the best band (platinum with diamonds) and best diamond (3+ carat) at the best price through Caratcasa. They delivered exactly what they promised and exactly what I was looking for — a ring with a HUGE gorgeous diamond that sparkles so bright you can see it across the room. I love that my fiance loves this ring. And Caratcasa made it easy — they answered all of my questions and provided fantastic customer service. So if you're ring shopping, Caratcasa is the one to go with. Honestly, they cannot be beat.`,
+      text: `"OH MY GOD!!!" That's what I have decided to name the ring I purchased through Dilse Jewels. Whenever my fiance shows off her ring, which she loves to show off, she doesn't get an "Oh, pretty" or "How cute." Instead, there is a loud gasp followed by "Oh My God!" In fact, when I was proposing, she didn't just say, "Yes." She screamed, "HOLY ****! Is that real?!" followed by a "YES!!!" And that, my friends, is the response you want to get from an engagement ring. I ring-shopped for over a year. I looked at thousands of diamonds, bands, visited jewelers, websites, etc. I compared them all and found the best band (platinum with diamonds) and best diamond (3+ carat) at the best price through Dilse Jewels. They delivered exactly what they promised and exactly what I was looking for — a ring with a HUGE gorgeous diamond that sparkles so bright you can see it across the room. I love that my fiance loves this ring. And Dilse Jewels made it easy — they answered all of my questions and provided fantastic customer service. So if you're ring shopping, Dilse Jewels is the one to go with. Honestly, they cannot be beat.`,
       writer: "Mat Korade",
       rating: 5,
     },
     {
-      text: "Absolutely beautiful ring and even better than I expected. I was extremely nervous buying a ring sight-unseen and looked for months and months for the right one. I somehow landed on Caratcasa and custom built my ring. They had it ready in exactly the time frame they mentioned, and how no issues whatsoever during the whole process. Would highly recommend--not to mention the fiancé is in LOVE with it.  ",
+      text: "Absolutely beautiful ring and even better than I expected. I was extremely nervous buying a ring sight-unseen and looked for months and months for the right one. I somehow landed on Dilse Jewels and custom built my ring. They had it ready in exactly the time frame they mentioned, and how no issues whatsoever during the whole process. Would highly recommend--not to mention the fiancé is in LOVE with it.  ",
       writer: "Bradley Brunson",
       rating: 5,
     },
@@ -108,12 +108,12 @@ const ReviewSlider = () => {
       rating: 5,
     },
     {
-      text: " I had the best experience with Caratcasa. I was nervous about ordering a ring completely online, but it was absolutely gorgeous when I received it and looked even better than I could amazing.",
+      text: " I had the best experience with Dilse Jewels. I was nervous about ordering a ring completely online, but it was absolutely gorgeous when I received it and looked even better than I could amazing.",
       writer: "Sarah K",
       rating: 5,
     },
     {
-      text: "Caratcasa made my shopping experience so great and they went out of their way to exchange the diamond I originally had set in the ring to one that I liked. They were extremely efficient and prompt with all their communications and actions. Very satisfied customer! Can highly recommend it to anyone!",
+      text: "Dilse Jewels made my shopping experience so great and they went out of their way to exchange the diamond I originally had set in the ring to one that I liked. They were extremely efficient and prompt with all their communications and actions. Very satisfied customer! Can highly recommend it to anyone!",
       writer: "Erené Spies",
       rating: 5,
     },
@@ -128,12 +128,12 @@ const ReviewSlider = () => {
       rating: 5,
     },
     {
-      text: "I just recieved my Lab diamond from Caratcasa...I got it shipped to Canada...it looks fantastic! They have great customer service as well as I ordered the wrong setting and I called the next day and it was taken care of no problem...I highly recommend them...best prices as well for better quality! Even with the duties and taxes I had to pay on top of the purchase price! Will be letting my friends know about them!  ",
+      text: "I just recieved my Lab diamond from Dilse Jewels...I got it shipped to Canada...it looks fantastic! They have great customer service as well as I ordered the wrong setting and I called the next day and it was taken care of no problem...I highly recommend them...best prices as well for better quality! Even with the duties and taxes I had to pay on top of the purchase price! Will be letting my friends know about them!  ",
       writer: "Jonathan McKeown",
       rating: 5,
     },
     {
-      text: "Where to begin. Okay so we purchased a 3ct diamond ring at Caratcasa. The team is 5 stars! The entire process almost felt too easy -- they were patient, super helpful, intelligent and went above and beyond.The diamond: We were spending a reasonable amount for the size of diamond so it was crucial the experience was transparent with as much help as we needed provided. I worked with Alex and Claudia and really learned a lot speaking to them both. If you're hesitant about a diamond or unsure, ask them and they will tell you their honest assessment- just because a diamond is in your budget, doesn't mean it's the best fit for you- so having people who know diamonds from this company advising really helped.The ring: I loved a halo style on their site- but of course the diamond I ended up selecting was a bit larger, so I wanted something that accomodated for that. The halo ring was rendered and shown to me with the specific dimensions I wanted- and the accent diamonds and everything were adjusted for me. I never expected to find such a high level of service from an online store. There were no local store here in Texas that even offered me anything close to this level of service. I'm beyond thrilled and would recommend these folks to anyone in a heartbeat.  ",
+      text: "Where to begin. Okay so we purchased a 3ct diamond ring at Dilse Jewels. The team is 5 stars! The entire process almost felt too easy -- they were patient, super helpful, intelligent and went above and beyond.The diamond: We were spending a reasonable amount for the size of diamond so it was crucial the experience was transparent with as much help as we needed provided. I worked with Alex and Claudia and really learned a lot speaking to them both. If you're hesitant about a diamond or unsure, ask them and they will tell you their honest assessment- just because a diamond is in your budget, doesn't mean it's the best fit for you- so having people who know diamonds from this company advising really helped.The ring: I loved a halo style on their site- but of course the diamond I ended up selecting was a bit larger, so I wanted something that accomodated for that. The halo ring was rendered and shown to me with the specific dimensions I wanted- and the accent diamonds and everything were adjusted for me. I never expected to find such a high level of service from an online store. There were no local store here in Texas that even offered me anything close to this level of service. I'm beyond thrilled and would recommend these folks to anyone in a heartbeat.  ",
       writer: "Taylor Stevenson",
       rating: 5,
     },
@@ -143,7 +143,7 @@ const ReviewSlider = () => {
       rating: 5,
     },
     {
-      text: " Caratcasa was a great place to find an engagement ring. I thought shopping online would be difficult but it came out greater than expected and my fiancé loved it. Will shop with them again.",
+      text: " Dilse Jewels was a great place to find an engagement ring. I thought shopping online would be difficult but it came out greater than expected and my fiancé loved it. Will shop with them again.",
       writer: "Baron Pilot",
       rating: 5,
     },
@@ -303,7 +303,7 @@ const Affiliates = () => {
     {
       id: 2,
       img: "/images/reviews/Layer_8_b9c46a8a-c744-4e9b-a96d-20e8b35ad80d.webp",
-      text: "Ranked #18 on the list of fastest-growing companies in the USA.",
+      text: "Ranked #18 on the list of fastest-growing companies in The India.",
     },
     {
       id: 3,
@@ -318,7 +318,7 @@ const Affiliates = () => {
     {
       id: 5,
       img: "/images/reviews/home-logo-sprite-cnn_9bd63659-8aed-44b0-8eea-35568017ca18.webp",
-      text: "Caratcasa crafts lab diamond engagement rings worth buying.",
+      text: "Dilse Jewels crafts lab diamond engagement rings worth buying.",
     },
   ];
 
@@ -333,7 +333,7 @@ const Affiliates = () => {
               style={{ textAlign: "center", minHeight: "300px" }}
             >
               <h1 className="fw-bold display-6 display-md-4">
-                Caratcasa <br />
+                Dilse Jewels <br />
                 Affiliate Program
               </h1>
             </div>
@@ -359,7 +359,7 @@ const Affiliates = () => {
             style={{ fontSize: "16px", lineHeight: "1.6" }}
             className="px-2 px-md-0"
           >
-            Caratcasa is the only online, direct to consumer home try-on
+            Dilse Jewels is the only online, direct to consumer home try-on
             engagement ring company that marries affordability with expertise
             and convenience with a personal touch. We craft all jewelry in-house
             with purity, quality and authenticity. With our Home Preview
@@ -667,7 +667,7 @@ const Affiliates = () => {
                 style={{ borderRight: "1px solid #00000043" }}
               >
                 <Link
-                  to="mailto:service@TheCaratecasa.com"
+                  to="mailto:service@dilsejewels.com"
                   style={{ textDecoration: "none" }}
                 >
                   <i
@@ -687,7 +687,7 @@ const Affiliates = () => {
             <div className="col-4 col-lg-2 col-md-4 col-sm-4 mb-3">
               <div className="reviews-link">
                 <Link
-                  to="tel:1-844-234-6463"
+                  to="tel:1-+91 85115 44005"
                   style={{ textDecoration: "none" }}
                 >
                   <i

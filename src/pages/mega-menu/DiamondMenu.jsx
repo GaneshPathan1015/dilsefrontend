@@ -16,7 +16,7 @@ const DiamondMenu = ({
         <div className="diamond-megamenu-text-section">
           {/* Categories col-3 */}
           <div className="col-6">
-            <Link to="/diamond?menudiamond=lab-diamond" style={{ textDecoration: "none", color:"#000" }} className="jwl-menu-title mt-3">Lab Diamonds</Link> <br />
+            <Link to="/diamond?menudiamond=lab-diamond" style={{ textDecoration: "none", color: "#000" }} className="jwl-menu-title mt-3">Lab Diamonds</Link> <br />
             <p
               onClick={() => {
                 handleDiamondClick({ name: "Lab Diamonds" });
@@ -44,15 +44,15 @@ const DiamondMenu = ({
 
             <Link
               to="/diamond?menudiamond=clarity-plus"
-              style={{ textDecoration: "none", color:"#000" }}
+              style={{ textDecoration: "none", color: "#000" }}
               className="jwl-menu-title mt-4"
             >
-              Clarity Plus™ Diamonds
+              Dilse Jewels Diamonds
             </Link> <br />
 
             <Link
               to="/diamond?menudiamond=natural-diamond"
-              style={{ textDecoration: "none", color:"#000" }}
+              style={{ textDecoration: "none", color: "#000" }}
               className="jwl-menu-title mt-4"
             >
               Natural Diamonds
@@ -60,7 +60,7 @@ const DiamondMenu = ({
 
             <Link
               to="/engagement-rings/rings"
-              style={{ textDecoration: "none", color:"#000" }}
+              style={{ textDecoration: "none", color: "#000" }}
               className="jwl-menu-title mt-4"
             >
               Create Your Own Ring
@@ -103,11 +103,11 @@ const DiamondMenu = ({
           {/* Price col-4 */}
           <div className="col-4">
             <h6 className="jwl-menu-title">Price</h6>
-            <p onClick={() => handlePriceFilter(0, 2000)}>Under $2000</p>
-            <p onClick={() => handlePriceFilter(2000, 4000)}>$2000 - $4000</p>
-            <p onClick={() => handlePriceFilter(4000, 6000)}>$4000 - $6000</p>
-            <p onClick={() => handlePriceFilter(6000, 8000)}>$6000 - $8000</p>
-            <p onClick={() => handlePriceFilter(8000, 10000)}>$8000+</p>
+            <p onClick={() => handlePriceFilter(0, 2000)}>Under ₹2000</p>
+            <p onClick={() => handlePriceFilter(2000, 4000)}>₹2000 - ₹4000</p>
+            <p onClick={() => handlePriceFilter(4000, 6000)}>₹4000 - ₹6000</p>
+            <p onClick={() => handlePriceFilter(6000, 8000)}>₹6000 - ₹8000</p>
+            <p onClick={() => handlePriceFilter(8000, 10000)}>₹8000+</p>
           </div>
 
           {/* Carat col-5 */}
@@ -128,7 +128,7 @@ const DiamondMenu = ({
             alt="Diamond"
             className="diamond-menu-img taller" // added custom class
           />
-          <h6 className="fw-bold mt-3 ">Clarity Plus™ Diamonds</h6>
+          <h6 className="fw-bold mt-3 ">Dilse Jewels Diamonds</h6>
           <Link to="/diamond?menudiamond=clarity-plus" className="shop-now">
             Shop Now
           </Link>

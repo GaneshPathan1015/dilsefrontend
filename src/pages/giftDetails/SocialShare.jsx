@@ -8,7 +8,7 @@ const SocialShare = ({ id, product, mainImage, backendBaseUrl }) => {
   const firstImage = mainImage;
 
   // const shareUrl = `${backendBaseUrl.replace(/\/$/, "")}/products/${id}`;
-  const shareUrl = `https://thecaratcasa.com/share/${id}`;
+  const shareUrl = `https://dilsejewels.com/share/${id}`;
 
   const encodedUrl = encodeURIComponent(shareUrl);
   const encodedName = encodeURIComponent(name);

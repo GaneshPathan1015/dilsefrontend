@@ -90,7 +90,7 @@ const Profile = () => {
   const [addressForm, setAddressForm] = useState({
     first_name: "",
     last_name: "",
-    country: "United States",
+    country: "India",
     address: {
       street: "",
       apartment: "",
@@ -138,34 +138,34 @@ const Profile = () => {
 
     // If starts with /storage/
     if (imagePath.startsWith('/storage/')) {
-      return `https://thecaratcasa.com${imagePath}`;
+      return `https://dilsejewels.com${imagePath}`;
     }
 
     // If starts with storage/ (without slash)
     if (imagePath.startsWith('storage/')) {
-      return `https://thecaratcasa.com/${imagePath}`;
+      return `https://dilsejewels.com/${imagePath}`;
     }
 
     // If starts with /
     if (imagePath.startsWith('/')) {
-      return `https://thecaratcasa.com${imagePath}`;
+      return `https://dilsejewels.com${imagePath}`;
     }
 
     // For profile_images
     if (imagePath.includes('profile_images')) {
-      return `https://thecaratcasa.com/storage/${imagePath}`;
+      return `https://dilsejewels.com/storage/${imagePath}`;
     }
 
     // For variation images
     if (imagePath.includes('variation_images')) {
       // Remove any leading /storage/ if present
       const cleanPath = imagePath.replace('/storage/', '');
-      return `https://thecaratcasa.com/storage/${cleanPath}`;
+      return `https://dilsejewels.com/storage/${cleanPath}`;
     }
 
     // For shape images
     if (imagePath.includes('shapes')) {
-      return `https://thecaratcasa.com${imagePath}`;
+      return `https://dilsejewels.com${imagePath}`;
     }
 
     // Default fallback
@@ -252,7 +252,7 @@ const Profile = () => {
         anniversary_date: user.anniversary_date || "",
         image: null
       });
-      
+
       // Use image_url if available, otherwise use image
       const imageSource = user.image_url || user.image;
       console.log("Loading profile data:");
@@ -261,7 +261,7 @@ const Profile = () => {
       console.log("User image_url:", user.image_url);
       console.log("Image source:", imageSource);
       console.log("Generated URL:", getImageUrl(imageSource));
-      
+
       setProfileImagePreview(getImageUrl(imageSource));
     }
   };
@@ -272,7 +272,7 @@ const Profile = () => {
       setAddressForm({
         first_name: address.first_name || "",
         last_name: address.last_name || "",
-        country: address.country || "United States",
+        country: address.country || "India",
         address: {
           street: address.address?.street || address.address?.address_line1 || "",
           apartment: address.address?.apartment || address.address?.address_line2 || "",
@@ -288,7 +288,7 @@ const Profile = () => {
       setAddressForm({
         first_name: user?.name?.split(' ')[0] || "",
         last_name: user?.name?.split(' ').slice(1).join(' ') || "",
-        country: "United States",
+        country: "India",
         address: {
           street: "",
           apartment: "",
@@ -376,15 +376,15 @@ const Profile = () => {
           if (updateUser && typeof updateUser === 'function') {
             updateUser(userData);
           }
-          
+
           // Update local state
           const newImageUrl = getImageUrl(userData.image_url || userData.image);
           console.log("New image URL after update:", newImageUrl);
           setProfileImagePreview(newImageUrl);
           setIsEditingProfile(false);
-          
+
           showToast(response.data.message || 'Profile updated successfully!', 'success');
-          
+
           // Force reload after 500ms
           setTimeout(() => {
             if (updateUser && typeof updateUser === 'function') {
@@ -597,7 +597,7 @@ const Profile = () => {
 
   const formatAddress = (addressData) => {
     if (!addressData) return "No address provided";
-    
+
     if (typeof addressData === 'string') {
       try {
         addressData = JSON.parse(addressData);
@@ -623,7 +623,7 @@ const Profile = () => {
 
     try {
       let parsedData;
-      
+
       if (typeof order.item_details === 'string') {
         parsedData = JSON.parse(order.item_details);
       } else {
@@ -633,11 +633,11 @@ const Profile = () => {
       if (Array.isArray(parsedData)) {
         return parsedData;
       }
-      
+
       if (parsedData && parsedData.items && Array.isArray(parsedData.items)) {
         return parsedData.items;
       }
-      
+
       return [];
     } catch (err) {
       console.error("Error parsing order items:", err);
@@ -1468,7 +1468,7 @@ const Profile = () => {
                 required
                 style={modalStyles.formInput}
               >
-                <option value="United States">United States</option>
+                <option value="India">India</option>
                 <option value="Canada">Canada</option>
                 <option value="United Kingdom">United Kingdom</option>
                 <option value="Australia">Australia</option>
@@ -1758,7 +1758,7 @@ const Profile = () => {
     if (!order) return null;
 
     const items = parseOrderItems(order);
-    
+
     let addressData = null;
     let billingAddressData = null;
 
@@ -1831,7 +1831,7 @@ const Profile = () => {
                   {getPaymentMethodDisplay(order.payment_mode)}
                 </span>
               </div>
-              
+
               {order.coupon_code && (
                 <div style={{ display: "flex", justifyContent: "space-between", flexDirection: isSmallMobile ? "column" : "row", gap: isSmallMobile ? "4px" : "0" }}>
                   <span style={{ fontWeight: "600", color: "#64748b" }}>Coupon Applied:</span>
@@ -1859,7 +1859,7 @@ const Profile = () => {
                   <span style={{ fontWeight: "600", color: "#ef4444", textAlign: "right", maxWidth: "200px" }}>{order.cancellation_reason}</span>
                 </div>
               )}
-              
+
               <div style={{ marginTop: "16px", paddingTop: "16px", borderTop: "1px solid #f1f5f9" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", flexDirection: isSmallMobile ? "column" : "row", gap: isSmallMobile ? "4px" : "0", marginBottom: "8px" }}>
                   <span style={{ fontWeight: "600", color: "#64748b" }}>Subtotal:</span>
@@ -1867,7 +1867,7 @@ const Profile = () => {
                     ${items.reduce((total, item) => total + (parseFloat(item.price || 0) * (item.itemQuantity || 1)), 0).toFixed(2)}
                   </span>
                 </div>
-                
+
                 {order.coupon_discount > 0 && (
                   <div style={{ display: "flex", justifyContent: "space-between", flexDirection: isSmallMobile ? "column" : "row", gap: isSmallMobile ? "4px" : "0", marginBottom: "8px" }}>
                     <span style={{ fontWeight: "600", color: "#64748b" }}>Coupon Discount:</span>
@@ -1876,14 +1876,14 @@ const Profile = () => {
                     </span>
                   </div>
                 )}
-                
+
                 <div style={{ display: "flex", justifyContent: "space-between", flexDirection: isSmallMobile ? "column" : "row", gap: isSmallMobile ? "4px" : "0", marginBottom: "8px" }}>
                   <span style={{ fontWeight: "600", color: "#64748b" }}>Shipping:</span>
                   <span style={{ fontWeight: "600", color: "#1e293b" }}>
                     ${parseFloat(order.shipping_cost || 0).toFixed(2)}
                   </span>
                 </div>
-                
+
                 <div style={{ display: "flex", justifyContent: "space-between", flexDirection: isSmallMobile ? "column" : "row", gap: isSmallMobile ? "4px" : "0", paddingTop: "12px", borderTop: "1px solid #f1f5f9" }}>
                   <span style={{ fontWeight: "700", color: "#1e293b" }}>Total Amount:</span>
                   <span style={{ fontWeight: "800", color: "#1e293b", fontSize: isSmallMobile ? "1.1rem" : "1.2rem" }}>${order.total_price}</span>
@@ -1978,7 +1978,7 @@ const Profile = () => {
           <h4 style={{ margin: "0 0 16px 0", fontSize: isSmallMobile ? "1.1rem" : "1.2rem", fontWeight: "700" }}>
             Order Items ({items.length})
           </h4>
-          
+
           {items.length === 0 ? (
             <div style={{ textAlign: "center", padding: "40px 20px", color: "#64748b" }}>
               <p>No items found in this order</p>

@@ -201,7 +201,7 @@ function LabGrownDiamonds() {
                 <td>Earth (mining deposits)</td>
                 <td>Unknown. But can take millions of years.</td>
                 <td>
-                  Depending (Caratcasa only sells conflict-free diamonds)
+                  Depending (Dilse Jewels only sells conflict-free diamonds)
                 </td>
                 <td>$$$ / $$$$</td>
                 <td>Yes</td>
@@ -230,7 +230,7 @@ function LabGrownDiamonds() {
                   <p>
                     <strong>Gemological Institute of America</strong>
                     <br />
-                    The Gemological Institute of America is a nonprofit institute that has an international authority on diamonds, gemstones, and pearls. GIA was founded in 1931, and in the 1940s, established the “4Cs” (Cut, Color, Clarity, and Carat Weight) or the “International Diamond Grading System.” The GIA is arguably the leading source of knowledge for all gemstones and jewelry, which is why all Caratcasa Natural Diamonds are graded by GIA.
+                    The Gemological Institute of America is a nonprofit institute that has an international authority on diamonds, gemstones, and pearls. GIA was founded in 1931, and in the 1940s, established the “4Cs” (Cut, Color, Clarity, and Carat Weight) or the “International Diamond Grading System.” The GIA is arguably the leading source of knowledge for all gemstones and jewelry, which is why all Dilse Jewels Natural Diamonds are graded by GIA.
                   </p>
                 </div>
               </div>
@@ -304,7 +304,7 @@ function LabGrownDiamonds() {
                   <p>
                     <strong>Gemological Science International</strong>
                     <br />
-                    At Gemological Science International, hundreds of researchers use advanced technology and intelligent software to automate the diamond grading process. GSI diamond grading reports stand for “innovation, integrity, and professionalism.” Their labs in the United States, India, Belgium, and Israel follow the alphabetical grading system.
+                    At Gemological Science International, hundreds of researchers use advanced technology and intelligent software to automate the diamond grading process. GSI diamond grading reports stand for “innovation, integrity, and professionalism.” Their labs in the India, India, Belgium, and Israel follow the alphabetical grading system.
                   </p>
                 </div>
               </div>

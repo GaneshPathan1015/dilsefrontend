@@ -25,7 +25,7 @@ const Idme = () => {
                     ★★★
                 </span>
                 <h1 style={{ fontSize: "35px", fontWeight: "bold", marginBottom: "0px" }}>
-                    Heroes, Enjoy $150 Off*
+                    Heroes, Enjoy ₹150 Off*
                 </h1>
                 <p style={{ fontSize: "13px", lineHeight: "1.6", color: '#fff' }}>
                     Thank you for your service. We proudly offer a discount through ID.me to military members,
@@ -172,7 +172,7 @@ const Idme = () => {
                         color: '#213245',
                         fontSize: '12px',
                         lineHeight: '14px',
-                    }}>Eligible id card holders can get $150 off their purchase over $2000. The discount is valid towards all full price items including necklaces, earrings, wedding bands, bracelets,<br /> loose diamonds, anniversary rings, eternity rings and engagement rings from our preset or custom ring collections. The discount is taken off the total order value in your cart.</p>
+                    }}>Eligible id card holders can get ₹150 off their purchase over ₹2000. The discount is valid towards all full price items including necklaces, earrings, wedding bands, bracelets,<br /> loose diamonds, anniversary rings, eternity rings and engagement rings from our preset or custom ring collections. The discount is taken off the total order value in your cart.</p>
 
                     <h6 style={{
                         color: '#000',
@@ -186,7 +186,7 @@ const Idme = () => {
                         color: '#213245',
                         fontSize: '12px',
                         lineHeight: '14px',
-                    }}>Simply sign up for a verified ID.me account to get access to the Caratcasa discount. You can also complete this step in your Caratcasa cart.</p>
+                    }}>Simply sign up for a verified ID.me account to get access to the Dilse Jewels discount. You can also complete this step in your Dilse Jewels cart.</p>
 
                     <h6 style={{
                         color: '#000',
@@ -247,7 +247,7 @@ const Idme = () => {
 
                         <div className="col-lg-2 col-md-4 col-sm-4 mb-3">
                             <div className="reviews-link" style={{ borderRight: '1px solid #00000043' }}>
-                                <Link to="mailto:service@TheCaratecasa.com" style={{ textDecoration: 'none' }}>
+                                <Link to="mailto:service@dilsejewels.com" style={{ textDecoration: 'none' }}>
                                     <i className="fa-solid fa-envelope contact-icon" style={{ fontSize: '30px', fontFamily: 'FontAwesome', color: '#00000043' }}></i>
                                     <br />
                                     <span style={{ color: '#000' }}>Email</span>
@@ -257,7 +257,7 @@ const Idme = () => {
 
                         <div className="col-lg-2 col-md-4 col-sm-4 mb-3">
                             <div className="reviews-link">
-                                <Link to="tel:1-844-234-6463" style={{ textDecoration: 'none' }}>
+                                <Link to="tel:1-+91 85115 44005" style={{ textDecoration: 'none' }}>
                                     <i className="fa-solid fa-phone contact-icon" style={{ fontSize: '30px', fontFamily: 'FontAwesome', color: '#00000043' }}></i>
                                     <br />
                                     <span style={{ color: '#000' }}>Phone</span>

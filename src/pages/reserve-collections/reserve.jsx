@@ -8,7 +8,7 @@ const Reserve = () => {
       <section className="hero_section_wrapper">
         <div className="container-fluid p-0 position-relative">
           <img
-            src="https://www.withclarity.com/cdn/shop/files/Reserve_collection_banners-3000x1860_2x_2d825091-a47c-4684-b581-63ed29a162f7_1512x.jpg?v=1718196964"
+            src="https://www.dilsejewels.com/cdn/shop/files/Reserve_collection_banners-3000x1860_2x_2d825091-a47c-4684-b581-63ed29a162f7_1512x.jpg?v=1718196964"
             alt="Main Banner"
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
@@ -33,7 +33,7 @@ const Reserve = () => {
         <div className="majestic-section">
           <div className="majestic-image">
             <img
-              src="https://www.withclarity.com/cdn/shop/files/Mask_Group_206_f33ebf28-cbc0-45ae-9917-ddc6e301b6a8_1900x.jpg?v=1711703450"
+              src="https://www.dilsejewels.com/cdn/shop/files/Mask_Group_206_f33ebf28-cbc0-45ae-9917-ddc6e301b6a8_1900x.jpg?v=1711703450"
               alt="Engagement Rings Collection"
               className="collection-image"
             />
@@ -55,7 +55,7 @@ const Reserve = () => {
           <h2 className="collection-heading">Eternity Rings</h2>
           <div className="collection-image-block">
             <img
-              src="https://www.withclarity.com/cdn/shop/files/Mask_Group_208_1900x.jpg?v=1711703481"
+              src="https://www.dilsejewels.com/cdn/shop/files/Mask_Group_208_1900x.jpg?v=1711703481"
               alt="Heritage Collection"
               className="collection-image"
             />
@@ -77,7 +77,7 @@ const Reserve = () => {
           <h2 className="collection-heading">Necklaces</h2>
           <div className="collection-image-block">
             <img
-              src="https://www.withclarity.com/cdn/shop/files/Mask_Group_210_1900x.jpg?v=1711703609"
+              src="https://www.dilsejewels.com/cdn/shop/files/Mask_Group_210_1900x.jpg?v=1711703609"
               alt="Heritage Collection"
               className="collection-image"
             />
@@ -99,7 +99,7 @@ const Reserve = () => {
           <h2 className="collection-heading">Earrings</h2>
           <div className="collection-image-block">
             <img
-              src="https://www.withclarity.com/cdn/shop/files/Mask_Group_212_1900x.jpg?v=1711703641"
+              src="https://www.dilsejewels.com/cdn/shop/files/Mask_Group_212_1900x.jpg?v=1711703641"
               alt="Heritage Collection"
               className="collection-image"
             />
@@ -121,7 +121,7 @@ const Reserve = () => {
           <h2 className="collection-heading">Bracelets</h2>
           <div className="collection-image-block">
             <img
-              src="https://www.withclarity.com/cdn/shop/files/reserve-collection-bracelets-1178x732_2x_0ae4599b-4a41-489c-8be6-6fc01c774eda_1900x.jpg?v=1718280721"
+              src="https://www.dilsejewels.com/cdn/shop/files/reserve-collection-bracelets-1178x732_2x_0ae4599b-4a41-489c-8be6-6fc01c774eda_1900x.jpg?v=1718280721"
               alt="Heritage Collection"
               className="collection-image"
             />

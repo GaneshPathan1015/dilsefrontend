@@ -144,7 +144,7 @@ const EngagementMenu = ({
             <ul className="jwl-list">
               {[
                 { label: "Wave" },
-                { label: "W Signature" },
+                { label: "Signature Jewellery" },
                 { label: "Fully Custom" },
                 { label: "New Arrivals" },
                 { label: "Best Sellers" },

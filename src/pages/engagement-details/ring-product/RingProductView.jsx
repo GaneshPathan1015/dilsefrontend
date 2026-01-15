@@ -24,9 +24,8 @@ import {
 import { ChevronUp, ChevronDown, MessageCircle } from "lucide-react";
 
 const getImageUrl = (img) => {
-  const fallback = `${
-    import.meta.env.VITE_BACKEND_URL
-  }/storage/variation_images/No_Image_Available.jpg`;
+  const fallback = `${import.meta.env.VITE_BACKEND_URL
+    }/storage/variation_images/No_Image_Available.jpg`;
   if (!img) return fallback;
   return `${import.meta.env.VITE_BACKEND_URL}${img}`;
 };
@@ -216,16 +215,16 @@ const RingProductView = ({ diamond }) => {
 
   const currentMedia = selectedVariation
     ? [
-        // Add video first if it exists
-        ...(selectedVariation.video
-          ? [{ type: "video", src: getVideoUrl(selectedVariation.video) }]
-          : []),
-        // Then add all images
-        ...(selectedVariation.images?.map((img) => ({
-          type: "image",
-          src: getImageUrl(img),
-        })) || []),
-      ]
+      // Add video first if it exists
+      ...(selectedVariation.video
+        ? [{ type: "video", src: getVideoUrl(selectedVariation.video) }]
+        : []),
+      // Then add all images
+      ...(selectedVariation.images?.map((img) => ({
+        type: "image",
+        src: getImageUrl(img),
+      })) || []),
+    ]
     : [];
   // Navigation functions for mobile carousel
   const nextImage = () =>
@@ -265,7 +264,7 @@ const RingProductView = ({ diamond }) => {
   const metalName = metal_color?.name || "-";
   const selectedShapeName = isBuild
     ? product.metal_variations?.[selectedMetalId]?.[selectedShapeId]?.[0]?.shape
-        ?.name
+      ?.name
     : null;
 
   const currentDate = new Date();
@@ -372,9 +371,8 @@ const RingProductView = ({ diamond }) => {
                       controls={false}
                       controlsList="nodownload nofullscreen noremoteplayback noplaybackrate"
                       tabIndex={-1}
-                      className={`rounded thumbnail-gallery ${
-                        isVideo ? "selected" : ""
-                      }`}
+                      className={`rounded thumbnail-gallery ${isVideo ? "selected" : ""
+                        }`}
                       style={{
                         cursor: "pointer",
                         border: isVideo ? "2px solid #000" : "1px solid #ccc",
@@ -457,12 +455,12 @@ const RingProductView = ({ diamond }) => {
                 <h1 className="h3 font-serif mb-2">{name}</h1>
                 <p className="small text-muted mb-4">SKU#{variationSku}</p>
                 <div className="mb-4">
-                  <span className="h3 fw-bold">${price}</span>
+                  <span className="h3 fw-bold">₹{price}</span>
                   <span className="fs-5 text-secondary text-decoration-line-through ms-2">
-                    ${original_price}
+                    ₹{original_price}
                   </span>
                   <span className="text-green-custom ms-2">
-                    (${priceDifference} OFF)
+                    (₹{priceDifference} OFF)
                   </span>
                 </div>
                 {isBuild && selectedMetalId && (
@@ -481,7 +479,7 @@ const RingProductView = ({ diamond }) => {
                       ).map((shapeId) => {
                         const firstVar =
                           product.metal_variations[selectedMetalId][
-                            shapeId
+                          shapeId
                           ][0] || {};
                         const shape = firstVar.shape || {};
                         const img = getShapeImageUrl(shape.image);
@@ -490,9 +488,8 @@ const RingProductView = ({ diamond }) => {
                           <button
                             key={shapeId}
                             type="button"
-                            className={`shape-option ${
-                              selectedShapeId === shapeId ? "active" : ""
-                            }`}
+                            className={`shape-option ${selectedShapeId === shapeId ? "active" : ""
+                              }`}
                             onClick={() => handleShapeChange(shapeId)}
                           >
                             <span className="shape-circle">
@@ -536,9 +533,8 @@ const RingProductView = ({ diamond }) => {
                         return (
                           <div
                             key={metalId}
-                            className={`option-circle ${
-                              selectedMetalId === metalId ? "active" : ""
-                            }`}
+                            className={`option-circle ${selectedMetalId === metalId ? "active" : ""
+                              }`}
                             onClick={() => handleMetalChange(metalId)}
                             title={metal?.name}
                             style={{ background: metal?.hex }}
@@ -560,9 +556,8 @@ const RingProductView = ({ diamond }) => {
                     {weightOptions.map((w, idx) => (
                       <button
                         key={w.weight + "-" + idx}
-                        className={`product-variation__carat-pill ${
-                          selectedWeight === w.weight ? "active" : ""
-                        }`}
+                        className={`product-variation__carat-pill ${selectedWeight === w.weight ? "active" : ""
+                          }`}
                         onClick={() => {
                           // select weight -> pick first variation for that weight
                           setSelectedWeight(w.weight);
@@ -601,11 +596,10 @@ const RingProductView = ({ diamond }) => {
                           .map((v) => (
                             <button
                               key={v.id}
-                              className={`btn border quality-btn px-3 py-2 ${
-                                selectedQualityId === v.diamond_quality_id
-                                  ? "active"
-                                  : ""
-                              }`}
+                              className={`btn border quality-btn px-3 py-2 ${selectedQualityId === v.diamond_quality_id
+                                ? "active"
+                                : ""
+                                }`}
                               onClick={() => {
                                 setSelectedQualityId(v.diamond_quality_id);
                                 const globalIndex =
@@ -628,7 +622,7 @@ const RingProductView = ({ diamond }) => {
 
                 <button
                   className="btn w-100 py-3 fw-semibold mb-3"
-                  style={{ backgroundColor: "#06374a", color: "white" }}
+                  style={{ backgroundColor: "#0060AC", color: "white" }}
                   onClick={handleChooseSetting}
                 >
                   CHOOSE THIS SETTING
@@ -643,7 +637,7 @@ const RingProductView = ({ diamond }) => {
 
                 <button
                   className="btn w-100 py-3 fw-semibold mb-3"
-                  style={{ backgroundColor: "#06374a", color: "white" }}
+                  style={{ backgroundColor: "#0060AC", color: "white" }}
                   onClick={handleOpenSettingModal}
                 >
                   BUY SETTING ONLY
@@ -758,9 +752,8 @@ const RingProductView = ({ diamond }) => {
                         )}
                       </div>
                       <div
-                        className={`section-content ${
-                          openSection === "product" ? "" : "collapsed"
-                        }`}
+                        className={`section-content ${openSection === "product" ? "" : "collapsed"
+                          }`}
                       >
                         <p className="detail-description">{description}</p>
 
@@ -804,9 +797,8 @@ const RingProductView = ({ diamond }) => {
                         )}
                       </div>
                       <div
-                        className={`section-content ${
-                          openSection === "stone" ? "" : "collapsed"
-                        }`}
+                        className={`section-content ${openSection === "stone" ? "" : "collapsed"
+                          }`}
                       >
                         <div className="details-grid">
                           <span className="detail-label">Stone Type</span>
@@ -844,9 +836,8 @@ const RingProductView = ({ diamond }) => {
                         )}
                       </div>
                       <div
-                        className={`section-content ${
-                          openSection === "shipping" ? "" : "collapsed"
-                        }`}
+                        className={`section-content ${openSection === "shipping" ? "" : "collapsed"
+                          }`}
                       >
                         <p className="detail-description">
                           Free standard shipping on all orders. Express shipping
@@ -875,9 +866,8 @@ const RingProductView = ({ diamond }) => {
                         )}
                       </div>
                       <div
-                        className={`section-content ${
-                          openSection === "warranty" ? "" : "collapsed"
-                        }`}
+                        className={`section-content ${openSection === "warranty" ? "" : "collapsed"
+                          }`}
                       >
                         <p className="detail-description">
                           All jewelry comes with a lifetime warranty covering
@@ -947,9 +937,8 @@ const RingProductView = ({ diamond }) => {
                   {currentMedia.map((_, idx) => (
                     <div
                       key={idx}
-                      className={`dot rounded-circle ${
-                        idx === currentImageIndex ? "active" : ""
-                      }`}
+                      className={`dot rounded-circle ${idx === currentImageIndex ? "active" : ""
+                        }`}
                     />
                   ))}
                 </div>
@@ -970,7 +959,7 @@ const RingProductView = ({ diamond }) => {
                 {original_price}
               </span>
               <span className="text-green-custom small ms-2">
-                (${priceDifference} OFF)
+                (₹{priceDifference} OFF)
               </span>
             </div>
             {isBuild && selectedMetalId && (
@@ -996,9 +985,8 @@ const RingProductView = ({ diamond }) => {
                         <button
                           key={shapeId}
                           type="button"
-                          className={`shape-option ${
-                            selectedShapeId === shapeId ? "active" : ""
-                          }`}
+                          className={`shape-option ${selectedShapeId === shapeId ? "active" : ""
+                            }`}
                           onClick={() => handleShapeChange(shapeId)}
                         >
                           <span className="shape-circle">
@@ -1040,9 +1028,8 @@ const RingProductView = ({ diamond }) => {
                     return (
                       <div
                         key={metalId}
-                        className={`option-circle ${
-                          selectedMetalId === metalId ? "active" : ""
-                        }`}
+                        className={`option-circle ${selectedMetalId === metalId ? "active" : ""
+                          }`}
                         onClick={() => handleMetalChange(metalId)}
                         title={metal?.name}
                         style={{ background: metal?.hex }}
@@ -1064,9 +1051,8 @@ const RingProductView = ({ diamond }) => {
                 {weightOptions.map((w, idx) => (
                   <button
                     key={w.weight + "-" + idx}
-                    className={`product-variation__carat-pill ${
-                      selectedWeight === w.weight ? "active" : ""
-                    }`}
+                    className={`product-variation__carat-pill ${selectedWeight === w.weight ? "active" : ""
+                      }`}
                     onClick={() => {
                       // select weight -> pick first variation for that weight
                       setSelectedWeight(w.weight);
@@ -1104,11 +1090,10 @@ const RingProductView = ({ diamond }) => {
                       .map((v) => (
                         <button
                           key={v.id}
-                          className={`btn border quality-btn px-3 py-2 ${
-                            selectedQualityId === v.diamond_quality_id
-                              ? "active"
-                              : ""
-                          }`}
+                          className={`btn border quality-btn px-3 py-2 ${selectedQualityId === v.diamond_quality_id
+                            ? "active"
+                            : ""
+                            }`}
                           onClick={() => {
                             setSelectedQualityId(v.diamond_quality_id);
                             const globalIndex = filteredVariations.findIndex(
@@ -1137,7 +1122,7 @@ const RingProductView = ({ diamond }) => {
 
             <button
               className="btn w-100 py-3 fw-semibold mb-3"
-              style={{ backgroundColor: "#06374a", color: "white" }}
+              style={{ backgroundColor: "#0060AC", color: "white" }}
               onClick={handleOpenSettingModal}
             >
               BUY SETTING ONLY
@@ -1203,9 +1188,8 @@ const RingProductView = ({ diamond }) => {
                   )}
                 </div>
                 <div
-                  className={`section-content ${
-                    openSection === "product" ? "" : "collapsed"
-                  }`}
+                  className={`section-content ${openSection === "product" ? "" : "collapsed"
+                    }`}
                 >
                   <p className="detail-description">{description}</p>
 
@@ -1246,9 +1230,8 @@ const RingProductView = ({ diamond }) => {
                   )}
                 </div>
                 <div
-                  className={`section-content ${
-                    openSection === "stone" ? "" : "collapsed"
-                  }`}
+                  className={`section-content ${openSection === "stone" ? "" : "collapsed"
+                    }`}
                 >
                   <div className="details-grid">
                     <span className="detail-label">Stone Type</span>
@@ -1280,9 +1263,8 @@ const RingProductView = ({ diamond }) => {
                   )}
                 </div>
                 <div
-                  className={`section-content ${
-                    openSection === "shipping" ? "" : "collapsed"
-                  }`}
+                  className={`section-content ${openSection === "shipping" ? "" : "collapsed"
+                    }`}
                 >
                   <p className="detail-description">
                     Free standard shipping on all orders. Express shipping
@@ -1309,9 +1291,8 @@ const RingProductView = ({ diamond }) => {
                   )}
                 </div>
                 <div
-                  className={`section-content ${
-                    openSection === "warranty" ? "" : "collapsed"
-                  }`}
+                  className={`section-content ${openSection === "warranty" ? "" : "collapsed"
+                    }`}
                 >
                   <p className="detail-description">
                     All jewelry comes with a lifetime warranty covering
@@ -1338,7 +1319,7 @@ const RingProductView = ({ diamond }) => {
                 </div>
                 <button
                   className="btn flex-grow-1 py-2 fw-semibold"
-                  style={{ backgroundColor: "#06374a", color: "white" }}
+                  style={{ backgroundColor: "#0060AC", color: "white" }}
                   onClick={handleChooseSetting}
                 >
                   CHOOSE THIS SETTING

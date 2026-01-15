@@ -384,14 +384,14 @@ const CompleteRing = () => {
               <Accordion.Item eventKey="warranty">
                 <Accordion.Header>Lifetime Warranty</Accordion.Header>
                 <Accordion.Body className="small">
-                  With Clarity is committed to creating the highest quality
+                  Dilse Jewels is committed to creating the highest quality
                   jewelry that lasts a lifetime. We offer complimentary lifetime
                   cleaning and replacement of stones under 0.10ct due to
                   everyday wear and tear. Diamonds above 0.10ct and center
                   stones on engagement rings are not covered by the warranty.
                   Damage, loss, and theft are also not covered. Repair fees
                   apply based on jeweler assessment. For warranty validity, we
-                  recommend all work be done by With Clarity.
+                  recommend all work be done by Dilse Jewels.
                 </Accordion.Body>
               </Accordion.Item>
             </Accordion>

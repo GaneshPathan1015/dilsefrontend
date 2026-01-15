@@ -27,7 +27,7 @@ const ReplyList = ({ reviewId, onLikeDislike, onShare }) => {
         setLoading(true);
         try {
             const response = await axios.get(
-                `https://thecaratcasa.com/api/api/reviews/${reviewId}/replies?page=${page}`
+                `https://dilsejewels.com/api/api/reviews/${reviewId}/replies?page=${page}`
             );
 
             if (response.data.success) {
@@ -52,7 +52,7 @@ const ReplyList = ({ reviewId, onLikeDislike, onShare }) => {
 
         try {
             const response = await axios.post(
-                `https://thecaratcasa.com/api/api/reviews/${replyId}/like`, 
+                `https://dilsejewels.com/api/api/reviews/${replyId}/like`,
                 {
                     is_like: isLike,
                     user_id: userId || null,
@@ -62,14 +62,14 @@ const ReplyList = ({ reviewId, onLikeDislike, onShare }) => {
 
             if (response.data.success) {
                 // Update the specific reply counts
-                setReplies(prevReplies => 
-                    prevReplies.map(reply => 
-                        reply.id === replyId 
-                            ? { 
-                                ...reply, 
+                setReplies(prevReplies =>
+                    prevReplies.map(reply =>
+                        reply.id === replyId
+                            ? {
+                                ...reply,
                                 likes_count: response.data.likes_count,
                                 dislikes_count: response.data.dislikes_count
-                              } 
+                            }
                             : reply
                     )
                 );
@@ -130,7 +130,7 @@ const ReplyList = ({ reviewId, onLikeDislike, onShare }) => {
             // ✅ Record the share in database
             if (shouldRecordShare) {
                 const response = await axios.post(
-                    `https://thecaratcasa.com/api/api/reviews/${replyId}/share`, 
+                    `https://dilsejewels.com/api/api/reviews/${replyId}/share`,
                     {
                         platform,
                         user_id: userId || null,
@@ -139,10 +139,10 @@ const ReplyList = ({ reviewId, onLikeDislike, onShare }) => {
                 );
 
                 if (response.data.success) {
-                    setReplies(prevReplies => 
-                        prevReplies.map(reply => 
-                            reply.id === replyId 
-                                ? { ...reply, shares_count: response.data.shares_count } 
+                    setReplies(prevReplies =>
+                        prevReplies.map(reply =>
+                            reply.id === replyId
+                                ? { ...reply, shares_count: response.data.shares_count }
                                 : reply
                         )
                     );
@@ -219,9 +219,8 @@ const ReplyList = ({ reviewId, onLikeDislike, onShare }) => {
                         <div className="d-flex align-items-center gap-2">
                             <button
                                 onClick={() => handleLike(true)}
-                                className={`btn btn-sm d-flex align-items-center gap-1 p-1 ${
-                                    userReaction === 'like' ? 'btn-success' : 'btn-outline-success'
-                                }`}
+                                className={`btn btn-sm d-flex align-items-center gap-1 p-1 ${userReaction === 'like' ? 'btn-success' : 'btn-outline-success'
+                                    }`}
                                 title="Like this reply"
                             >
                                 <span style={{ fontSize: '12px' }}>👍</span>
@@ -232,9 +231,8 @@ const ReplyList = ({ reviewId, onLikeDislike, onShare }) => {
 
                             <button
                                 onClick={() => handleLike(false)}
-                                className={`btn btn-sm d-flex align-items-center gap-1 p-1 ${
-                                    userReaction === 'dislike' ? 'btn-danger' : 'btn-outline-danger'
-                                }`}
+                                className={`btn btn-sm d-flex align-items-center gap-1 p-1 ${userReaction === 'dislike' ? 'btn-danger' : 'btn-outline-danger'
+                                    }`}
                                 title="Dislike this reply"
                             >
                                 <span style={{ fontSize: '12px' }}>👎</span>
@@ -259,7 +257,7 @@ const ReplyList = ({ reviewId, onLikeDislike, onShare }) => {
                             </button>
                             <ul className="dropdown-menu">
                                 <li>
-                                    <button 
+                                    <button
                                         className="dropdown-item small"
                                         onClick={() => handleQuickShare('facebook')}
                                     >
@@ -267,7 +265,7 @@ const ReplyList = ({ reviewId, onLikeDislike, onShare }) => {
                                     </button>
                                 </li>
                                 <li>
-                                    <button 
+                                    <button
                                         className="dropdown-item small"
                                         onClick={() => handleQuickShare('twitter')}
                                     >
@@ -275,7 +273,7 @@ const ReplyList = ({ reviewId, onLikeDislike, onShare }) => {
                                     </button>
                                 </li>
                                 <li>
-                                    <button 
+                                    <button
                                         className="dropdown-item small"
                                         onClick={() => handleQuickShare('whatsapp')}
                                     >
@@ -284,7 +282,7 @@ const ReplyList = ({ reviewId, onLikeDislike, onShare }) => {
                                 </li>
                                 <li><hr className="dropdown-divider" /></li>
                                 <li>
-                                    <button 
+                                    <button
                                         className="dropdown-item small"
                                         onClick={() => handleQuickShare('copy')}
                                     >
@@ -322,7 +320,7 @@ const ReplyList = ({ reviewId, onLikeDislike, onShare }) => {
                     {replies.map((reply) => (
                         <ReplyItem key={reply.id} reply={reply} />
                     ))}
-                    
+
                     {/* Pagination */}
                     {pagination.last_page > 1 && (
                         <div className="d-flex justify-content-center align-items-center gap-2 mt-3">
@@ -333,11 +331,11 @@ const ReplyList = ({ reviewId, onLikeDislike, onShare }) => {
                             >
                                 Previous
                             </button>
-                            
+
                             <span className="px-3 py-1 text-muted small">
                                 Page {pagination.current_page} of {pagination.last_page}
                             </span>
-                            
+
                             <button
                                 onClick={() => fetchReplies(pagination.current_page + 1)}
                                 disabled={pagination.current_page === pagination.last_page}

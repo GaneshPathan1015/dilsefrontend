@@ -9,9 +9,8 @@ export default function JewelryCard({
   const ring = item;
 
   const getImageUrl = (img) => {
-    const fallback = `${
-      import.meta.env.VITE_BACKEND_URL
-    }/storage/variation_images/No_Image_Available.jpg`;
+    const fallback = `${import.meta.env.VITE_BACKEND_URL
+      }/storage/variation_images/No_Image_Available.jpg`;
     if (!img) return fallback;
     return `${import.meta.env.VITE_BACKEND_URL}${img}`;
   };
@@ -71,7 +70,7 @@ export default function JewelryCard({
 
             {/* Ring Info */}
             <div style={{ marginBottom: "10px" }}>
-              <p> ${ring.price}</p>
+              <p> ₹{ring.price}</p>
               <p>Metal Color: {ring.metal_color.name || "N/A"}</p>
               <p>Total Carat Weight: {ring.weight || "N/A"}</p>
               {ring.size && <p>Size: {ring.size}</p>}

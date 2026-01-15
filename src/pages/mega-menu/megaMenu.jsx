@@ -20,7 +20,7 @@ const slugify = (text = "") =>
     .replace(/--+/g, "-")
     .replace(/^-+|-+$/g, "");
 
-const MegaMenu = ({ type = "engagement", closeMegaMenu = () => {} }) => {
+const MegaMenu = ({ type = "engagement", closeMegaMenu = () => { } }) => {
   const {
     categoryMap = {},
     mainCategories = [],
@@ -54,7 +54,7 @@ const MegaMenu = ({ type = "engagement", closeMegaMenu = () => {} }) => {
     const collectionSlugMap = {
       luxe: "luxe-collection-engagement-rings-and-wedding-bands",
       "the reserve": "the-reserve-collection",
-      "w signature": "the-w-signature-solitaire-engagement-rings",
+      "Signature Jewellery": "the-w-signature-solitaire-engagement-rings",
     };
 
     if (collectionSlugMap[normalizedName]) {
@@ -80,10 +80,10 @@ const MegaMenu = ({ type = "engagement", closeMegaMenu = () => {} }) => {
   //   const staticCollectionRoutes = {
   //     /*  luxe: "/luxe",
   //     "the reserve": "/reserve",
-  //     "w signature": "/signature", */
+  //     "Signature Jewellery": "/signature", */
   //     luxe: "luxe-collection-engagement-rings-and-wedding-bands",
   //     "the reserve": "the-reserve-collection",
-  //     "w signature": "the-w-signature-solitaire-engagement-rings",
+  //     "Signature Jewellery": "the-w-signature-solitaire-engagement-rings",
   //   };
 
   //   // Check for static route

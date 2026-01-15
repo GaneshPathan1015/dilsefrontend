@@ -88,16 +88,16 @@ const ReviewForm = ({
       }
 
       const response = await axios.post(
-        "https://thecaratcasa.com/api/api/reviews",
+        "https://dilsejewels.com/api/api/reviews",
         submitData
       );
 
       if (response.data.success) {
-        setMessage({ 
-          text: isReply ? "Reply submitted successfully!" : "Review submitted successfully!", 
-          type: "success" 
+        setMessage({
+          text: isReply ? "Reply submitted successfully!" : "Review submitted successfully!",
+          type: "success"
         });
-        
+
         if (!isEdit) {
           setFormData({
             rating: "",
@@ -113,16 +113,16 @@ const ReviewForm = ({
           onSubmit(response.data);
         }
       } else {
-        setMessage({ 
-          text: response.data.message || "Failed to submit review", 
-          type: "error" 
+        setMessage({
+          text: response.data.message || "Failed to submit review",
+          type: "error"
         });
       }
     } catch (error) {
       console.error("❌ Error submitting review:", error);
-      setMessage({ 
-        text: error.response?.data?.message || "Failed to submit review. Please try again.", 
-        type: "error" 
+      setMessage({
+        text: error.response?.data?.message || "Failed to submit review. Please try again.",
+        type: "error"
       });
     } finally {
       setSubmitting(false);
@@ -149,9 +149,8 @@ const ReviewForm = ({
               onChange(star);
               setMessage({ text: `Rating ${star} selected`, type: "success" });
             }}
-            className={`btn btn-star ${
-              star <= rating ? "btn-warning" : "btn-outline-warning"
-            } p-0`}
+            className={`btn btn-star ${star <= rating ? "btn-warning" : "btn-outline-warning"
+              } p-0`}
             style={{ width: "40px", height: "40px", fontSize: "1.5rem" }}
             disabled={submitting}
           >
@@ -240,10 +239,10 @@ const ReviewForm = ({
             {submitting
               ? "Submitting..."
               : isEdit
-              ? "Update"
-              : isReply
-              ? "Post Reply"
-              : "Submit Review"}
+                ? "Update"
+                : isReply
+                  ? "Post Reply"
+                  : "Submit Review"}
           </button>
         </div>
       </div>
@@ -276,17 +275,17 @@ const ReviewItem = ({
     try {
       await onLikeDislike(review.id, isLike);
       setUserReaction(isLike ? 'like' : 'dislike');
-      
-      setMessage({ 
-        text: isLike ? "Liked successfully!" : "Disliked successfully!", 
-        type: "success" 
+
+      setMessage({
+        text: isLike ? "Liked successfully!" : "Disliked successfully!",
+        type: "success"
       });
-      
+
       setTimeout(() => setMessage({ text: "", type: "" }), 3000);
     } catch (error) {
-      setMessage({ 
-        text: "Failed to update reaction", 
-        type: "error" 
+      setMessage({
+        text: "Failed to update reaction",
+        type: "error"
       });
     }
   };
@@ -304,8 +303,8 @@ const ReviewItem = ({
 
   const displayUserName =
     review.user_name &&
-    review.user_name.trim() !== '' &&
-    review.user_name.toLowerCase() !== 'anonymous'
+      review.user_name.trim() !== '' &&
+      review.user_name.toLowerCase() !== 'anonymous'
       ? review.user_name
       : 'Guest User';
 
@@ -348,12 +347,12 @@ const ReviewItem = ({
             <div className="text-muted small">
               {review.created_at
                 ? new Date(review.created_at).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit'
-                  })
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                  hour: '2-digit',
+                  minute: '2-digit'
+                })
                 : 'No date'}
             </div>
           </div>
@@ -365,11 +364,10 @@ const ReviewItem = ({
             <div className="d-flex align-items-center gap-3">
               <button
                 onClick={() => handleLikeDislikeClick(true)}
-                className={`btn btn-sm d-flex align-items-center gap-1 ${
-                  userReaction === 'like'
+                className={`btn btn-sm d-flex align-items-center gap-1 ${userReaction === 'like'
                     ? 'btn-success'
                     : 'btn-outline-success'
-                }`}
+                  }`}
                 title="Like this review"
               >
                 <span>👍</span>
@@ -378,11 +376,10 @@ const ReviewItem = ({
 
               <button
                 onClick={() => handleLikeDislikeClick(false)}
-                className={`btn btn-sm d-flex align-items-center gap-1 ${
-                  userReaction === 'dislike'
+                className={`btn btn-sm d-flex align-items-center gap-1 ${userReaction === 'dislike'
                     ? 'btn-danger'
                     : 'btn-outline-danger'
-                }`}
+                  }`}
                 title="Dislike this review"
               >
                 <span>👎</span>
@@ -469,11 +466,11 @@ const ProductReviewSystem = ({ productId, refreshTrigger }) => {
   // Fetch reviews
   const fetchReviews = async (page = 1) => {
     if (!productId) return;
-    
+
     setLoading(true);
     try {
       const response = await axios.get(
-        `https://thecaratcasa.com/api/api/reviews?product_id=${productId}&page=${page}`
+        `https://dilsejewels.com/api/api/reviews?product_id=${productId}&page=${page}`
       );
 
       if (response.data.success) {
@@ -500,7 +497,7 @@ const ProductReviewSystem = ({ productId, refreshTrigger }) => {
   const calculateStatsFromReviews = (reviewsData) => {
     const totalReviews = reviewsData.length;
     const averageRating = reviewsData.reduce((sum, review) => sum + parseFloat(review.rating || 0), 0) / totalReviews;
-    
+
     const ratingDistribution = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
     reviewsData.forEach(review => {
       const rating = Math.round(parseFloat(review.rating));
@@ -519,10 +516,10 @@ const ProductReviewSystem = ({ productId, refreshTrigger }) => {
   // Fetch review stats
   const fetchReviewStats = async () => {
     if (!productId) return;
-    
+
     try {
       const response = await axios.get(
-        `https://thecaratcasa.com/api/api/reviews/stats?product_id=${productId}`
+        `https://dilsejewels.com/api/api/reviews/stats?product_id=${productId}`
       );
 
       if (response.data.success) {
@@ -554,7 +551,7 @@ const ProductReviewSystem = ({ productId, refreshTrigger }) => {
 
     try {
       const response = await axios.post(
-        `https://thecaratcasa.com/api/api/reviews/${reviewId}/like`, 
+        `https://dilsejewels.com/api/api/reviews/${reviewId}/like`,
         {
           is_like: isLike,
           user_id: userId || null,
@@ -564,16 +561,16 @@ const ProductReviewSystem = ({ productId, refreshTrigger }) => {
 
       if (response.data.success) {
         // Update the specific review with new counts
-        setReviews(prevReviews => 
+        setReviews(prevReviews =>
           prevReviews.map(review => {
             if (review.id === reviewId) {
               // Check if the API returns the updated counts
-              const updatedLikes = response.data.likes_count !== undefined 
-                ? response.data.likes_count 
+              const updatedLikes = response.data.likes_count !== undefined
+                ? response.data.likes_count
                 : (isLike ? (review.likes_count || 0) + 1 : (review.likes_count || 0));
-              
-              const updatedDislikes = response.data.dislikes_count !== undefined 
-                ? response.data.dislikes_count 
+
+              const updatedDislikes = response.data.dislikes_count !== undefined
+                ? response.data.dislikes_count
                 : (!isLike ? (review.dislikes_count || 0) + 1 : (review.dislikes_count || 0));
 
               return {
@@ -589,7 +586,7 @@ const ProductReviewSystem = ({ productId, refreshTrigger }) => {
     } catch (error) {
       console.error('Error updating reaction:', error);
       // Fallback: Update locally if API fails
-      setReviews(prevReviews => 
+      setReviews(prevReviews =>
         prevReviews.map(review => {
           if (review.id === reviewId) {
             if (isLike) {
@@ -659,7 +656,7 @@ const ProductReviewSystem = ({ productId, refreshTrigger }) => {
 
       if (shouldRecordShare) {
         const response = await axios.post(
-          `https://thecaratcasa.com/api/api/reviews/${reviewId}/share`, 
+          `https://dilsejewels.com/api/api/reviews/${reviewId}/share`,
           {
             platform,
             user_id: userId || null,
@@ -668,13 +665,13 @@ const ProductReviewSystem = ({ productId, refreshTrigger }) => {
         );
 
         if (response.data.success) {
-          setReviews(prevReviews => 
-            prevReviews.map(review => 
-              review.id === reviewId 
-                ? { 
-                    ...review, 
-                    shares_count: response.data.shares_count || (review.shares_count || 0) + 1 
-                  } 
+          setReviews(prevReviews =>
+            prevReviews.map(review =>
+              review.id === reviewId
+                ? {
+                  ...review,
+                  shares_count: response.data.shares_count || (review.shares_count || 0) + 1
+                }
                 : review
             )
           );
@@ -692,7 +689,7 @@ const ProductReviewSystem = ({ productId, refreshTrigger }) => {
   // Rating distribution bar
   const RatingBar = ({ rating, count, total }) => {
     const percentage = total > 0 ? (count / total) * 100 : 0;
-    
+
     return (
       <div className="d-flex align-items-center mb-2">
         <span className="small text-muted me-2" style={{ width: '20px' }}>
@@ -723,7 +720,7 @@ const ProductReviewSystem = ({ productId, refreshTrigger }) => {
           <div className="card border-0 shadow-sm">
             <div className="card-body">
               <h5 className="card-title">Customer Reviews</h5>
-              
+
               {/* Average Rating */}
               <div className="text-center mb-4">
                 <div className="display-4 text-warning fw-bold">
@@ -736,11 +733,10 @@ const ProductReviewSystem = ({ productId, refreshTrigger }) => {
                   {Array.from({ length: 5 }, (_, index) => (
                     <span
                       key={index}
-                      className={`text-warning ${
-                        index < Math.floor(stats.average_rating) 
-                          ? 'opacity-100' 
+                      className={`text-warning ${index < Math.floor(stats.average_rating)
+                          ? 'opacity-100'
                           : 'opacity-30'
-                      }`}
+                        }`}
                     >
                       ★
                     </span>
@@ -819,7 +815,7 @@ const ProductReviewSystem = ({ productId, refreshTrigger }) => {
                   <h5 className="mb-0">
                     Customer Reviews ({stats.total_reviews || 0})
                   </h5>
-                  
+
                   {/* Sort Options */}
                   <div className="dropdown">
                     <button
@@ -857,11 +853,11 @@ const ProductReviewSystem = ({ productId, refreshTrigger }) => {
                     >
                       Previous
                     </button>
-                    
+
                     <span className="text-muted">
                       Page {pagination.current_page} of {pagination.last_page}
                     </span>
-                    
+
                     <button
                       onClick={() => fetchReviews(pagination.current_page + 1)}
                       disabled={pagination.current_page === pagination.last_page}

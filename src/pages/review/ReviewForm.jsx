@@ -92,7 +92,7 @@ const ReviewForm = ({
 
       // 🟢 Send to Backend API
       const response = await axios.post(
-        "https://thecaratcasa.com/api/api/reviews",
+        "https://dilsejewels.com/api/api/reviews",
         submitData
       );
 
@@ -116,7 +116,7 @@ const ReviewForm = ({
       } else {
         alert(
           "Failed to submit review: " +
-            (response.data.message || "Unknown error")
+          (response.data.message || "Unknown error")
         );
       }
     } catch (error) {
@@ -149,9 +149,8 @@ const ReviewForm = ({
             key={star}
             type="button"
             onClick={() => onChange(star)}
-            className={`btn btn-star ${
-              star <= rating ? "btn-warning" : "btn-outline-warning"
-            } p-0`}
+            className={`btn btn-star ${star <= rating ? "btn-warning" : "btn-outline-warning"
+              } p-0`}
             style={{ width: "40px", height: "40px", fontSize: "1.5rem" }}
             disabled={submitting}
           >
@@ -238,10 +237,10 @@ const ReviewForm = ({
             {submitting
               ? "Submitting..."
               : isEdit
-              ? "Update"
-              : isReply
-              ? "Post Reply"
-              : "Submit Review"}
+                ? "Update"
+                : isReply
+                  ? "Post Reply"
+                  : "Submit Review"}
           </button>
         </div>
       </div>

@@ -36,13 +36,13 @@ const blogs = [
   },
   {
     logo: "/footerpress/Yahoo_Life_480x.avif",
-    title: "The Best Luxury Jewelry For Every Sign From The Caratcasa",
+    title: "The Best Luxury Jewelry For Every Sign From The Dilse Jewels",
     date: "March 2025",
     link: "https://creators.yahoo.com/lifestyle/story/the-best-luxury-jewelry-for-every-sign-from-with-clarity-160123041.html"
   },
   {
     logo: "/footerpress/jck_in_svg_480x.svg",
-    title: "JCK Special Report- Lab Grown Diamonds - The Caratcasa's Timely New Brooch Collection",
+    title: "JCK Special Report- Lab Grown Diamonds - The Dilse Jewels's Timely New Brooch Collection",
     date: "March 2025",
     link: "https://www.jckonline.com/editorial-article/with-clarity-brooch-collection/"
   },
@@ -450,13 +450,13 @@ const blogs = [
   },
   {
     logo: "/footerpress/wwd_480x.avif",
-    title: "EXCLUSIVE: Jewelry Label The Caratcasa Names Marie Audier as First CEO",
+    title: "EXCLUSIVE: Jewelry Label The Dilse Jewels Names Marie Audier as First CEO",
     date: "SEPTEMBER 2024",
     link: "https://wwd.com/business-news/human-resources/with-clarity-marie-audier-ceo-1236660737/"
   },
   {
     logo: "/footerpress/wwd_480x.avif",
-    title: "Molly Sims Recalls the 'Heavy' Burden of Her $30 Million Diamond-encrusted Swimsuit for Sports Illustrated on 'Watch What Happens Live",
+    title: "Molly Sims Recalls the 'Heavy' Burden of Her ₹30 Million Diamond-encrusted Swimsuit for Sports Illustrated on 'Watch What Happens Live",
     date: "SEPTEMBER 2024",
     link: "https://wwd.com/pop-culture/celebrity-news/molly-sims-30-million-dollar-bikini-wwhl-interview-1236629537/"
   },
@@ -486,7 +486,7 @@ const blogs = [
   },
   {
     logo: "/footerpress/Vesture_Debate_9ef6066a-6bd9-4faa-8255-0d3ccd585fc6_480x.avif",
-    title: "The Bouquet Collection From The Caratcasa",
+    title: "The Bouquet Collection From The Dilse Jewels",
     date: "AUGUST 2024",
     link: "https://www.vesturedebate.com/blogs/with-clarity-the-bouquet-collection"
   },
@@ -558,7 +558,7 @@ const blogs = [
   },
   {
     logo: "/footerpress/Emmaline_345x.avif",
-    title: "Uncover The Reserve: The Caratcasa Limited Collection of Engagement Rings and High Jewelry",
+    title: "Uncover The Reserve: The Dilse Jewels Limited Collection of Engagement Rings and High Jewelry",
     date: "JULY 2024",
     link: "https://emmalinebride.com/engagement/reserve-engagement-rings/"
   },
@@ -612,7 +612,7 @@ const blogs = [
   },
   {
     logo: "/footerpress/Glamour_6a7ffd0a-1e2e-445e-9381-b77c5c8f0e6d_345x.webp",
-    title: "Met Gala 2024 Red Carpet Looks featuring The Caratcasa",
+    title: "Met Gala 2024 Red Carpet Looks featuring The Dilse Jewels",
     date: "MAY 2024",
     link: "https://www.glamour.com/gallery/met-gala-2024-red-carpet-fashion-outfits-and-looks"
   },
@@ -624,13 +624,13 @@ const blogs = [
   },
   {
     logo: "/footerpress/5_cosmopolitan_1_345x.avif",
-    title: "Tony Nominee Maleah Joi Moon in The Caratcasa at The Met Gala",
+    title: "Tony Nominee Maleah Joi Moon in The Dilse Jewels at The Met Gala",
     date: "MAY 2024",
     link: "https://www.cosmopolitan.com/entertainment/celebs/a60702852/maleah-joi-moon-met-gala-2024/"
   },
   {
     logo: "/footerpress/12_MiamiLiving_345x.avif",
-    title: "Introducing The Reserve: The Caratcasa's High Jewelry Collection",
+    title: "Introducing The Reserve: The Dilse Jewels's High Jewelry Collection",
     date: "MAY 2024",
     link: "https://www.google.com/url?q=https://www.miamilivingmagazine.com/post/immerse-yourself-into-the-world-of-the-reserve-with-clarity-introduces-high-jewelry-collection&sa=D&source=docs&ust=1715633139591484&usg=AOvVaw0F_134wQS7797jIZ35Ym68"
   },
@@ -654,7 +654,7 @@ const blogs = [
   },
   {
     logo: "/footerpress/Website_Daily_Logo_3D_480x.avif",
-    title: "The Caratcasa's latest collection spotlight: The Reserve",
+    title: "The Dilse Jewels's latest collection spotlight: The Reserve",
     date: "April 2024",
     link: "https://fashionweekdaily.com/victorias-secret-kicks-off-summer-with-gigi-emrata-more-rebeca-minkoff-joins-rhony-plus-jean-paul-gaultiers-new-collaboration/"
   },
@@ -666,7 +666,7 @@ const blogs = [
   },
   {
     logo: "/footerpress/wedding_sparrow_2_345x.avif",
-    title: "What to expect from an Engagement Ring Appointment at The Caratcasa",
+    title: "What to expect from an Engagement Ring Appointment at The Dilse Jewels",
     date: "April 2024",
     link: "https://weddingsparrow.com/article/what-to-expect-from-an-engagement-ring-appointment-at-with-clarity"
   },
@@ -684,37 +684,37 @@ const blogs = [
   },
   {
     logo: "/footerpress/Just_Jared_345x.avif",
-    title: "Vy Le dressed in head to toe The Caratcasa at The Sympathizer Premiere",
+    title: "Vy Le dressed in head to toe The Dilse Jewels at The Sympathizer Premiere",
     date: "April 2024",
     link: "https://www.justjared.com/2024/04/09/robert-downey-jr-wears-sheer-shirt-to-the-sympathizer-premiere-alongside-sandra-oh/"
   },
   {
     logo: "/footerpress/national_jewelry_345x.avif",
-    title: "The Caratcasa Partners With NFL on Wedding Bands",
+    title: "The Dilse Jewels Partners With NFL on Wedding Bands",
     date: "April 2024",
     link: "https://nationaljeweler.com/articles/12805-with-clarity-partners-with-nfl-on-wedding-bands"
   },
   {
     logo: "/footerpress/wwd_345x.avif",
-    title: "NFL Releases Wedding Bands Collection With Fine JewelryLabel The Caratcasa",
+    title: "NFL Releases Wedding Bands Collection With Fine JewelryLabel The Dilse Jewels",
     date: "April 2024",
     link: "https://wwd.com/menswear-news/mens-accessories/nfl-wedding-bands-collection-with-clarity-1236298507/"
   },
   {
     logo: "/footerpress/southernBride_LOGO_345x.svg",
-    title: "Vintage Inspired Engagement Rings from The Caratcasa",
+    title: "Vintage Inspired Engagement Rings from The Dilse Jewels",
     date: "April 2024",
     link: "https://www.southernbride.com/blog/fashion/with-clarity-vintage-inspired-engagement-rings/"
   },
   {
     logo: "/footerpress/forbes-logo_345x.avif",
-    title: "Fine Jewelry Brand, The Caratcasa, Launches NYC Storefront",
+    title: "Fine Jewelry Brand, The Dilse Jewels, Launches NYC Storefront",
     date: "April 2024",
     link: "https://www.forbes.com/sites/brinsnelling/2024/04/01/fine-jewelry-brand-with-clarity-launches-nyc-storefront/?sh=364c24895c74"
   },
   {
     logo: "/footerpress/jck_in_svg_345x.svg",
-    title: "The Caratcasa Expands to In-Person Shopping With NYC Boutique",
+    title: "The Dilse Jewels Expands to In-Person Shopping With NYC Boutique",
     date: "April 2024",
     link: "https://www.jckonline.com/editorial-article/with-clarity-soho-boutique/"
   },
@@ -726,7 +726,7 @@ const blogs = [
   },
   {
     logo: "/footerpress/Bridal_Guide_345x.avif",
-    title: "Sustainable Rings We Love from The Caratcasa",
+    title: "Sustainable Rings We Love from The Dilse Jewels",
     date: "March 2024",
     link: "https://www.bridalguide.com/dresses/complete-your-bridal-style/wedding-jewelry-accessories/sustainable-engagement-rings-we-love"
   },
@@ -756,25 +756,25 @@ const blogs = [
   },
   {
     logo: "/footerpress/forbesVetted_LOGO_480x.svg",
-    title: "The Best Lab Grown Diamonds featuring The Caratcasa",
+    title: "The Best Lab Grown Diamonds featuring The Dilse Jewels",
     date: "March 2024",
     link: "https://www.forbes.com/sites/forbes-personal-shopper/article/best-lab-grown-diamonds/?sh=71002846a7bf"
   },
   {
     logo: "/footerpress/harpers-bazaar-vector-logo_345x.avif",
-    title: "Red Carpet Looks in The Caratcasa",
+    title: "Red Carpet Looks in The Dilse Jewels",
     date: "February 2024",
     link: "https://www.harpersbazaar.com/celebrity/red-carpet-dresses/g46946241/red-carpet-2024-sag-awards/?slide=76"
   },
   {
     logo: "/footerpress/Just_Jared_345x.avif",
-    title: "Kelly Curran seen in The Caratcasa at the 2024 SAG Awards",
+    title: "Kelly Curran seen in The Dilse Jewels at the 2024 SAG Awards",
     date: "February 2024",
     link: "https://www.justjared.com/2024/02/24/sag-awards-2024-red-carpet-photos-see-every-celeb-who-attended-the-event/"
   },
   {
     logo: "/footerpress/wedding_sparrow_2_345x.avif",
-    title: "Our Ten Favorite Sets of Studs from The Caratcasa",
+    title: "Our Ten Favorite Sets of Studs from The Dilse Jewels",
     date: "February 2024",
     link: "https://weddingsparrow.com/article/sparkle-sustainably-top-10-lab-grown-diamond-studs-that-redefine-elegance"
   },
@@ -810,7 +810,7 @@ const blogs = [
   },
   {
     logo: "/footerpress/People_b26b1406-28d9-47e9-90ab-e94ce0d72b99_480x.webp",
-    title: "People Exclusive: Keltie Knight debuts new The Caratcasa Ring at the 2024 Grammys",
+    title: "People Exclusive: Keltie Knight debuts new The Dilse Jewels Ring at the 2024 Grammys",
     date: "February 2024",
     link: "https://people.com/grammys-2024-keltie-knight-shows-off-replacement-ring-after-losing-diamond-on-red-carpet-photos-8558543"
   },
@@ -870,7 +870,7 @@ const blogs = [
   },
   {
     logo: "/footerpress/5_cosmopolitan_1_480x.avif",
-    title: "46 Personalized Valentine's Day Gifts: The Caratcasa Nameplate Necklaces",
+    title: "46 Personalized Valentine's Day Gifts: The Dilse Jewels Nameplate Necklaces",
     date: "JANUARY 2024",
     link: "https://www.cosmopolitan.com/style-beauty/fashion/g38573545/personalized-valentines-day-gifts/"
   },
@@ -936,7 +936,7 @@ const blogs = [
   },
   {
     logo: "/footerpress/Martha_Stewart_06a5c6c5-3548-4702-b4c3-37df2f584328_480x.svg",
-    title: "All about The Caratcasa: Who We Are",
+    title: "All about The Dilse Jewels: Who We Are",
     date: "November 2023",
     link: "https://www.weddingchicks.com/engagement-ideas-rings/trust-with-clarity/"
   },
@@ -972,7 +972,7 @@ const blogs = [
   },
   {
     logo: "/footerpress/sheFind_LOGO_345x.svg",
-    title: "The Caratcasa Has The Largest Selection of Lab Diamonds And Some of Our Engagement Rings and Earrings Made With Them.",
+    title: "The Dilse Jewels Has The Largest Selection of Lab Diamonds And Some of Our Engagement Rings and Earrings Made With Them.",
     date: "January 2023",
     link: "https://www.shefinds.com/with-clarity-lab-grown-diamonds/"
   },
@@ -1008,7 +1008,7 @@ const blogs = [
   },
   {
     logo: "/footerpress/forbes-logo_480x.avif",
-    title: "The Caratcasa is ranked as the #1 Best Overall Place to Buy Engagement Rings Online.",
+    title: "The Dilse Jewels is ranked as the #1 Best Overall Place to Buy Engagement Rings Online.",
     date: "October 2022",
     link: "https://www.forbes.com/sites/forbes-personal-shopper/article/best-places-to-buy-engagement-rings/?sh=5d5d18fc3319"
   },
@@ -1032,7 +1032,7 @@ const blogs = [
   },
   {
     logo: "/footerpress/BI_new_345x.avif",
-    title: "The Caratcasa featured in The Lead's top 50 breakout brands in the fashion, beauty and lifestyle space.",
+    title: "The Dilse Jewels featured in The Lead's top 50 breakout brands in the fashion, beauty and lifestyle space.",
     date: "March 2022",
     link: "https://www.businessinsider.com/50-dtc-breakout-brands-in-fashion-beauty-lifestyle-the-lead-2022?IR=T"
   },
@@ -1044,13 +1044,13 @@ const blogs = [
   },
   {
     logo: "/footerpress/nice_ice-logo_345x.avif",
-    title: "The Caratcasa Diamond Reviews 2021 Discover Spectacular Sparkle",
+    title: "The Dilse Jewels Diamond Reviews 2021 Discover Spectacular Sparkle",
     date: "March 2021",
     link: "https://niceice.com/online-diamond-vendors/with-clarity-diamond-reviews-custom-engagement-rings/"
   },
   {
     logo: "/footerpress/forbes-logo_480x.avif",
-    title: "Meet The Caratcasa, The Online Jewelry Brand That Let's You Try On Before You Buy",
+    title: "Meet The Dilse Jewels, The Online Jewelry Brand That Let's You Try On Before You Buy",
     date: "March 2021",
     link: "https://www.forbes.com/sites/tanyaakim/2021/03/01/meet-with-clarity-the-online-jewelry-brand-that-lets-you-try-on-before-you-buy/?sh=573b2eec30fc"
   },
@@ -1152,19 +1152,19 @@ const blogs = [
   },
   {
     logo: "/footerpress/medium_CP_BTSS_Podcast_cover_345x.avif",
-    title: "Sharing the story of working together and building The Caratcasa.",
+    title: "Sharing the story of working together and building The Dilse Jewels.",
     date: "April 2020",
     link: "https://betweenthespreadsheets.transistor.fm/episodes/slisha-kankariya-anubh-shah-from-with-clairty"
   },
   {
     logo: "/footerpress/Financial-Times-Logo_new_345x.avif",
-    title: "The Caratcasa ranks at #13 fastest growing company in 2020.",
+    title: "The Dilse Jewels ranks at #13 fastest growing company in 2020.",
     date: "April 2020",
     link: "https://www.ft.com/americas-fastest-growing-companies-2020"
   },
   {
     logo: "/footerpress/Hustlr_new_345x.avif",
-    title: "Slisha & Anubh from The Caratcasa talk about scaling and growing fast.",
+    title: "Slisha & Anubh from The Dilse Jewels talk about scaling and growing fast.",
     date: "March 2020",
     link: "https://www.hustlr.com/podcast/slisha-and-anub-from-with-clarity-talks/"
   },
@@ -1182,13 +1182,13 @@ const blogs = [
   },
   {
     logo: "/footerpress/Digitail_360-logo_345x.avif",
-    title: "The Caratcasa's unique approach drives massive growth",
+    title: "The Dilse Jewels's unique approach drives massive growth",
     date: "November 2019",
     link: "https://www.digitalcommerce360.com/2019/11/04/with-claritys-unique-approach-drives-massive-growth/"
   },
   {
     logo: "/footerpress/CNYB-logo_345x.webp",
-    title: "The Caratcasa is ranked as the 3rd fastest growing company in New York on Crain's Fast 50 list.",
+    title: "The Dilse Jewels is ranked as the 3rd fastest growing company in Surat on Crain's Fast 50 list.",
     date: "November 2019",
     link: "https://www.crainsnewyork.com/awards/2019-fast-50"
   },
@@ -1200,7 +1200,7 @@ const blogs = [
   },
   {
     logo: "/footerpress/Digiday-logo_345x.webp",
-    title: "How The Caratcasa and other brands are 'on a mission to DTC-ify engagement and wedding rings.'",
+    title: "How The Dilse Jewels and other brands are 'on a mission to DTC-ify engagement and wedding rings.'",
     date: "November 2019",
     link: "https://digiday.com/marketing/geared-millennials-lifestyle-engagement-wedding-rings-gone-dtc/"
   },
@@ -1236,13 +1236,13 @@ const blogs = [
   },
   {
     logo: "/footerpress/inc-image_345x.avif",
-    title: "The Caratcasa was named #18 on the INC 5000 list of fastest growing companies in the USA.",
+    title: "The Dilse Jewels was named #18 on the INC 5000 list of fastest growing companies in The India.",
     date: "August 2019",
     link: "https://www.inc.com/profile/with-clarity"
   },
   {
     logo: "/footerpress/forbes_1_345x.webp",
-    title: "The Caratcasa: The Warby Parker Of Engagement Rings",
+    title: "The Dilse Jewels: The Warby Parker Of Engagement Rings",
     date: "July 2019",
     link: "https://www.forbes.com/sites/joresablount/2019/07/07/with-clarity-the-warby-parker-of-engagement-rings/?sh=7350f97a68e4"
   },
@@ -1254,7 +1254,7 @@ const blogs = [
   },
   {
     logo: "/footerpress/createthefuture_345x.avif",
-    title: "The Caratcasa Offers Elegant Custom-Made Engagement Rings",
+    title: "The Dilse Jewels Offers Elegant Custom-Made Engagement Rings",
     date: "May 2019",
     link: "https://www.trendhunter.com/trends/custommade-engagement-ring"
   },
@@ -1296,7 +1296,7 @@ const blogs = [
   },
   {
     logo: "/footerpress/StarTribune_345x.avif",
-    title: "The Caratcasa offers a quick way to try rings at home comfortably before you make your purchase.",
+    title: "The Dilse Jewels offers a quick way to try rings at home comfortably before you make your purchase.",
     date: "September 2017",
     link: "https://www.startribune.com/want-to-try-before-you-buy-these-online-retailers-let-you/442904543/"
   },
@@ -1314,7 +1314,7 @@ const blogs = [
   },
   {
     logo: "/footerpress/Credit_345x.avif",
-    title: "Every piece is handcrafted with care in their New York City studio, so you can be sure that you're only getting the highest quality.",
+    title: "Every piece is handcrafted with care in their Surat City studio, so you can be sure that you're only getting the highest quality.",
     date: "May 2017",
     link: "https://www.creditdonkey.com/buy-engagement-ring.html"
   },
@@ -1326,7 +1326,7 @@ const blogs = [
   },
   {
     logo: "/footerpress/Tc_345x.png",
-    title: "The Caratcasa is a venture backed company growing rapidly.",
+    title: "The Dilse Jewels is a venture backed company growing rapidly.",
     date: "June 2016",
     link: "https://techcrunch.com/2016/06/08/underrepresented-founders-apply-for-include-office-hours-with-pejman-mar-and-ffvc/"
   },
@@ -1338,7 +1338,7 @@ const blogs = [
   },
   {
     logo: "/footerpress/June_345x.avif",
-    title: "Our gorgeous engagement ring and wedding bands featured at a local New York wedding.",
+    title: "Our gorgeous engagement ring and wedding bands featured at a local Surat wedding.",
     date: "April 2016",
     link: "https://junebugweddings.com/wedding-blog/rainy-rustic-catskills-wedding-handsome-hollow/"
   },
@@ -1356,49 +1356,49 @@ const blogs = [
   },
   {
     logo: "/footerpress/Tech-co_345x.avif",
-    title: "The Caratcasa is the only online jeweler that provides all of the benefits of in-store shopping, at home.",
+    title: "The Dilse Jewels is the only online jeweler that provides all of the benefits of in-store shopping, at home.",
     date: "October 2015",
     link: "https://tech.co/news"
   },
   {
     logo: "/footerpress/Popsugar_345x.webp",
-    title: "The Caratcasa shares how to showcase your engagement ring once he's popped question.",
+    title: "The Dilse Jewels shares how to showcase your engagement ring once he's popped question.",
     date: "August 2015",
     link: "https://www.popsugar.com/love/photo-gallery/38142804/image/38142831/8-Dont-ZoomYoull-compromise-photo-quality-using-zoom"
   },
   {
     logo: "/footerpress/AW_345x.avif",
-    title: "The Caratcasa eliminates the uncertainty of shopping online with it's at Home Preview for engagement rings.",
+    title: "The Dilse Jewels eliminates the uncertainty of shopping online with it's at Home Preview for engagement rings.",
     date: "June 2015",
     link: "https://www.alleywatch.com/2015/06/here-are-the-latest-startups-to-make-the-er-accelerator-top-10-list/"
   },
   {
     logo: "/footerpress/WH_345x.avif",
-    title: "The Caratcasa is featured as a top bolg for wedding and engagement ring advice.",
+    title: "The Dilse Jewels is featured as a top bolg for wedding and engagement ring advice.",
     date: "June 2015",
     link: "https://wallethub.com/blog/best-wedding-blog/13814?user=fourmine"
   },
   {
     logo: "/footerpress/B_345x.webp",
-    title: "The Caratcasa offers expertise on the entire engagement ring process from start to finish.",
+    title: "The Dilse Jewels offers expertise on the entire engagement ring process from start to finish.",
     date: "May 2015",
     link: "https://www.bustle.com/articles/81480-is-he-going-to-propose-3-signs-you-and-your-partner-will-get-engaged-because-they"
   },
   {
     logo: "/footerpress/E_345x.webp",
-    title: "Ecommerce is the new way to shop and work. The Caratcasa brings technology to the forefront in every experience.",
+    title: "Ecommerce is the new way to shop and work. The Dilse Jewels brings technology to the forefront in every experience.",
     date: "March 2015",
     link: "https://www.entrepreneur.com/living/the-best-places-to-work-arent-in-the-office/243615"
   },
   {
     logo: "/footerpress/BI_new_2b9200fc-dbf8-4adc-8941-ba0b7df45a7a_345x.avif",
-    title: "The Caratcasa shares how to save on your diamond when shopping online.",
+    title: "The Dilse Jewels shares how to save on your diamond when shopping online.",
     date: "February 2015",
     link: "https://www.businessinsider.com/12-money-saving-tricks-to-know-before-buying-an-engagement-ring-2015-2?IR=T"
   },
   {
     logo: "/footerpress/Time_345x.webp",
-    title: "The Caratcasa shares our tips on how to obtain the most value when purchasing a diamond ring.",
+    title: "The Dilse Jewels shares our tips on how to obtain the most value when purchasing a diamond ring.",
     date: "February 2015",
     link: "https://www.cnet.com/personal-finance/banking/"
   },
@@ -1418,10 +1418,10 @@ const Press = () => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     checkMobile();
     window.addEventListener('resize', checkMobile);
-    
+
     return () => {
       window.removeEventListener('resize', checkMobile);
     };
@@ -1433,7 +1433,7 @@ const Press = () => {
       link: "/press-coverage"
     },
     {
-      name: "FACT SHEET", 
+      name: "FACT SHEET",
       link: "/fact-sheet"
     },
     {
@@ -1561,7 +1561,7 @@ const Press = () => {
               <h2 style={styles.heading}>In the news</h2>
               <p style={styles.subheading}>
                 We're getting noticed! Check out what others have to say <br style={{ display: isMobile ? "none" : "block" }} />
-                about The Caratcasa.
+                about The Dilse Jewels.
               </p>
             </div>
 
@@ -1606,7 +1606,7 @@ const Press = () => {
                 onClick={() => setOpen(open === index ? null : index)}
               >
                 <div className="d-flex justify-content-between align-items-center">
-                  <Link 
+                  <Link
                     to={item.link}
                     style={styles.menuItem}
                     onClick={(e) => e.stopPropagation()}
@@ -1618,7 +1618,7 @@ const Press = () => {
 
                 <Collapse in={open === index}>
                   <div style={{ marginTop: "0.5rem", color: "#6c757d" }}>
-                    <Link 
+                    <Link
                       to={item.link}
                       style={{ color: "#6c757d", textDecoration: "none" }}
                     >
@@ -1635,11 +1635,11 @@ const Press = () => {
           <div className="row">
             {blogs.map((blog, index) => (
               <div key={index} className="col-12">
-                <Link 
-                  to={blog.link} 
+                <Link
+                  to={blog.link}
                   style={styles.pressLink}
                 >
-                  <div 
+                  <div
                     style={styles.pressItem}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.transform = styles.pressItemHover.transform;
@@ -1651,9 +1651,9 @@ const Press = () => {
                     }}
                   >
                     <div style={styles.pressLogo}>
-                      <img 
-                        src={blog.logo} 
-                        alt={blog.title} 
+                      <img
+                        src={blog.logo}
+                        alt={blog.title}
                         style={styles.pressLogoImg}
                         onError={(e) => {
                           e.target.src = "/fallback-logo.png";
@@ -1673,7 +1673,7 @@ const Press = () => {
         </div>
       </div>
 
-      
+
     </>
   );
 };

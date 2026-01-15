@@ -51,10 +51,10 @@ const WhiteClarityNav = () => {
 
   const dynamicJewelrySubmenu = !loadingJewelry
     ? mainCategories.map((main) => ({
-        ...main, // Keep the full main category object
-        title: main.name,
-        items: categoryMap[main.name] || [], // Store full sub-object array
-      }))
+      ...main, // Keep the full main category object
+      title: main.name,
+      items: categoryMap[main.name] || [], // Store full sub-object array
+    }))
     : [];
 
   const jewelryCollectionsSubmenu = {
@@ -77,9 +77,9 @@ const WhiteClarityNav = () => {
     {
       title: "PRICE",
       items: [
-        { label: "Under $500", slug: "gifts-under-500" },
+        { label: "Under ₹500", slug: "gifts-under-500" },
         { label: "Under $1000", slug: "gifts-under-1000" },
-        { label: "Under $1500", slug: "gifts-under-1500" },
+        { label: "Under ₹1500", slug: "gifts-under-1500" },
       ],
     },
     {
@@ -97,7 +97,7 @@ const WhiteClarityNav = () => {
         { label: "Gift Sets", slug: "jewelry-gift-sets" },
         { label: "Ready to Ship", slug: "ready-to-ship-diamond-jewelry-gifts" },
         { label: "For Him", slug: "jewelry-gifts-for-him" },
-        { label: "Gift Cards", slug: "caratcasa-gift-card" },
+        { label: "Gift Cards", slug: "Dilse Jewels-gift-card" },
       ],
     },
   ];
@@ -166,7 +166,7 @@ const WhiteClarityNav = () => {
           items: [
             "Cassatt",
             "Windsor",
-            "W Signature",
+            "Signature Jewellery",
             "Fully Custom",
             "New Arrivals",
             "Ready To Ship",
@@ -221,7 +221,7 @@ const WhiteClarityNav = () => {
           items: ["Explore Lab Diamonds", "Explore Colored Lab Diamonds"],
         },
         { title: "Fall Sale", items: [] },
-        { title: "Clarity Plus™ Diamonds", items: [] },
+        { title: "Dilse Jewels Diamonds", items: [] },
         { title: "Natural Diamonds", items: [] },
         { title: "Create Your Own Ring", items: [] },
         {
@@ -236,11 +236,11 @@ const WhiteClarityNav = () => {
         {
           title: "Price",
           items: [
-            "Under $2000",
-            "$2000 - $4000",
-            "$4000 - $6000",
-            "$6000 - $8000",
-            "$8000+",
+            "Under ₹2000",
+            "₹2000 - ₹4000",
+            "₹4000 - ₹6000",
+            "₹6000 - ₹8000",
+            "₹8000+",
           ],
         },
         {
@@ -270,7 +270,7 @@ const WhiteClarityNav = () => {
           title: "Art Deco",
           items: [
             "Wave",
-            "W Signature",
+            "Signature Jewellery",
             "Fully Custom",
             "New Arrivals",
             "Best Sellers",
@@ -513,7 +513,7 @@ const WhiteClarityNav = () => {
     const staticCollectionRoutes = {
       luxe: "/luxe",
       "the reserve": "/reserve",
-      "w signature": "/signature",
+      "Signature Jewellery": "/signature",
     };
 
     setSidebarOpen(false);
@@ -543,19 +543,19 @@ const WhiteClarityNav = () => {
     // --- Handle Price Filters ---
     if (title === "Price") {
       switch (itemString) {
-        case "Under $2000":
+        case "Under ₹2000":
           handleMobilePriceFilter(0, 2000);
           break;
-        case "$2000 - $4000":
+        case "₹2000 - ₹4000":
           handleMobilePriceFilter(2000, 4000);
           break;
-        case "$4000 - $6000":
+        case "₹4000 - ₹6000":
           handleMobilePriceFilter(4000, 6000);
           break;
-        case "$6000 - $8000":
+        case "₹6000 - ₹8000":
           handleMobilePriceFilter(6000, 8000);
           break;
-        case "$8000+":
+        case "₹8000+":
           handleMobilePriceFilter(8000, 10000);
           break; // Matches desktop logic
         default:
@@ -622,7 +622,7 @@ const WhiteClarityNav = () => {
 
   // collection
   const staticCollectionRoutes = {
-    "w signature": "/signature",
+    "Signature Jewellery": "/signature",
   };
 
   // --- Add this new handler for the static "Collections" menu items ---
@@ -633,7 +633,7 @@ const WhiteClarityNav = () => {
     setSidebarOpen(false);
 
     if (staticRoute) {
-      // Case 1: Static route (e.g., "W Signature" -> "/signature")
+      // Case 1: Static route (e.g., "Signature Jewellery" -> "/signature")
       navigate(staticRoute);
     } else if (normalizedLabel === "ready to ship") {
       // Case 2: Special case for "Ready To Ship"
@@ -654,13 +654,12 @@ const WhiteClarityNav = () => {
       </div>
       <header
         ref={headerRef}
-        className={`main-header ${
-          isHome
-            ? scrolled || hoveringMegaMenu
-              ? "fixed-header scrolled"
-              : "fixed-header"
-            : "sticky-header"
-        }`}
+        className={`main-header ${isHome
+          ? scrolled || hoveringMegaMenu
+            ? "fixed-header scrolled"
+            : "fixed-header"
+          : "sticky-header"
+          }`}
       >
         <nav className="nav-container">
           <div className="nav-left">
@@ -705,7 +704,7 @@ const WhiteClarityNav = () => {
           <div className="nav-right d-flex align-items-center gap-3">
             {/* <div className="icon-text d-flex align-items-center gap-1">
               <CallOutlinedIcon />
-              <span className="text">1.844.234.6463</span>
+              <span className="text">+91 85115 44005</span>
             </div> */}
             <Link
               to="tel:18442346463"
@@ -718,7 +717,7 @@ const WhiteClarityNav = () => {
             >
               {/* <span className="material-symbols-outlined">call</span> */}
               <CallOutlinedIcon style={{ color: "inherit" }} />
-              <span className="text">1.844.234.6463</span>
+              <span className="text">+91 85115 44005</span>
             </Link>
 
             <div
@@ -801,18 +800,18 @@ const WhiteClarityNav = () => {
               hoveredMenu === "ENGAGEMENT"
                 ? "engagement"
                 : hoveredMenu === "WEDDING"
-                ? "wedding"
-                : hoveredMenu === "DIAMONDS"
-                ? "diamond"
-                : hoveredMenu === "HIGH JEWELRY"
-                ? "highJewelry"
-                : hoveredMenu === "JEWELRY"
-                ? "jewelry"
-                : hoveredMenu === "COLLECTIONS"
-                ? "collection"
-                : hoveredMenu === "GIFTS"
-                ? "gift"
-                : null
+                  ? "wedding"
+                  : hoveredMenu === "DIAMONDS"
+                    ? "diamond"
+                    : hoveredMenu === "HIGH JEWELRY"
+                      ? "highJewelry"
+                      : hoveredMenu === "JEWELRY"
+                        ? "jewelry"
+                        : hoveredMenu === "COLLECTIONS"
+                          ? "collection"
+                          : hoveredMenu === "GIFTS"
+                            ? "gift"
+                            : null
             }
             closeMegaMenu={() => setHoveredMenu(null)}
           />
@@ -959,7 +958,7 @@ const WhiteClarityNav = () => {
       {/* Mobile Sidebar */}
       <div className={`sidebar-man ${sidebarOpen ? "open" : ""}`}>
         <div className="sidebar-header">
-          <span className="sidebar-logo">CARAT CASA</span>
+          <span className="sidebar-logo">Dilse Jewels</span>
           <Button
             className="close-btn custom-color-btn"
             variant={undefined}
@@ -1016,7 +1015,7 @@ const WhiteClarityNav = () => {
                         const subIsOpen = openMenus[submenuItem.title];
 
                         // --- Logic for clickable titles ---
-                        let titleClickHandler = () => {};
+                        let titleClickHandler = () => { };
                         let titleIsClickable = false;
 
                         if (menu.label === "Wedding" && submenuItem.titleSlug) {
@@ -1077,12 +1076,11 @@ const WhiteClarityNav = () => {
                                   <div className="submenu-items">
                                     {submenuItem.items.map((item, iidx) => (
                                       <div
-                                        className={`mobile-submenu-item ${
-                                          menu.label === "Gifts" ||
+                                        className={`mobile-submenu-item ${menu.label === "Gifts" ||
                                           menu.label === "Wedding"
-                                            ? item.className || ""
-                                            : ""
-                                        }`}
+                                          ? item.className || ""
+                                          : ""
+                                          }`}
                                         key={iidx}
                                         onClick={() => {
                                           // --- START: MASTER CLICK LOGIC ---
@@ -1146,7 +1144,7 @@ const WhiteClarityNav = () => {
                                       >
                                         {/** --- Display logic for all types --- */}
                                         {menu.label === "Gifts" ||
-                                        menu.label === "Wedding"
+                                          menu.label === "Wedding"
                                           ? item.label
                                           : item.name || item}
                                       </div>

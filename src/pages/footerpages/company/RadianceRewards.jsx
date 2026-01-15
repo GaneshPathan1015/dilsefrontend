@@ -1062,16 +1062,16 @@ const RadianceRewards = () => {
                   {/* Box 1 */}
                   <div className="radiance-points-box border-right-mobile">
                     <h6 className="radiance-points-amount">2,000 POINTS</h6>
-                    <p className="radiance-points-value">For $100 off</p>
+                    <p className="radiance-points-value">For ₹100 OFF</p>
                     <small className="radiance-points-note">
-                      *Spend over $300
+                      *Spend over ₹300
                     </small>
                   </div>
 
                   {/* Box 2 */}
                   <div className="radiance-points-box border-right-mobile">
                     <h6 className="radiance-points-amount">5,000 POINTS</h6>
-                    <p className="radiance-points-value">For $250 off</p>
+                    <p className="radiance-points-value">For ₹250 off</p>
                     <small className="radiance-points-note">
                       *Spend over $750
                     </small>
@@ -1080,7 +1080,7 @@ const RadianceRewards = () => {
                   {/* Box 3 */}
                   <div className="radiance-points-box no-border">
                     <h6 className="radiance-points-amount">10,000 POINTS</h6>
-                    <p className="radiance-points-value">For $500 off</p>
+                    <p className="radiance-points-value">For ₹500 off</p>
                     <small className="radiance-points-note">
                       *Spend over $1,500
                     </small>
@@ -1171,12 +1171,10 @@ const RadianceRewards = () => {
                       <img
                         src={
                           product.images?.[0]
-                            ? `${import.meta.env.VITE_BACKEND_URL}${
-                                product.images[0]
-                              }`
-                            : `${
-                                import.meta.env.VITE_BACKEND_URL
-                              }/storage/variation_images/No_Image_Available.jpg`
+                            ? `${import.meta.env.VITE_BACKEND_URL}${product.images[0]
+                            }`
+                            : `${import.meta.env.VITE_BACKEND_URL
+                            }/storage/variation_images/No_Image_Available.jpg`
                         }
                         alt={product.product_name}
                         className="img-fluid w-100 radiance-product-img"
@@ -1215,7 +1213,7 @@ const RadianceRewards = () => {
                 <div id="faq1" className="accordion-collapse collapse">
                   <div className="accordion-body">
                     Radiance Rewards is an exclusive loyalty club for The
-                    Caratcasa customers.
+                    Dilse Jewels customers.
                   </div>
                 </div>
               </div>
@@ -1247,10 +1245,10 @@ const RadianceRewards = () => {
                 <div id="faq13" className="accordion-collapse collapse">
                   <div className="accordion-body">
                     You can email us at{" "}
-                    <Link to="mailto:service@withclarity.com">
-                      service@withclarity.com
+                    <Link to="mailto:service@dilsejewels.com">
+                      service@dilsejewels.com
                     </Link>{" "}
-                    or call us at <strong>1-844-234-6463</strong>.<br />
+                    or call us at <strong>1-+91 85115 44005</strong>.<br />
                     Our hours are: Mon-Fri 9 AM-12 AM & Sat-Sun 10 AM-7 PM.
                   </div>
                 </div>

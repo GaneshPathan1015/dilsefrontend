@@ -6,8 +6,8 @@ import "react-medium-image-zoom/dist/styles.css";
 // import "./weddingList.css";
 
 const priceSlugMap = {
-  "0-500": "$0 - $500",
-  "500-1000": "$500 - $1,000",
+  "0-500": "$0 - ₹500",
+  "500-1000": "₹500 - $1,000",
   "1000-2000": "$1,000 - $2,000",
   "2000-3000": "$2,000 - $3,000",
   "3000-100000": "$3,000 - $100,000",
@@ -520,17 +520,15 @@ const WeddingList = () => {
                 {collectionData.map((collection) => (
                   <div
                     key={collection.id}
-                    className={`collection-item ${
-                      appliedFilters.collection === collection.name
-                        ? "active-style"
-                        : ""
-                    }`}
+                    className={`collection-item ${appliedFilters.collection === collection.name
+                      ? "active-style"
+                      : ""
+                      }`}
                     onClick={() => addFilter(collection.name)}
                   >
                     <img
-                      src={`${import.meta.env.VITE_BACKEND_URL}/storage/${
-                        collection.collection_image
-                      }`}
+                      src={`${import.meta.env.VITE_BACKEND_URL}/storage/${collection.collection_image
+                        }`}
                       alt={collection.name}
                       className="style-img"
                     />
@@ -547,11 +545,10 @@ const WeddingList = () => {
               {styleData.map((style) => (
                 <div
                   key={style.psc_id}
-                  className={`style-item ${
-                    appliedFilters.style === style.psc_name
-                      ? "active-style"
-                      : ""
-                  }`}
+                  className={`style-item ${appliedFilters.style === style.psc_name
+                    ? "active-style"
+                    : ""
+                    }`}
                   onClick={() => addFilter(style.psc_name)}
                 >
                   <img
@@ -571,9 +568,8 @@ const WeddingList = () => {
             {metalTypes.map((metal) => (
               <div
                 key={metal.dmt_id}
-                className={`metal-item ${
-                  appliedFilters.metal === metal.dmt_name ? "active" : ""
-                }`}
+                className={`metal-item ${appliedFilters.metal === metal.dmt_name ? "active" : ""
+                  }`}
                 onClick={() => handleMetalClick(metal.dmt_id)}
               >
                 <span
@@ -594,9 +590,8 @@ const WeddingList = () => {
               {priceRanges.map((price) => (
                 <div
                   key={price}
-                  className={`price-box d-flex align-items-center gap-2 ${
-                    appliedFilters.price === price ? "active" : ""
-                  }`}
+                  className={`price-box d-flex align-items-center gap-2 ${appliedFilters.price === price ? "active" : ""
+                    }`}
                   style={{ cursor: "pointer" }}
                   onClick={() => addFilter(price)}
                 >
@@ -611,9 +606,8 @@ const WeddingList = () => {
                     }}
                   ></div>
                   <span
-                    className={`price-label-jewelry-page ${
-                      appliedFilters.price === price ? "active" : ""
-                    }`}
+                    className={`price-label-jewelry-page ${appliedFilters.price === price ? "active" : ""
+                      }`}
                   >
                     {price}
                   </span>
@@ -686,13 +680,11 @@ const WeddingList = () => {
 
               const image =
                 Array.isArray(selectedVariation?.images) &&
-                selectedVariation.images.length > 0
-                  ? `${import.meta.env.VITE_BACKEND_URL}${
-                      selectedVariation.images[0]
-                    }`
-                  : `${
-                      import.meta.env.VITE_BACKEND_URL
-                    }/storage/variation_images/No_Image_Available.jpg`;
+                  selectedVariation.images.length > 0
+                  ? `${import.meta.env.VITE_BACKEND_URL}${selectedVariation.images[0]
+                  }`
+                  : `${import.meta.env.VITE_BACKEND_URL
+                  }/storage/variation_images/No_Image_Available.jpg`;
 
               const price = selectedVariation?.price || "NA";
               const originalPrice = selectedVariation?.original_price || "NA";
@@ -701,9 +693,9 @@ const WeddingList = () => {
               // Create slug from product name
               const productSlug = group.product?.name
                 ? group.product.name
-                    .toLowerCase()
-                    .replace(/\s+/g, "-")
-                    .replace(/[^a-z0-9-]/g, "")
+                  .toLowerCase()
+                  .replace(/\s+/g, "-")
+                  .replace(/[^a-z0-9-]/g, "")
                 : "product";
               return (
                 <div className="col" key={group.id}>
@@ -744,12 +736,11 @@ const WeddingList = () => {
                             className="product-variation__btn"
                             style={{
                               background: metal?.hex,
-                              border: `1px solid ${
-                                String(activeMetal[group.id]) ===
+                              border: `1px solid ${String(activeMetal[group.id]) ===
                                 String(metalId)
-                                  ? "#000"
-                                  : "#ccc"
-                              }`,
+                                ? "#000"
+                                : "#ccc"
+                                }`,
                               color: "#000",
                             }}
                             onClick={() => {
@@ -777,9 +768,8 @@ const WeddingList = () => {
                         {metalOptions.map((variation, index) => (
                           <button
                             key={index}
-                            className={`product-variation__carat-pill btn btn-outline-dark btn-sm ${
-                              selectedIndex === index ? "active" : ""
-                            }`}
+                            className={`product-variation__carat-pill btn btn-outline-dark btn-sm ${selectedIndex === index ? "active" : ""
+                              }`}
                             onClick={() =>
                               setSelectedVariations((prev) => ({
                                 ...prev,
@@ -794,7 +784,7 @@ const WeddingList = () => {
                     </div>
 
                     <p className="mt-auto">
-                      <span className="fw-bold">${price}</span>
+                      <span className="fw-bold">₹{price}</span>
                       {originalPrice && (
                         <span className="original-price text-muted text-decoration-line-through ms-2">
                           ${originalPrice}

@@ -23,7 +23,7 @@ const Footer = () => {
 
   const educationLinks = [
     { label: "Diamonds", to: "/diamonds" },
-    { label: "Clarity Plus™ Diamonds", to: "/clarity-plus-diamonds" },
+    { label: "Dilse Jewels Diamonds", to: "/clarity-plus-diamonds" },
     { label: "Engagement", to: "/engagement" },
     { label: "Wedding bands", to: "/wedding-band-styles" },
     { label: "Gemstones", to: "/gemstones-types-guide" },
@@ -61,20 +61,20 @@ const Footer = () => {
   const socialLinks = [
     {
       icon: "fa-instagram",
-      href: "https://www.instagram.com/thecaratcasa/",
+      href: "https://www.instagram.com/theDilse Jewels/",
       label: "Instagram",
     },
-    { icon: "fa-tiktok", href: "https://www.tiktok.com", label: "TikTok" },
+    // { icon: "fa-tiktok", href: "https://www.tiktok.com", label: "TikTok" },
     {
       icon: "fa-facebook-f",
-      href: "https://www.facebook.com/share/194gTHJY21/",
+      href: "https://www.facebook.com/profile.php?id=100083864271889",
       label: "Facebook",
     },
-    { icon: "fa-twitter", href: "https://www.twitter.com", label: "Twitter" },
-    { icon: "fa-youtube", href: "https://www.youtube.com", label: "YouTube" },
+    { icon: "fa-twitter", href: "https://x.com/DilseJewels", label: "Twitter" },
+    // { icon: "fa-youtube", href: "https://www.youtube.com", label: "YouTube" },
     {
       icon: "fa-pinterest-p",
-      href: "https://www.pinterest.com",
+      href: "https://pin.it/4v3yOrVB8",
       label: "Pinterest",
     },
   ];
@@ -200,31 +200,31 @@ const Footer = () => {
               </ul>
               <div className="contact-info">
                 <a
-                  href="mailto:service@caratcasa.com"
+                  href="mailto:service@dilsejewels.com"
                   className="text-white text-decoration-none"
                 >
-                  service@TheCaratecasa.com
+                  service@dilsejewels.com
                 </a>
                 <a
-                  href="tel:1.844.234.6463"
+                  href="tel:+91 85115 44005"
                   className="text-white text-decoration-none"
                 >
-                  1.844.234.6463
+                  +91 85115 44005
                 </a>
               </div>
             </div>
 
             {/* Newsletter / Brand */}
             <div className="col-12 col-lg-4 mb-4">
-              <div className="text-center text-lg-start" style={{justifyItems:"center"}}> 
+              <div className="text-center text-lg-start" style={{ justifyItems: "center" }}>
                 <div className="brand-logo text-white text-uppercase mb-3">
-                  THE CARATCASA
+                  THE Dilse Jewels
                 </div>
                 <p className="tagline text-white mb-3">
                   Luxury Made <span className="tagline-italic">Personal.</span>
                 </p>
                 <p className="discount-text text-white">
-                  Sign up for <strong>$100 OFF</strong> your first purchase
+                  Sign up for <strong>₹100 OFF</strong> your first purchase
                 </p>
 
                 <div className="d-flex gap-2 mb-1 footer-sub-btn">

@@ -140,15 +140,14 @@ const BookAppointment = () => {
           <button
             type="button"
             onClick={() => setForm({ ...form, appointment_type: "virtual" })}
-            className={`btn btn-lg d-flex align-items-center justify-content-center ${
-              form.appointment_type === "virtual"
+            className={`btn btn-lg d-flex align-items-center justify-content-center ${form.appointment_type === "virtual"
                 ? activeToggle
                 : inactiveToggle
-            }`}
+              }`}
             style={{
               borderRadius: "0.75rem 0 0 0.75rem",
               backgroundColor:
-                form.appointment_type === "virtual" ? "#06374a" : "white",
+                form.appointment_type === "virtual" ? "#0060AC" : "white",
             }}
           >
             <Send size={16} className="me-2" /> Virtual Call
@@ -156,15 +155,14 @@ const BookAppointment = () => {
           <button
             type="button"
             onClick={() => setForm({ ...form, appointment_type: "showroom" })}
-            className={`btn btn-lg d-flex align-items-center justify-content-center ${
-              form.appointment_type === "showroom"
+            className={`btn btn-lg d-flex align-items-center justify-content-center ${form.appointment_type === "showroom"
                 ? activeToggle
                 : inactiveToggle
-            }`}
+              }`}
             style={{
               borderRadius: "0 0.75rem 0.75rem 0",
               backgroundColor:
-                form.appointment_type === "showroom" ? "#06374a" : "white",
+                form.appointment_type === "showroom" ? "#0060AC" : "white",
             }}
           >
             <MapPin size={16} className="me-2" /> Showroom Visit
@@ -298,12 +296,11 @@ const BookAppointment = () => {
           <div className="col-12 mt-4">
             <button
               type="submit"
-              className={`btn btn-lg w-100 shadow text-white ${
-                isSubmitting ? "disabled" : ""
-              }`}
+              className={`btn btn-lg w-100 shadow text-white ${isSubmitting ? "disabled" : ""
+                }`}
               disabled={isSubmitting}
               style={{
-                backgroundColor: "#06374a",
+                backgroundColor: "#0060AC",
               }}
             >
               {isSubmitting ? (
@@ -325,9 +322,8 @@ const BookAppointment = () => {
         {/* Message Area */}
         {msg && (
           <div
-            className={`mt-4 p-3 rounded-3 text-center fw-medium ${
-              isSuccess ? "alert alert-success" : "alert alert-danger"
-            }`}
+            className={`mt-4 p-3 rounded-3 text-center fw-medium ${isSuccess ? "alert alert-success" : "alert alert-danger"
+              }`}
             role="alert"
           >
             {msg}

@@ -4,9 +4,9 @@ import "./EngagementRings.css";
 const slides = [
   {
     images: [
-      "https://thecaratcasa.com/api/storage/variation_images//variation_1752334426_BPShZh4cHv.webp",
-      "https://thecaratcasa.com/api/storage/variation_images//variation_1752334426_9FYwvMsXzA.webp",
-      "https://thecaratcasa.com/api/storage/variation_images//variation_1752334426_BPShZh4cHv.webp",
+      "https://dilsejewels.com/api/storage/variation_images//variation_1752334426_BPShZh4cHv.webp",
+      "https://dilsejewels.com/api/storage/variation_images//variation_1752334426_9FYwvMsXzA.webp",
+      "https://dilsejewels.com/api/storage/variation_images//variation_1752334426_BPShZh4cHv.webp",
     ],
     title: "The W Classic",
     description:
@@ -14,9 +14,9 @@ const slides = [
   },
   {
     images: [
-      "https://thecaratcasa.com/api/storage/variation_images//variation_1752334426_BPShZh4cHv.webp",
-      "https://thecaratcasa.com/api/storage/variation_images//variation_1752334426_9FYwvMsXzA.webp",
-      "https://thecaratcasa.com/api/storage/variation_images//variation_1752334426_BPShZh4cHv.webp",
+      "https://dilsejewels.com/api/storage/variation_images//variation_1752334426_BPShZh4cHv.webp",
+      "https://dilsejewels.com/api/storage/variation_images//variation_1752334426_9FYwvMsXzA.webp",
+      "https://dilsejewels.com/api/storage/variation_images//variation_1752334426_BPShZh4cHv.webp",
     ],
     title: "The W Pavé",
     description:
@@ -24,9 +24,9 @@ const slides = [
   },
   {
     images: [
-      "https://thecaratcasa.com/api/storage/variation_images//variation_1752334426_BPShZh4cHv.webp",
-      "https://thecaratcasa.com/api/storage/variation_images//variation_1752334426_9FYwvMsXzA.webp",
-      "https://thecaratcasa.com/api/storage/variation_images//variation_1752334426_BPShZh4cHv.webp",
+      "https://dilsejewels.com/api/storage/variation_images//variation_1752334426_BPShZh4cHv.webp",
+      "https://dilsejewels.com/api/storage/variation_images//variation_1752334426_9FYwvMsXzA.webp",
+      "https://dilsejewels.com/api/storage/variation_images//variation_1752334426_BPShZh4cHv.webp",
     ],
     title: "The W Halo",
     description:

@@ -15,7 +15,7 @@ const Mediaassets = () => {
 
                         <div className="col-md-6">
                             <img
-                                src="https://www.withclarity.com/cdn/shop/files/in_the_news_desk_1_990x.webp?v=1684335537"
+                                src="https://www.dilsejewels.com/cdn/shop/files/in_the_news_desk_1_990x.webp?v=1684335537"
                                 alt=""
                                 width="100%"
                             />
@@ -91,7 +91,7 @@ const Mediaassets = () => {
 
                         <div className="col-md-6 d-flex justify-content-center mb-4">
                             <div className="card" style={{ width: "600px", minHeight: "600px" }}>
-                                <img className="card-img-top" src="https://www.withclarity.com/cdn/shop/files/VIDEOS-AND-INTERVIEWS_780x.jpg?v=1684335565" alt="Card image cap" />
+                                <img className="card-img-top" src="https://www.dilsejewels.com/cdn/shop/files/VIDEOS-AND-INTERVIEWS_780x.jpg?v=1684335565" alt="Card image cap" />
                                 <div className="card-body" style={{ background: "#d5ebec" }}>
                                     <h5 className="card-title text-uppercase" style={{ margin: "25px 0 20px", fontSize: "24px", color: "#14344a" }}>Videos and interviews</h5>
                                     <p className="card-text" style={{ fontSize: "18px" }}>Anubh divulges his insider secrets to help you get the most out of engagement ring shopping.</p>
@@ -101,30 +101,30 @@ const Mediaassets = () => {
 
                         <div className="col-md-6 d-flex justify-content-center mb-4">
                             <div className="card" style={{ width: "600px", minHeight: "600px" }}>
-                                <img className="card-img-top" src="https://www.withclarity.com/cdn/shop/files/WithClarity_box_780x.jpg?v=1684335582" alt="Card image cap" />
+                                <img className="card-img-top" src="https://www.dilsejewels.com/cdn/shop/files/Dilse Jewels_box_780x.jpg?v=1684335582" alt="Card image cap" />
                                 <div className="card-body" style={{ background: "#d5ebec" }}>
-                                    <h5 className="card-title text-uppercase" style={{ margin: "25px 0 20px", fontSize: "24px", color: "#14344a" }}>THE CARATCASA LOGO</h5>
-                                    <p className="card-text" style={{ fontSize: "18px" }}>The Caratcasa official logo</p>
+                                    <h5 className="card-title text-uppercase" style={{ margin: "25px 0 20px", fontSize: "24px", color: "#14344a" }}>THE Dilse Jewels LOGO</h5>
+                                    <p className="card-text" style={{ fontSize: "18px" }}>The Dilse Jewels official logo</p>
                                 </div>
                             </div>
                         </div>
 
                         <div className="col-md-6 d-flex justify-content-center mt-4">
                             <div className="card" style={{ width: "600px", minHeight: "600px" }}>
-                                <img className="card-img-top" src="https://www.withclarity.com/cdn/shop/files/colorpalate_780x.jpg?v=1684335599" alt="Card image cap" />
+                                <img className="card-img-top" src="https://www.dilsejewels.com/cdn/shop/files/colorpalate_780x.jpg?v=1684335599" alt="Card image cap" />
                                 <div className="card-body" style={{ background: "#d5ebec" }}>
                                     <h5 className="card-title text-uppercase" style={{ margin: "25px 0 20px", fontSize: "24px", color: "#14344a" }}>FONTS AND COLORS</h5>
-                                    <p className="card-text" style={{ fontSize: "18px" }}>The Caratcasa official fonts and Colors</p>
+                                    <p className="card-text" style={{ fontSize: "18px" }}>The Dilse Jewels official fonts and Colors</p>
                                 </div>
                             </div>
                         </div>
 
                         <div className="col-md-6 d-flex justify-content-center mt-4">
                             <div className="card" style={{ width: "600px", minHeight: "600px" }}>
-                                <img className="card-img-top" src="https://www.withclarity.com/cdn/shop/files/WithClarity_box_780x.jpg?v=1684335582" alt="Card image cap" />
+                                <img className="card-img-top" src="https://www.dilsejewels.com/cdn/shop/files/Dilse Jewels_box_780x.jpg?v=1684335582" alt="Card image cap" />
                                 <div className="card-body" style={{ background: "#d5ebec" }}>
                                     <h5 className="card-title text-uppercase" style={{ margin: "25px 0 20px", fontSize: "24px", color: "#14344a" }}>PHOTOS</h5>
-                                    <p className="card-text" style={{ fontSize: "18px" }}>The Caratcasa original Photos</p>
+                                    <p className="card-text" style={{ fontSize: "18px" }}>The Dilse Jewels original Photos</p>
                                 </div>
                             </div>
                         </div>
@@ -160,7 +160,7 @@ const Mediaassets = () => {
 
                         <div className="col-lg-2 col-md-4 col-sm-4 mb-3">
                             <div className="reviews-link" style={{ borderRight: '1px solid #00000043' }}>
-                                <Link to="mailto:service@withclarity.com" style={{ textDecoration: 'none' }}>
+                                <Link to="mailto:service@dilsejewels.com" style={{ textDecoration: 'none' }}>
                                     <i
                                         className="fa-solid fa-envelope contact-icon"
                                         style={{ fontSize: '30px', fontFamily: 'FontAwesome', color: '#00000043' }}
@@ -174,7 +174,7 @@ const Mediaassets = () => {
 
                         <div className="col-lg-2 col-md-4 col-sm-4 mb-3">
                             <div className="reviews-link" style={{ borderRight: '1px solid #00000043' }}>
-                                <Link to="tel:1-844-234-6463" style={{ textDecoration: 'none' }}>
+                                <Link to="tel:1-+91 85115 44005" style={{ textDecoration: 'none' }}>
                                     <i
                                         className="fa-solid fa-phone contact-icon"
                                         style={{ fontSize: '30px', fontFamily: 'FontAwesome', color: '#00000043' }}

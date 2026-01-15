@@ -96,7 +96,7 @@ const Appointment = () => {
                             fontWeight: '500',
                             letterSpacing: '1.52px',
                             marginTop: '14px'
-                        }}> 118 SPRING ST. NEW YORK, NY 10012</h4>
+                        }}> 118 SPRING ST. Surat, NY 10012</h4>
                     </div>
                 </div>
             </section>
@@ -199,15 +199,15 @@ const Appointment = () => {
                     </div>
                 </div>
             </section>
-            <section style={{ paddingTop: '40px',paddingBottom:'60px'}}>
+            <section style={{ paddingTop: '40px', paddingBottom: '60px' }}>
                 <div className="container">
                     <div className="row">
                         <div className="col-md-6">
-                            <img src="/images/appointment/3.webp" alt="" width="100%"/>
+                            <img src="/images/appointment/3.webp" alt="" width="100%" />
                         </div>
                         <div className="col-md-6 d-flex flex-column justify-content-center" >
                             <h2>YOUR VIRTUAL EXPERIENCE</h2>
-                            <p>Our virtual appointments make the Caratcasa showroom experience accessible to all. Your jewelry specialist will have a dual-camera setup ensuring a seamless and immersive journey. Each virtual appointment follows the same structure as our in-person appointments.</p>
+                            <p>Our virtual appointments make the Dilse Jewels showroom experience accessible to all. Your jewelry specialist will have a dual-camera setup ensuring a seamless and immersive journey. Each virtual appointment follows the same structure as our in-person appointments.</p>
                         </div>
                     </div>
                 </div>
@@ -218,7 +218,7 @@ const Appointment = () => {
                 <div className="container">
                     <div className="row justify-content-center align-items-center text-center">
                         {/* Item 1 */}
-                        <div className="col-6 col-md-2 mb-4 radiance-feature-item" style={{borderRight:'2px solid #000'}}>
+                        <div className="col-6 col-md-2 mb-4 radiance-feature-item" style={{ borderRight: '2px solid #000' }}>
                             <img
                                 src="/images/radiancerewards/easy-access.png"
                                 alt="Easy Financing Options"
@@ -232,7 +232,7 @@ const Appointment = () => {
                         </div>
 
                         {/* Item 2 */}
-                        <div className="col-6 col-md-2 mb-4 radiance-feature-item" style={{borderRight:'2px solid #000'}}>
+                        <div className="col-6 col-md-2 mb-4 radiance-feature-item" style={{ borderRight: '2px solid #000' }}>
                             <img
                                 src="/images/radiancerewards/insurance.png"
                                 alt="Lifetime Warranty"
@@ -246,7 +246,7 @@ const Appointment = () => {
                         </div>
 
                         {/* Item 3 */}
-                        <div className="col-6 col-md-2 mb-4 radiance-feature-item" style={{borderRight:'2px solid #000'}}>
+                        <div className="col-6 col-md-2 mb-4 radiance-feature-item" style={{ borderRight: '2px solid #000' }}>
                             <img
                                 src="/images/radiancerewards/30-days.png"
                                 alt="Hassle Free Returns"
@@ -260,7 +260,7 @@ const Appointment = () => {
                         </div>
 
                         {/* Item 4 */}
-                        <div className="col-6 col-md-2 mb-4 radiance-feature-item" style={{borderRight:'2px solid #000'}}>
+                        <div className="col-6 col-md-2 mb-4 radiance-feature-item" style={{ borderRight: '2px solid #000' }}>
                             <img
                                 src="/images/radiancerewards/diamond-ring.png"
                                 alt="Free Resizing"

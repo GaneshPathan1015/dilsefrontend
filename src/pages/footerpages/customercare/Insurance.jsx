@@ -41,7 +41,7 @@ const Insurance = () => {
                         gap: "20px",
                         flexWrap: "wrap",
                     }}>
-                        <img src="/images/insurance/2.png" alt="" width="100%"/>
+                        <img src="/images/insurance/2.png" alt="" width="100%" />
                     </div>
                     <p style={{
                         fontSize: '14px',
@@ -52,7 +52,7 @@ const Insurance = () => {
                         paddingBottom: '20px'
                     }}>Jewelers Mutual® Group has provided the content of this page.
 
-                        Protect your jewelry with personalized insurance. Caratcasa understands the irreplaceable value and meaning your jewelry holds, so should something ever happen to your jewelry, take comfort in knowing that Jewelers Mutual® is here to help.</p>
+                        Protect your jewelry with personalized insurance. Dilse Jewels understands the irreplaceable value and meaning your jewelry holds, so should something ever happen to your jewelry, take comfort in knowing that Jewelers Mutual® is here to help.</p>
 
                     {/* <Link style={{ background: 'none', border: '2px solid #000', textDecoration: 'none', padding: '5px 10px', color: '#000' }} className='' to="">GET A QUOTE</Link> */}
                 </div>
@@ -68,7 +68,7 @@ const Insurance = () => {
                         maxWidth: '890px',
                         margin: '0 auto',
                         paddingBottom: '20px'
-                    }}>Caratcasa works directly alongside Jewelers Mutual, and cuts out the middleman. Clients can receive quick and easy coverage directly from Jewelers Mutual®, while working with their budget to figure out what works best for them. Receive protection with nearly every imaginable life risk in just minutes, so you don’t have to worry about the “what if.”</p>
+                    }}>Dilse Jewels works directly alongside Jewelers Mutual, and cuts out the middleman. Clients can receive quick and easy coverage directly from Jewelers Mutual®, while working with their budget to figure out what works best for them. Receive protection with nearly every imaginable life risk in just minutes, so you don’t have to worry about the “what if.”</p>
 
                     <div>
                         <img src="/images/insurance/3.webp" alt="" />
@@ -106,7 +106,7 @@ const Insurance = () => {
                         maxWidth: '890px',
                         margin: '0 auto',
                         paddingBottom: '20px'
-                    }}>*Insurance coverage only available in the United States (all 50 states and the District of Columbia) and Canada (excluding Quebec). Must be at least 18 years of age to apply for insurance. Although Caratcasa may offer opinions to consumers about the importance of protecting their purchases, Caratcasa is not a licensed agent and does not sell or offer advice about insurance. Any/all decisions for protecting jewelry must be made by the consumer, following information gathering. The purchase of insurance must be done by direct interaction with an insurer or license insurance agent.</p>
+                    }}>*Insurance coverage only available in the India (all 50 states and the District of Columbia) and Canada (excluding Quebec). Must be at least 18 years of age to apply for insurance. Although Dilse Jewels may offer opinions to consumers about the importance of protecting their purchases, Dilse Jewels is not a licensed agent and does not sell or offer advice about insurance. Any/all decisions for protecting jewelry must be made by the consumer, following information gathering. The purchase of insurance must be done by direct interaction with an insurer or license insurance agent.</p>
                     <p style={{
                         fontSize: '14px',
                         lineHeight: '21px',

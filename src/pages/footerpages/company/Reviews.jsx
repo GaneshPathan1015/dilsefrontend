@@ -48,25 +48,25 @@ const Reviews = () => {
     {
       id: 2,
       img: "/images/reviews/home-logo-sprite-cnn_9bd63659-8aed-44b0-8eea-35568017ca18.webp",
-      text: "Ranked #18 on the list of fastest-growing companies in the USA.",
+      text: "Ranked #18 on the list of fastest-growing companies in The India.",
       link: "/press",
     },
     {
       id: 3,
       img: "/images/reviews/Layer_7_b928e7c8-4a1d-428e-95c7-7749050efcf6.webp",
-      text: "Caratcasa is ranked as the 3rd fastest growing company in New York on Crain's Fast 50 list.",
+      text: "Dilse Jewels is ranked as the 3rd fastest growing company in Surat on Crain's Fast 50 list.",
       link: "/achievements",
     },
     {
       id: 4,
       img: "/images/reviews/Layer_8_b9c46a8a-c744-4e9b-a96d-20e8b35ad80d.webp",
-      text: "Caratcasa is featured for its modern jewelry shopping experience.",
+      text: "Dilse Jewels is featured for its modern jewelry shopping experience.",
       link: "/features",
     },
     {
       id: 5,
       img: "/images/reviews/Layer_10_c8d0a905-14eb-43ad-933f-d030d2540465.avif",
-      text: "Caratcasa ranks at #13 fastest growing company in 2020.",
+      text: "Dilse Jewels ranks at #13 fastest growing company in 2020.",
       link: "/rankings",
     },
   ];
@@ -100,54 +100,54 @@ const Reviews = () => {
       image: "/images/reviews/15.png",
     },
   ];
-const bestsellingProducts = products.map((item) => ({
-  id: item.id,
-  name: item.product_name,
-  image: item.images?.[0]
-    ? `${import.meta.env.VITE_BACKEND_URL}${item.images[0]}`
-    : `${import.meta.env.VITE_BACKEND_URL}/storage/variation_images/No_Image_Available.jpg`,
-  link:
-    item.slug && item.id
-      ? `/products/${item.slug}?product=${item.id}`
-      : "#",
-}));
+  const bestsellingProducts = products.map((item) => ({
+    id: item.id,
+    name: item.product_name,
+    image: item.images?.[0]
+      ? `${import.meta.env.VITE_BACKEND_URL}${item.images[0]}`
+      : `${import.meta.env.VITE_BACKEND_URL}/storage/variation_images/No_Image_Available.jpg`,
+    link:
+      item.slug && item.id
+        ? `/products/${item.slug}?product=${item.id}`
+        : "#",
+  }));
 
   /*  const bestsellingProducts = [
     {
       id: 1,
       name: "The Windsor Ring",
       image: "/images/reviews/1.webp",
-      link: "https://thecaratcasa.com/jewellary-details/269",
+      link: "https://dilsejewels.com/jewellary-details/269",
     },
     {
       id: 2,
       name: "The Cambridge Band",
       image: "/images/reviews/2.webp",
-      link: "https://thecaratcasa.com/jewellary-details/265",
+      link: "https://dilsejewels.com/jewellary-details/265",
     },
     {
       id: 3,
       name: "The Oxford Collection",
       image: "/images/reviews/3.webp",
-      link: "https://thecaratcasa.com/jewellary-details/262",
+      link: "https://dilsejewels.com/jewellary-details/262",
     },
     {
       id: 4,
       name: "The Victoria Set",
       image: "/images/reviews/4.webp",
-      link: "https://thecaratcasa.com/jewellary-details/261",
+      link: "https://dilsejewels.com/jewellary-details/261",
     },
     {
       id: 5,
       name: "The Kensington",
       image: "/images/reviews/5.webp",
-      link: "https://thecaratcasa.com/jewellary-details/260",
+      link: "https://dilsejewels.com/jewellary-details/260",
     },
     {
       id: 6,
       name: "The Chelsea",
       image: "/images/reviews/6.webp",
-      link: "https://thecaratcasa.com/jewellary-details/259",
+      link: "https://dilsejewels.com/jewellary-details/259",
     },
   ]; */
 
@@ -160,12 +160,12 @@ const bestsellingProducts = products.map((item) => ({
     {
       name: "Email",
       icon: "fa-envelope",
-      link: "mailto:service@TheCaratecasa.com",
+      link: "mailto:service@dilsejewels.com",
     },
     {
       name: "Phone",
       icon: "fa-phone",
-      link: "tel:1-844-234-6463",
+      link: "tel:1-+91 85115 44005",
     },
   ];
 
@@ -201,7 +201,7 @@ const bestsellingProducts = products.map((item) => ({
             className="fs-5 fw-light lh-base mx-auto"
             style={{ maxWidth: "800px", color: "#666" }}
           >
-            At Caratcasa, we strive to be deliberately different. That's why we
+            At Dilse Jewels, we strive to be deliberately different. That's why we
             offer excellent quality, reasonable prices, conflict-free diamonds,
             and unbiased help. Read on to see up-to-date customer reviews and
             testimonials, or add one of your own!
@@ -332,9 +332,8 @@ const bestsellingProducts = products.map((item) => ({
             {slides.map((_, index) => (
               <button
                 key={index}
-                className={`border-0 rounded-circle ${
-                  index === currentSlide ? "bg-dark" : "bg-secondary"
-                }`}
+                className={`border-0 rounded-circle ${index === currentSlide ? "bg-dark" : "bg-secondary"
+                  }`}
                 onClick={() => goToSlide(index)}
                 style={{
                   width: "12px",
@@ -410,9 +409,8 @@ const bestsellingProducts = products.map((item) => ({
 
           {/* Hover Text Display */}
           <div
-            className={`mt-3 fs-6 text-dark fw-normal ${
-              hoveredText ? "opacity-100" : "opacity-0"
-            }`}
+            className={`mt-3 fs-6 text-dark fw-normal ${hoveredText ? "opacity-100" : "opacity-0"
+              }`}
             style={{
               transform: hoveredText ? "translateY(0)" : "translateY(10px)",
               transition: "all 0.4s ease",
@@ -442,10 +440,10 @@ const bestsellingProducts = products.map((item) => ({
                   We are the talk of the town
                 </h1>
                 <h6 className="fs-6 lh-base text-body-secondary fw-light mb-4">
-                  Caratcasa uses 3D printed customized ring samples to take the
+                  Dilse Jewels uses 3D printed customized ring samples to take the
                   stress out of engagement ring shopping.
                   <br />
-                  Caratcasa CEO Anubh Shah and CMO Slisha Kankariya on how the
+                  Dilse Jewels CEO Anubh Shah and CMO Slisha Kankariya on how the
                   company's business model takes the pressure out of shopping
                   for engagement rings.
                 </h6>
@@ -458,7 +456,7 @@ const bestsellingProducts = products.map((item) => ({
                 <Link to="/press">
                   <img
                     src="/images/reviews/foxbuisness_1__000_1.jpg"
-                    alt="Fox Business Feature - Caratcasa in the news"
+                    alt="Fox Business Feature - Dilse Jewels in the news"
                     className="w-100 h-100"
                     style={{ objectFit: "cover", display: "block" }}
                   />
@@ -526,7 +524,7 @@ const bestsellingProducts = products.map((item) => ({
           <div className="text-center pt-4 pb-4">
             <Link
               className="btn btn-outline-dark border-2 px-4 py-2 fw-semibold rounded-1"
-              to="https://thecaratcasa.com/jewelry-list"
+              to="https://dilsejewels.com/jewelry-list"
               style={{ transition: "all 0.3s ease" }}
               onMouseEnter={(e) => {
                 e.target.style.background = "#14344a";
@@ -586,7 +584,7 @@ const bestsellingProducts = products.map((item) => ({
                 style={{ borderRight: "1px solid #00000043" }}
               >
                 <Link
-                  to="mailto:service@TheCaratecasa.com"
+                  to="mailto:service@dilsejewels.com"
                   style={{ textDecoration: "none" }}
                 >
                   <i
@@ -606,7 +604,7 @@ const bestsellingProducts = products.map((item) => ({
             <div className="col-lg-2 col-md-4 col-sm-4 mb-3">
               <div className="reviews-link">
                 <Link
-                  to="tel:1-844-234-6463"
+                  to="tel:1-+91 85115 44005"
                   style={{ textDecoration: "none" }}
                 >
                   <i

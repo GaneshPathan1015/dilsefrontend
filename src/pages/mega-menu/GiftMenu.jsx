@@ -19,9 +19,9 @@ const GiftMenu = ({ handleStartGift }) => {
     {
       title: "PRICE",
       items: [
-        { label: "Under $500", slug: "gifts-under-500" },
+        { label: "Under ₹500", slug: "gifts-under-500" },
         { label: "Under $1000", slug: "gifts-under-1000" },
-        { label: "Under $1500", slug: "gifts-under-1500" },
+        { label: "Under ₹1500", slug: "gifts-under-1500" },
       ],
     },
     {
@@ -49,24 +49,24 @@ const GiftMenu = ({ handleStartGift }) => {
       <div className="gift-container">
         {/* Left Section (Text) - 6 cols */}
         <div className=" gift-left-section">
-         
-            {menuData.map((menu, i) => (
-              <div key={i} className="">
-                <h6 className="menu-title">{menu.title}</h6>
-                <ul className="menu-list">
-                  {menu.items.map((item, idx) => (
-                    <li
-                      key={idx}
-                      className={item.className || ""}
-                      onClick={() => handleStartGift(item.slug)}
-                    >
-                      {item.label}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          
+
+          {menuData.map((menu, i) => (
+            <div key={i} className="">
+              <h6 className="menu-title">{menu.title}</h6>
+              <ul className="menu-list">
+                {menu.items.map((item, idx) => (
+                  <li
+                    key={idx}
+                    className={item.className || ""}
+                    onClick={() => handleStartGift(item.slug)}
+                  >
+                    {item.label}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+
         </div>
 
         {/* Right Section (Image + Text) - 3 cols */}

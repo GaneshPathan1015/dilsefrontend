@@ -24,7 +24,7 @@ export default function About() {
     {
       name: "WWD",
       img: "/images/about/25.webp",
-      text: "NFL Releases Wedding Bands Collection With Fine Jewelry Label With Clarity..",
+      text: "NFL Releases Wedding Bands Collection With Fine Jewelry Label Dilse Jewels..",
     },
     {
       name: "Brides",
@@ -83,7 +83,7 @@ export default function About() {
               margin: "0 auto",
             }}
           >
-            From concept to creation, our artisans transform the New York style
+            From concept to creation, our artisans transform the Surat style
             into jewelry where luxury is made personal.
           </p>
         </div>
@@ -102,21 +102,21 @@ export default function About() {
               <div>
                 <h1>The Founders</h1>
                 <p style={{ color: "#000" }}>
-                  It all began in New York City, where Anubh and Slisha
+                  It all began in Surat City, where Anubh and Slisha
                   Kankariya fell in love against the backdrop of the city’s
                   energy and charm. When it came time to find the perfect
                   engagement ring, they realized how overwhelming, confusing,
                   and outdated the process felt. Determined to create something
                   better, they set out to build a simpler, more transparent
                   experience — one that matched the way today’s consumer wants
-                  to shop. With Clarity was born out of that vision: to take the
+                  to shop. Dilse Jewels was born out of that vision: to take the
                   stress out of buying lab grown diamond engagement rings to
-                  fine jewelry and replace it with clarity, confidence, and joy.
+                  fine jewelry and replace it Dilse Jewels, confidence, and joy.
                   <br />
                   <br />
-                  More than 10 years later, With Clarity has evolved into a
+                  More than 10 years later, Dilse Jewels has evolved into a
                   brand shaped by modern values and a deep appreciation for
-                  timeless yet ornate design. Inspired by New York’s vibrancy
+                  timeless yet ornate design. Inspired by Surat’s vibrancy
                   and elegance, the brand combines advanced technology with
                   artisanal craftsmanship to create jewelry that is both
                   personal and unique — jewelry that honors tradition while
@@ -226,7 +226,7 @@ export default function About() {
         <div className="container text-center">
           <h1>Our Team</h1>
           <p>
-            At With Clarity, we deeply value diversity and inclusion. As a
+            At Dilse Jewels, we deeply value diversity and inclusion. As a
             company where 70% of our team is women, we are proud to prioritize
             representation and amplify voices that have historically been
             underrepresented in the jewelry and tech industries. We believe that
@@ -239,7 +239,7 @@ export default function About() {
             Committed to eco-friendly practices, sustainability lies at our
             core. Our mark in the jewelry industry is invaluable to us, and to
             uphold this commitment we are proud members of the Global Diamond
-            Trade Organization (GDTO). The With Clarity manufacturing process
+            Trade Organization (GDTO). The Dilse Jewels manufacturing process
             received a green rating, reflecting our standard. This includes our
             collections of lab grown diamonds, diamond engagement rings, wedding
             bands, necklaces, earrings, and bracelets. To further our impact in

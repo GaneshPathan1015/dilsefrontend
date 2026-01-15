@@ -19,8 +19,8 @@ export default function Home() {
             </h2>
             <div className="content">
               <p className="text-white">
-                Enjoy a Free Diamond Necklace with purchases of $1k+, or receive
-                Free Diamond Studs with a spend of $2.5k+
+                Enjoy a Free Diamond Necklace with purchases of 1000, or receive
+                Free Diamond Studs with a spend of 2500
               </p>
             </div>
             <div className="slide-btn-wrapper justify-content-center align-items-center gap-5">

@@ -9,13 +9,11 @@ export default function BuildCard({
   const ring = item;
 
   const getImageUrl = (img) => {
-    const fallback = `${
-      import.meta.env.VITE_BACKEND_URL
-    }/storage/variation_images/No_Image_Available.jpg`;
+    const fallback = `${import.meta.env.VITE_BACKEND_URL
+      }/storage/variation_images/No_Image_Available.jpg`;
     if (!img) return fallback;
-    return `${
-      import.meta.env.VITE_BACKEND_URL
-    }${img}`;
+    return `${import.meta.env.VITE_BACKEND_URL
+      }${img}`;
   };
 
   return (
@@ -73,7 +71,7 @@ export default function BuildCard({
 
             {/* Ring Info */}
             <div style={{ marginBottom: "10px" }}>
-              <p> ${ring.price}</p>
+              <p> ₹{ring.price}</p>
               <p>Metal Color: {ring.metal_color.name || "N/A"}</p>
               <p>Shape: {ring.shape || "N/A"}</p>
               {ring.size && <p>Size: {ring.size}</p>}

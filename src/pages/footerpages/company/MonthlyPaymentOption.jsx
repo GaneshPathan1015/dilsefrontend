@@ -411,7 +411,7 @@ const MonthlyPaymentOption = () => {
 
                         <div className="col-lg-2 col-md-4 col-sm-4 mb-3">
                             <div className="reviews-link" style={{ borderRight: '1px solid #00000043' }}>
-                                <Link to="mailto:service@TheCaratecasa.com" style={{ textDecoration: 'none' }}>
+                                <Link to="mailto:service@dilsejewels.com" style={{ textDecoration: 'none' }}>
                                     <i className="fa-solid fa-envelope contact-icon" style={{ fontSize: '30px', fontFamily: 'FontAwesome', color: '#00000043' }}></i>
                                     <br />
                                     <span style={{ color: '#000' }}>Email</span>
@@ -421,7 +421,7 @@ const MonthlyPaymentOption = () => {
 
                         <div className="col-lg-2 col-md-4 col-sm-4 mb-3">
                             <div className="reviews-link">
-                                <Link to="tel:1-844-234-6463" style={{ textDecoration: 'none' }}>
+                                <Link to="tel:1-+91 85115 44005" style={{ textDecoration: 'none' }}>
                                     <i className="fa-solid fa-phone contact-icon" style={{ fontSize: '30px', fontFamily: 'FontAwesome', color: '#00000043' }}></i>
                                     <br />
                                     <span style={{ color: '#000' }}>Phone</span>

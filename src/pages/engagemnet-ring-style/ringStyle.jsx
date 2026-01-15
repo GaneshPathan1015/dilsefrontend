@@ -344,7 +344,7 @@ export default function RingStyle() {
               <div className="engagement-rings-sidebar-container">
                 <ul className="engagement-rings-sidebar">
                   <li className="active">Style</li>
-                  
+
                 </ul>
               </div>
             </div>
@@ -501,7 +501,7 @@ export default function RingStyle() {
               </div>
 
               {/* Luxe */}
-              <div className="engagement-rings-main-content engagement-rings-pb-4" style={{borderBottom: "1px solid black" }}>
+              <div className="engagement-rings-main-content engagement-rings-pb-4" style={{ borderBottom: "1px solid black" }}>
                 <h1>Luxe</h1>
                 <div className="engagement-rings-details">
                   <p>
@@ -511,7 +511,7 @@ export default function RingStyle() {
                 <div className="engagement-rings-related-posts">
                   <h2>RELATED POSTS</h2>
                   <ul>
-                    <li><a>The Luxe Collection by With Clarity - it's Big, it's Bold and it's New</a></li>
+                    <li><a>The Luxe Collection by Dilse Jewels - it's Big, it's Bold and it's New</a></li>
                     <li><a>Getting Nervous? Here's What to Say When You Propose</a></li>
                     <li><a>How Long Before a Proposal Should You Buy the Ring?</a></li>
                   </ul>

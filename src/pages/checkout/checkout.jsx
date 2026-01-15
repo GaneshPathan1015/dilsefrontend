@@ -287,9 +287,8 @@ const Checkout = () => {
 
   // Helpers
   const getImageUrl = (img) => {
-    const fallback = `${
-      import.meta.env.VITE_BACKEND_URL
-    }/storage/variation_images/No_Image_Available.jpg`;
+    const fallback = `${import.meta.env.VITE_BACKEND_URL
+      }/storage/variation_images/No_Image_Available.jpg`;
     return img ? `${import.meta.env.VITE_BACKEND_URL}${img}` : fallback;
   };
 
@@ -379,16 +378,15 @@ const Checkout = () => {
 
               <div className="mb-3">
                 <select
-                  className={`form-select form-select-lg ${
-                    errors.country ? "is-invalid" : ""
-                  }`}
+                  className={`form-select form-select-lg ${errors.country ? "is-invalid" : ""
+                    }`}
                   name="country"
                   value={formData.country}
                   onChange={handleInputChange}
                 >
                   <option value="">Select a country</option>
                   <option value="Canada">Canada</option>
-                  <option value="United States">United States</option>
+                  <option value="India">India</option>
                 </select>
 
                 {/* You were missing this part below */}
@@ -402,9 +400,8 @@ const Checkout = () => {
                   <input
                     type="text"
                     name="first_name"
-                    className={`form-control form-control-lg ${
-                      errors.first_name ? "is-invalid" : ""
-                    }`}
+                    className={`form-control form-control-lg ${errors.first_name ? "is-invalid" : ""
+                      }`}
                     placeholder="First name"
                     value={formData.first_name}
                     onChange={handleInputChange}
@@ -417,9 +414,8 @@ const Checkout = () => {
                   <input
                     type="text"
                     name="last_name"
-                    className={`form-control form-control-lg ${
-                      errors.last_name ? "is-invalid" : ""
-                    }`}
+                    className={`form-control form-control-lg ${errors.last_name ? "is-invalid" : ""
+                      }`}
                     placeholder="Last name"
                     value={formData.last_name}
                     onChange={handleInputChange}
@@ -434,9 +430,8 @@ const Checkout = () => {
                 <input
                   type="text"
                   name="address"
-                  className={`form-control form-control-lg ${
-                    errors.address ? "is-invalid" : ""
-                  }`}
+                  className={`form-control form-control-lg ${errors.address ? "is-invalid" : ""
+                    }`}
                   placeholder="Address"
                   value={formData.address}
                   onChange={handleInputChange}
@@ -465,9 +460,8 @@ const Checkout = () => {
                   <input
                     type="text"
                     name="city"
-                    className={`form-control form-control-lg ${
-                      errors.city ? "is-invalid" : ""
-                    }`}
+                    className={`form-control form-control-lg ${errors.city ? "is-invalid" : ""
+                      }`}
                     placeholder="City"
                     value={formData.city}
                     onChange={handleInputChange}
@@ -481,9 +475,8 @@ const Checkout = () => {
                   <input
                     type="text"
                     name="zip_code"
-                    className={`form-control form-control-lg ${
-                      errors.zip_code ? "is-invalid" : ""
-                    }`}
+                    className={`form-control form-control-lg ${errors.zip_code ? "is-invalid" : ""
+                      }`}
                     placeholder="ZIP code"
                     value={formData.zip_code}
                     onChange={handleInputChange}
@@ -498,9 +491,8 @@ const Checkout = () => {
                 <input
                   type="text"
                   name="phone"
-                  className={`form-control form-control-lg ${
-                    errors.phone ? "is-invalid" : ""
-                  }`}
+                  className={`form-control form-control-lg ${errors.phone ? "is-invalid" : ""
+                    }`}
                   placeholder="Phone"
                   value={formData.phone}
                   onChange={handleInputChange}
@@ -556,16 +548,15 @@ const Checkout = () => {
                   {/* Country Select */}
                   <div className="mb-3">
                     <select
-                      className={`form-select form-select-lg ${
-                        errors.billing_country ? "is-invalid" : ""
-                      }`}
+                      className={`form-select form-select-lg ${errors.billing_country ? "is-invalid" : ""
+                        }`}
                       name="billing_country"
                       value={formData.billing_country}
                       onChange={handleInputChange}
                     >
                       <option value="">Select a country</option>
                       <option value="Canada">Canada</option>
-                      <option value="United States">United States</option>
+                      <option value="India">India</option>
                     </select>
 
                     {/* Added Error Message Display */}
@@ -582,9 +573,8 @@ const Checkout = () => {
                       <input
                         type="text"
                         name="billing_first_name"
-                        className={`form-control form-control-lg ${
-                          errors.billing_first_name ? "is-invalid" : ""
-                        }`}
+                        className={`form-control form-control-lg ${errors.billing_first_name ? "is-invalid" : ""
+                          }`}
                         placeholder="First name"
                         value={formData.billing_first_name}
                         onChange={handleInputChange}
@@ -599,9 +589,8 @@ const Checkout = () => {
                       <input
                         type="text"
                         name="billing_last_name"
-                        className={`form-control form-control-lg ${
-                          errors.billing_last_name ? "is-invalid" : ""
-                        }`}
+                        className={`form-control form-control-lg ${errors.billing_last_name ? "is-invalid" : ""
+                          }`}
                         placeholder="Last name"
                         value={formData.billing_last_name}
                         onChange={handleInputChange}
@@ -619,9 +608,8 @@ const Checkout = () => {
                     <input
                       type="text"
                       name="billing_address"
-                      className={`form-control form-control-lg ${
-                        errors.billing_address ? "is-invalid" : ""
-                      }`}
+                      className={`form-control form-control-lg ${errors.billing_address ? "is-invalid" : ""
+                        }`}
                       placeholder="Address"
                       value={formData.billing_address}
                       onChange={handleInputChange}
@@ -654,9 +642,8 @@ const Checkout = () => {
                       <input
                         type="text"
                         name="billing_city"
-                        className={`form-control form-control-lg ${
-                          errors.billing_city ? "is-invalid" : ""
-                        }`}
+                        className={`form-control form-control-lg ${errors.billing_city ? "is-invalid" : ""
+                          }`}
                         placeholder="City"
                         value={formData.billing_city}
                         onChange={handleInputChange}
@@ -672,9 +659,8 @@ const Checkout = () => {
                       <input
                         type="text"
                         name="billing_zip_code"
-                        className={`form-control form-control-lg ${
-                          errors.billing_zip_code ? "is-invalid" : ""
-                        }`}
+                        className={`form-control form-control-lg ${errors.billing_zip_code ? "is-invalid" : ""
+                          }`}
                         placeholder="ZIP code"
                         value={formData.billing_zip_code}
                         onChange={handleInputChange}
@@ -692,9 +678,8 @@ const Checkout = () => {
                     <input
                       type="text"
                       name="billing_phone"
-                      className={`form-control form-control-lg ${
-                        errors.billing_phone ? "is-invalid" : ""
-                      }`}
+                      className={`form-control form-control-lg ${errors.billing_phone ? "is-invalid" : ""
+                        }`}
                       placeholder="Phone"
                       value={formData.billing_phone}
                       onChange={handleInputChange}
@@ -893,9 +878,8 @@ const Checkout = () => {
                             className="product-img"
                             onError={(e) => {
                               e.currentTarget.style.display = "none"; // hide broken img
-                              e.currentTarget.parentNode.innerHTML = `<span>${
-                                item.name || "Product"
-                              }</span>`;
+                              e.currentTarget.parentNode.innerHTML = `<span>${item.name || "Product"
+                                }</span>`;
                             }}
                           />
                         ) : (
@@ -974,7 +958,7 @@ const Checkout = () => {
 
                       {/* ITEM TOTAL PRICE */}
                       <div className="text-end ms-3">
-                        <strong>${total}</strong>
+                        <strong>₹{total}</strong>
                       </div>
                     </div>
                   );
@@ -1015,7 +999,7 @@ const Checkout = () => {
                 {/* Subtotal */}
                 <div className="d-flex justify-content-between mb-2">
                   <div className="text-gray">Subtotal</div>
-                  <div>${getTotalAmount().toFixed(2)}</div>
+                  <div>₹{getTotalAmount().toFixed(2)}</div>
                 </div>
 
                 {/* Shipping */}
@@ -1035,9 +1019,9 @@ const Checkout = () => {
                     <strong>Total</strong>
                   </div>
                   <div>
-                    <span className="currency">USD</span>{" "}
+                    <span className="currency">INR</span>{" "}
                     <span className="total-price">
-                      ${getTotalAmount().toFixed(2)}
+                      ₹{getTotalAmount().toFixed(2)}
                     </span>
                   </div>
                 </div>

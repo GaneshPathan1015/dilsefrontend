@@ -14,7 +14,7 @@ export default function Quetions() {
         " If you're looking to make your diamond appear larger, consider a halo setting, which surrounds the center diamond with smaller diamonds or gemstones...",
     },
     {
-      question: "Is $3000 cheap for an engagement ring?",
+      question: "Is ₹3000 cheap for an engagement ring?",
       answer:
         "Determining the affordability of an engagement ring is influenced by factors like personal preferences, budget, and individual financial circumstances...",
     },

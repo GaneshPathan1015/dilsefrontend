@@ -71,12 +71,12 @@ export default function Contact() {
     {
       question: "Can I place an order on the phone?",
       answer:
-        "We would love to hear from you. To place an order on thephone, simply call us at 844-234-6463 during our business hours. It may be helpful to call in for custom orders, split payments, or if you have a shipping deadline in mind. We’realways available to help with questions and specialrequests.",
+        "We would love to hear from you. To place an order on thephone, simply call us at +91 85115 44005 during our business hours. It may be helpful to call in for custom orders, split payments, or if you have a shipping deadline in mind. We’realways available to help with questions and specialrequests.",
     },
     {
       question: "What’s the best way to get the status of my order?",
       answer:
-        "As all our jewelry is made to order, the best way to get all the details on your order is emailing us at service@withclarity.com. We can also assist you via live chat or phone to get you information right away about your ring or jewelry order.",
+        "As all our jewelry is made to order, the best way to get all the details on your order is emailing us at service@dilsejewels.com. We can also assist you via live chat or phone to get you information right away about your ring or jewelry order.",
     },
     {
       question: "How do I order custom jewelry or a custom ring?",
@@ -84,9 +84,9 @@ export default function Contact() {
         "We specialize in custom jewelry and rings. Simply call us or email us with the specifications of what you have in mind. We will get back to you within a day with a pricing quote and a way to make your custom jewelry vision come to life. Our team of gemologists and design consultants works in-house here in NYC to make all designs.",
     },
     {
-      question: "Where can I learn more about CaratCasa policies?",
+      question: "Where can I learn more about Dilse Jewels policies?",
       answer:
-        "For all general questions, you can see our policies about warranties, insurance, returns and more. For anything specific, please feel free to email, live chat or call us at 844-234-6463 and we can provide you with quick answers to your questions.",
+        "For all general questions, you can see our policies about warranties, insurance, returns and more. For anything specific, please feel free to email, live chat or call us at +91 85115 44005 and we can provide you with quick answers to your questions.",
     },
     {
       question: "Do you have gemologists on your team?",
@@ -94,7 +94,7 @@ export default function Contact() {
         "Our customer care team is composed of gemologists with decades of experience and design consultants that have an eye for recommending the perfect diamond jewelry. We’re able to offer helpful guidance on both lab grown and natural diamonds and also help you find the right jewelry. Because of our design expertise, we can also craft custom jewelry to suit your needs.",
     },
     {
-      question: "Why should I choose CaratCasa?",
+      question: "Why should I choose Dilse Jewels?",
       answer:
         "Founded with a commitment to sustainability, transparent shopping and convenience, we have thousands of happy customers and 5 star reviews. We’re rated A+ with the BBB, and have been featured as one of the fastest growing diamond jewelry companies. Talk to us, we’d be happy to tell you more. Our commitment to crafting jewelry that celebrates your moments is paramount.",
     },

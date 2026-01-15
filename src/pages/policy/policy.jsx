@@ -15,18 +15,18 @@ export default function Policy() {
               </div>
               <div className="page-content policy-content">
                 <p>
-                  Thank you for visiting thecaratcasa.com. At The Carat Casa, we
+                  Thank you for visiting dilsejewels.com. At Dilse Jewels, we
                   respect your privacy and protect your personal information.
                   Please carefully review our privacy policies. By visiting and
-                  using thecaratcasa.com, you agree with the policies described
-                  below. By agreeing, you provide The Carat Casa consent to
+                  using dilsejewels.com, you agree with the policies described
+                  below. By agreeing, you provide Dilse Jewels consent to
                   collect, use, store and disclose your information. Please feel
                   free to contact a service representative for more information
                   regarding our Privacy Policy at{" "}
-                  <a href="mailto:service@thecaratcasa.com" className="policy-link">
-                    service@thecaratcasa.com
+                  <a href="mailto:service@dilsejewels.com" className="policy-link">
+                    service@dilsejewels.com
                   </a>{" "}
-                  or <a href="tel:+1 (816) 888-1111" className="policy-link">+1 (816) 888-1111</a>
+                  or <a href="tel:+91 85115 44005" className="policy-link">+91 85115 44005</a>
                 </p>
 
                 <h2 className="policy-title">
@@ -34,7 +34,7 @@ export default function Policy() {
                 </h2>
                 <p>
                   We collect and securely store any information you submit on any
-                  of our websites, or to The Carat Casa via email, telephone, fax,
+                  of our websites, or to Dilse Jewels via email, telephone, fax,
                   postal mail, SMS, MMS, social media platforms, live or automated
                   chat, in writing, or any other means. This information is
                   collected and used for, but not limited to, verification
@@ -49,12 +49,12 @@ export default function Policy() {
                   information and account username.
                 </p>
                 <p>
-                  By visiting thecaratcasa.com, we may receive and store certain
+                  By visiting dilsejewels.com, we may receive and store certain
                   personally non-identifiable information. Such information, which
                   is collected by various third-party providers and technologies,
                   cannot be used to specifically identify you personally. The
-                  Carat Casa may store such information or such information may be
-                  included in databases owned and maintained by The Carat Casa
+                  Dilse Jewels may store such information or such information may be
+                  included in databases owned and maintained by Dilse Jewels
                   affiliates, agents or service providers. This information is
                   used to provide valuable information such as number of site
                   visitors. No Personal Data is made available in this process.
@@ -71,13 +71,13 @@ export default function Policy() {
                   better site and user experience.
                 </p>
                 <p>
-                  The Carat Casa additionally used aggregated visitor and customer
+                  Dilse Jewels additionally used aggregated visitor and customer
                   information to conduct research on a demographic basis. This
                   aggregated information allows us to identify market and industry
-                  trends and opportunities to improve The Carat Casa's services.
+                  trends and opportunities to improve Dilse Jewels's services.
                 </p>
                 <p>
-                  The Carat Casa may use personal information you provide in order
+                  Dilse Jewels may use personal information you provide in order
                   to identify and better serve you. Our ultimate goal is to
                   provide a superior customer experience and your personal
                   information allows us to do so. We may utilize personal
@@ -156,24 +156,24 @@ export default function Policy() {
                   </li>
                 </ul>
                 <p>
-                  Furthermore, The Carat Casa and its affiliates may use personal,
+                  Furthermore, Dilse Jewels and its affiliates may use personal,
                   non-identifiable information to improve site content,
                   functionality, user experience, and provide service or
                   information that we deem may be useful to you. All
                   communications sent to you have "opt out" features so avoid
                   intruding on your Privacy. If at any time, you wish not to
-                  receive communications from The Carat Casa, please contact us.
+                  receive communications from Dilse Jewels, please contact us.
                 </p>
-                
+
                 <h2 className="policy-title">Disclosure of Personal and Other Information</h2>
                 <p>
-                  The Carat Casa works with trusted and secure third parties. There may be instances where we feel it is appropriate to share personal or other information with these parties.
+                  Dilse Jewels works with trusted and secure third parties. There may be instances where we feel it is appropriate to share personal or other information with these parties.
                 </p>
                 <p>
-                  Third Party Service Providers, Agents & Consultants: We use trusted third-party service providers to perform certain services on our behalf, including: shipping, payment processing, data storage/management, webhosting, web analytics, fulfillment, assembly, marketing, mailing, emailing, etc. These service providers only receive personal information if such information is needed to perform their function(s), and they are not authorized to use any personal information for any other purpose(s) other than the purpose(s) set forth by The Carat Casa. Vendors also include: web hosting companies, shipping and fulfillment companies (e.g., companies that ship or fulfill product orders), diamond or gemstone suppliers, jewelers, assemblers, insurance companies, data analysis firms, analytics and advertising technology companies (including digital advertising and SMS/MMS text messaging companies), affiliates, customer service providers, consulting or marketing firms/providers, accounting, bookkeeping or legal firms, financial services firms, technology companies including, but not limited to, enterprise application firms, firms which provide technologies to enable electronic, live or automated chat, and SMS/MMS communications, and data storage providers.
+                  Third Party Service Providers, Agents & Consultants: We use trusted third-party service providers to perform certain services on our behalf, including: shipping, payment processing, data storage/management, webhosting, web analytics, fulfillment, assembly, marketing, mailing, emailing, etc. These service providers only receive personal information if such information is needed to perform their function(s), and they are not authorized to use any personal information for any other purpose(s) other than the purpose(s) set forth by Dilse Jewels. Vendors also include: web hosting companies, shipping and fulfillment companies (e.g., companies that ship or fulfill product orders), diamond or gemstone suppliers, jewelers, assemblers, insurance companies, data analysis firms, analytics and advertising technology companies (including digital advertising and SMS/MMS text messaging companies), affiliates, customer service providers, consulting or marketing firms/providers, accounting, bookkeeping or legal firms, financial services firms, technology companies including, but not limited to, enterprise application firms, firms which provide technologies to enable electronic, live or automated chat, and SMS/MMS communications, and data storage providers.
                 </p>
                 <p>
-                  Promotions & Events: If you choose to participate in a special event (promotions, contests, or sweepstakes), The Carat Casa may share your personal information with those organizations implementing or participating in the special event. These third parties do not use your information for any other purpose other than to implement the event.
+                  Promotions & Events: If you choose to participate in a special event (promotions, contests, or sweepstakes), Dilse Jewels may share your personal information with those organizations implementing or participating in the special event. These third parties do not use your information for any other purpose other than to implement the event.
                 </p>
                 <p>
                   Compliance with Law and Fraud Protection: We may, and you authorize us to use and disclose any information, including personal information: (1) we deem necessary, in our sole discretion, to comply with any applicable law, regulation, legal process, or governmental request; (2) in order to investigate, prevent or take action regarding illegal activities, suspected fraud, situations involving potential threats to the physical safety of any personal or as otherwise required by law; (3) to other companies and organizations for credit fraud protection and risk reduction; and (4) to enforce any agreement we have with you.
@@ -181,7 +181,7 @@ export default function Policy() {
 
                 <h2 className="policy-title">Choices & Opt-Out</h2>
                 <p>
-                  We respect your privacy and understand if you wish to opt-out of communications from The Carat Casa. To opt-out, you can select "unsubscribe" from our communications, contact us via telephone or postal mail and we will gladly honor your requests.
+                  We respect your privacy and understand if you wish to opt-out of communications from Dilse Jewels. To opt-out, you can select "unsubscribe" from our communications, contact us via telephone or postal mail and we will gladly honor your requests.
                 </p>
                 <p>
                   Short Message Service (SMS) Advertising: We will allow several different opportunities, such as entering a phone number online, sending a mobile originating message containing an advertising keyword, filling out a paper form that includes a phone number, or signing up at a point-of-sale to opt-in to SMS services. By doing so, you authorize us to contact you by text message at your mobile number using an automatic telephone dialing system or device, or any other computer assisted technology, as applicable. You can cancel the SMS outreach from us at any time. After you send the SMS message "STOP" to us, we will send you an SMS message to confirm that you have been unsubscribed. After this, you will no longer receive SMS messages from us. If you want to join again, just sign up as you did the first time, and we will start sending SMS messages to you again. We will not ask you for, nor should you provide, personally identifiable information, passwords, or any other confidential or sensitive information in SMS messages.
@@ -202,17 +202,17 @@ export default function Policy() {
 
                 <h2 className="policy-title">Security</h2>
                 <p>
-                  The Carat Casa takes reasonable steps to protect the Personal Data provided via the website from loss, misuse, and unauthorized access, disclosure, alteration, or destruction. The Carat Casa maintains policies and procedures to maintain and protect customer and visitor information.
+                  Dilse Jewels takes reasonable steps to protect the Personal Data provided via the website from loss, misuse, and unauthorized access, disclosure, alteration, or destruction. Dilse Jewels maintains policies and procedures to maintain and protect customer and visitor information.
                 </p>
 
                 <h2 className="policy-title">Updating Information</h2>
                 <p>
-                  If you would like to update or alter personal information you have provided The Carat Casa, simply make changes on your My Account page or by calling or emailing The Carat Casa directly.
+                  If you would like to update or alter personal information you have provided Dilse Jewels, simply make changes on your My Account page or by calling or emailing Dilse Jewels directly.
                 </p>
 
                 <h2 className="policy-title">Children's Privacy</h2>
                 <p>
-                  The Carat Casa does not knowingly collect information from individuals under the age of 16. We request that individuals under the age of 16 not submit any personal information to The Carat Casa and we further encourage parents or guardians to ensure compliance and monitor internet usage. If you suspect user information has been submitted for an individual under the age of 16, please contact The Carat Casa and we will process the requests to have such personal information removed.
+                  Dilse Jewels does not knowingly collect information from individuals under the age of 16. We request that individuals under the age of 16 not submit any personal information to Dilse Jewels and we further encourage parents or guardians to ensure compliance and monitor internet usage. If you suspect user information has been submitted for an individual under the age of 16, please contact Dilse Jewels and we will process the requests to have such personal information removed.
                 </p>
 
                 <h2 className="policy-title">Links</h2>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./collectionMenu.css";
 
 const staticCollectionRoutes = {
-  "w signature": "/page",
+  "Signature Jewellery": "/page",
 };
 
 // ⭐ Art Deco ke liye special custom URL
@@ -15,7 +15,7 @@ const specialCollectionRoutes = {
 const previewImages = {
   "Art Deco": "/images/artDeco-nav-img.webp",
   Cassatt: "/images/collectionmenu/casata.webp",
-  "W Signature": "/images/collectionmenu/wsignature-nav-img.webp",
+  "Signature Jewellery": "/images/collectionmenu/wsignature-nav-img.webp",
   Fulton: "/images/collectionmenu/Fulton-nav-img.webp",
   Seraphine: "/images/collectionmenu/The_Seraphine.webp",
   Windsor: "/images/collectionmenu/windsor.webp",
@@ -28,7 +28,7 @@ const CollectionMenu = ({ closeMegaMenu, navigate }) => {
   const featuredItems = [
     { label: "Art Deco", slug: "art-deco" },
     { label: "Cassatt", slug: "cassatt" },
-    { label: "W Signature", slug: "the-w-signature-solitaire-engagement-rings" },
+    { label: "Signature Jewellery", slug: "the-w-signature-solitaire-engagement-rings" },
     { label: "Fulton", slug: "the-fulton-collection" },
     { label: "Seraphine", slug: "the-seraphine-collection" },
     { label: "Windsor", slug: "the-windsor-collection" },
@@ -56,7 +56,7 @@ const CollectionMenu = ({ closeMegaMenu, navigate }) => {
   return (
     <div className="jwl-mega-menu-inner">
       <div className="collection-container">
-        
+
         {/* Left Menu */}
         <div className="menu-left">
           <ul>

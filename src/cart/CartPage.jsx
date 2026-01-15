@@ -102,7 +102,7 @@ export default function CartPage() {
 
         <div className="cart-right">
           <div className="summary-card">
-            <p className="subtotal">Subtotal : ${getSubTotal().toFixed(2)}</p>
+            <p className="subtotal">Subtotal : ₹{getSubTotal().toFixed(2)}</p>
             <p className="tax-info">
               Taxes and shipping calculated at checkout
             </p>
@@ -110,7 +110,7 @@ export default function CartPage() {
               CHECKOUT
             </button>
             <p className="discount-note">
-              GET50 - Get $50 off on orders above $1000 on checkout
+              GET50 - Get ₹25 off on orders above ₹1000 on checkout
             </p>
 
             <div className="summary-features">
@@ -122,8 +122,8 @@ export default function CartPage() {
           </div>
 
           <div className="verify-card">
-            <h4>GET $100 OFF</h4>
-            <p>on orders of $2000 and above</p>
+            <h4>GET ₹100 OFF</h4>
+            <p>on orders of ₹2000 and above</p>
             <p className="verify-text">
               Military, Nurses, and First Responders receive an exclusive ID.me
               discount. Verify your eligibility before ordering.
