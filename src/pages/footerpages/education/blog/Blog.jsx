@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
+import axiosClient from "../../../../api/axios";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import axios from "axios";
+
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
@@ -36,7 +37,7 @@ const Blog = () => {
     const fetchBlogs = async () => {
       try {
         setLoading(true);
-        const response = await axios.get('https://dilsejewels.com/api/api/blogs');
+        const response = await axiosClient.get('api/blogs');
 
         const blogsData = response.data.data || [];
         setBlogs(blogsData);

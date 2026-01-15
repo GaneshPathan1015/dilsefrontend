@@ -12,6 +12,7 @@ import CallOutlinedIcon from "@mui/icons-material/CallOutlined";
 import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
 import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
 import "./whiteClarityNav.css";
+<script src="//code.tidio.co/hystzcffiiiyrfbgpgupagr5xzzmyisr.js" async></script>
 
 const slugify = (text = "") =>
   text

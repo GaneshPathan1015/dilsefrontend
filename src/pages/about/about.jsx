@@ -4,7 +4,7 @@ export default function About() {
   const [hoverText, setHoverText] = useState(
     "Best Lab-Grown Diamonds 2024 | Expert Reviewed"
   );
-
+ 
   const mediaItems = [
     {
       name: "Forbes",

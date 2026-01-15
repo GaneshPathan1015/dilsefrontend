@@ -1,11 +1,37 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import axiosClient from "../../api/axios";
 import debounce from "lodash/debounce";
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Loader from "../diamond/loader";
-import Zoom from "react-medium-image-zoom";
-import "react-medium-image-zoom/dist/styles.css";
 import "./JewelryList.css";
+
+// Star Rating Component
+const StarRating = ({ rating, reviewCount, small = false }) => {
+  const fullStars = Math.floor(rating);
+  const hasHalfStar = rating % 1 >= 0.5;
+  const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+
+  return (
+    <div className={`star-rating ${small ? "small" : ""}`}>
+      <div className="stars d-inline-flex align-items-center">
+        {[...Array(fullStars)].map((_, i) => (
+          <span key={`full-${i}`} className="star filled">
+            ★
+          </span>
+        ))}
+        {hasHalfStar && <span className="star half">★</span>}
+        {[...Array(emptyStars)].map((_, i) => (
+          <span key={`empty-${i}`} className="star">
+            ★
+          </span>
+        ))}
+      </div>
+      <span className="rating-text ms-2">
+        {rating.toFixed(1)} ({reviewCount} reviews)
+      </span>
+    </div>
+  );
+};
 
 const priceSlugMap = {
   "0-500": "$0 - ₹500",
@@ -48,6 +74,7 @@ const JewelryList = () => {
   const [readyToShip, setReadyToShip] = useState(false);
   const [metalNameToId, setMetalNameToId] = useState({});
   const [metalIdToName, setMetalIdToName] = useState({});
+  const [reviewStats, setReviewStats] = useState({});
 
   const loaderRef = useRef(null);
   const location = useLocation();
@@ -56,6 +83,25 @@ const JewelryList = () => {
   const toggleFilterSection = (section) => {
     setActiveFilterSection((prev) => (prev === section ? "" : section));
   };
+
+  const fetchReviewStats = useCallback(async (productIds) => {
+    if (!productIds || productIds.length === 0) return;
+
+    try {
+      const response = await axiosClient.post('api/get-bulk-review-stats', {
+        product_ids: productIds
+      });
+
+      if (response.data.success) {
+        setReviewStats(prev => ({
+          ...prev,
+          ...response.data.data
+        }));
+      }
+    } catch (error) {
+      console.error('Error fetching review stats:', error);
+    }
+  }, []);
 
   const updateURLFromFilters = (filters) => {
     const params = new URLSearchParams();
@@ -72,7 +118,7 @@ const JewelryList = () => {
       params.set("collection", `collection-${filters.collection}`);
     if (filters.style) params.set("style", `style-${filters.style}`);
     if (filters.ready_to_ship) {
-      params.set("ready_to_ship", "true"); // keep it "true"
+      params.set("ready_to_ship", "true");
     }
     if (filters.metal) {
       params.set("metal", encodeURIComponent(filters.metal));
@@ -90,9 +136,9 @@ const JewelryList = () => {
 
     if (isPriceValue) {
       if (updatedFilters.price === value) {
-        delete updatedFilters.price; // Deselect price if clicked again
+        delete updatedFilters.price;
       } else {
-        updatedFilters.price = value; // Select new price
+        updatedFilters.price = value;
       }
     } else if (value.startsWith("category-")) {
       updatedFilters.category = value.split("-")[1];
@@ -102,13 +148,13 @@ const JewelryList = () => {
       updatedFilters.menucollection = value.split("-")[1];
     } else if (styleNameToIdMap[value]) {
       if (updatedFilters.style === value) {
-        delete updatedFilters.style; // Deselect style if clicked again
+        delete updatedFilters.style;
       } else {
         updatedFilters.style = value;
       }
     } else if (collectionNameToIdMap[value]) {
       if (appliedFilters.collection === value) {
-        delete updatedFilters.collection; // Deselect collection if clicked again
+        delete updatedFilters.collection;
       } else {
         updatedFilters.collection = value;
       }
@@ -163,7 +209,6 @@ const JewelryList = () => {
   };
 
   const clearAllFilters = () => {
-    // Preserve category and subcategory if they exist
     const { category, subcategory, menucollection } = appliedFilters;
 
     const preservedFilters = {};
@@ -171,9 +216,9 @@ const JewelryList = () => {
     if (subcategory) preservedFilters.subcategory = subcategory;
     if (menucollection) preservedFilters.menucollection = menucollection;
 
-    setAppliedFilters(preservedFilters); // Reset others, keep category/subcategory
+    setAppliedFilters(preservedFilters);
     setReadyToShip(false);
-    // Update URL with preserved filters
+
     const params = new URLSearchParams();
     if (category) params.set("category", `category-${category}`);
     if (subcategory) params.set("subcategory", `subcategory-${subcategory}`);
@@ -197,25 +242,25 @@ const JewelryList = () => {
 
   const fetchProducts = async ({ page, filters = {} }) => {
     const isInitialLoad = page === 1;
-    if (isInitialLoad) setLoading(true);
+    if (isInitialLoad) {
+      setLoading(true);
+      setReviewStats({});
+    }
 
     const apiFilters = { ...filters };
 
-    // Convert style name to ID
     if (filters.style && styleNameToIdMap[filters.style]) {
       apiFilters.style = styleNameToIdMap[filters.style];
     }
 
-    // Convert collection name to ID
     if (filters.collection && collectionNameToIdMap[filters.collection]) {
       apiFilters.collection = collectionNameToIdMap[filters.collection];
     }
 
-    // Convert price label to slug
     if (filters.price && priceSlugReverseMap[filters.price]) {
       apiFilters.price = priceSlugReverseMap[filters.price];
     }
-    // Convert metal name to metal_color_id
+
     if (filters.metal && metalNameToId[filters.metal]) {
       apiFilters.metal_color_id = metalNameToId[filters.metal];
     }
@@ -244,7 +289,6 @@ const JewelryList = () => {
       setMetalNameToId(nameToId);
       setMetalIdToName(idToName);
 
-      // Build style and collection maps for name-to-ID conversion
       const styleMap = {};
       response.data.style_data?.forEach((style) => {
         styleMap[style.psc_name] = style.psc_id;
@@ -257,7 +301,6 @@ const JewelryList = () => {
       });
       setCollectionNameToIdMap(collectionMap);
 
-      // Manage metal selection and default variation
       const newSelections = { ...(isInitialLoad ? {} : selectedVariations) };
       const newActiveMetals = { ...(isInitialLoad ? {} : activeMetal) };
 
@@ -297,7 +340,6 @@ const JewelryList = () => {
         newSelections[group.id] = selectedVariationIndex;
       });
 
-      // Set state
       setSelectedVariations(newSelections);
       setActiveMetal(newActiveMetals);
 
@@ -309,6 +351,12 @@ const JewelryList = () => {
 
       setTotalPages(pages);
       setTotal(totalProducts);
+
+      const productIds = fetchedProducts.map(p => p.id);
+      if (productIds.length > 0) {
+        fetchReviewStats(productIds);
+      }
+
     } catch (error) {
       console.error("Product fetch failed", error);
     } finally {
@@ -317,7 +365,6 @@ const JewelryList = () => {
     }
   };
 
-  //  Read filters from URL on mount
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const categoryParam = params.get("category");
@@ -371,21 +418,19 @@ const JewelryList = () => {
     if (sortParam) filters.sort = sortParam;
 
     setAppliedFilters(filters);
-    setFiltersInitialized(true); //  Mark filters ready
+    setFiltersInitialized(true);
   }, [location.search]);
 
   useEffect(() => {
     setReadyToShip(!!appliedFilters.ready_to_ship);
   }, [appliedFilters.ready_to_ship]);
 
-  //  Fetch products when filters are ready
   useEffect(() => {
     if (!filtersInitialized) return;
     setPage(1);
     fetchProducts({ page: 1, filters: appliedFilters });
   }, [appliedFilters, filtersInitialized]);
 
-  //  Infinite scroll fetch
   useEffect(() => {
     if (page > 1) fetchProducts({ page, filters: appliedFilters });
   }, [page]);
@@ -457,13 +502,11 @@ const JewelryList = () => {
         </div>
       </section>
       <div className="container my-4">
-        {/* Filters Top Bar */}
         <div className="d-flex justify-content-between filters-bar">
           <div className="d-flex align-items-center flex-wrap gap-3">
             <strong>FILTERS</strong>
             <span className="filter-divider">|</span>
 
-            {/* Collection */}
             <div
               onClick={() => toggleFilterSection("collection")}
               style={{
@@ -482,7 +525,6 @@ const JewelryList = () => {
 
             <span className="filter-divider">|</span>
 
-            {/* Style */}
             <div
               onClick={() => toggleFilterSection("style")}
               style={{
@@ -501,7 +543,6 @@ const JewelryList = () => {
 
             <span className="filter-divider">|</span>
 
-            {/* Metal */}
             <div
               onClick={() => toggleFilterSection("metal")}
               style={{
@@ -520,7 +561,6 @@ const JewelryList = () => {
 
             <span className="filter-divider">|</span>
 
-            {/* Price */}
             <div
               onClick={() => toggleFilterSection("price")}
               style={{
@@ -686,7 +726,6 @@ const JewelryList = () => {
 
         <hr />
 
-        {/* Applied Filters */}
         {visibleFilters.length > 0 && (
           <div className="applied-filters-bar mt-3">
             <strong>APPLIED FILTERS</strong>
@@ -715,7 +754,6 @@ const JewelryList = () => {
           </div>
         )}
 
-        {/* Product Listing */}
         <h5 className="mt-4">Showing {total} products.</h5>
         <div className="row row-cols-1 row-cols-md-4 g-4">
           {loading && <Loader />}
@@ -762,6 +800,12 @@ const JewelryList = () => {
                 .replace(/\s+/g, "-")
                 .replace(/[^a-z0-9-]/g, "")
               : "product";
+
+            const productStats = reviewStats[group.id] || {
+              average_rating: 0,
+              total_reviews: 0
+            };
+
             return (
               <div className="col" key={group.id}>
                 <div className="h-100 d-flex flex-column">
@@ -786,6 +830,14 @@ const JewelryList = () => {
                       {group.product?.name || "NA"}
                     </p>
                   </Link>
+
+                  <div className="product-rating mb-2">
+                    <StarRating
+                      rating={productStats.average_rating}
+                      reviewCount={productStats.total_reviews}
+                      small={true}
+                    />
+                  </div>
 
                   <p className="mb-2">{sku}</p>
 

@@ -1,6 +1,6 @@
 // ProductReviewSystem.jsx
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import axiosClient from "../../api/axios";
 
 // Review Form Component
 const ReviewForm = ({
@@ -87,10 +87,7 @@ const ReviewForm = ({
         submitData.rating = formData.rating;
       }
 
-      const response = await axios.post(
-        "https://dilsejewels.com/api/api/reviews",
-        submitData
-      );
+      const response = await axiosClient.post('api/reviews', submitData);
 
       if (response.data.success) {
         setMessage({
@@ -365,8 +362,8 @@ const ReviewItem = ({
               <button
                 onClick={() => handleLikeDislikeClick(true)}
                 className={`btn btn-sm d-flex align-items-center gap-1 ${userReaction === 'like'
-                    ? 'btn-success'
-                    : 'btn-outline-success'
+                  ? 'btn-success'
+                  : 'btn-outline-success'
                   }`}
                 title="Like this review"
               >
@@ -377,8 +374,8 @@ const ReviewItem = ({
               <button
                 onClick={() => handleLikeDislikeClick(false)}
                 className={`btn btn-sm d-flex align-items-center gap-1 ${userReaction === 'dislike'
-                    ? 'btn-danger'
-                    : 'btn-outline-danger'
+                  ? 'btn-danger'
+                  : 'btn-outline-danger'
                   }`}
                 title="Dislike this review"
               >
@@ -469,9 +466,12 @@ const ProductReviewSystem = ({ productId, refreshTrigger }) => {
 
     setLoading(true);
     try {
-      const response = await axios.get(
-        `https://dilsejewels.com/api/api/reviews?product_id=${productId}&page=${page}`
-      );
+      const response = await axiosClient.get('api/reviews', {
+        params: {
+          product_id: productId,
+          page: page,
+        },
+      });
 
       if (response.data.success) {
         setReviews(response.data.data.data || []);
@@ -518,9 +518,11 @@ const ProductReviewSystem = ({ productId, refreshTrigger }) => {
     if (!productId) return;
 
     try {
-      const response = await axios.get(
-        `https://dilsejewels.com/api/api/reviews/stats?product_id=${productId}`
-      );
+      const response = await axiosClient.get('api/reviews/stats', {
+        params: {
+          product_id: productId,
+        },
+      });
 
       if (response.data.success) {
         setStats(response.data.data);
@@ -550,14 +552,11 @@ const ProductReviewSystem = ({ productId, refreshTrigger }) => {
     const guestIdentifier = getGuestIdentifier();
 
     try {
-      const response = await axios.post(
-        `https://dilsejewels.com/api/api/reviews/${reviewId}/like`,
-        {
-          is_like: isLike,
-          user_id: userId || null,
-          guest_identifier: userId ? null : guestIdentifier
-        }
-      );
+      const response = await axiosClient.post(`api/reviews/${reviewId}/like`, {
+        is_like: isLike,
+        user_id: userId || null,
+        guest_identifier: userId ? null : guestIdentifier,
+      });;
 
       if (response.data.success) {
         // Update the specific review with new counts
@@ -655,14 +654,11 @@ const ProductReviewSystem = ({ productId, refreshTrigger }) => {
       }
 
       if (shouldRecordShare) {
-        const response = await axios.post(
-          `https://dilsejewels.com/api/api/reviews/${reviewId}/share`,
-          {
-            platform,
-            user_id: userId || null,
-            guest_identifier: userId ? null : guestIdentifier
-          }
-        );
+        const response = await axiosClient.post(`api/reviews/${reviewId}/share`, {
+          platform,
+          user_id: userId || null,
+          guest_identifier: userId ? null : guestIdentifier,
+        });
 
         if (response.data.success) {
           setReviews(prevReviews =>
@@ -734,8 +730,8 @@ const ProductReviewSystem = ({ productId, refreshTrigger }) => {
                     <span
                       key={index}
                       className={`text-warning ${index < Math.floor(stats.average_rating)
-                          ? 'opacity-100'
-                          : 'opacity-30'
+                        ? 'opacity-100'
+                        : 'opacity-30'
                         }`}
                     >
                       ★

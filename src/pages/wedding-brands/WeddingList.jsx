@@ -5,6 +5,33 @@ import Loader from "../diamond/loader";
 import "react-medium-image-zoom/dist/styles.css";
 // import "./weddingList.css";
 
+// Star Rating Component
+const StarRating = ({ rating, reviewCount, small = false }) => {
+  const fullStars = Math.floor(rating);
+  const hasHalfStar = rating % 1 >= 0.5;
+  const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+
+  return (
+    <div className={`star-rating ${small ? "small" : ""}`}>
+      <div className="stars d-inline-flex align-items-center">
+        {[...Array(fullStars)].map((_, i) => (
+          <span key={`full-${i}`} className="star filled">
+            ★
+          </span>
+        ))}
+        {hasHalfStar && <span className="star half">★</span>}
+        {[...Array(emptyStars)].map((_, i) => (
+          <span key={`empty-${i}`} className="star">
+            ★
+          </span>
+        ))}
+      </div>
+      <span className="rating-text ms-2">
+        {rating.toFixed(1)} ({reviewCount} reviews)
+      </span>
+    </div>
+  );
+};
 const priceSlugMap = {
   "0-500": "$0 - ₹500",
   "500-1000": "₹500 - $1,000",
@@ -697,6 +724,11 @@ const WeddingList = () => {
                   .replace(/\s+/g, "-")
                   .replace(/[^a-z0-9-]/g, "")
                 : "product";
+
+              // Get review stats from product data
+              const averageRating = group.product?.average_rating || 0;
+              const totalReviews = group.product?.total_reviews || 0;
+
               return (
                 <div className="col" key={group.id}>
                   <div className="h-100 d-flex flex-column list-product-card rounded">
@@ -723,6 +755,15 @@ const WeddingList = () => {
                         {group.product?.name || "NA"}
                       </p>
                     </Link>
+
+                    {/* Rating display */}
+                    <div className="product-rating mb-2">
+                      <StarRating
+                        rating={averageRating}
+                        reviewCount={totalReviews}
+                        small={true}
+                      />
+                    </div>
 
                     <p className="mb-2">{sku}</p>
 

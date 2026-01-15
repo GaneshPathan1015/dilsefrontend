@@ -115,7 +115,7 @@ export default function CartPage() {
 
             <div className="summary-features">
               <p className="summary-features_p">✔ FREE INSURED SHIPPING</p>
-              <p className="summary-features_p">✔ 30 DAY RETURNS</p>
+              <p className="summary-features_p">✔ 2 DAY RETURNS</p>
               <p className="summary-features_p">✔ LIFETIME WARRANTY</p>
               <p className="summary-features_p">✔ SECURED CHECKOUT</p>
             </div>

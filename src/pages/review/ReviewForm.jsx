@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import axiosClient from "../../api/axios";
 
 const ReviewForm = ({
   onSubmit,
@@ -91,10 +91,7 @@ const ReviewForm = ({
       console.log("📤 Submitting review data:", submitData);
 
       // 🟢 Send to Backend API
-      const response = await axios.post(
-        "https://dilsejewels.com/api/api/reviews",
-        submitData
-      );
+      const response = await axiosClient.post('api/reviews', submitData);
 
       if (response.data.success) {
         // Reset form after submission

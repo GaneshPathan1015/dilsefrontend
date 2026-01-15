@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axiosClient from '../../api/axios';
 
 const ReplyList = ({ reviewId, onLikeDislike, onShare }) => {
     const [replies, setReplies] = useState([]);
@@ -26,9 +26,11 @@ const ReplyList = ({ reviewId, onLikeDislike, onShare }) => {
     const fetchReplies = async (page = 1) => {
         setLoading(true);
         try {
-            const response = await axios.get(
-                `https://dilsejewels.com/api/api/reviews/${reviewId}/replies?page=${page}`
-            );
+            const response = await axiosClient.get(`/reviews/${reviewId}/replies`, {
+                params: {
+                    page: page,
+                },
+            });
 
             if (response.data.success) {
                 setReplies(response.data.data.data);
@@ -51,14 +53,11 @@ const ReplyList = ({ reviewId, onLikeDislike, onShare }) => {
         const guestIdentifier = getGuestIdentifier();
 
         try {
-            const response = await axios.post(
-                `https://dilsejewels.com/api/api/reviews/${replyId}/like`,
-                {
-                    is_like: isLike,
-                    user_id: userId || null,
-                    guest_identifier: userId ? null : guestIdentifier
-                }
-            );
+            const response = await axiosClient.post(`api/reviews/${replyId}/like`, {
+                is_like: isLike,
+                user_id: userId || null,
+                guest_identifier: userId ? null : guestIdentifier,
+            });
 
             if (response.data.success) {
                 // Update the specific reply counts
@@ -129,14 +128,11 @@ const ReplyList = ({ reviewId, onLikeDislike, onShare }) => {
 
             // ✅ Record the share in database
             if (shouldRecordShare) {
-                const response = await axios.post(
-                    `https://dilsejewels.com/api/api/reviews/${replyId}/share`,
-                    {
-                        platform,
-                        user_id: userId || null,
-                        guest_identifier: userId ? null : guestIdentifier
-                    }
-                );
+                const response = await axiosClient.post(`/reviews/${replyId}/share`, {
+                    platform,
+                    user_id: userId || null,
+                    guest_identifier: userId ? null : guestIdentifier,
+                });
 
                 if (response.data.success) {
                     setReplies(prevReplies =>

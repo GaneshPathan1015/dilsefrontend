@@ -361,7 +361,7 @@ const Profile = () => {
         formData.append('image', profileForm.image);
       }
 
-      const response = await axiosClient.post('/api/profile/update', formData, {
+      const response = await axiosClient.post('api/profile/update', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -423,7 +423,7 @@ const Profile = () => {
     setAddressSaveLoading(true);
 
     try {
-      const response = await axiosClient.post('/api/address', addressForm);
+      const response = await axiosClient.post('api/address', addressForm);
 
       if (response.data.status === 'success' || response.data.success) {
         const addressData = response.data.data;
