@@ -1483,7 +1483,7 @@ const Sitemap = () => {
                                       style={responsiveStyles.link}
                                       onMouseEnter={handleLinkHover}
                                       onMouseLeave={handleLinkHoverOut}>
-                                    under $1,000
+                                    under ₹1,000
                                 </Link>
                             </li>
                             <li style={responsiveStyles.menuItem}>

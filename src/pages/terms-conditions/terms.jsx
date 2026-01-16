@@ -590,7 +590,7 @@ export default function Terms() {
                 <h2 className="display-12">WELCOME Discount Code</h2>
                 <p data-uw-rm-sr="">
                   Use code WELCOME at checkout to receive ₹100 OFF your first
-                  purchase of $1,000 or more (before taxes and shipping). Offer
+                  purchase of ₹1,000 or more (before taxes and shipping). Offer
                   valid for new customers only and applicable to first-time
                   orders placed at{" "}
                   <a
@@ -605,7 +605,7 @@ export default function Terms() {
                 </p>
                 <ul>
                   <li data-uw-rm-sr="">
-                    Minimum purchase of $1,000 required to qualify.
+                    Minimum purchase of ₹1,000 required to qualify.
                   </li>
                   <li>
                     Offer cannot be combined with other promotions, discounts,
@@ -626,7 +626,7 @@ export default function Terms() {
                 </h2>
                 <p data-uw-rm-sr="">
                   Customers who make a purchase during the offer period
-                  totalling over $1,000 will receive a Lab Diamond Bar Pendant
+                  totalling over ₹1,000 will receive a Lab Diamond Bar Pendant
                   Necklace in Sterling Silver (1/4 cttw, G/H color, SI+ clarity)
                   or receive Lab Diamond Stud Earrings in Sterling Silver (1
                   cttw, G/H color, SI+ clarity) for a $2,500 spend. The offer

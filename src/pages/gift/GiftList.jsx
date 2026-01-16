@@ -7,10 +7,10 @@ import "./GiftList.css";
 
 const priceSlugMap = {
   "0-500": "$0 - ₹500",
-  "500-1000": "₹500 - $1,000",
-  "1000-2000": "$1,000 - $2,000",
-  "2000-3000": "$2,000 - $3,000",
-  "3000-100000": "$3,000 - $100,000",
+  "500-1000": "₹500 - ₹1,000",
+  "1000-2000": "₹1,000 - ₹2,000",
+  "2000-3000": "₹2,000 - ₹3,000",
+  "3000-100000": "₹3,000 - ₹100,000",
 };
 
 const slugPriceFilterMap = {
@@ -125,7 +125,7 @@ const GiftList = () => {
       image: "/images/giftImages/gifts-under-500.webp",
     },
     "gifts-under-1000": {
-      title: "Jewelry Gifts Under $1,000",
+      title: "Jewelry Gifts Under ₹1,000",
       description:
         "From sparkling diamonds to vibrant gemstones, explore our handselected jewelry gifts under $1000.",
       image: "/images/giftImages/gifts-under-1000.webp",

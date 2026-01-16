@@ -535,7 +535,7 @@ const Affiliates = () => {
                 HIGH AVERAGE ORDER VALUE
               </h5>
               <p className="radiance-card-text small">
-                Average order value is over $5,000. One of the highest in the
+                Average order value is over ₹5,000. One of the highest in the
                 industry. Our product assortment also includes wedding bands,
                 jewelry, lab and natual diamonds in all price points.
               </p>

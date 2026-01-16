@@ -16,10 +16,10 @@ import EngagementTabs from "../engagement-details/ring-product/EngagementTabs";
 
 const priceSlugMap = {
   "0-500": "$0 - ₹500",
-  "500-1000": "₹500 - $1,000",
-  "1000-2000": "$1,000 - $2,000",
-  "2000-3000": "$2,000 - $3,000",
-  "3000-100000": "$3,000 - $100,000",
+  "500-1000": "₹500 - ₹1,000",
+  "1000-2000": "₹1,000 - ₹2,000",
+  "2000-3000": "₹2,000 - ₹3,000",
+  "3000-100000": "₹3,000 - ₹100,000",
 };
 
 const priceSlugReverseMap = Object.entries(priceSlugMap).reduce(
