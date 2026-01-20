@@ -1046,7 +1046,87 @@ const GiftDetails = () => {
           refreshTrigger={reviewsRefreshed}
         />
       </div>
+
+
+
+      {/* changes  */}
+      {/* <div className="price-breakup-section">
+        <h5 className="price-breakup-title mb-3">PRICE BREAKUP</h5>
+
+
+        <div className="price-breakup-totals">
+          <div className="price-breakup-row d-flex justify-content-between mb-2">
+            <span><strong>Product Price</strong></span>
+            <span>₹{priceBreakup.productPrice}</span>
+          </div>
+          <div className="price-breakup-row d-flex justify-content-between mb-2">
+            <span><strong>Making Charges (3%)</strong></span>
+            <span>₹{priceBreakup.makingCharges}</span>
+          </div>
+          <div className="price-breakup-row d-flex justify-content-between mb-2">
+            <span><strong>Subtotal</strong></span>
+            <span>₹{priceBreakup.subtotal}</span>
+          </div>
+
+          
+          <div className="gst-breakdown mt-3 mb-3">
+            <h6 className="mb-2"><strong>GST Breakdown:</strong></h6>
+            <div className="price-breakup-row d-flex justify-content-between mb-1 ps-3">
+              <span>Gold GST ({priceBreakup.goldGstRate}%)</span>
+              <span>₹{priceBreakup.goldGst}</span>
+            </div>
+            <div className="price-breakup-row d-flex justify-content-between mb-1 ps-3">
+              <span>Making Charges GST ({priceBreakup.makingChargesGstRate}%)</span>
+              <span>₹{priceBreakup.makingChargesGst}</span>
+            </div>
+            <div className="price-breakup-row d-flex justify-content-between mb-2 ps-3">
+              <span>Diamond GST ({priceBreakup.diamondGstRate}%)</span>
+              <span>₹{priceBreakup.diamondGst}</span>
+            </div>
+            <div className="price-breakup-row d-flex justify-content-between border-top pt-2">
+              <span><strong>Total GST</strong></span>
+              <span><strong>₹{priceBreakup.totalGst}</strong></span>
+            </div>
+          </div>
+
+          
+          <div className="price-breakup-grand-total d-flex justify-content-between border-top pt-2 mt-3">
+            <h6 className="mb-0"><strong>Grand Total</strong></h6>
+            <h6 className="mb-0"><strong>₹{priceBreakup.grandTotal}</strong></h6>
+          </div>
+        </div>
+
+
+        <div className="price-summary mt-4 p-3 bg-light rounded">
+          <h6 className="mb-3"><strong>Summary:</strong></h6>
+          <div className="row small">
+            <div className="col-6">
+              <div className="mb-1">Product Price:</div>
+              <div className="mb-1">Making Charges:</div>
+              <div className="mb-1">Gold GST:</div>
+              <div className="mb-1">Making Charges GST:</div>
+              <div className="mb-1">Diamond GST:</div>
+              <div className="mb-0 mt-2"><strong>Grand Total:</strong></div>
+            </div>
+            <div className="col-6 text-end">
+              <div className="mb-1">₹{priceBreakup.productPrice}</div>
+              <div className="mb-1">₹{priceBreakup.makingCharges}</div>
+              <div className="mb-1">₹{priceBreakup.goldGst}</div>
+              <div className="mb-1">₹{priceBreakup.makingChargesGst}</div>
+              <div className="mb-1">₹{priceBreakup.diamondGst}</div>
+              <div className="mb-0 mt-2"><strong>₹{priceBreakup.grandTotal}</strong></div>
+            </div>
+          </div>
+        </div>
+      </div> */}
+
+
+
     </div>
+
+
+
+
   );
 };
 
