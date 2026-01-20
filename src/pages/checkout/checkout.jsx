@@ -3,7 +3,6 @@ import axiosClient from "../../api/axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { useCart } from "../../cart/CartContext";
-import BuyNow from "./BuyNow";
 import "./checkout.css";
 
 const Checkout = () => {
@@ -32,8 +31,6 @@ const Checkout = () => {
   const [isApplying, setIsApplying] = useState(false);
   const [appliedCode, setAppliedCode] = useState(null);
   const [discountValue, setDiscountValue] = useState(0);
-  const [sameAsDelivery, setSameAsDelivery] = useState(true);
-
   // Handle payment method selection
   const handleApplyDiscount = async () => {
     setDiscountError("");
@@ -47,6 +44,8 @@ const Checkout = () => {
         cart_total: totalAmount,
         date: today,
       });
+      setAppliedCode(res.data.data.coupon_code);
+      setDiscountValue(res.data.data.discount);
       setDiscountResponse(res.data.data);
       setDiscountError("");
     } catch (error) {
@@ -68,9 +67,9 @@ const Checkout = () => {
 
   const totalAmount = getTotalAmount();
 
-  // const handleMethodChange = (event) => {
-  //   setSelectedMethod(event.target.id);
-  // };
+  const handleMethodChange = (event) => {
+    setSelectedMethod(event.target.id);
+  };
 
   // Handle input changes
   const handleInputChange = (e) => {
@@ -81,68 +80,56 @@ const Checkout = () => {
     }));
   };
 
-  // 1. Validation Logic
-  const validateForm = () => {
-    let newErrors = {};
-    let isValid = true;
+  // Validate form before submission
+  const validate = () => {
+    const newErrors = {};
 
-    // Basic Validation
+    if (!user && !formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!user && !/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "Email is invalid";
+    }
 
-    if (!formData.country) newErrors.country = "Please select a country";
-    if (!formData.first_name) newErrors.first_name = "First name is required";
-    if (!formData.last_name) newErrors.last_name = "Last name is required";
-    if (!formData.address) newErrors.address = "Address is required";
-    if (!formData.city) newErrors.city = "City is required";
-    if (!formData.zip_code) newErrors.zip_code = "ZIP code is required";
-    if (!formData.phone) newErrors.phone = "Phone is required";
+    ["first_name", "last_name", "address", "city", "zip_code", "phone"].forEach(
+      (field) => {
+        if (!formData[field].trim()) {
+          newErrors[field] = `${field.replace("_", " ")} is required`;
+        }
+      }
+    );
 
-    // Billing Validation (Only if checkbox is unchecked)
-    if (!sameAsDelivery) {
-      if (!formData.billing_country)
-        newErrors.billing_country = "Billing country is required";
-      if (!formData.billing_first_name)
-        newErrors.billing_first_name = "Billing First name is required";
-      if (!formData.billing_address)
-        newErrors.billing_address = "Billing Address is required";
-      if (!formData.billing_city)
-        newErrors.billing_city = "Billing City is required";
-      // ... add other billing fields
+    if (!selectedMethod) {
+      newErrors.payment = "Please select a payment method";
     }
 
     setErrors(newErrors);
-
-    // If there are keys in newErrors, form is invalid
-    if (Object.keys(newErrors).length > 0) {
-      isValid = false;
-    }
-
-    return isValid;
+    return Object.keys(newErrors).length === 0;
   };
 
   // Prepare order payload
-  // const prepareOrderPayload = () => ({
-  //   user: formData,
-  //   items: (cartItems || []).map((item) => {
-  //     if (item.productType === "combo") {
-  //       return {
-  //         productType: "combo",
-  //         size: item.size,
-  //         itemQuantity: item.itemQuantity,
-  //         ring: item.ring,
-  //         diamond: item.diamond,
-  //       };
-  //     } else if (item.productType === "diamond") {
-  //       return { productType: "diamond", ...item };
-  //     } else if (item.productType === "build") {
-  //       return { productType: "build", ...item };
-  //     } else if (item.productType === "gift") {
-  //       return { productType: "gift", ...item };
-  //     }
-  //     return item;
-  //   }),
-  //   total: /* getSubTotal() */ getTotalAmount(),
-  //   paymentMethod: selectedMethod,
-  // });
+  const prepareOrderPayload = () => ({
+    user: formData,
+    items: (cartItems || []).map((item) => {
+      if (item.productType === "combo") {
+        return {
+          productType: "combo",
+          size: item.size,
+          itemQuantity: item.itemQuantity,
+          ring: item.ring,
+          diamond: item.diamond,
+        };
+      } else if (item.productType === "diamond") {
+        return { productType: "diamond", ...item };
+      } else if (item.productType === "build") {
+        return { productType: "build", ...item };
+      } else if (item.productType === "jewelry") {
+        return { productType: "jewelry", ...item };
+      }
+      return item;
+    }),
+    total: /* getSubTotal() */ getTotalAmount(),
+    paymentMethod: selectedMethod,
+  });
 
   useEffect(() => {
     const savedAddressRaw = localStorage.getItem("pendingAddress");
@@ -152,6 +139,9 @@ const Checkout = () => {
       // Restore form
       setFormData(savedAddress.formData || {});
       setSelectedMethod(savedAddress.selectedMethod || "");
+
+      // console.log(cartItems.length);
+      // console.log(savedAddress.cartPayload?.length);
 
       //  Restore cart if it's empty
       if (
@@ -192,104 +182,107 @@ const Checkout = () => {
   }, [user, addToCart]);
 
   // Handle form submission
-  // const handleSubmit = async () => {
-  //   if (!validate()) return;
+  const handleSubmit = async () => {
+    if (!validate()) return;
 
-  //   if (!user) {
-  //     // Save pending address and redirect to signin
-  //     localStorage.setItem(
-  //       "pendingAddress",
-  //       JSON.stringify({ formData, selectedMethod, cartPayload: cartItems })
-  //     );
-  //     navigate("/signin", { state: { from: "/checkout" } });
-  //     return;
-  //   }
+    if (!user) {
+      // Save pending address and redirect to signin
+      localStorage.setItem(
+        "pendingAddress",
+        JSON.stringify({ formData, selectedMethod, cartPayload: cartItems })
+      );
+      navigate("/signin", { state: { from: "/checkout" } });
+      return;
+    }
 
-  //   try {
-  //     const addressObject = {
-  //       apartment: formData.apartment,
-  //       street: formData.address,
-  //       city: formData.city,
-  //       zip: formData.zip_code,
-  //       country: formData.country,
-  //     };
+    try {
+      const addressObject = {
+        apartment: formData.apartment,
+        street: formData.address,
+        city: formData.city,
+        zip: formData.zip_code,
+        country: formData.country,
+      };
 
-  //     // Save/update address
-  //     await axiosClient.post("/api/store-addresses", {
-  //       user_id: user.id,
-  //       first_name: formData.first_name,
-  //       last_name: formData.last_name,
-  //       country: formData.country,
-  //       address: addressObject,
-  //       phone_number: formData.phone,
-  //       is_get_offer: formData.smsOffers ? 1 : 0,
-  //     });
+      // Save/update address
+      await axiosClient.post("/api/store-addresses", {
+        user_id: user.id,
+        first_name: formData.first_name,
+        last_name: formData.last_name,
+        country: formData.country,
+        address: addressObject,
+        phone_number: formData.phone,
+        is_get_offer: formData.smsOffers ? 1 : 0,
+      });
 
-  //     // PayPal payment
-  //     if (selectedMethod === "pay-paypal") {
-  //       const orderResponse = await axiosClient.post("/api/store-order", {
-  //         user_id: user.id,
-  //         user_name: `${formData.first_name} ${formData.last_name}`,
-  //         contact_number: formData.phone,
-  //         item_details: JSON.stringify(prepareOrderPayload()),
-  //         total_price: /* getSubTotal() */ getTotalAmount(),
-  //         coupon_discount: discountValue,
-  //         coupon_code: appliedCode,
-  //         address: JSON.stringify(addressObject),
-  //         order_status: "pending",
-  //         payment_mode: "paypal",
-  //         payment_status: "pending",
-  //         is_gift: formData.isGift || false,
-  //         notes: formData.notes || "",
-  //       });
+      // PayPal payment
+      if (selectedMethod === "pay-paypal") {
+        const orderResponse = await axiosClient.post("/api/store-order", {
+          user_id: user.id,
+          user_name: `${formData.first_name} ${formData.last_name}`,
+          contact_number: formData.phone,
+          item_details: JSON.stringify(prepareOrderPayload()),
+          total_price: /* getSubTotal() */ getTotalAmount(),
+          coupon_discount: discountValue,
+          coupon_code: appliedCode,
+          address: JSON.stringify(addressObject),
+          order_status: "pending",
+          payment_mode: "paypal",
+          payment_status: "pending",
+          is_gift: formData.isGift || false,
+          notes: formData.notes || "",
+        });
 
-  //       const orderId = orderResponse.data.order_id;
-  //       // console.log(orderId);
+        const orderId = orderResponse.data.order_id;
+        // console.log(orderId);
 
-  //       const paypalResponse = await axiosClient.post(
-  //         "/api/paypal/create-order",
-  //         {
-  //           amount: /* getSubTotal() */ getTotalAmount(),
-  //           currency: "USD",
-  //           user_id: user.id,
-  //           order_id: orderId,
-  //         }
-  //       );
-  //       window.location.href = paypalResponse.data.approve_url;
-  //       return;
-  //     }
+        const paypalResponse = await axiosClient.post(
+          "/api/paypal/create-order",
+          {
+            amount: /* getSubTotal() */ getTotalAmount(),
+            currency: "USD",
+            user_id: user.id,
+            order_id: orderId,
+          }
+        );
+        window.location.href = paypalResponse.data.approve_url;
+        return;
+      }
 
-  //     // Store order
-  //     const orderResponse = await axiosClient.post("/api/store-order", {
-  //       user_id: user.id,
-  //       user_name: `${formData.first_name} ${formData.last_name}`,
-  //       contact_number: formData.phone,
-  //       item_details: JSON.stringify(prepareOrderPayload()),
-  //       total_price: /* getSubTotal() */ getTotalAmount(),
-  //       coupon_discount: discountValue,
-  //       coupon_code: appliedCode,
-  //       address: JSON.stringify(addressObject),
-  //       order_status: "pending",
-  //       payment_mode: selectedMethod,
-  //       payment_status: "pending",
-  //       is_gift: formData.isGift || false,
-  //       notes: formData.notes || "",
-  //     });
+      // Store order
+      const orderResponse = await axiosClient.post("/api/store-order", {
+        user_id: user.id,
+        user_name: `${formData.first_name} ${formData.last_name}`,
+        contact_number: formData.phone,
+        item_details: JSON.stringify(prepareOrderPayload()),
+        total_price: /* getSubTotal() */ getTotalAmount(),
+        coupon_discount: discountValue,
+        coupon_code: appliedCode,
+        address: JSON.stringify(addressObject),
+        order_status: "pending",
+        payment_mode: selectedMethod,
+        payment_status: "pending",
+        is_gift: formData.isGift || false,
+        notes: formData.notes || "",
+      });
 
-  //     clearCart();
-  //     localStorage.removeItem("pendingAddress");
-  //     navigate("/thankyou", { state: { order: orderResponse.data } });
-  //   } catch (error) {
-  //     console.error("Error submitting order:", error);
-  //     alert("Failed to process your order. Please try again.");
-  //   }
-  // };
+      clearCart();
+      localStorage.removeItem("pendingAddress");
+      navigate("/thankyou", { state: { order: orderResponse.data } });
+    } catch (error) {
+      console.error("Error submitting order:", error);
+      alert("Failed to process your order. Please try again.");
+    }
+  };
 
   // Helpers
   const getImageUrl = (img) => {
-    const fallback = `${import.meta.env.VITE_BACKEND_URL
-      }/storage/variation_images/No_Image_Available.jpg`;
-    return img ? `${import.meta.env.VITE_BACKEND_URL}${img}` : fallback;
+    const fallback = `${
+      import.meta.env.VITE_BACKEND_URL
+    }/storage/variation_images/No_Image_Available.jpg`;
+    return img
+      ? `${import.meta.env.VITE_BACKEND_URL}/storage/variation_images/${img}`
+      : fallback;
   };
 
   const diamondType = (type) =>
@@ -302,7 +295,7 @@ const Checkout = () => {
         <div className="row ">
           <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-12 order-lg-1 order-2">
             {/* Redeem Section */}
-            {/* <div className="container my-5">
+            <div className="container my-5">
               <div className="redeem-card mb-4">
                 <h6>Redeem your Points</h6>
                 {user ? (
@@ -325,11 +318,11 @@ const Checkout = () => {
                   Redeem
                 </button>
               </div>
-            </div> */}
+            </div>
 
             {/* Contact Section */}
-            <div className="container my-2" style={{ maxWidth: "700px" }}>
-              {/* <div className="section-title-checkout d-flex justify-content-between align-items-center">
+            <div className="container my-5" style={{ maxWidth: "700px" }}>
+              <div className="section-title-checkout d-flex justify-content-between align-items-center">
                 <span>Contact</span>
                 {user ? (
                   <span className="text-muted small">{user.email}</span>
@@ -372,14 +365,13 @@ const Checkout = () => {
                 <label className="form-check-label" htmlFor="emailOffers">
                   Email me with news and offers
                 </label>
-              </div> */}
+              </div>
 
               <div className="section-title-checkout">Delivery Address</div>
 
               <div className="mb-3">
                 <select
-                  className={`form-select form-select-lg ${errors.country ? "is-invalid" : ""
-                    }`}
+                  className="form-select form-select-lg"
                   name="country"
                   value={formData.country}
                   onChange={handleInputChange}
@@ -388,11 +380,6 @@ const Checkout = () => {
                   <option value="Canada">Canada</option>
                   <option value="India">India</option>
                 </select>
-
-                {/* You were missing this part below */}
-                {errors.country && (
-                  <div className="invalid-feedback">{errors.country}</div>
-                )}
               </div>
 
               <div className="row g-2 mb-3">
@@ -400,8 +387,9 @@ const Checkout = () => {
                   <input
                     type="text"
                     name="first_name"
-                    className={`form-control form-control-lg ${errors.first_name ? "is-invalid" : ""
-                      }`}
+                    className={`form-control form-control-lg ${
+                      errors.first_name ? "is-invalid" : ""
+                    }`}
                     placeholder="First name"
                     value={formData.first_name}
                     onChange={handleInputChange}
@@ -414,8 +402,9 @@ const Checkout = () => {
                   <input
                     type="text"
                     name="last_name"
-                    className={`form-control form-control-lg ${errors.last_name ? "is-invalid" : ""
-                      }`}
+                    className={`form-control form-control-lg ${
+                      errors.last_name ? "is-invalid" : ""
+                    }`}
                     placeholder="Last name"
                     value={formData.last_name}
                     onChange={handleInputChange}
@@ -430,8 +419,9 @@ const Checkout = () => {
                 <input
                   type="text"
                   name="address"
-                  className={`form-control form-control-lg ${errors.address ? "is-invalid" : ""
-                    }`}
+                  className={`form-control form-control-lg ${
+                    errors.address ? "is-invalid" : ""
+                  }`}
                   placeholder="Address"
                   value={formData.address}
                   onChange={handleInputChange}
@@ -460,8 +450,9 @@ const Checkout = () => {
                   <input
                     type="text"
                     name="city"
-                    className={`form-control form-control-lg ${errors.city ? "is-invalid" : ""
-                      }`}
+                    className={`form-control form-control-lg ${
+                      errors.city ? "is-invalid" : ""
+                    }`}
                     placeholder="City"
                     value={formData.city}
                     onChange={handleInputChange}
@@ -475,8 +466,9 @@ const Checkout = () => {
                   <input
                     type="text"
                     name="zip_code"
-                    className={`form-control form-control-lg ${errors.zip_code ? "is-invalid" : ""
-                      }`}
+                    className={`form-control form-control-lg ${
+                      errors.zip_code ? "is-invalid" : ""
+                    }`}
                     placeholder="ZIP code"
                     value={formData.zip_code}
                     onChange={handleInputChange}
@@ -491,8 +483,9 @@ const Checkout = () => {
                 <input
                   type="text"
                   name="phone"
-                  className={`form-control form-control-lg ${errors.phone ? "is-invalid" : ""
-                    }`}
+                  className={`form-control form-control-lg ${
+                    errors.phone ? "is-invalid" : ""
+                  }`}
                   placeholder="Phone"
                   value={formData.phone}
                   onChange={handleInputChange}
@@ -505,7 +498,7 @@ const Checkout = () => {
                 )}
               </div>
 
-              {/* <div className="form-check mb-3">
+              <div className="form-check mb-3">
                 <input
                   className="form-check-input"
                   type="checkbox"
@@ -517,189 +510,12 @@ const Checkout = () => {
                 <label className="form-check-label" htmlFor="smsOffers">
                   Text me with news and offers
                 </label>
-              </div> */}
-            </div>
-
-            <div className="mt-2 border-top">
-              <div className="d-flex align-items-center justify-content-between mb-3">
-                <div className="section-title-checkout">Billing Address</div>
               </div>
-
-              {/* The Checkbox Toggle */}
-              <div className="form-check mb-4">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  id="sameAsDelivery"
-                  checked={sameAsDelivery}
-                  onChange={(e) => setSameAsDelivery(e.target.checked)}
-                />
-                <label
-                  className="form-check-label user-select-none"
-                  htmlFor="sameAsDelivery"
-                >
-                  Billing address is the same as delivery address
-                </label>
-              </div>
-
-              {/* Conditional Rendering: Only show if unchecked */}
-              {!sameAsDelivery && (
-                <div className="billing-form-container fade-in">
-                  {/* Country Select */}
-                  <div className="mb-3">
-                    <select
-                      className={`form-select form-select-lg ${errors.billing_country ? "is-invalid" : ""
-                        }`}
-                      name="billing_country"
-                      value={formData.billing_country}
-                      onChange={handleInputChange}
-                    >
-                      <option value="">Select a country</option>
-                      <option value="Canada">Canada</option>
-                      <option value="India">India</option>
-                    </select>
-
-                    {/* Added Error Message Display */}
-                    {errors.billing_country && (
-                      <div className="invalid-feedback">
-                        {errors.billing_country}
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Name Fields */}
-                  <div className="row g-2 mb-3">
-                    <div className="col-md">
-                      <input
-                        type="text"
-                        name="billing_first_name"
-                        className={`form-control form-control-lg ${errors.billing_first_name ? "is-invalid" : ""
-                          }`}
-                        placeholder="First name"
-                        value={formData.billing_first_name}
-                        onChange={handleInputChange}
-                      />
-                      {errors.billing_first_name && (
-                        <div className="invalid-feedback">
-                          {errors.billing_first_name}
-                        </div>
-                      )}
-                    </div>
-                    <div className="col-md">
-                      <input
-                        type="text"
-                        name="billing_last_name"
-                        className={`form-control form-control-lg ${errors.billing_last_name ? "is-invalid" : ""
-                          }`}
-                        placeholder="Last name"
-                        value={formData.billing_last_name}
-                        onChange={handleInputChange}
-                      />
-                      {errors.billing_last_name && (
-                        <div className="invalid-feedback">
-                          {errors.billing_last_name}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Address Field */}
-                  <div className="mb-3 position-relative">
-                    <input
-                      type="text"
-                      name="billing_address"
-                      className={`form-control form-control-lg ${errors.billing_address ? "is-invalid" : ""
-                        }`}
-                      placeholder="Address"
-                      value={formData.billing_address}
-                      onChange={handleInputChange}
-                    />
-                    <span className="input-icon">
-                      <i className="bi bi-search"></i>
-                    </span>
-                    {errors.billing_address && (
-                      <div className="invalid-feedback">
-                        {errors.billing_address}
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Apartment Field */}
-                  <div className="mb-3">
-                    <input
-                      type="text"
-                      name="billing_apartment"
-                      className="form-control form-control-lg"
-                      placeholder="Apartment, suite, etc. (optional)"
-                      value={formData.billing_apartment}
-                      onChange={handleInputChange}
-                    />
-                  </div>
-
-                  {/* City & Zip Field */}
-                  <div className="row g-2 mb-3">
-                    <div className="col-md-4">
-                      <input
-                        type="text"
-                        name="billing_city"
-                        className={`form-control form-control-lg ${errors.billing_city ? "is-invalid" : ""
-                          }`}
-                        placeholder="City"
-                        value={formData.billing_city}
-                        onChange={handleInputChange}
-                      />
-                      {errors.billing_city && (
-                        <div className="invalid-feedback">
-                          {errors.billing_city}
-                        </div>
-                      )}
-                    </div>
-
-                    <div className="col-md-4">
-                      <input
-                        type="text"
-                        name="billing_zip_code"
-                        className={`form-control form-control-lg ${errors.billing_zip_code ? "is-invalid" : ""
-                          }`}
-                        placeholder="ZIP code"
-                        value={formData.billing_zip_code}
-                        onChange={handleInputChange}
-                      />
-                      {errors.billing_zip_code && (
-                        <div className="invalid-feedback">
-                          {errors.billing_zip_code}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Phone Field */}
-                  <div className="mb-3 position-relative">
-                    <input
-                      type="text"
-                      name="billing_phone"
-                      className={`form-control form-control-lg ${errors.billing_phone ? "is-invalid" : ""
-                        }`}
-                      placeholder="Phone"
-                      value={formData.billing_phone}
-                      onChange={handleInputChange}
-                    />
-                    <span className="input-icon">
-                      <i className="bi bi-question-circle"></i>
-                    </span>
-                    {errors.billing_phone && (
-                      <div className="invalid-feedback">
-                        {errors.billing_phone}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              )}
             </div>
 
             {/* Payment Section */}
-            {/* <div className="container my-1" style={{ maxWidth: "700px" }}>
-              
+            <div className="container my-5" style={{ maxWidth: "700px" }}>
+              {/* Section Title */}
               <div className="section-title-checkout">Payment</div>
               <p className="text-muted mb-3">
                 All transactions are secure and encrypted.
@@ -716,7 +532,7 @@ const Checkout = () => {
                 <span className="input-span">COD</span>
               </div>
 
-              
+              {/* Credit Card Option */}
               <div className="payment-option">
                 <div className="d-flex justify-content-between align-items-center mb-2">
                   <div>
@@ -785,7 +601,7 @@ const Checkout = () => {
                 </div>
               </div>
 
-              
+              {/* PayPal */}
               <div className="payment-option">
                 <input
                   type="radio"
@@ -803,10 +619,10 @@ const Checkout = () => {
               {errors.payment && (
                 <div className="text-danger mt-3 mb-3">{errors.payment}</div>
               )}
-            </div> */}
+            </div>
 
-            {/* Buy Now Section */}
-            {/* <div className="container" style={{ maxWidth: "700px" }}>
+            {/* Remember Me Section */}
+            <div className="container" style={{ maxWidth: "700px" }}>
               <button
                 type="button"
                 className="pay-button"
@@ -815,23 +631,13 @@ const Checkout = () => {
                 Buy now
               </button>
 
-             
+              {/* Terms Text */}
               <p className="terms-text">
                 Your info will be saved to a Shop account. By continuing, you
                 agree to Shop’s <a href="#">Terms of Service</a> and acknowledge
                 the <a href="#">Privacy Policy</a>.
               </p>
-            </div> */}
-
-            <BuyNow
-              cartItems={cartItems}
-              totalPrice={totalAmount}
-              user={user} // From your AuthContext
-              formData={formData} // Your form state
-              sameAsDelivery={sameAsDelivery} // Checkbox state
-              validate={validateForm}
-              discountResponse={discountResponse}
-            />
+            </div>
           </div>
 
           <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-12 order-lg-2 order-1">
@@ -878,8 +684,9 @@ const Checkout = () => {
                             className="product-img"
                             onError={(e) => {
                               e.currentTarget.style.display = "none"; // hide broken img
-                              e.currentTarget.parentNode.innerHTML = `<span>${item.name || "Product"
-                                }</span>`;
+                              e.currentTarget.parentNode.innerHTML = `<span>${
+                                item.name || "Product"
+                              }</span>`;
                             }}
                           />
                         ) : (
@@ -913,7 +720,7 @@ const Checkout = () => {
                           </>
                         )}
 
-                        {item.productType === "gift" && (
+                        {item.productType === "jewelry" && (
                           <>
                             <strong>{item.name || "Jewelry Product"}</strong>
                             <small>Weight: {item.weight || "N/A"}g</small>
@@ -930,6 +737,7 @@ const Checkout = () => {
                         {item.productType === "combo" && (
                           <>
                             <strong> {item.ring?.name}</strong>
+
                             <small>
                               Engagement Ring with {item.diamond?.carat_weight}
                               ct {item.diamond?.shape?.name}{" "}
@@ -946,7 +754,6 @@ const Checkout = () => {
 
                         {item.productType === "build" && (
                           <>
-                            {/* engagement orderd */}
                             <strong>{item.name || "Custom Jewelry"}</strong>
                             <small>Metal Color: {item.metal_color.name}</small>
                             <small>Shape: {item.shape}</small>

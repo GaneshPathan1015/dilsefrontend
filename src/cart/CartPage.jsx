@@ -110,12 +110,12 @@ export default function CartPage() {
               CHECKOUT
             </button>
             <p className="discount-note">
-              GET50 - Get ₹25 off on orders above ₹1000 on checkout
+              GET50 - Get ₹50 off on orders above ₹1000 on checkout
             </p>
 
             <div className="summary-features">
               <p className="summary-features_p">✔ FREE INSURED SHIPPING</p>
-              <p className="summary-features_p">✔ 2 DAY RETURNS</p>
+              <p className="summary-features_p">✔ 30 DAY RETURNS</p>
               <p className="summary-features_p">✔ LIFETIME WARRANTY</p>
               <p className="summary-features_p">✔ SECURED CHECKOUT</p>
             </div>
@@ -123,7 +123,7 @@ export default function CartPage() {
 
           <div className="verify-card">
             <h4>GET ₹100 OFF</h4>
-            <p>on orders of ₹2000 and above</p>
+            <p>on orders of $2000 and above</p>
             <p className="verify-text">
               Military, Nurses, and First Responders receive an exclusive ID.me
               discount. Verify your eligibility before ordering.

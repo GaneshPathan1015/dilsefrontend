@@ -728,12 +728,6 @@ const RingProductView = ({ diamond }) => {
                       }
                     />
                   </div>
-                  {/*  <div className="bg-light-gray p-3 rounded d-flex align-items-center gap-2">
-                    <Gift size={20} />
-                    <span className="small">
-                      Earn 847 Points when you buy this item.
-                    </span>
-                  </div> */}
 
                   <div className="product-details-container">
                     {/* Product Details Section */}

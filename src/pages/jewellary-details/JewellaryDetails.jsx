@@ -541,10 +541,10 @@ const JewelryDetailsPage = () => {
                 <i className="bi bi-facebook"></i>
                 <i className="bi bi-x"></i>
               </div>
-              <div className="bg-light p-2 mt-3">
+              {/* <div className="bg-light p-2 mt-3">
                 <i className="bi bi-gift"></i> Earn 847 Points when you buy this
                 item.
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
