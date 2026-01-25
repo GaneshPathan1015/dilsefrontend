@@ -735,10 +735,10 @@ const EngagementList = () => {
 
         {/* Product Listing */}
         <h5 className="mt-4">Showing {total} products.</h5>
+        {loading && <Loader />}
         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-          {loading && <Loader />}
 
-          {products.map((group) => {
+          {!loading && products.map((group) => {
             const metalVariations = group.metal_variations || {};
 
             // Flatten variations

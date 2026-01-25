@@ -1,5 +1,5 @@
 import React from "react";
-
+import { BACKEND_URL } from "../config/env";
 export default function BuildCard({
   item,
   quantity,
@@ -9,11 +9,9 @@ export default function BuildCard({
   const ring = item;
 
   const getImageUrl = (img) => {
-    const fallback = `${import.meta.env.VITE_BACKEND_URL
-      }/storage/variation_images/No_Image_Available.jpg`;
+    const fallback = `${BACKEND_URL}/storage/variation_images/No_Image_Available.jpg`;
     if (!img) return fallback;
-    return `${import.meta.env.VITE_BACKEND_URL
-      }${img}`;
+    return `${BACKEND_URL}${img}`;
   };
 
   return (

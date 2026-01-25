@@ -756,10 +756,9 @@ const JewelryList = () => {
         )}
 
         <h5 className="mt-4">Showing {total} products.</h5>
+        {loading && <Loader />}
         <div className="row row-cols-1 row-cols-md-4 g-4">
-          {loading && <Loader />}
-
-          {products.map((group) => {
+          {!loading && products.map((group) => {
             const metalKeys = Object.keys(group.metal_variations).sort(
               (a, b) => {
                 const qualityA =

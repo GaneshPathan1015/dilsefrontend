@@ -17,17 +17,26 @@ import { useCart } from "../../cart/CartContext";
 import SocialShare from "./SocialShare";
 import LoadingDots from "./LoadingDots";
 import ProductReviewSystem from "../review/ProductReviewSystem";
+import { BACKEND_URL } from "../../config/env";
 import "./giftDetails.css";
 
 const getImageUrl = (img) => {
-  const fallback = `https://dilsejewels.com/storage/variation_images/No_Image_Available.jpg`;
+  const fallback = `${BACKEND_URL}/storage/variation_images/No_Image_Available.jpg`;
   if (!img) return fallback;
-  return `https://dilsejewels.com/api${img}`;
+  if (img.startsWith("http")) return img;
+  return `${BACKEND_URL}${img}`;
 };
 
-const getVideoUrl = (video) => {
+// const getVideoUrl = (video) => {
+//   if (!video) return null;
+//   return `https://dilsejewels.com/api${video}`;
+// };
+export const getVideoUrl = (video) => {
   if (!video) return null;
-  return `https://dilsejewels.com/api${video}`;
+
+  if (video.startsWith("http")) return video;
+
+  return `${BACKEND_URL}/api${video}`;
 };
 
 const GiftDetails = () => {
@@ -53,6 +62,14 @@ const GiftDetails = () => {
   const toggleSection = (section) => {
     setOpenSection(openSection === section ? null : section);
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowMobileCart(window.innerWidth < 768 && window.scrollY > 300);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -653,6 +670,56 @@ const GiftDetails = () => {
                       </p>
                     </div>
                   </div>
+
+
+                  {/* tax */}
+                  <div>
+                    <div
+                      className="detail-section-header"
+                      onClick={() => toggleSection("tax")}
+                    >
+                      <h5 className="detail-section-title">
+                        Tax
+                      </h5>
+                      {openSection === "tax" ? (
+                        <ChevronUp size={20} className="chevron-icon" />
+                      ) : (
+                        <ChevronDown size={20} className="chevron-icon" />
+                      )}
+                    </div>
+                    <div
+                      className={`section-content ${openSection === "tax" ? "" : "collapsed"
+                        }`}
+                    >
+                      <div className="details-grid">
+                        <span className="detail-label">Metal Details</span>
+                        <span className="detail-value">{metalName}</span>
+
+                        <span className="detail-label">Total Weight</span>
+                        <span className="detail-value">
+                          {!isNaN(
+                            parseFloat(diamond_weight) + parseFloat(weight)
+                          )
+                            ? parseFloat(diamond_weight) + parseFloat(weight)
+                            : "NA"}
+                        </span>
+
+                        <span className="detail-label">Product Model</span>
+                        <span className="detail-value">
+                          {products_model || "NA"}
+                        </span>
+
+                        <span className="detail-label">Clarity</span>
+                        <span className="detail-value">
+                          {product_clarity || "NA"}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+
                 </div>
               </div>
             </div>
@@ -1053,7 +1120,6 @@ const GiftDetails = () => {
       {/* <div className="price-breakup-section">
         <h5 className="price-breakup-title mb-3">PRICE BREAKUP</h5>
 
-
         <div className="price-breakup-totals">
           <div className="price-breakup-row d-flex justify-content-between mb-2">
             <span><strong>Product Price</strong></span>
@@ -1094,9 +1160,7 @@ const GiftDetails = () => {
             <h6 className="mb-0"><strong>Grand Total</strong></h6>
             <h6 className="mb-0"><strong>₹{priceBreakup.grandTotal}</strong></h6>
           </div>
-        </div>
-
-
+       </div>
         <div className="price-summary mt-4 p-3 bg-light rounded">
           <h6 className="mb-3"><strong>Summary:</strong></h6>
           <div className="row small">
@@ -1119,14 +1183,7 @@ const GiftDetails = () => {
           </div>
         </div>
       </div> */}
-
-
-
     </div>
-
-
-
-
   );
 };
 
