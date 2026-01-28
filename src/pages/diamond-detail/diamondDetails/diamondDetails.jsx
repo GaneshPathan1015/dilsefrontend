@@ -226,15 +226,15 @@ export default function DiamondDetails() {
           <p>
             <strong>Certificate Number#:</strong> {diamond.certificate_number}
           </p>
-          <p>${diamond.price} (Diamond Only)</p>
+          <p>₹{diamond.price} (Diamond Only)</p>
           <p>
-            <strong>BANK WIRE PRICE</strong> ${(diamond.price - 5).toFixed(2)}
+            <strong>BANK WIRE PRICE</strong> ₹{(diamond.price - 5).toFixed(2)}
           </p>
-          <p style={{ fontSize: "13px" }}>
+          {/* <p style={{ fontSize: "13px" }}>
             Starting at $23/mo or 0% APR with Affirm.{" "}
             <a href="#">See if you qualify</a> <br></br> Free Insured Shipping.{" "}
             <a href="#">30 Day Returns</a>
-          </p>
+          </p> */}
 
           <div
             style={{

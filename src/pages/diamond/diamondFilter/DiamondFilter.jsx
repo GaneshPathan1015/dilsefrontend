@@ -76,9 +76,9 @@ const DiamondFilter = ({ price, setPrice, carat, setCarat, cut, setCut }) => {
             />
           </div>
           <div className={styles.priceInputs}>
-            <input type="text" value={`$${price[0]}`} readOnly />
+            <input type="text" value={`₹${price[0]}`} readOnly />
             <span>to</span>
-            <input type="text" value={`$${price[1]}`} readOnly />
+            <input type="text" value={`₹${price[1]}`} readOnly />
           </div>
         </div>
 
@@ -118,12 +118,10 @@ const DiamondFilter = ({ price, setPrice, carat, setCarat, cut, setCut }) => {
             <div
               className={styles.sliderActive}
               style={{
-                left: `${
-                  ((cut[0] - minCutIndex) / (maxCutIndex - minCutIndex)) * 100
-                }%`,
-                width: `${
-                  ((cut[1] - cut[0]) / (maxCutIndex - minCutIndex)) * 100
-                }%`,
+                left: `${((cut[0] - minCutIndex) / (maxCutIndex - minCutIndex)) * 100
+                  }%`,
+                width: `${((cut[1] - cut[0]) / (maxCutIndex - minCutIndex)) * 100
+                  }%`,
               }}
             ></div>
             <input

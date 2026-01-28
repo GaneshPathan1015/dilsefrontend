@@ -83,9 +83,8 @@ const DiamondTable = ({
         ) : (
           diamonds.map((diamond, index) => (
             <div
-              className={`table-row ${
-                selectedRows.includes(index) ? "selected-row" : ""
-              }`}
+              className={`table-row ${selectedRows.includes(index) ? "selected-row" : ""
+                }`}
               key={index}
             >
               <div>
@@ -195,8 +194,8 @@ const DiamondTable = ({
                   {diamond.clarity?.name || "NA"}
                 </div>
                 <div className={styles.priceWrapper}>
-                  <span className={styles.currentPrice}>${diamond.price}</span>
-                  <span className={styles.originalPrice}>${diamond.price}</span>
+                  <span className={styles.currentPrice}>₹{diamond.price}</span>
+                  <span className={styles.originalPrice}>₹{diamond.price}</span>
                   <span className={styles.discount}>
                     (${/* {diamond.discount} */}0 OFF)
                   </span>

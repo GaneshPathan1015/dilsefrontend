@@ -192,9 +192,20 @@ const GiftDetails = () => {
     diamond_weight,
     sku: variationSku,
     metal_color,
+    making_charges = 0,
   } = selectedVariation || {};
 
-  const priceDifference = Math.max(original_price - price, 0).toFixed(2);
+  const basePrice = parseFloat(price) || 0;
+  const baseOriginalPrice = parseFloat(original_price) || 0;
+  const makingCharges = parseFloat(making_charges) || 0;
+  // const gstAmount = parseFloat(tax_amount) || 0;  
+
+  // Final prices
+  const final_price = basePrice + makingCharges;
+  const final_original_price = baseOriginalPrice + makingCharges;
+
+  const priceDifference =
+    final_original_price - final_price;
   const metalName = metal_color?.name || "-";
 
   const estimatedDays = (delivery_days || 5) + 1;
@@ -347,9 +358,9 @@ const GiftDetails = () => {
               <p className="small text-muted mb-4">SKU#{variationSku}</p>
 
               <div className="mb-4">
-                <span className="h3 fw-bold">₹{price}</span>
+                <span className="h3 fw-bold">₹{final_price}</span>
                 <span className="fs-5 text-decoration-line-through ms-2">
-                  ₹{original_price}
+                  ₹{final_original_price}
                 </span>
                 <span className="text-green-custom ms-2">
                   (₹{priceDifference} OFF)
@@ -672,54 +683,27 @@ const GiftDetails = () => {
                   </div>
 
 
-                  {/* tax */}
+
+                  {/* Tax */}
                   <div>
                     <div
                       className="detail-section-header"
                       onClick={() => toggleSection("tax")}
                     >
-                      <h5 className="detail-section-title">
-                        Tax
-                      </h5>
+                      <h5 className="detail-section-title">Price & Tax Details</h5>
                       {openSection === "tax" ? (
                         <ChevronUp size={20} className="chevron-icon" />
                       ) : (
                         <ChevronDown size={20} className="chevron-icon" />
                       )}
                     </div>
+
                     <div
                       className={`section-content ${openSection === "tax" ? "" : "collapsed"
                         }`}
                     >
-                      <div className="details-grid">
-                        <span className="detail-label">Metal Details</span>
-                        <span className="detail-value">{metalName}</span>
-
-                        <span className="detail-label">Total Weight</span>
-                        <span className="detail-value">
-                          {!isNaN(
-                            parseFloat(diamond_weight) + parseFloat(weight)
-                          )
-                            ? parseFloat(diamond_weight) + parseFloat(weight)
-                            : "NA"}
-                        </span>
-
-                        <span className="detail-label">Product Model</span>
-                        <span className="detail-value">
-                          {products_model || "NA"}
-                        </span>
-
-                        <span className="detail-label">Clarity</span>
-                        <span className="detail-value">
-                          {product_clarity || "NA"}
-                        </span>
-                      </div>
                     </div>
                   </div>
-
-
-
-
                 </div>
               </div>
             </div>
@@ -786,9 +770,9 @@ const GiftDetails = () => {
           <h1 className="h5 font-serif mb-2">{name}</h1>
           <p className="small text-muted mb-4">SKU#{variationSku}</p>
           <div className="mb-4">
-            <span className="h4 fw-bold">{price}</span>
+            <span className="h4 fw-bold">{final_price}</span>
             <span className="text-secondary text-decoration-line-through ms-2">
-              {original_price}
+              {final_original_price}
             </span>
             <span className="text-green-custom small ms-2">
               (₹{priceDifference} OFF)
@@ -1068,6 +1052,29 @@ const GiftDetails = () => {
               </div>
             </div>
 
+            {/* Tax */}
+            <div>
+              <div
+                className="detail-section-header"
+                onClick={() => toggleSection("tax")}
+              >
+                <h5 className="detail-section-title">Price & Tax Details</h5>
+                {openSection === "tax" ? (
+                  <ChevronUp size={20} className="chevron-icon" />
+                ) : (
+                  <ChevronDown size={20} className="chevron-icon" />
+                )}
+              </div>
+
+              <div
+                className={`section-content ${openSection === "tax" ? "" : "collapsed"
+                  }`}
+              >
+
+              </div>
+            </div>
+
+
             <button className="help-button">
               <MessageCircle size={20} />
               Need Help?
@@ -1080,9 +1087,9 @@ const GiftDetails = () => {
             <div className="d-flex align-items-center justify-content-between gap-3">
               <div>
                 <div className="small text-muted text-decoration-line-through">
-                  {original_price}
+                  {final_original_price}
                 </div>
-                <div className="h5 fw-bold mb-0">{price}</div>
+                <div className="h5 fw-bold mb-0">{final_price}</div>
               </div>
               <button
                 className="btn flex-grow-1 py-2 fw-semibold bg-brand-blue"

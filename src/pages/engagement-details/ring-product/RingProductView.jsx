@@ -258,9 +258,51 @@ const RingProductView = ({ diamond }) => {
     diamond_weight,
     metal_color,
     sku: variationSku,
+    diamond_gst,
+    gold_gst,
+    making_charges_gst = 0,
   } = selectedVariation || {};
+  const toNumber = (v) => Number(v) || 0;
 
-  const priceDifference = Math.max(original_price - price, 0).toFixed(2);
+  const basePrice = toNumber(price);
+  const baseOriginalPrice = toNumber(original_price);
+
+  const diamondGST = toNumber(diamond_gst);
+  const goldGST = toNumber(gold_gst);
+  const makingChargesPercent = toNumber(making_charges_gst);
+
+
+  // GST only on base price
+  const diamondGSTAmount = (basePrice * diamondGST) / 100;
+  const goldGSTAmount = (basePrice * goldGST) / 100;
+
+  // Making charges (NO GST)
+  const makingChargesAmount = (basePrice * makingChargesPercent) / 100;
+
+  // Final prices
+  const final_price =
+    basePrice +
+    diamondGSTAmount +
+    goldGSTAmount +
+    makingChargesAmount;
+
+  const final_original_price =
+    baseOriginalPrice +
+    (baseOriginalPrice * diamondGST) / 100 +
+    (baseOriginalPrice * goldGST) / 100 +
+    (baseOriginalPrice * makingChargesPercent) / 100;
+
+  // Rounding
+  const round = (n) => Number(n.toFixed(2));
+
+  const finalPriceRounded = round(final_price);
+  const finalOriginalPriceRounded = round(final_original_price);
+
+  const priceDifference = round(
+    Math.max(finalOriginalPriceRounded - finalPriceRounded, 0)
+  );
+
+
   const metalName = metal_color?.name || "-";
   const selectedShapeName = isBuild
     ? product.metal_variations?.[selectedMetalId]?.[selectedShapeId]?.[0]?.shape
@@ -455,9 +497,9 @@ const RingProductView = ({ diamond }) => {
                 <h1 className="h3 font-serif mb-2">{name}</h1>
                 <p className="small text-muted mb-4">SKU#{variationSku}</p>
                 <div className="mb-4">
-                  <span className="h3 fw-bold">₹{price}</span>
+                  <span className="h3 fw-bold">₹{final_price}</span>
                   <span className="fs-5 text-secondary text-decoration-line-through ms-2">
-                    ₹{original_price}
+                    ₹{final_original_price}
                   </span>
                   <span className="text-green-custom ms-2">
                     (₹{priceDifference} OFF)
@@ -880,6 +922,68 @@ const RingProductView = ({ diamond }) => {
                       </div>
                     </div>
 
+                    {/* Tax */}
+                    <div>
+                      <div
+                        className="detail-section-header"
+                        onClick={() => toggleSection("tax")}
+                      >
+                        <h5 className="detail-section-title">Price & Tax Details</h5>
+                        {openSection === "tax" ? (
+                          <ChevronUp size={20} className="chevron-icon" />
+                        ) : (
+                          <ChevronDown size={20} className="chevron-icon" />
+                        )}
+                      </div>
+
+                      <div
+                        className={`section-content ${openSection === "tax" ? "" : "collapsed"
+                          }`}
+                      >
+                        <div className="details-grid">
+
+                          {/* Base price */}
+                          <span className="detail-label">Base Price</span>
+                          <span className="detail-value">
+                            ₹{basePrice.toFixed(2)}
+                          </span>
+
+                          {/* Diamond GST */}
+                          <span className="detail-label">
+                            Diamond GST ({diamond_gst}%)
+                          </span>
+                          <span className="detail-value">
+                            ₹{diamondGSTAmount.toFixed(2)}
+                          </span>
+
+                          {/* Gold GST */}
+                          <span className="detail-label">
+                            Gold GST ({gold_gst}%)
+                          </span>
+                          <span className="detail-value">
+                            ₹{goldGSTAmount.toFixed(2)}
+                          </span>
+
+                          {/* Making charges */}
+                          <span className="detail-label">
+                            Making Charges ({making_charges_gst}%)
+                          </span>
+                          <span className="detail-value">
+                            ₹{makingChargesAmount.toFixed(2)}
+                          </span>
+
+                          {/* Divider */}
+                          <span className="detail-label fw-semibold border-top pt-2">
+                            Final Price
+                          </span>
+                          <span className="detail-value fw-semibold border-top pt-2">
+                            ₹{final_price.toFixed(2)}
+                          </span>
+
+                        </div>
+                      </div>
+                    </div>
+
                     {/* Need Help Button */}
                     <button className="help-button">
                       <MessageCircle size={20} />
@@ -954,9 +1058,9 @@ const RingProductView = ({ diamond }) => {
             <h1 className="h5 font-serif mb-2">{name}</h1>
             <p className="small text-muted mb-4">SKU#{variationSku}</p>
             <div className="mb-4">
-              <span className="h4 fw-bold">{price}</span>
+              <span className="h4 fw-bold">{final_price}</span>
               <span className="text-secondary text-decoration-line-through ms-2">
-                {original_price}
+                {final_original_price}
               </span>
               <span className="text-green-custom small ms-2">
                 (₹{priceDifference} OFF)
@@ -1304,6 +1408,68 @@ const RingProductView = ({ diamond }) => {
                   </p>
                 </div>
               </div>
+
+              {/* Tax */}
+              <div>
+                <div
+                  className="detail-section-header"
+                  onClick={() => toggleSection("tax")}
+                >
+                  <h5 className="detail-section-title">Price & Tax Details</h5>
+                  {openSection === "tax" ? (
+                    <ChevronUp size={20} className="chevron-icon" />
+                  ) : (
+                    <ChevronDown size={20} className="chevron-icon" />
+                  )}
+                </div>
+
+                <div
+                  className={`section-content ${openSection === "tax" ? "" : "collapsed"
+                    }`}
+                >
+                  <div className="details-grid">
+
+                    {/* Base price */}
+                    <span className="detail-label">Base Price</span>
+                    <span className="detail-value">
+                      ₹{basePrice.toFixed(2)}
+                    </span>
+
+                    {/* Diamond GST */}
+                    <span className="detail-label">
+                      Diamond GST ({diamond_gst}%)
+                    </span>
+                    <span className="detail-value">
+                      ₹{diamondGSTAmount.toFixed(2)}
+                    </span>
+
+                    {/* Gold GST */}
+                    <span className="detail-label">
+                      Gold GST ({gold_gst}%)
+                    </span>
+                    <span className="detail-value">
+                      ₹{goldGSTAmount.toFixed(2)}
+                    </span>
+
+                    {/* Making charges */}
+                    <span className="detail-label">
+                      Making Charges ({making_charges_gst}%)
+                    </span>
+                    <span className="detail-value">
+                      ₹{makingChargesAmount.toFixed(2)}
+                    </span>
+
+                    {/* Divider */}
+                    <span className="detail-label fw-semibold border-top pt-2">
+                      Final Price
+                    </span>
+                    <span className="detail-value fw-semibold border-top pt-2">
+                      ₹{final_price.toFixed(2)}
+                    </span>
+
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -1313,9 +1479,9 @@ const RingProductView = ({ diamond }) => {
               <div className="d-flex align-items-center justify-content-between gap-3">
                 <div>
                   <div className="small text-muted text-decoration-line-through">
-                    {original_price}
+                    {final_original_price}
                   </div>
-                  <div className="h5 fw-bold mb-0">{price}</div>
+                  <div className="h5 fw-bold mb-0">{final_price}</div>
                 </div>
                 <button
                   className="btn flex-grow-1 py-2 fw-semibold"
