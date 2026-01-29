@@ -488,7 +488,7 @@ const JewelryList = () => {
               bannerImage
                 ? `${import.meta.env.VITE_BACKEND_URL}/storage/${bannerImage}`
                 // : "images/Women_s_Diamond_Gemstone_Jewelry_1366x.jpg"
-                : "images/default.jpg"
+                : "/images/default.jpg"
             }
             alt="banner"
             className="hero-img img-fluid"

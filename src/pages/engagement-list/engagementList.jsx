@@ -450,7 +450,8 @@ const EngagementList = () => {
             src={
               bannerImage
                 ? `${import.meta.env.VITE_BACKEND_URL}/storage/${bannerImage}`
-                : "https://www.dilsejewels.com/cdn/shop/files/Women_s_Diamond_Gemstone_Jewelry_1366x.jpg?v=1729163233"
+                // : "https://www.dilsejewels.com/cdn/shop/files/Women_s_Diamond_Gemstone_Jewelry_1366x.jpg?v=1729163233"
+                : "/images/default.jpg"
             }
             alt="Engagement Banner"
             className="hero-media w-100"

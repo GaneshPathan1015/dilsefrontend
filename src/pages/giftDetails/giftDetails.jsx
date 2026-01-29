@@ -1141,7 +1141,7 @@
 //             <span>₹{priceBreakup.subtotal}</span>
 //           </div>
 
-          
+
 //           <div className="gst-breakdown mt-3 mb-3">
 //             <h6 className="mb-2"><strong>GST Breakdown:</strong></h6>
 //             <div className="price-breakup-row d-flex justify-content-between mb-1 ps-3">
@@ -1162,7 +1162,7 @@
 //             </div>
 //           </div>
 
-          
+
 //           <div className="price-breakup-grand-total d-flex justify-content-between border-top pt-2 mt-3">
 //             <h6 className="mb-0"><strong>Grand Total</strong></h6>
 //             <h6 className="mb-0"><strong>₹{priceBreakup.grandTotal}</strong></h6>
@@ -1231,7 +1231,7 @@ export const getVideoUrl = (video) => {
 
   if (video.startsWith("http")) return video;
 
-  return `${BACKEND_URL}/api${video}`;
+  return `${BACKEND_URL}${video}`;
 };
 
 const GiftDetails = () => {
@@ -1411,10 +1411,10 @@ const GiftDetails = () => {
   // Calculate GST amounts for display (excluding diamond GST)
   const goldGst = parseFloat(gold_gst_amount) || 0;
   const makingGst = parseFloat(making_gst_amount) || 0;
-  
+
   // Calculate total GST WITHOUT diamond GST
   const totalGstWithoutDiamond = goldGst + makingGst;
-  
+
   // Calculate final prices (with GST) - for tax details section
   const finalPriceWithGST = basePrice + makingCharges + totalGstWithoutDiamond;
   const finalOriginalPriceWithGST = baseOriginalPrice + makingCharges + totalGstWithoutDiamond;
@@ -1931,7 +1931,7 @@ const GiftDetails = () => {
                             <span>₹{formatCurrency(priceBreakup.subtotal)}</span>
                           </div>
 
-                          
+
                           <div className="gst-breakdown mt-3 mb-3">
                             <h6 className="mb-2"><strong>GST Breakdown:</strong></h6>
                             <div className="price-breakup-row d-flex justify-content-between mb-1 ps-3">
@@ -1948,12 +1948,12 @@ const GiftDetails = () => {
                             </div>
                           </div>
 
-                          
+
                           <div className="price-breakup-grand-total d-flex justify-content-between border-top pt-2 mt-3">
                             <h6 className="mb-0"><strong>Grand Total</strong></h6>
                             <h6 className="mb-0"><strong>₹{formatCurrency(priceBreakup.grandTotal)}</strong></h6>
                           </div>
-                       </div>
+                        </div>
                         <div className="price-summary mt-4 p-3 bg-light rounded">
                           <h6 className="mb-3"><strong>Summary:</strong></h6>
                           <div className="row small">
@@ -2041,7 +2041,7 @@ const GiftDetails = () => {
           </div>
           <h1 className="h5 font-serif mb-2">{name}</h1>
           <p className="small text-muted mb-4">SKU#{variationSku}</p>
-          
+
           {/* MAIN PRICE DISPLAY MOBILE (without GST) */}
           <div className="mb-4">
             <span className="h4 fw-bold">₹{formatCurrency(final_price)}</span>
@@ -2121,7 +2121,7 @@ const GiftDetails = () => {
               })}
             </div>
           </div>
-          
+
           {/* QUALITY */}
           {hasQuality && (
             <div className="mb-4">
@@ -2329,7 +2329,7 @@ const GiftDetails = () => {
                       <span>₹{formatCurrency(priceBreakup.subtotal)}</span>
                     </div>
 
-                    
+
                     <div className="gst-breakdown mt-3 mb-3">
                       <h6 className="mb-2"><strong>GST Breakdown:</strong></h6>
                       <div className="price-breakup-row d-flex justify-content-between mb-1 ps-3">
@@ -2346,12 +2346,12 @@ const GiftDetails = () => {
                       </div>
                     </div>
 
-                    
+
                     <div className="price-breakup-grand-total d-flex justify-content-between border-top pt-2 mt-3">
                       <h6 className="mb-0"><strong>Grand Total</strong></h6>
                       <h6 className="mb-0"><strong>₹{formatCurrency(priceBreakup.grandTotal)}</strong></h6>
                     </div>
-                 </div>
+                  </div>
                 </div>
               </div>
             </div>
