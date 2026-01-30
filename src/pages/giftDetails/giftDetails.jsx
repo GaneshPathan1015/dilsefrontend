@@ -1420,8 +1420,8 @@ const GiftDetails = () => {
   const finalOriginalPriceWithGST = baseOriginalPrice + makingCharges + totalGstWithoutDiamond;
 
   // Final prices (without GST) - for main display (THIS IS WHAT YOU WANT)
-  const final_price = basePrice + makingCharges;
-  const final_original_price = baseOriginalPrice + makingCharges;
+  const final_price = basePrice;
+  const final_original_price = baseOriginalPrice;
 
   const priceDifference = final_original_price - final_price;
   const metalName = metal_color?.name || "-";
@@ -1919,7 +1919,7 @@ const GiftDetails = () => {
 
                         <div className="price-breakup-totals">
                           <div className="price-breakup-row d-flex justify-content-between mb-2">
-                            <span><strong>Base Price</strong></span>
+                            <span><strong>Price</strong></span>
                             <span>₹{formatCurrency(priceBreakup.productPrice)}</span>
                           </div>
                           <div className="price-breakup-row d-flex justify-content-between mb-2">
@@ -2317,7 +2317,7 @@ const GiftDetails = () => {
 
                   <div className="price-breakup-totals">
                     <div className="price-breakup-row d-flex justify-content-between mb-2">
-                      <span><strong>Base Price</strong></span>
+                      <span><strong>Price</strong></span>
                       <span>₹{formatCurrency(priceBreakup.productPrice)}</span>
                     </div>
                     <div className="price-breakup-row d-flex justify-content-between mb-2">

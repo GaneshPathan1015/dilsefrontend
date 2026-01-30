@@ -8,6 +8,11 @@ export default function JewelryCard({
 }) {
   const ring = item;
 
+  const price = Number(ring.price || 0);
+  const makingCharges = Number(ring.making_charges || 0);
+
+  const priceWithMakingCharges = price;
+
   const getImageUrl = (img) => {
     const fallback = `${import.meta.env.VITE_BACKEND_URL
       }/storage/variation_images/No_Image_Available.jpg`;
@@ -70,7 +75,7 @@ export default function JewelryCard({
 
             {/* Ring Info */}
             <div style={{ marginBottom: "10px" }}>
-              <p> ₹{ring.price}</p>
+              <p> ₹{price.toFixed(2)}</p>
               <p>Metal Color: {ring.metal_color.name || "N/A"}</p>
               <p>Total Carat Weight: {ring.weight || "N/A"}</p>
               {ring.size && <p>Size: {ring.size}</p>}

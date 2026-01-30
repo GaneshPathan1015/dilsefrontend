@@ -3,6 +3,7 @@ import axiosClient from "../../api/axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { useCart } from "../../cart/CartContext";
+import { getPriceBreakup } from "../../utils/priceBreakup";
 import BuyNow from "./BuyNow";
 import "./checkout.css";
 
@@ -33,6 +34,7 @@ const Checkout = () => {
   const [appliedCode, setAppliedCode] = useState(null);
   const [discountValue, setDiscountValue] = useState(0);
   const [sameAsDelivery, setSameAsDelivery] = useState(true);
+
 
   // Handle payment method selection
   const handleApplyDiscount = async () => {
@@ -66,11 +68,7 @@ const Checkout = () => {
     return subtotal;
   };
 
-  const totalAmount = getTotalAmount();
 
-  // const handleMethodChange = (event) => {
-  //   setSelectedMethod(event.target.id);
-  // };
 
   // Handle input changes
   const handleInputChange = (e) => {
@@ -119,30 +117,6 @@ const Checkout = () => {
     return isValid;
   };
 
-  // Prepare order payload
-  // const prepareOrderPayload = () => ({
-  //   user: formData,
-  //   items: (cartItems || []).map((item) => {
-  //     if (item.productType === "combo") {
-  //       return {
-  //         productType: "combo",
-  //         size: item.size,
-  //         itemQuantity: item.itemQuantity,
-  //         ring: item.ring,
-  //         diamond: item.diamond,
-  //       };
-  //     } else if (item.productType === "diamond") {
-  //       return { productType: "diamond", ...item };
-  //     } else if (item.productType === "build") {
-  //       return { productType: "build", ...item };
-  //     } else if (item.productType === "gift") {
-  //       return { productType: "gift", ...item };
-  //     }
-  //     return item;
-  //   }),
-  //   total: /* getSubTotal() */ getTotalAmount(),
-  //   paymentMethod: selectedMethod,
-  // });
 
   useEffect(() => {
     const savedAddressRaw = localStorage.getItem("pendingAddress");
@@ -191,99 +165,6 @@ const Checkout = () => {
     }
   }, [user, addToCart]);
 
-  // Handle form submission
-  // const handleSubmit = async () => {
-  //   if (!validate()) return;
-
-  //   if (!user) {
-  //     // Save pending address and redirect to signin
-  //     localStorage.setItem(
-  //       "pendingAddress",
-  //       JSON.stringify({ formData, selectedMethod, cartPayload: cartItems })
-  //     );
-  //     navigate("/signin", { state: { from: "/checkout" } });
-  //     return;
-  //   }
-
-  //   try {
-  //     const addressObject = {
-  //       apartment: formData.apartment,
-  //       street: formData.address,
-  //       city: formData.city,
-  //       zip: formData.zip_code,
-  //       country: formData.country,
-  //     };
-
-  //     // Save/update address
-  //     await axiosClient.post("/api/store-addresses", {
-  //       user_id: user.id,
-  //       first_name: formData.first_name,
-  //       last_name: formData.last_name,
-  //       country: formData.country,
-  //       address: addressObject,
-  //       phone_number: formData.phone,
-  //       is_get_offer: formData.smsOffers ? 1 : 0,
-  //     });
-
-  //     // PayPal payment
-  //     if (selectedMethod === "pay-paypal") {
-  //       const orderResponse = await axiosClient.post("/api/store-order", {
-  //         user_id: user.id,
-  //         user_name: `${formData.first_name} ${formData.last_name}`,
-  //         contact_number: formData.phone,
-  //         item_details: JSON.stringify(prepareOrderPayload()),
-  //         total_price: /* getSubTotal() */ getTotalAmount(),
-  //         coupon_discount: discountValue,
-  //         coupon_code: appliedCode,
-  //         address: JSON.stringify(addressObject),
-  //         order_status: "pending",
-  //         payment_mode: "paypal",
-  //         payment_status: "pending",
-  //         is_gift: formData.isGift || false,
-  //         notes: formData.notes || "",
-  //       });
-
-  //       const orderId = orderResponse.data.order_id;
-  //       // console.log(orderId);
-
-  //       const paypalResponse = await axiosClient.post(
-  //         "/api/paypal/create-order",
-  //         {
-  //           amount: /* getSubTotal() */ getTotalAmount(),
-  //           currency: "USD",
-  //           user_id: user.id,
-  //           order_id: orderId,
-  //         }
-  //       );
-  //       window.location.href = paypalResponse.data.approve_url;
-  //       return;
-  //     }
-
-  //     // Store order
-  //     const orderResponse = await axiosClient.post("/api/store-order", {
-  //       user_id: user.id,
-  //       user_name: `${formData.first_name} ${formData.last_name}`,
-  //       contact_number: formData.phone,
-  //       item_details: JSON.stringify(prepareOrderPayload()),
-  //       total_price: /* getSubTotal() */ getTotalAmount(),
-  //       coupon_discount: discountValue,
-  //       coupon_code: appliedCode,
-  //       address: JSON.stringify(addressObject),
-  //       order_status: "pending",
-  //       payment_mode: selectedMethod,
-  //       payment_status: "pending",
-  //       is_gift: formData.isGift || false,
-  //       notes: formData.notes || "",
-  //     });
-
-  //     clearCart();
-  //     localStorage.removeItem("pendingAddress");
-  //     navigate("/thankyou", { state: { order: orderResponse.data } });
-  //   } catch (error) {
-  //     console.error("Error submitting order:", error);
-  //     alert("Failed to process your order. Please try again.");
-  //   }
-  // };
 
   // Helpers
   const getImageUrl = (img) => {
@@ -296,36 +177,45 @@ const Checkout = () => {
     type === 1 ? "Natural " : type === 2 ? "Lab " : "N/A";
   const isVisible = (id) => (selectedMethod === id ? "" : "d-none");
 
+  const getCartGrandTotal = () => {
+    return cartItems.reduce((total, item) => {
+      const qty = Number(item.itemQuantity || 1);
+
+      // Jewelry / Gift → price_with_tax already includes GST
+      if (item.productType === "jewelry" || item.productType === "gift") {
+        return (
+          total +
+          Number(item.price_with_tax || 0) * qty
+        );
+      }
+
+      // Combo → ring + diamond price
+      if (item.productType === "combo") {
+        const ringPrice = Number(item.ring?.price || 0);
+        const diamondPrice = Number(item.diamond?.price || 0);
+        return total + (ringPrice + diamondPrice) * qty;
+      }
+
+      // Diamond / Build / Others
+      return total + Number(item.price || 0) * qty;
+    }, 0);
+  };
+
+  const getFinalTotal = () => {
+    const grandTotal = getCartGrandTotal();
+    const discount = Number(discountResponse?.discount || 0);
+    return Math.max(grandTotal - discount, 0);
+  };
+  // const totalAmount = getTotalAmount();
+  const totalAmount = getFinalTotal()
+
   return (
     <>
       <div className="container">
         <div className="row ">
           <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-12 order-lg-1 order-2">
             {/* Redeem Section */}
-            {/* <div className="container my-5">
-              <div className="redeem-card mb-4">
-                <h6>Redeem your Points</h6>
-                {user ? (
-                  <p className="mb-2">
-                    Logged in as <strong>{user.email}</strong>
-                  </p>
-                ) : (
-                  <p className="mb-2">
-                    <Link className="link align-items_center" to="/signin">
-                      Log in
-                    </Link>{" "}
-                    to view your points balance and discover rewards available
-                    for redemption.
-                  </p>
-                )}
-                <select className="form-select mb-2" disabled>
-                  <option>Select a discount</option>
-                </select>
-                <button className="btn btn-disabled w-100" disabled>
-                  Redeem
-                </button>
-              </div>
-            </div> */}
+
 
             {/* Contact Section */}
             <div className="container my-2" style={{ maxWidth: "700px" }}>
@@ -697,132 +587,6 @@ const Checkout = () => {
               )}
             </div>
 
-            {/* Payment Section */}
-            {/* <div className="container my-1" style={{ maxWidth: "700px" }}>
-              
-              <div className="section-title-checkout">Payment</div>
-              <p className="text-muted mb-3">
-                All transactions are secure and encrypted.
-              </p>
-
-              <div className="payment-option">
-                <input
-                  type="radio"
-                  name="payment-method"
-                  id="cod"
-                  checked={selectedMethod === "cod"}
-                  onChange={handleMethodChange}
-                />
-                <span className="input-span">COD</span>
-              </div>
-
-              
-              <div className="payment-option">
-                <div className="d-flex justify-content-between align-items-center mb-2">
-                  <div>
-                    <input
-                      type="radio"
-                      name="payment-method"
-                      id="pay-credit"
-                      checked={selectedMethod === "pay-credit"}
-                      onChange={handleMethodChange}
-                    />
-                    <strong> Credit card </strong>
-                  </div>
-                  <div className="card-icons">
-                    <img
-                      src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg"
-                      alt="Visa"
-                    />
-
-                    <span className="badge bg-secondary">+4</span>
-                  </div>
-                </div>
-                <div className={`payment-box ${isVisible("pay-credit")}`}>
-                  <div className="mb-2">
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Card number"
-                    />
-                  </div>
-                  <div className="row g-2 mb-2">
-                    <div className="col-md-6">
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Expiration date (MM / YY)"
-                      />
-                    </div>
-                    <div className="col-md-6">
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Security code"
-                      />
-                    </div>
-                  </div>
-                  <div className="mb-2">
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Name on card"
-                    />
-                  </div>
-                  <div className="form-check mb-2">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      id="billingAddress"
-                    />
-                    <label
-                      className="form-check-label"
-                      htmlFor="billingAddress"
-                    >
-                      Use shipping address as billing address
-                    </label>
-                  </div>
-                </div>
-              </div>
-
-              
-              <div className="payment-option">
-                <input
-                  type="radio"
-                  name="payment-method"
-                  id="pay-paypal"
-                  checked={selectedMethod === "pay-paypal"}
-                  onChange={handleMethodChange}
-                />
-                <span className="input-span">PayPal</span>
-
-                <div className={`payment-box ${isVisible("pay-paypal")}`}>
-                  <p className="mt-2">You’ll be redirected to PayPal.</p>
-                </div>
-              </div>
-              {errors.payment && (
-                <div className="text-danger mt-3 mb-3">{errors.payment}</div>
-              )}
-            </div> */}
-
-            {/* Buy Now Section */}
-            {/* <div className="container" style={{ maxWidth: "700px" }}>
-              <button
-                type="button"
-                className="pay-button"
-                onClick={handleSubmit}
-              >
-                Buy now
-              </button>
-
-             
-              <p className="terms-text">
-                Your info will be saved to a Shop account. By continuing, you
-                agree to Shop’s <a href="#">Terms of Service</a> and acknowledge
-                the <a href="#">Privacy Policy</a>.
-              </p>
-            </div> */}
-
             <BuyNow
               cartItems={cartItems}
               totalPrice={totalAmount}
@@ -837,135 +601,172 @@ const Checkout = () => {
           <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-12 order-lg-2 order-1">
             <div className="container my-5" style={{ maxWidth: "600px" }}>
               <div className="product-summary">
-                {/* Loop over cartItems */}
+
                 {cartItems?.map((item) => {
                   const itemId = getItemId(item);
 
                   let unitPrice;
                   if (item.productType === "combo") {
-                    const ringPrice = Number(item.ring?.price ?? 0);
-                    const diamondPrice = Number(item.diamond?.price ?? 0);
-                    unitPrice = ringPrice + diamondPrice;
+                    unitPrice =
+                      Number(item.ring?.price || 0) +
+                      Number(item.diamond?.price || 0);
                   } else {
-                    unitPrice = Number(item.price ?? 0);
+                    unitPrice = Number(item.price || 0);
                   }
 
-                  const qty = Number(item.itemQuantity ?? 1);
+                  const qty = Number(item.itemQuantity || 1);
                   const total = (unitPrice * qty).toFixed(2);
 
                   let imageUrl = null;
                   if (item.productType === "diamond") {
-                    imageUrl = item.image_link
-                      ? item.image_link
-                      : "images/images.jpeg";
-                  } else if (
-                    item.productType === "combo" &&
-                    item.ring?.images?.[0]
-                  ) {
+                    imageUrl = item.image_link || "images/images.jpeg";
+                  } else if (item.productType === "combo" && item.ring?.images?.[0]) {
                     imageUrl = getImageUrl(item.ring.images[0]);
                   } else if (item.images?.[0]) {
                     imageUrl = getImageUrl(item.images[0]);
                   }
 
+                  const showBreakup =
+                    item.productType === "jewelry" || item.productType === "gift";
+
+                  const breakup = showBreakup ? getPriceBreakup(item) : null;
+
                   return (
-                    <div className="d-flex align-items-start mb-3" key={itemId}>
-                      {/* IMAGE OR ALT */}
-                      <div className="me-3 position-relative">
-                        {imageUrl ? (
-                          <img
-                            src={imageUrl}
-                            alt={item.name || "Product"}
-                            className="product-img"
-                            onError={(e) => {
-                              e.currentTarget.style.display = "none"; // hide broken img
-                              e.currentTarget.parentNode.innerHTML = `<span>${item.name || "Product"
-                                }</span>`;
-                            }}
-                          />
-                        ) : (
-                          <span className="no-image-text">
-                            {item.name || "Product"}
+                    <div key={itemId} className="mb-3">
+
+                      {/* ITEM ROW (UNCHANGED DESIGN) */}
+                      <div className="d-flex align-items-start">
+                        <div className="me-3 position-relative">
+                          {imageUrl ? (
+                            <img src={imageUrl} className="product-img" />
+                          ) : (
+                            <span>{item.name}</span>
+                          )}
+
+                          <span className="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-dark">
+                            {qty}
                           </span>
-                        )}
+                        </div>
 
-                        <span
-                          className="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-dark"
-                          style={{ fontSize: "0.75rem" }}
-                        >
-                          {qty}
-                        </span>
+                        <div className="product-info flex-grow-1">
+                          {item.productType === "diamond" && (
+                            <>
+                              <strong>
+                                {item.carat_weight} Carat {item.shape?.name}{" "}
+                                {diamondType(item.diamond_type)} Diamond
+                              </strong>
+                              <br />
+                              <small>Color: {item.color?.name}</small>
+                              <small>Clarity: {item.clarity?.name}</small>
+                              <small>Cut: {item.cut?.full_name}</small>
+                            </>
+                          )}
+
+                          {item.productType === "gift" && (
+                            <>
+                              <strong>{item.name || "Jewelry Product"}</strong>
+                              <small>Weight: {item.weight || "N/A"}g</small>
+                              <small>
+                                Metal Color: {item.metal_color?.name || "N/A"}
+                              </small>
+                              <small>
+                                Protection Plan:{" "}
+                                {item.selectedPlan?.toUpperCase() || "N/A"}
+                              </small>
+                            </>
+                          )}
+
+                          {item.productType === "combo" && (
+                            <>
+                              <strong>{item.ring?.name}</strong>
+                              <small>
+                                Engagement Ring with {item.diamond?.carat_weight} ct{" "}
+                                {item.diamond?.shape?.name}{" "}
+                                {diamondType(item.diamond?.diamond_type)} Diamond
+                              </small>
+                              <small>
+                                Metal Color {item.ring?.metal_color?.name || "N/A"}
+                              </small>
+                              <small>Size {item.size}</small>
+                              <small>Shape {item.diamond?.shape?.name}</small>
+                            </>
+                          )}
+
+                          {item.productType === "build" && (
+                            <>
+                              <strong>{item.name || "Custom Jewelry"}</strong>
+                              <small>Metal Color: {item.metal_color?.name}</small>
+                              <small>Shape: {item.shape}</small>
+                              <small>Size: {item.size}</small>
+                              <small>Type: {item.diamondtype}</small>
+                            </>
+                          )}
+                        </div>
+
+
+                        <div className="text-end ms-3">
+                          <strong>₹{total}</strong>
+                        </div>
                       </div>
 
-                      {/* PRODUCT INFO */}
-                      <div className="product-info flex-grow-1">
-                        {item.productType === "diamond" && (
-                          <>
-                            <strong>
-                              {item.carat_weight} Carat {item.shape?.name}{" "}
-                              {diamondType(item.diamond_type)}
-                              Diamond
-                            </strong>
-                            <br />
+                      {/* PRICE BREAKUP (DETAIL PAGE STYLE) */}
+                      {breakup && (
+                        <div className="price-breakup-section ps-5 mt-2 small">
 
-                            <small>Color: {item.color?.name}</small>
-                            <small>Clarity: {item.clarity?.name}</small>
-                            <small>Cut: {item.cut?.full_name}</small>
-                          </>
-                        )}
+                          <div className="d-flex justify-content-between mb-1">
+                            <span>Base Price</span>
+                            <span>₹{breakup.basePrice.toFixed(2)}</span>
+                          </div>
 
-                        {item.productType === "gift" && (
-                          <>
-                            <strong>{item.name || "Jewelry Product"}</strong>
-                            <small>Weight: {item.weight || "N/A"}g</small>
-                            <small>
-                              Metal Color: {item.metal_color.name || "N/A"}
-                            </small>
-                            <small>
-                              Protection Plan:
-                              {item.selectedPlan?.toUpperCase() || "N/A"}
-                            </small>
-                          </>
-                        )}
+                          <div className="d-flex justify-content-between mb-1">
+                            <span>Making Charges</span>
+                            <span>₹{breakup.makingCharges.toFixed(2)}</span>
+                          </div>
 
-                        {item.productType === "combo" && (
-                          <>
-                            <strong> {item.ring?.name}</strong>
-                            <small>
-                              Engagement Ring with {item.diamond?.carat_weight}
-                              ct {item.diamond?.shape?.name}{" "}
-                              {diamondType(item.diamond.diamond_type)}
-                              Diamond
-                            </small>
-                            <small>
-                              Metal Color {item.ring.metal_color.name || "N/A"}{" "}
-                            </small>
-                            <small>Size {item.size}</small>
-                            <small>Shape {item.diamond?.shape?.name} </small>
-                          </>
-                        )}
+                          <div className="d-flex justify-content-between fw-semibold mb-2">
+                            <span>Subtotal</span>
+                            <span>₹{breakup.subtotal.toFixed(2)}</span>
+                          </div>
 
-                        {item.productType === "build" && (
-                          <>
-                            {/* engagement orderd */}
-                            <strong>{item.name || "Custom Jewelry"}</strong>
-                            <small>Metal Color: {item.metal_color.name}</small>
-                            <small>Shape: {item.shape}</small>
-                            <small>Size: {item.size}</small>
-                            <small>Type: {item.diamondtype}</small>
-                          </>
-                        )}
-                      </div>
+                          <div className="ps-2 mb-2">
+                            <div className="fw-semibold mb-1">GST Breakdown</div>
 
-                      {/* ITEM TOTAL PRICE */}
-                      <div className="text-end ms-3">
-                        <strong>₹{total}</strong>
-                      </div>
+                            <div className="d-flex justify-content-between">
+                              <span>Gold GST ({breakup.goldGstRate}%)</span>
+                              <span>₹{breakup.goldGst.toFixed(2)}</span>
+                            </div>
+
+                            <div className="d-flex justify-content-between">
+                              <span>Making GST ({breakup.makingGstRate}%)</span>
+                              <span>₹{breakup.makingGst.toFixed(2)}</span>
+                            </div>
+
+                            {breakup.diamondGst > 0 && (
+                              <div className="d-flex justify-content-between">
+                                <span>Diamond GST ({breakup.diamondGstRate}%)</span>
+                                <span>₹{breakup.diamondGst.toFixed(2)}</span>
+                              </div>
+                            )}
+
+                            <div className="d-flex justify-content-between border-top pt-1 mt-1 fw-semibold">
+                              <span>Total GST</span>
+                              <span>₹{breakup.totalGst.toFixed(2)}</span>
+                            </div>
+                          </div>
+
+                          <div className="d-flex justify-content-between border-top pt-2 fw-bold">
+                            <span>Item Total</span>
+                            <span>₹{breakup.grandTotal.toFixed(2)}</span>
+                          </div>
+
+                        </div>
+                      )}
                     </div>
                   );
                 })}
 
                 {/* Discount Code */}
-                <div className="discount-box input-group mb-4">
+                <div className="discount-box input-group mb-2">
                   <input
                     type="text"
                     className="form-control"
@@ -989,45 +790,37 @@ const Checkout = () => {
 
                 {discountResponse && (
                   <div className="alert alert-success mt-2">
-                    Discount applied: {discountResponse.coupon_code} - ₹
+                    Discount applied: {discountResponse.coupon_code} – ₹
                     {discountResponse.discount}
-                    <br />
-                    Final amount: ₹{discountResponse.final_amount}
                   </div>
                 )}
 
-                {/* Subtotal */}
+
+                {/* SUBTOTAL + TOTAL (UNCHANGED) */}
+                {/* ORDER GRAND TOTAL (ALL CART ITEMS) */}
                 <div className="d-flex justify-content-between mb-2">
-                  <div className="text-gray">Subtotal</div>
-                  <div>₹{getTotalAmount().toFixed(2)}</div>
+                  <span>Items Subtotal</span>
+                  <span>₹{getCartGrandTotal().toFixed(2)}</span>
                 </div>
 
-                {/* Shipping */}
-                <div className="d-flex justify-content-between mb-3">
-                  <div className="text-gray">
-                    Shipping{" "}
-                    <span title="Shipping will be calculated after entering address">
-                      ❔
-                    </span>
+                {/* Discount Row */}
+                {discountResponse && (
+                  <div className="d-flex justify-content-between text-success mb-2">
+                    <span>Discount</span>
+                    <span>- ₹{discountResponse.discount}</span>
                   </div>
-                  <div className="text-gray">Enter shipping address</div>
-                </div>
+                )}
 
-                {/* Total */}
-                <div className="d-flex justify-content-between align-items-center border-top pt-3">
-                  <div>
-                    <strong>Total</strong>
-                  </div>
-                  <div>
-                    <span className="currency">INR</span>{" "}
-                    <span className="total-price">
-                      ₹{getTotalAmount().toFixed(2)}
-                    </span>
-                  </div>
+                <div className="d-flex justify-content-between border-top pt-3">
+                  <strong>Grand Total</strong>
+                  <strong>₹{getFinalTotal().toFixed(2)}</strong>
                 </div>
               </div>
+
+
             </div>
           </div>
+
         </div>
       </div>
     </>
