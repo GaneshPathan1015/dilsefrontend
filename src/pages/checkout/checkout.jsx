@@ -627,7 +627,7 @@ const Checkout = () => {
                   }
 
                   const showBreakup =
-                    item.productType === "jewelry" || item.productType === "gift";
+                    item.productType === "jewelry" || item.productType === "gift" || item.productType === "build" || item.productType === "combo" || item.productType === "diamond";
 
                   const breakup = showBreakup ? getPriceBreakup(item) : null;
 

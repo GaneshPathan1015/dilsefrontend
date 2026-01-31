@@ -1785,10 +1785,10 @@ const RingProductView = ({ diamond }) => {
   // Calculate GST amounts from API
   const goldGst = toNumber(gold_gst_amount);
   const makingGst = toNumber(making_gst_amount);
-  
+
   // Calculate total GST without diamond GST
   const totalGstWithoutDiamond = goldGst + makingGst;
-  
+
   // MAIN PRICE DISPLAY (without GST) - basePrice + makingCharges ONLY
   const final_price = basePrice + makingCharges;
   const final_original_price = baseOriginalPrice + makingCharges;
@@ -2418,7 +2418,7 @@ const RingProductView = ({ diamond }) => {
                               <span>₹{formatCurrency(finalPriceRounded)}</span>
                             </div>
 
-                            
+
                             <div className="gst-breakdown mt-3 mb-3">
                               <h6 className="mb-2"><strong>GST Breakdown:</strong></h6>
                               <div className="price-breakup-row d-flex justify-content-between mb-1 ps-3">
@@ -2435,12 +2435,12 @@ const RingProductView = ({ diamond }) => {
                               </div>
                             </div>
 
-                            
+
                             <div className="price-breakup-grand-total d-flex justify-content-between border-top pt-2 mt-3">
                               <h6 className="mb-0"><strong>Grand Total</strong></h6>
                               <h6 className="mb-0"><strong>₹{formatCurrency(priceWithGST)}</strong></h6>
                             </div>
-                         </div>
+                          </div>
                           <div className="price-summary mt-4 p-3 bg-light rounded">
                             <h6 className="mb-3"><strong>Summary:</strong></h6>
                             <div className="row small">
@@ -2909,7 +2909,7 @@ const RingProductView = ({ diamond }) => {
 
                     <div className="price-breakup-totals">
                       <div className="price-breakup-row d-flex justify-content-between mb-2">
-                        <span><strong>Base Price</strong></span>
+                        <span><strong>Price</strong></span>
                         <span>₹{formatCurrency(basePrice)}</span>
                       </div>
                       <div className="price-breakup-row d-flex justify-content-between mb-2">
@@ -2921,7 +2921,7 @@ const RingProductView = ({ diamond }) => {
                         <span>₹{formatCurrency(finalPriceRounded)}</span>
                       </div>
 
-                      
+
                       <div className="gst-breakdown mt-3 mb-3">
                         <h6 className="mb-2"><strong>GST Breakdown:</strong></h6>
                         <div className="price-breakup-row d-flex justify-content-between mb-1 ps-3">
@@ -2938,12 +2938,12 @@ const RingProductView = ({ diamond }) => {
                         </div>
                       </div>
 
-                      
+
                       <div className="price-breakup-grand-total d-flex justify-content-between border-top pt-2 mt-3">
                         <h6 className="mb-0"><strong>Grand Total</strong></h6>
                         <h6 className="mb-0"><strong>₹{formatCurrency(priceWithGST)}</strong></h6>
                       </div>
-                   </div>
+                    </div>
                   </div>
                 </div>
               </div>
