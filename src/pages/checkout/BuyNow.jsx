@@ -25,6 +25,7 @@ export default function BuyNow({
 
   // CRITICAL FOR CASHFREE: Ensure this is a number, not a string
   const numericAmount = parseFloat(rawAmount);
+
   const couponCode = discountResponse ? discountResponse.coupon_code : null;
   const discountAmount = discountResponse ? discountResponse.discount : 0;
 

@@ -36,29 +36,7 @@ const Checkout = () => {
   const [sameAsDelivery, setSameAsDelivery] = useState(true);
 
 
-  // Handle payment method selection
-  const handleApplyDiscount = async () => {
-    setDiscountError("");
-    setIsApplying(true);
-    try {
-      const today = new Date().toISOString().split("T")[0]; // Format as YYYY-MM-DD
-      const totalAmount = getSubTotal();
 
-      const res = await axiosClient.post("/api/apply-discount", {
-        code: discountCode,
-        cart_total: totalAmount,
-        date: today,
-      });
-      setDiscountResponse(res.data.data);
-      setDiscountError("");
-    } catch (error) {
-      const message = error.response?.data?.message || "Invalid code";
-      setDiscountError(message);
-      setDiscountResponse(null);
-    } finally {
-      setIsApplying(false);
-    }
-  };
 
   const getTotalAmount = () => {
     const subtotal = getSubTotal(); // Cart subtotal
@@ -67,8 +45,6 @@ const Checkout = () => {
     }
     return subtotal;
   };
-
-
 
   // Handle input changes
   const handleInputChange = (e) => {
@@ -199,6 +175,30 @@ const Checkout = () => {
       // Diamond / Build / Others
       return total + Number(item.price || 0) * qty;
     }, 0);
+  };
+
+  // Handle payment method selection
+  const handleApplyDiscount = async () => {
+    setDiscountError("");
+    setIsApplying(true);
+    try {
+      const today = new Date().toISOString().split("T")[0]; // Format as YYYY-MM-DD
+      const totalAmount = getCartGrandTotal();
+
+      const res = await axiosClient.post("/api/apply-discount", {
+        code: discountCode,
+        cart_total: totalAmount,
+        date: today,
+      });
+      setDiscountResponse(res.data.data);
+      setDiscountError("");
+    } catch (error) {
+      const message = error.response?.data?.message || "Invalid code";
+      setDiscountError(message);
+      setDiscountResponse(null);
+    } finally {
+      setIsApplying(false);
+    }
   };
 
   const getFinalTotal = () => {
