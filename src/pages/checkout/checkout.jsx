@@ -701,7 +701,7 @@ const Checkout = () => {
                         <div className="price-breakup-section ps-5 mt-2 small">
 
                           <div className="d-flex justify-content-between mb-1">
-                            <span>Base Price</span>
+                            <span>Price</span>
                             <span>₹{breakup.basePrice.toFixed(2)}</span>
                           </div>
 
