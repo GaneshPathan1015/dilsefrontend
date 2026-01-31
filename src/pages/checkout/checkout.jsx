@@ -155,27 +155,14 @@ const Checkout = () => {
 
   const getCartGrandTotal = () => {
     return cartItems.reduce((total, item) => {
-      const qty = Number(item.itemQuantity || 1);
+      // 1. Get the full breakup for this specific item
+      const breakup = getPriceBreakup(item);
 
-      // Jewelry / Gift → price_with_tax already includes GST
-      if (item.productType === "jewelry" || item.productType === "gift") {
-        return (
-          total +
-          Number(item.price_with_tax || 0) * qty
-        );
-      }
-
-      // Combo → ring + diamond price
-      if (item.productType === "combo") {
-        const ringPrice = Number(item.ring?.price || 0);
-        const diamondPrice = Number(item.diamond?.price || 0);
-        return total + (ringPrice + diamondPrice) * qty;
-      }
-
-      // Diamond / Build / Others
-      return total + Number(item.price || 0) * qty;
+      // 2. Add the grandTotal (which includes all GST and making charges) to the accumulator
+      return total + breakup.grandTotal;
     }, 0);
-  };
+  }
+
 
   // Handle payment method selection
   const handleApplyDiscount = async () => {
@@ -754,9 +741,10 @@ const Checkout = () => {
                             </div>
                           </div>
 
-                          <div className="d-flex justify-content-between border-top pt-2 fw-bold">
+                          <div className="d-flex justify-content-between border-top pt-2 fw-bold mb-4">
                             <span>Item Total</span>
                             <span>₹{breakup.grandTotal.toFixed(2)}</span>
+                            <hr />
                           </div>
 
                         </div>
