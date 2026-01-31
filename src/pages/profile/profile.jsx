@@ -158,7 +158,6 @@ const Profile = () => {
 
     // For variation images
     if (imagePath.includes('variation_images')) {
-      // Remove any leading /storage/ if present
       const cleanPath = imagePath.replace('/storage/', '');
       return `https://dilsejewels.com/storage/${cleanPath}`;
     }
@@ -253,15 +252,7 @@ const Profile = () => {
         image: null
       });
 
-      // Use image_url if available, otherwise use image
       const imageSource = user.image_url || user.image;
-      console.log("Loading profile data:");
-      console.log("User:", user);
-      console.log("User image:", user.image);
-      console.log("User image_url:", user.image_url);
-      console.log("Image source:", imageSource);
-      console.log("Generated URL:", getImageUrl(imageSource));
-
       setProfileImagePreview(getImageUrl(imageSource));
     }
   };
@@ -309,14 +300,12 @@ const Profile = () => {
 
     useEffect(() => {
       if (src) {
-        console.log(`ImageWithFallback: Setting src to ${src}`);
         setImgSrc(src);
         setHasError(false);
       }
     }, [src]);
 
     const handleError = (e) => {
-      console.log(`Image failed to load: ${src}`, e);
       if (!hasError) {
         setImgSrc(fallbackSrc || "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=150&h=150&fit=crop&crop=face");
         setHasError(true);
@@ -357,7 +346,6 @@ const Profile = () => {
       if (profileForm.dob) formData.append('dob', profileForm.dob);
       if (profileForm.anniversary_date) formData.append('anniversary_date', profileForm.anniversary_date);
       if (profileForm.image) {
-        console.log("Uploading image:", profileForm.image);
         formData.append('image', profileForm.image);
       }
 
@@ -367,25 +355,19 @@ const Profile = () => {
         },
       });
 
-      console.log("Profile update response:", response.data);
-
       if (response.data.status === 'success') {
         const userData = response.data.data;
         if (userData) {
-          // Update user context
           if (updateUser && typeof updateUser === 'function') {
             updateUser(userData);
           }
 
-          // Update local state
           const newImageUrl = getImageUrl(userData.image_url || userData.image);
-          console.log("New image URL after update:", newImageUrl);
           setProfileImagePreview(newImageUrl);
           setIsEditingProfile(false);
 
           showToast(response.data.message || 'Profile updated successfully!', 'success');
 
-          // Force reload after 500ms
           setTimeout(() => {
             if (updateUser && typeof updateUser === 'function') {
               updateUser(userData);
@@ -399,7 +381,6 @@ const Profile = () => {
       }
     } catch (err) {
       console.error("Error updating profile:", err);
-      console.error("Error response:", err.response?.data);
 
       let errorMessage = 'Failed to update profile. Please try again.';
 
@@ -618,6 +599,7 @@ const Profile = () => {
     return parts.join(', ');
   };
 
+  // Updated parseOrderItems function with tax details
   const parseOrderItems = (order) => {
     if (!order || !order.item_details) return [];
 
@@ -631,11 +613,39 @@ const Profile = () => {
       }
 
       if (Array.isArray(parsedData)) {
-        return parsedData;
+        return parsedData.map(item => ({
+          ...item,
+          tax_details: {
+            total_gst_amount: item.total_gst_amount || 0,
+            gold_gst_amount: item.gold_gst_amount || 0,
+            diamond_gst_amount: item.diamond_gst_amount || 0,
+            making_gst_amount: item.making_gst_amount || 0,
+            price_without_gst: item.price_without_gst || item.price || 0,
+            making_charges: item.making_charges || 0,
+            total_tax_rate: item.total_tax_rate || 0,
+            gst_breakdown: item.gst_breakdown || [],
+            formatted_gst_details: item.formatted_gst_details || ''
+          },
+          price_with_tax: item.price_with_tax || item.price || 0
+        }));
       }
 
       if (parsedData && parsedData.items && Array.isArray(parsedData.items)) {
-        return parsedData.items;
+        return parsedData.items.map(item => ({
+          ...item,
+          tax_details: {
+            total_gst_amount: item.total_gst_amount || 0,
+            gold_gst_amount: item.gold_gst_amount || 0,
+            diamond_gst_amount: item.diamond_gst_amount || 0,
+            making_gst_amount: item.making_gst_amount || 0,
+            price_without_gst: item.price_without_gst || item.price || 0,
+            making_charges: item.making_charges || 0,
+            total_tax_rate: item.total_tax_rate || 0,
+            gst_breakdown: item.gst_breakdown || [],
+            formatted_gst_details: item.formatted_gst_details || ''
+          },
+          price_with_tax: item.price_with_tax || item.price || 0
+        }));
       }
 
       return [];
@@ -643,6 +653,44 @@ const Profile = () => {
       console.error("Error parsing order items:", err);
       return [];
     }
+  };
+
+  // Tax breakdown calculation function
+  const calculateTaxBreakdown = (order) => {
+    const items = parseOrderItems(order);
+    
+    const breakdown = {
+      total_gst_amount: 0,
+      gold_gst_amount: 0,
+      diamond_gst_amount: 0,
+      making_gst_amount: 0,
+      price_without_gst: 0,
+      making_charges: 0,
+      gst_breakdown: []
+    };
+
+    items.forEach(item => {
+      if (item.tax_details) {
+        breakdown.total_gst_amount += parseFloat(item.tax_details.total_gst_amount || 0);
+        breakdown.gold_gst_amount += parseFloat(item.tax_details.gold_gst_amount || 0);
+        breakdown.diamond_gst_amount += parseFloat(item.tax_details.diamond_gst_amount || 0);
+        breakdown.making_gst_amount += parseFloat(item.tax_details.making_gst_amount || 0);
+        breakdown.price_without_gst += parseFloat(item.tax_details.price_without_gst || 0);
+        breakdown.making_charges += parseFloat(item.tax_details.making_charges || 0);
+        
+        if (item.tax_details.gst_breakdown && Array.isArray(item.tax_details.gst_breakdown)) {
+          breakdown.gst_breakdown.push(...item.tax_details.gst_breakdown);
+        }
+      }
+    });
+
+    return breakdown;
+  };
+
+  // Currency formatter
+  const formatRupees = (amount) => {
+    const num = parseFloat(amount || 0);
+    return `₹${num.toFixed(2)}`;
   };
 
   // Initial fetches
@@ -654,19 +702,9 @@ const Profile = () => {
     }
   }, [activeTab]);
 
-  // Load profile data when user changes - FIXED
+  // Load profile data when user changes
   useEffect(() => {
-    console.log("User changed in Profile component:", user);
     loadProfileData();
-  }, [user]);
-
-  // Debug user data
-  useEffect(() => {
-    console.log("Current user in Profile:", user);
-    if (user?.image) {
-      console.log("User image path:", user.image);
-      console.log("Generated URL:", getImageUrl(user.image));
-    }
   }, [user]);
 
   const handleScroll = (e) => {
@@ -1472,7 +1510,6 @@ const Profile = () => {
                 <option value="Canada">Canada</option>
                 <option value="United Kingdom">United Kingdom</option>
                 <option value="Australia">Australia</option>
-                <option value="India">India</option>
                 <option value="Other">Other</option>
               </select>
             </div>
@@ -1580,7 +1617,7 @@ const Profile = () => {
                 <p style={{ margin: 0, color: "#b91c1c", fontSize: "0.9rem" }}>
                   {cancellingOrder?.payment_mode === 'cod'
                     ? "This is a Cash on Delivery order. No payment has been processed yet."
-                    : `Payment of $${cancellingOrder?.total_price} will be refunded to your original payment method.`
+                    : `Payment of ₹${cancellingOrder?.total_price} will be refunded to your original payment method.`
                   }
                 </p>
               </div>
@@ -1743,7 +1780,7 @@ const Profile = () => {
           </div>
           <div style={styles.orderAmount}>
             <span style={{ fontSize: isSmallMobile ? "1.2rem" : "1.4rem", fontWeight: "800", color: "#1e293b", display: "block", marginBottom: isSmallMobile ? "0" : "8px" }}>
-              ${order.total_price || "0.00"}
+              ₹{order.total_price || "0.00"}
             </span>
             <div style={{ color: "#3b82f6", fontSize: isSmallMobile ? "0.85rem" : "0.9rem", fontWeight: "600", display: "flex", alignItems: "center", gap: "4px" }}>
               View Details →
@@ -1758,7 +1795,8 @@ const Profile = () => {
     if (!order) return null;
 
     const items = parseOrderItems(order);
-
+    const taxBreakdown = calculateTaxBreakdown(order);
+    
     let addressData = null;
     let billingAddressData = null;
 
@@ -1836,7 +1874,7 @@ const Profile = () => {
                 <div style={{ display: "flex", justifyContent: "space-between", flexDirection: isSmallMobile ? "column" : "row", gap: isSmallMobile ? "4px" : "0" }}>
                   <span style={{ fontWeight: "600", color: "#64748b" }}>Coupon Applied:</span>
                   <span style={{ fontWeight: "600", color: "#10b981" }}>
-                    {order.coupon_code} (-${parseFloat(order.coupon_discount || 0).toFixed(2)})
+                    {order.coupon_code} (-₹{parseFloat(order.coupon_discount || 0).toFixed(2)})
                   </span>
                 </div>
               )}
@@ -1862,31 +1900,45 @@ const Profile = () => {
 
               <div style={{ marginTop: "16px", paddingTop: "16px", borderTop: "1px solid #f1f5f9" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", flexDirection: isSmallMobile ? "column" : "row", gap: isSmallMobile ? "4px" : "0", marginBottom: "8px" }}>
-                  <span style={{ fontWeight: "600", color: "#64748b" }}>Subtotal:</span>
-                  <span style={{ fontWeight: "600", color: "#1e293b" }}>
-                    ${items.reduce((total, item) => total + (parseFloat(item.price || 0) * (item.itemQuantity || 1)), 0).toFixed(2)}
+                  <span style={{ fontWeight: "600", color: "#64748b" }}>Subtotal (Without Tax):</span>
+                  <span style={{ fontWeight: "600", color: "#1e293b", display: "flex", alignItems: "center", gap: "4px" }}>
+                    <span style={{ fontSize: "0.9rem", color: "#3b82f6" }}>₹</span>
+                    {taxBreakdown.price_without_gst.toFixed(2)}
+                  </span>
+                </div>
+
+                <div style={{ display: "flex", justifyContent: "space-between", flexDirection: isSmallMobile ? "column" : "row", gap: isSmallMobile ? "4px" : "0", marginBottom: "8px" }}>
+                  <span style={{ fontWeight: "600", color: "#64748b" }}>Total Tax:</span>
+                  <span style={{ fontWeight: "600", color: "#ef4444", display: "flex", alignItems: "center", gap: "4px" }}>
+                    <span style={{ fontSize: "0.9rem" }}>₹</span>
+                    {taxBreakdown.total_gst_amount.toFixed(2)}
                   </span>
                 </div>
 
                 {order.coupon_discount > 0 && (
                   <div style={{ display: "flex", justifyContent: "space-between", flexDirection: isSmallMobile ? "column" : "row", gap: isSmallMobile ? "4px" : "0", marginBottom: "8px" }}>
                     <span style={{ fontWeight: "600", color: "#64748b" }}>Coupon Discount:</span>
-                    <span style={{ fontWeight: "600", color: "#10b981" }}>
-                      -${parseFloat(order.coupon_discount || 0).toFixed(2)}
+                    <span style={{ fontWeight: "600", color: "#10b981", display: "flex", alignItems: "center", gap: "4px" }}>
+                      <span style={{ fontSize: "0.9rem" }}>₹</span>
+                      {parseFloat(order.coupon_discount || 0).toFixed(2)}
                     </span>
                   </div>
                 )}
 
                 <div style={{ display: "flex", justifyContent: "space-between", flexDirection: isSmallMobile ? "column" : "row", gap: isSmallMobile ? "4px" : "0", marginBottom: "8px" }}>
                   <span style={{ fontWeight: "600", color: "#64748b" }}>Shipping:</span>
-                  <span style={{ fontWeight: "600", color: "#1e293b" }}>
-                    ${parseFloat(order.shipping_cost || 0).toFixed(2)}
+                  <span style={{ fontWeight: "600", color: "#1e293b", display: "flex", alignItems: "center", gap: "4px" }}>
+                    <span style={{ fontSize: "0.9rem", color: "#3b82f6" }}>₹</span>
+                    {parseFloat(order.shipping_cost || 0).toFixed(2)}
                   </span>
                 </div>
 
                 <div style={{ display: "flex", justifyContent: "space-between", flexDirection: isSmallMobile ? "column" : "row", gap: isSmallMobile ? "4px" : "0", paddingTop: "12px", borderTop: "1px solid #f1f5f9" }}>
-                  <span style={{ fontWeight: "700", color: "#1e293b" }}>Total Amount:</span>
-                  <span style={{ fontWeight: "800", color: "#1e293b", fontSize: isSmallMobile ? "1.1rem" : "1.2rem" }}>${order.total_price}</span>
+                  <span style={{ fontWeight: "700", color: "#1e293b" }}>Grand Total:</span>
+                  <span style={{ fontWeight: "800", color: "#1e293b", fontSize: isSmallMobile ? "1.1rem" : "1.2rem", display: "flex", alignItems: "center", gap: "4px" }}>
+                    <span style={{ fontSize: "1rem", color: "#3b82f6" }}>₹</span>
+                    {order.total_price}
+                  </span>
                 </div>
               </div>
             </div>
@@ -1901,7 +1953,7 @@ const Profile = () => {
                     <p style={{ margin: 0, color: "#94a3b8", fontSize: "0.9rem" }}>
                       {isCOD
                         ? "You can cancel this COD order before it is shipped"
-                        : `You can cancel this order for a full refund of $${order.total_price}`
+                        : `You can cancel this order for a full refund of ₹${order.total_price}`
                       }
                     </p>
                   </div>
@@ -1931,6 +1983,213 @@ const Profile = () => {
                 <p style={{ margin: 0, color: "#64748b", fontSize: "0.9rem", fontWeight: "500" }}>
                   {getCancellationMessage(order)}
                 </p>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* ✅ Tax Breakdown Section */}
+        <div style={{ marginBottom: "32px" }}>
+          <h4 style={{ 
+            margin: "0 0 16px 0", 
+            fontSize: isSmallMobile ? "1.1rem" : "1.2rem", 
+            fontWeight: "700",
+            display: "flex",
+            alignItems: "center",
+            gap: "8px"
+          }}>
+            <span style={{ color: "#3b82f6" }}>₹</span>
+            Tax Breakdown
+          </h4>
+          
+          <div style={{ 
+            background: "white", 
+            padding: isSmallMobile ? "16px" : "24px", 
+            borderRadius: "16px", 
+            border: "2px solid #f1f5f9",
+            boxShadow: "0 4px 12px rgba(59, 130, 246, 0.1)"
+          }}>
+            {/* Price Without Tax */}
+            <div style={{ 
+              display: "flex", 
+              justifyContent: "space-between", 
+              marginBottom: "12px",
+              paddingBottom: "12px",
+              borderBottom: "1px solid #f1f5f9"
+            }}>
+              <span style={{ fontWeight: "600", color: "#64748b" }}>Price Without Tax:</span>
+              <span style={{ fontWeight: "700", color: "#1e293b", display: "flex", alignItems: "center", gap: "4px" }}>
+                <span style={{ fontSize: "0.9rem", color: "#3b82f6" }}>₹</span>
+                {taxBreakdown.price_without_gst.toFixed(2)}
+              </span>
+            </div>
+
+            {/* Gold GST */}
+            {taxBreakdown.gold_gst_amount > 0 && (
+              <div style={{ 
+                display: "flex", 
+                justifyContent: "space-between", 
+                marginBottom: "12px",
+                paddingBottom: "12px",
+                borderBottom: "1px solid #f1f5f9"
+              }}>
+                <span style={{ fontWeight: "600", color: "#64748b" }}>
+                  Gold GST (3.00%)
+                  <span style={{ 
+                    fontSize: "0.75rem", 
+                    color: "#10b981",
+                    marginLeft: "8px",
+                    background: "#f0fdf4",
+                    padding: "2px 6px",
+                    borderRadius: "4px"
+                  }}>
+                    Tax on Gold
+                  </span>
+                </span>
+                <span style={{ fontWeight: "700", color: "#059669", display: "flex", alignItems: "center", gap: "4px" }}>
+                  <span style={{ fontSize: "0.9rem" }}>₹</span>
+                  {taxBreakdown.gold_gst_amount.toFixed(2)}
+                </span>
+              </div>
+            )}
+
+            {/* Diamond GST */}
+            {taxBreakdown.diamond_gst_amount > 0 && (
+              <div style={{ 
+                display: "flex", 
+                justifyContent: "space-between", 
+                marginBottom: "12px",
+                paddingBottom: "12px",
+                borderBottom: "1px solid #f1f5f9"
+              }}>
+                <span style={{ fontWeight: "600", color: "#64748b" }}>
+                  Diamond GST (0.25%)
+                  <span style={{ 
+                    fontSize: "0.75rem", 
+                    color: "#8b5cf6",
+                    marginLeft: "8px",
+                    background: "#f5f3ff",
+                    padding: "2px 6px",
+                    borderRadius: "4px"
+                  }}>
+                    Tax on Diamond
+                  </span>
+                </span>
+                <span style={{ fontWeight: "700", color: "#8b5cf6", display: "flex", alignItems: "center", gap: "4px" }}>
+                  <span style={{ fontSize: "0.9rem" }}>₹</span>
+                  {taxBreakdown.diamond_gst_amount.toFixed(2)}
+                </span>
+              </div>
+            )}
+
+            {/* Making Charges GST */}
+            {taxBreakdown.making_gst_amount > 0 && (
+              <div style={{ 
+                display: "flex", 
+                justifyContent: "space-between", 
+                marginBottom: "12px",
+                paddingBottom: "12px",
+                borderBottom: "1px solid #f1f5f9"
+              }}>
+                <span style={{ fontWeight: "600", color: "#64748b" }}>
+                  Making Charges GST (3.00%)
+                  <span style={{ 
+                    fontSize: "0.75rem", 
+                    color: "#f59e0b",
+                    marginLeft: "8px",
+                    background: "#fffbeb",
+                    padding: "2px 6px",
+                    borderRadius: "4px"
+                  }}>
+                    Making Charges
+                  </span>
+                </span>
+                <span style={{ fontWeight: "700", color: "#d97706", display: "flex", alignItems: "center", gap: "4px" }}>
+                  <span style={{ fontSize: "0.9rem" }}>₹</span>
+                  {taxBreakdown.making_gst_amount.toFixed(2)}
+                </span>
+              </div>
+            )}
+
+            {/* Making Charges (if exists) */}
+            {taxBreakdown.making_charges > 0 && (
+              <div style={{ 
+                display: "flex", 
+                justifyContent: "space-between", 
+                marginBottom: "12px",
+                paddingBottom: "12px",
+                borderBottom: "1px solid #f1f5f9"
+              }}>
+                <span style={{ fontWeight: "600", color: "#64748b" }}>
+                  Making Charges
+                  <span style={{ 
+                    fontSize: "0.75rem", 
+                    color: "#6366f1",
+                    marginLeft: "8px",
+                    background: "#eef2ff",
+                    padding: "2px 6px",
+                    borderRadius: "4px"
+                  }}>
+                    Crafting Cost
+                  </span>
+                </span>
+                <span style={{ fontWeight: "700", color: "#4f46e5", display: "flex", alignItems: "center", gap: "4px" }}>
+                  <span style={{ fontSize: "0.9rem" }}>₹</span>
+                  {taxBreakdown.making_charges.toFixed(2)}
+                </span>
+              </div>
+            )}
+
+            {/* Total Tax */}
+            <div style={{ 
+              display: "flex", 
+              justifyContent: "space-between", 
+              marginTop: "16px",
+              paddingTop: "16px",
+              borderTop: "2px solid #3b82f6"
+            }}>
+              <span style={{ fontWeight: "700", color: "#1e293b" }}>Total Tax:</span>
+              <span style={{ 
+                fontWeight: "800", 
+                color: "#3b82f6", 
+                fontSize: isSmallMobile ? "1.2rem" : "1.3rem",
+                display: "flex",
+                alignItems: "center",
+                gap: "4px"
+              }}>
+                <span style={{ fontSize: "1rem" }}>₹</span>
+                {taxBreakdown.total_gst_amount.toFixed(2)}
+              </span>
+            </div>
+
+            {/* GST Breakdown Details */}
+            {taxBreakdown.gst_breakdown.length > 0 && (
+              <div style={{ 
+                marginTop: "16px", 
+                padding: "16px", 
+                background: "#f8fafc", 
+                borderRadius: "12px",
+                border: "1px dashed #cbd5e1"
+              }}>
+                <h5 style={{ 
+                  margin: "0 0 12px 0", 
+                  fontWeight: "600", 
+                  color: "#475569",
+                  fontSize: "0.9rem"
+                }}>
+                  <span style={{ color: "#3b82f6", marginRight: "4px" }}>ℹ️</span>
+                  Tax Calculation Details
+                </h5>
+                <div style={{ fontSize: "0.85rem", color: "#64748b", lineHeight: "1.5" }}>
+                  {taxBreakdown.gst_breakdown.map((tax, index) => (
+                    <div key={index} style={{ marginBottom: "6px" }}>
+                      <strong>{tax.name}:</strong> ₹{parseFloat(tax.gst_amount || 0).toFixed(2)} 
+                      <span style={{ color: "#94a3b8", marginLeft: "8px" }}>
+                        ({tax.rate}% on ₹{parseFloat(tax.base_amount || 0).toFixed(2)})
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
             )}
           </div>
@@ -1991,9 +2250,21 @@ const Profile = () => {
                 const itemPrice = parseFloat(item.price || 0).toFixed(2);
                 const itemQuantity = item.itemQuantity || item.quantity || 1;
                 const productType = item.productType || order.product_type || 'gift';
+                const priceWithTax = parseFloat(item.price_with_tax || (item.price || 0) * itemQuantity).toFixed(2);
+                const taxDetails = item.tax_details || {};
+                const totalTax = parseFloat(taxDetails.total_gst_amount || 0).toFixed(2);
+                const makingCharges = parseFloat(taxDetails.making_charges || 0).toFixed(2);
 
                 return (
-                  <div key={i} style={{ display: "flex", gap: "12px", padding: isSmallMobile ? "12px" : "16px", background: "#f8fafc", borderRadius: "12px", alignItems: "center" }}>
+                  <div key={i} style={{ 
+                    display: "flex", 
+                    gap: "12px", 
+                    padding: isSmallMobile ? "12px" : "16px", 
+                    background: "#f8fafc", 
+                    borderRadius: "12px", 
+                    alignItems: "center",
+                    border: "1px solid #e2e8f0"
+                  }}>
                     <div style={{ position: "relative", flexShrink: 0 }}>
                       <img
                         src={itemImage}
@@ -2027,13 +2298,80 @@ const Profile = () => {
                       <h5 style={{ margin: "0 0 8px 0", fontWeight: "600", color: "#1e293b", fontSize: isSmallMobile ? "0.9rem" : "1rem" }}>
                         {itemName}
                       </h5>
-                      <div style={{ display: "flex", gap: isSmallMobile ? "8px" : "16px", flexWrap: "wrap", alignItems: "center" }}>
-                        <span style={{ fontWeight: "700", color: "#1e293b", fontSize: isSmallMobile ? "0.9rem" : "1rem" }}>
-                          ${itemPrice}
+                      
+                      {/* ✅ Price and Tax Details */}
+                      <div style={{ display: "grid", gridTemplateColumns: isSmallMobile ? "1fr" : "repeat(3, 1fr)", gap: "8px", marginBottom: "8px" }}>
+                        <div>
+                          <span style={{ fontWeight: "600", color: "#64748b", fontSize: "0.85rem" }}>Unit Price:</span>
+                          <div style={{ fontWeight: "700", color: "#1e293b", fontSize: isSmallMobile ? "0.9rem" : "1rem", display: "flex", alignItems: "center", gap: "2px" }}>
+                            <span style={{ fontSize: "0.8rem", color: "#3b82f6" }}>₹</span>
+                            {itemPrice}
+                          </div>
+                        </div>
+                        
+                        <div>
+                          <span style={{ fontWeight: "600", color: "#64748b", fontSize: "0.85rem" }}>Qty:</span>
+                          <div style={{ fontWeight: "700", color: "#1e293b", fontSize: isSmallMobile ? "0.9rem" : "1rem" }}>
+                            {itemQuantity}
+                          </div>
+                        </div>
+                        
+                        {parseFloat(totalTax) > 0 && (
+                          <div>
+                            <span style={{ fontWeight: "600", color: "#64748b", fontSize: "0.85rem" }}>Tax:</span>
+                            <div style={{ fontWeight: "700", color: "#ef4444", fontSize: isSmallMobile ? "0.9rem" : "1rem", display: "flex", alignItems: "center", gap: "2px" }}>
+                              <span style={{ fontSize: "0.8rem" }}>₹</span>
+                              {totalTax}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                      
+                      {/* ✅ Making Charges Display */}
+                      {parseFloat(makingCharges) > 0 && (
+                        <div style={{ 
+                          display: "flex", 
+                          alignItems: "center", 
+                          gap: "6px", 
+                          marginBottom: "6px",
+                          padding: "4px 8px",
+                          background: "#fef3c7",
+                          borderRadius: "6px",
+                          width: "fit-content"
+                        }}>
+                          <span style={{ color: "#92400e", fontSize: "0.8rem", fontWeight: "600" }}>Making Charges:</span>
+                          <span style={{ color: "#92400e", fontWeight: "700", display: "flex", alignItems: "center", gap: "2px" }}>
+                            <span style={{ fontSize: "0.8rem" }}>₹</span>
+                            {makingCharges}
+                          </span>
+                        </div>
+                      )}
+                      
+                      {/* ✅ Total Price with Tax */}
+                      <div style={{ 
+                        display: "flex", 
+                        justifyContent: "space-between", 
+                        alignItems: "center",
+                        paddingTop: "8px",
+                        borderTop: "1px solid #e2e8f0",
+                        marginTop: "8px"
+                      }}>
+                        <span style={{ fontWeight: "600", color: "#64748b", fontSize: "0.85rem" }}>Total (with tax):</span>
+                        <span style={{ 
+                          fontWeight: "800", 
+                          color: "#059669", 
+                          fontSize: isSmallMobile ? "1rem" : "1.1rem",
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "4px"
+                        }}>
+                          <span style={{ fontSize: "0.9rem" }}>₹</span>
+                          {priceWithTax}
                         </span>
-                        <span style={{ color: "#64748b", fontSize: isSmallMobile ? "0.85rem" : "0.9rem", fontWeight: "500" }}>
-                          Qty: {itemQuantity}
-                        </span>
+                      </div>
+                      
+                      {/* Product Type and SKU */}
+                      <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginTop: "8px", alignItems: "center" }}>
                         {productType && (
                           <span style={{
                             color: "#8b5cf6",
@@ -2046,12 +2384,18 @@ const Profile = () => {
                             {productType}
                           </span>
                         )}
+                        {item.sku && (
+                          <span style={{ 
+                            color: "#64748b", 
+                            fontSize: isSmallMobile ? "0.75rem" : "0.8rem",
+                            background: "#f1f5f9",
+                            padding: "4px 8px",
+                            borderRadius: "4px"
+                          }}>
+                            SKU: {item.sku}
+                          </span>
+                        )}
                       </div>
-                      {item.sku && (
-                        <p style={{ margin: "4px 0 0 0", color: "#64748b", fontSize: "0.8rem" }}>
-                          SKU: {item.sku}
-                        </p>
-                      )}
                     </div>
                   </div>
                 );
@@ -2171,7 +2515,7 @@ const Profile = () => {
               </div>
               <div style={{ textAlign: "center" }}>
                 <span style={{ display: "block", fontSize: isSmallMobile ? "1.6rem" : "2rem", fontWeight: "800", color: "#1e293b", marginBottom: "4px" }}>
-                  ${orders.reduce((total, order) => total + parseFloat(order.total_price || 0), 0).toFixed(2)}
+                  ₹{orders.reduce((total, order) => total + parseFloat(order.total_price || 0), 0).toFixed(2)}
                 </span>
                 <span style={{ color: "#64748b", fontWeight: "600", fontSize: isSmallMobile ? "0.8rem" : "0.9rem" }}>Total Spent</span>
               </div>
